@@ -1,0 +1,70 @@
+\documentclass[a4paper,12pt,reqno]{amsart}
+\usepackage{lille}
+\input{m1analyse}
+
+\lilleset{titre={DM 1, Raphaël Casanova}}
+
+\begin{document}
+
+
+\begin{exo}
+	\begin{enumerate}
+	  \item Soit $f,g\in\mathcal{C}([0,1])$. Montrer que
+	  \[
+		\forall n\in\mathbb{N},\ \int_0^1f(t)t^n\,\mathrm{d}t=\int_0^1g(t)t^n\,\mathrm{d}t \Longleftrightarrow f=g
+	  \]
+	  \item Soit $f:[0,+\infty[\to\mathbb{R}$ une fonction continue et bornée.
+	  \begin{enumerate}
+		\item Montrer qu'il existe $g\in\mathcal{C}([0,1])$ telle que pour tout $n\geq 2$
+		\[
+		  \int_0^{+\infty}f(x)e^{-nx}\mathrm{d}x=\int_0^1g(t)t^{n-2}\,\mathrm{d}t.
+		\]
+		\item En déduire que si, pour tout $n\geq 2$, $\int_0^{+\infty} f(x)e^{-nx}dx=0$ alors $f=0$.
+	  \end{enumerate}
+	\end{enumerate}
+  \end{exo}
+
+\hrule
+
+\vspace{1cm}
+a) si $f=g$, il est clair que 
+$$\forall n\in\mathbf N,\ \int_0^1f(t)t^n\mathrm dt=\int_0^1g(t)t^n\mathrm dt.$$
+Réciproquement, si cette condition est remplie, on a (par linéarité de l'intégrale)
+$$\forall P\in\mathbf R[X],\ \int_0^1(f-g)(t)P(t)\mathrm dt=0\qquad (i)$$
+$f-g$ est continue sur le segment $[0,1]$, donc d'après le théorème de Weierstra\ss, il existe une suite $(P_n)$ de polynômes convergeant uniformément vers $f-g$, donc
+$$\forall n\in\mathbf N,\ \int_0^1(f-g)(t)P_n(t)\mathrm dt=0$$
+par passage à la limite uniforme,
+$$\int_0^1(f-g)^2(t)\mathrm dt=0$$
+et comme $(f-g)^2\geqslant 0$, $f-g=0$ et comme $f$ et $g$ sont continues, $f=g$.\\[1em]
+
+
+b)i)On commence par ré-écrire l'intégrale sous la forme suivante :
+$$\int_0^{+\infty}f(x)\mathrm e^{-nx}\mathrm dx=\int_0^{+\infty}f(t)\left(\mathrm e^{-x}\right)^n\mathrm dt.$$
+Soit le changement de variable bijectif strictement décroissant de classe $C^1$
+$$\begin{array}{rclcrcl}
+	u&=&\mathrm e^{-x}\qquad&\Leftrightarrow&x&=&-\ln u\\
+	\mathrm du&=&-\mathrm e^{-x}\mathrm dx&\Leftrightarrow&\mathrm dx&=&-\frac{1}{u}\mathrm du
+\end{array}$$
+donc (il n'y a pas de problème de définition de $f$ puisque $-\ln]0,1]=[0,+\infty[$)
+$$\int_0^{+\infty}f(t)\mathrm e^{-nx}\mathrm dx=\int_0^1f(-\ln u)u^{n-1}\mathrm du$$
+ce qui se ré-écrit
+$$\int_0^{+\infty}f(t)\mathrm e^{-nx}\mathrm dx=\int_0^1\underbrace{f(-\ln u)u}_{:=g(u)}u^{n-2}\mathrm du.$$
+$g$ est continue sur $]0,1[$ et, puisque $f$ est bornée, 
+$$\forall t>0,\ |f(-\ln t)t|\leqslant ||f||_{\infty}t\underset{t\to 0^+}{\longrightarrow}0$$
+ainsi $g$ est continue sur $[0,1]$ et c'est bon.
+
+
+b)ii)Si $f$ vérifie
+$$\forall n\geqslant 2,\ \int_0^{+\infty}f(t)\mathrm e^{-nx}\mathrm dx=0$$
+alors en gardant les notations précédentes, on a 
+$$\forall n\geqslant 2,\ \int_0^1g(t)t^{n-2}\mathrm dt=0$$
+autrement dit, en prenant $m:=n-2$,
+$$\forall m\in\mathbf N,\ \int_0^1g(t)t^{m}\mathrm dt=0=\int_0^1 0_{C([0,1]}t^n\mathrm dt.$$
+D'après la question a), $g=0$ donc
+$$\forall t\in]0,1],\ tf(-\ln t)=0$$
+donc
+$$\forall t>0,\ f(-\ln t)=0$$
+et comme $t\mapsto -\ln t$ parcours $[0,+\infty[$, alors 
+$$\forall x\in]0,+\infty[,\ f(x)=0$$
+autrement dit $f=0$.
+\end{document}

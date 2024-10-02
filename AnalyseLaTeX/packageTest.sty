@@ -1,0 +1,183 @@
+\ProvidesPackage{packageTest}
+
+%%%%%%%
+% les packets
+%%%%%%
+\usepackage[utf8]{inputenc}%langue
+\usepackage[french]{babel}%langue
+\usepackage[T1]{fontenc}%langue
+\usepackage{lmodern}%langue
+\usepackage{amssymb, amsthm, mathtools, amsmath}%AMS
+\usepackage{stmaryrd}%\rrbracket et autre
+\usepackage{fancyhdr}%en tête et autre
+\usepackage{geometry}%ajuster les marges d'impression
+\usepackage{tcolorbox}%cadres rouges
+\usepackage{mathrsfs}
+\usepackage{nicefrac}
+\usepackage{eurosym}
+\usepackage{hyperref}
+\usepackage[framemethod=tikz]{mdframed}
+\usepackage{titlesec}
+\usepackage{multicol}
+\usepackage{lipsum}
+\usepackage{manfnt}
+\usepackage{array}
+\usepackage[framemethod=tikz]{mdframed}
+
+
+
+%%%%%%
+% de la mise en page
+%%%%%%
+
+\titleformat{\subsection}[runin]
+{\normalfont\large\bfseries}{\thesubsection}{1em}{}
+\titleformat{\subsubsection}[runin]
+{\normalfont\large\bfseries}{\thesubsubsection}{1em}{}
+\geometry{ hmargin=2.5cm, tmargin=2cm, bmargin=2cm } 
+
+
+\fancypagestyle{pageGarde}{
+    \fancyhead[L,R,C]{}
+    \fancyfoot[C]{\emph{Analyse}}
+    \renewcommand{\footrulewidth}{0.4pt}\vspace{-0.2cm}
+}
+
+\fancypagestyle{TestPage}{
+	\fancyfoot[C]{\emph{Analyse}}
+    \fancyhead[LE,RO]{\rightmark}
+	\fancyfoot[LE,RO]{\thepage}
+	\renewcommand{\footrulewidth}{0.4pt}\vspace{-0.2cm}
+}
+
+% Redéfinir la section pour mettre à jour la marque
+\makeatletter
+\renewcommand{\section}{\@startsection{section}{1}{0pt}{-3.5ex plus -1ex minus -.2ex}{1pt}{\Large\bfseries\markright{\thesection~\@title}}}
+\renewcommand{\subsection}{\@startsection{subsection}{2}{0pt}{-3.25ex plus -1ex minus -.2ex}{1.5ex}{\large\bfseries\markright   {\thesubsection~\@title}}}
+\makeatother
+
+
+
+\hypersetup{
+  colorlinks   = true, %Colours links instead of ugly boxes
+  urlcolor     = black, %Colour for external hyperlinks
+  linkcolor    = black, %Colour of internal links
+  citecolor   = red %Colour of citations
+}
+
+
+\usepackage{etoolbox} % Pour la gestion conditionnelle
+
+% Créer un compteur personnalisé appelé CompteurRemarque
+\newcounter{CompteurRemarque}
+
+% Redéfinir l'affichage du compteur CompteurRemarque
+\renewcommand{\theCompteurRemarque}{%
+  \ifcase\value{CompteurRemarque} % Case 0 (non utilisé ici)
+  \or {} % Case 1
+  \or bis % Case 2
+  \or ter % Case 3
+  \or quater % Case 4
+  \or quinquies
+  \else \arabic{CompteurRemarque} % Pour les autres valeurs, afficher normalement
+  \fi
+}
+
+
+
+\setlength\parindent{0pt}
+
+
+\newcommand{\NouvelleSubsection}[1]{
+    \subsection{#1}
+}
+\newcommand{\NouvellePart}[1]{
+    \part{#1}
+    \setcounter{subsection}{0}
+}
+
+
+\newtheoremstyle{note}% 〈name〉
+{3}% 〈Space above〉1
+{}% 〈Space below 〉1
+{}% 〈Body font〉
+{}% 〈Indent amount〉2
+{\bfseries}% 〈Theorem head font〉
+{:}% 〈Punctuation after theorem head 〉
+{.5em}% 〈Space after theorem head 〉3
+{}% 〈Theorem head spec (can be left empty, meaning ‘normal’ )〉
+
+
+\newtheoremstyle{remarque}% 〈name〉
+{1}% 〈Space above〉1
+{}% 〈Space below 〉1
+{}% 〈Body font〉
+{}% 〈Indent amount〉2
+{\bfseries}% 〈Theorem head font〉
+{:}% 〈Punctuation after theorem head 〉
+{.5em}% 〈Space after theorem head 〉3
+{}% 〈Theorem head spec (can be left empty, meaning ‘normal’ )〉
+
+
+\theoremstyle{note}
+\newtheorem{prop}{Propriété }
+\newtheorem{Def}[prop]{Définition }
+\newtheorem{props}[prop]{Propriétés }
+\newtheorem{Defs}[prop]{Définitions }
+\newtheorem{DefC}[prop]{Définition}
+\newtheorem{DefCs}[prop]{Définitions}
+\newtheorem{propC}[prop]{Propriété}
+\newtheorem{thC}[prop]{Théorème }
+\newtheorem{propCs}[prop]{Propriétés}
+\newtheorem{lemme}[prop]{Lemme}
+
+
+\newtheorem{theorem}{Theorem}
+\newenvironment{Proof}
+  {\par\noindent\normalfont\emph{Démonstration}\par\nopagebreak%
+  \begin{mdframed}[
+     linewidth=1pt,
+     linecolor=black,
+     bottomline=false,topline=false,rightline=false,
+     innerrightmargin=0pt,innertopmargin=0pt,innerbottommargin=0pt,
+     innerleftmargin=1em,% Distance between vertical rule & proof content
+     skipabove=.5\baselineskip
+   ]}
+  {\hfill$\square$\end{mdframed}}
+
+
+
+\theoremstyle{remarque}
+\newtheorem*{RQ}{\refstepcounter{CompteurRemarque}\emph{rq \theCompteurRemarque}}
+
+
+%\newenvironment{RQ}{\refstepcounter{CompteurRemarque}\begin{remarqueaux}[]}{\end{remarqueaux}}
+
+
+\newcommand{\norm}[1]{\left\lVert#1\right\rVert}
+
+\newcommand{\N}{\mathbf N}
+\newcommand{\R}{\mathbf R}
+\newcommand{\K}{\mathbf K}
+\newcommand{\A}{\mathcal A}
+\newcommand{\C}{\mathbf C}
+\renewcommand{\O}{\Omega}
+\newcommand{\D}{\mathcal D}
+\newcommand{\dt}{\mathrm dt}
+
+\newcommand{\inté}{\mathrm{int}\ }
+\newcommand{\tq}{\text{ t.q }}
+\newcommand\YUGE{\fontsize{38.4}{48}\selectfont}
+\newcommand{\dstyle}{\displaystyle}
+\newcommand{\tend}{\underset{n\to+\infty}{\longrightarrow}}
+\newcommand{\ttend}{\underset{\longrightarrow}{\longrightarrow}}
+\newcommand{\Lf}{L^2([-\pi,\pi])}
+\newcommand{\intr}{\dstyle\int_{-\infty}^{+\infty}}
+\newcommand{\ex}[1]{\mathrm{e}^{#1}}
+\newcommand{\dnote}[1]{%
+    \noindent % I guess this is intended...
+    \begin{tabular}{@{}m{0.13\textwidth}@{}m{0.87\textwidth}@{}}%
+        \large\textdbend &#1%
+    \end{tabular}%
+    \par % ... and this too.
+}

@@ -1,0 +1,1354 @@
+\documentclass[a4paper,11pt, twoside]{article}
+\title{}
+\author{Raphaël Casanova}
+
+\usepackage{packageTest}
+
+
+\begin{document}
+
+\pagestyle{empty}
+\begin{center}
+{\color{white} test}\\
+\vspace{5cm}
+{\bf \Huge {\YUGE A}NALYSE}\\[1em]
+Raphaël Casanova\\
+\href{mailto:raphael.casanova@centrale.centralelille.fr}{raphael.casanova@centrale.centralelille.fr}\\[2em]
+\emph{D'après le cours d'Emmanuel Fricain à l'université de Lille}\\
+\vspace{10cm}
+\includegraphics[width=1\textwidth]{lille.pdf}
+\end{center}
+
+
+\newpage
+
+
+\pagestyle{pageGarde}
+
+
+\tableofcontents
+
+
+\newpage
+
+
+Ce document est une transciption en \LaTeX\ plus ou moins fidèle au cours d'analyse d'Emmanuel Fricain en première année de master, en 2024-2025.\\
+En terme de notation, j'ai préféré utiliser les notations en {\bf gras} pour les ensembles : 
+$$\N,\mathbf Z,\mathbf Q,\R,\mathbf C$$ plutôt que celles en : $$\mathbb N,\mathbb Z, \mathbb Q,\mathbb R,\mathbb C$$ pour coller à la norme ISO 80000-2.\\
+La notation 
+$$f_n\ttend f$$
+indique que la suite de fonction $\left(f_n\right)$ converge uniformément vers $f$.\\
+Dans le présent document, $\K=\R$ ou $\mathbf C$, $(K,d)$ est un espace métrique compact et l'on munit l'espace 
+$$C(K,\K)=\left\{f:K\longrightarrow\K\text{ continues }\right\}$$
+de la norme 
+$$||f||_{\infty}:=\mathrm{sup}\left\{f(x)|,\ x\in K\right\}.$$
+
+
+\newpage
+
+
+\pagestyle{TestPage}
+
+\NouvellePart{Espace des fonctions continues sur un compact}
+
+
+On commence par (re)voir quelques notions de topologies qui vont nous servir au cours de ce chapitre :
+
+\NouvelleSubsection{3 notions importantes}
+
+
+$\bullet\quad$ densité : si $(E,d)$ est un espace métrique, $A\subset E$ est dite \emph{dense dans }$E$ si, et seulement si 
+$$\forall x\in E,\ \exists \left(a_n\right)\in A\ \mathrm{t.q.}\ d(a_n,x)\tend 0.$$
+
+$\bullet\quad$ compacité : l'espace métrique $(E,d)$ est \emph{compact} si, et seulement si toute suite dans $E$ admet une sous-suite convergente.\\
+C'est équivalent à : pour tout recouvrement de $E$ par une collection quelconque d'ouverts $\left(V_i\right)_{i\in I}$, il existe un sous-recouvrement fini, \emph{i.e.} 
+$$E=\bigcup_{k=1}^nV_k.$$
+
+$\bullet\quad$ complétude :  l'espace métrique $(E,d)$ est \emph{complet} si toute suite de Cauchy à valeur dans $E$ converge dans $E$.\\
+
+Dans le contexte d'espaces de fonctions,\\
+la densité s'identifie avec une approximation par des fonctions régulières et la compacité / complétude s'identifie avec l'existence de limites et de valeurs d'adhérences de suites de fonctions.\\
+
+
+\setcounter{CompteurRemarque}{0}
+\begin{RQ}
+  on montre que $\left(C(K,\K),||\cdot||_{\infty}\right)$ est un espace de Banach, $i.e;$ un espace vectoriel normé complet.
+\end{RQ} 
+
+
+\NouvelleSubsection{Théorème de Dini}
+
+
+On sait, depuis la \emph{spé} que la convergence uniforme implique la convergence simple, et qu'il n'y a \emph{à priori} pas de réciproque (un contre-exemple est $f_n :t\in ]0,1[ \longmapsto t^n$, qui converge simplement vers la fonction nulle, mais dont la norme infinie est constante égale à 1).\\
+Le théorème suivant nous donne un critère de réciproque : 
+
+
+\begin{thC}[Dini]
+  soit $\left(f_n\right)\in C(K,\R)$, avec $K$ un compact, on suppose\\
+  $(\bullet)\quad f_n$ converge simplement vers $f:K\longrightarrow\R$,\\
+  $(\bullet\bullet)\quad f$ est continue,\\
+  $(\bullet\bullet\bullet)\quad \forall x\in K,\ \left(f_n(x)\right)$ est croissante,\\
+  alors $f_n$ converge uniformément vers $f$.
+\end{thC}
+
+
+\begin{Proof}
+  Soit $\varepsilon >0$, pour tout $n\geqslant 1$, on pose 
+  $$\O_n:=\left\{x\in K \ |\ f_n(x)>f(x)-\varepsilon\right\},$$
+  chaque $\O_n$ est un ouvert car c'est la pré-image d'un ouvert de $\R$ par une application continue.\\
+  On a aussi 
+  $$K=\bigcup_{n\geqslant 1}\O_n$$
+  $K$ étant compact, on peut re-numéroter les $\O_n$ de façon à avoir 
+  $$K=\bigcup_{i=1}^N\O_{N_i}.$$
+  Quitte à réarranger la suite $(n_i)$, on la suppose croissante. Puisque chaque $\left(f_n(x)\right)$ est croissante, on a aussi les inclusions 
+  $$\forall i\in \llbracket 1,N\rrbracket,\ \O_{n_i}\subset\O_{n_N}$$
+  donc 
+  $$K=\O_{m_n}.$$
+  Autrement dit,
+  $$\exists N\in\N \ |\ \forall x\in K,\ f_n(x)> f(x) - \varepsilon.$$
+  Puisque $f_n(x)$ tend par valeurs inférieurs vers $f(x)$, on a aussi l'inégalité 
+  $$\forall x\in K,\ f(x)-f_n(x)>0.$$
+  On peut donc écrire 
+  $$\exists N\in\N \ |\ \forall x\in K, |f_n(x) - f(x)| < \varepsilon.$$
+  Et comme la suite $\left(f_n(x)\right)$ est croissante et converge vers $f(x)$, on a finalement
+  $$\forall n\geqslant N,\ \forall x\in K,\ |f_n(x)-f(x)|< \varepsilon,$$
+  et $f_n$ converge uniformément vers $f$.
+\end{Proof}
+
+
+$\triangleright$\emph{ex :} si l'on pose 
+$$\left\{\begin{array}{rcl}
+P_0(t)&=&0\\
+P_{n+1}(t)&=&P_n(t)+\dstyle\frac12\big(t-P^2_n(t)\big)
+\end{array}\right.$$
+alors $P_n$ est une suite de polynômes convergeant uniformément vers $t\in[0,1]\longmapsto \sqrt t.$\\
+En effet, on montre par récurrence que 
+$$\forall t\in[0,1],\ \forall n\in\N,\ 0\leqslant P_n(t)\leqslant \sqrt t$$
+ce qui nous montre que la suite $P_n(t)$ est croissante et bornée, donc converge (vers $f$).\\
+On passe à la limite dans la relation de récurrence 
+$$f(t)=f(t)+\dstyle\frac12(t-f^2(t))$$
+donc (puisqe $f\geqslant0$)
+$$f(t)=\sqrt t.$$
+Le théorème de Dini s'applique, et $P_n$ converge uniformément sur $[0,1]$ vers $t\mapsto\sqrt t.$
+
+
+\NouvelleSubsection{Théorème(s) de Stone-Weierstra\ss}
+
+
+On commence par une parenthèse algébrique : soit $\A$ un ensemble, muni des lois $(+,.,\times)$.\\
+On dit que $\A$ est une $\emph{algèbre}$ si, et seulement si\\
+$(\bullet)\quad (\A,+,.)$ est un espace vectoriel,\\
+$(\bullet\bullet)\quad \times : \A\times\A\longrightarrow\A$ est bilinéaire.
+
+$\A$ est \emph{unitaire} si il contient une élement neutre pour $+$.\\
+
+Une partie $\mathcal B$ de l'algèbre $\A$ est une \emph{sous-algèbre de}$\A$ si, et seulement si\\
+$(\bullet)\quad (\mathcal B,+,.)$ est un sous-espace vectoriel de $(\A,+,.)$,\\
+$(\bullet\bullet)\quad \mathcal B$ est stable pour la loi $\times$.\\
+
+
+La question à laquelle répond ce paragraphe est comme suit : si $\A$ est une sous-algèbre unitaire de $C(K,\K)$, à quelle condition est-ce-que $\A$ est dense dans $C(K,\K)$ ?\\[1em]
+
+\setcounter{CompteurRemarque}{0}
+\begin{RQ}
+  si $\A$ est dense dans $C(K,\K)$, alors $\A$ sépare les points, \emph{i.e.}
+  $$\forall (x,y)\in K,\ x\neq y,\ \exists f\in\A\ |\ f(x)\neq f(y).$$
+\end{RQ}
+
+
+\begin{Proof}
+  soit $x\neq y$ dans $K$ et $g:z\longmapsto d(x,z)$, on a alors 
+  $$g(x)=0\text{ et }g(y)>0$$
+  $g$ est une distance donc est 1-lipschitzienne donc est continue. Soit $\varepsilon:=g(y)$, par densité de $\A$ il existe $f\in \A$ telle que 
+  $$||f-g||_{\infty}<\dstyle\nicefrac{\varepsilon}{2}$$
+  On a 
+  $$|f(x)|=|f(x)-g(x)|\leqslant||f-g||_{\infty}<\dstyle\nicefrac{\varepsilon}{2}$$
+  On a aussi (inégalité triangulaire)
+  $$|g(y)|=|(g(y)-f(y))+f(y)|\leqslant|g(y)-f(y)|+|f(y)|$$
+  d'où
+  $$|f(y)|\geqslant |g(y)|-|g(y)-f(y)|>\varepsilon-\dstyle\nicefrac{\varepsilon}{2}=\dstyle\nicefrac{\varepsilon}{2}$$
+  donc 
+  $$|f(y)|>|f(x)|$$
+  et $\A$ sépare les points.
+\end{Proof}
+
+
+Avant de passer aux théorèmes de Stone-Weierstra\ss, on montre quelques propriétés générales sur les sous-algèbres unitaires de $C(K,\K)$.
+
+
+\begin{prop}
+  Soit $\A$ une sous-algèbre unitaire de $C(K,\K)$, soient $f,g\in\A$, alors\\
+  $(\mathit 1)\quad |f|\in\overline{\A}$,\\
+  $(\mathit 2)\quad \mathrm{sup}(f,g)$ et $\mathrm{inf}(f,g)\in\overline{\A}$.
+\end{prop}
+
+
+\begin{Proof}[Démonstration du $(\mathit1)$]
+  Si $f=0$, alors $f=|f|$ et le résultat est vrai, on peut donc supposer $f\neq 0$ et l'on pose 
+  $$g:=\frac{f}{||f|_{\infty}}\in\A$$
+  on a alors 
+  $$0\geqslant g^2\geqslant 1$$
+  on peut donc composer $g^2$ par la suite des $P_n$ définie précedemment, donc pour $\varepsilon>0$, on a 
+  $$\exists N\in\N\ |\ \forall n\geqslant N,\ \underset{x\in K}{\mathrm{sup}}\left|P_n(g^2(x))-|g(x)|\right|\leqslant\varepsilon.$$
+  $\A$ étant stable par $+$ et $\times$, $x\longmapsto P_n(g^2(x))\in\A$, donc l'inégalité nous indique que $|g|\in\overline{\A}$.\\
+  $\overline{\A}$ étant aussi stable par multiplication par un scalaire, on en déduit que $|f|\in\overline{\A}$.
+\end{Proof}
+
+
+\begin{Proof}[Démonstration du $(\mathit1)$]
+  C'est une conséquence immédiate du premier point, en écrivant nos fonctions sous les formes suivantes : 
+  $$\mathrm{sup}(f,g)=\frac12\left(f+g+|f-g|\right)$$
+  et
+  $$\mathrm{inf}(f,g)=\frac12\left(f+g-|f-g|\right).$$
+\end{Proof}
+
+
+\begin{thC}[Stones-Weierstra\ss, cas réel]
+  Soit $(K,d)$ un espace métrique compact, $\A$ une sous-algèbre unitaire de $C(K,\R)$ qui sépare les points,\\
+  alors $\A$ est dense dans $C(K,\R).$
+\end{thC}
+
+
+avant de démontrer ce théorème, on aura besoin des trois lemmes suivants :
+
+
+\begin{propC}[lemme 1]
+  Soit $\A$ une sous-algèbre unitaire de $C(K,\R)$ séparant les points,\\
+  alors $\forall (x,y)\in K$ distincts, $\forall (\alpha,\beta)\in\R$, il existe $f\in\A$ telle que 
+  $$f(x)=\alpha\text{ et }f(y)=\beta.$$
+\end{propC}
+
+
+\begin{Proof}
+  puisque $\A$ sépare les points, il existe $g\in\A$ telle que
+  $$g(x)\neq g(y).$$
+  Soit le système d'équations linéaires
+  $$(S)\left\{\begin{array}{rcl}
+    \lambda g(x)+\mu&=&\alpha\\
+    \lambda g(y)+\mu&=&\beta
+  \end{array}\right.$$
+  Ce système a pour déterminant
+  $$\det S=g(x)-g(y)\neq 0$$
+  il est donc inversible et admet une solution.
+
+  On vérifie que l'application 
+  $$t\longmapsto \lambda g(t)+\mu$$
+  convient et est dans $\A$.
+\end{Proof}
+
+
+\begin{propC}[lemme 2]
+  Soit $\A$ une sous-algèbre unitaire de $C(K,\R)$ séparant les points, soient $\varphi\in C(K,\R)$ et $\varepsilon>0$,\\
+  alors $\forall x\in K,\ \exists f_x\in\overline\A$ telle que 
+  $$\left\{\begin{array}{l}
+    f_x(x)=x\\
+    \forall x\in K,\ f_x(z)>\varphi(x)-\varepsilon.
+  \end{array}\right.$$
+\end{propC}
+
+
+\begin{Proof}
+  Soit $x\in K$, on sait, d'après le lemme précédent que pour $y\in K$, il existe $f^y\in \A$ telle que 
+  $$f^y(x)=\varphi(x)\text{ et }f^y(y)=\varphi(y).$$
+  (on considère ici que $\varphi(x)\neq\varphi(y)$, si ce n'est pas le cas, on prend $f^y=\varphi(x)$)
+
+  Par continuité de $f^y$ et de $\varphi$, il existe des voisinages $V^y$ de $y$ tels que 
+  $$\forall z\in V^y,\ f^y(z)>\varphi(z)-\varepsilon.$$
+  La famille $(V^y)_{y\in K}$ est un recouvrement par ouverts du compact $K$ donc il existe une numérotation des $y$ telle que 
+  $$K=\bigcup_{i=1}^p V^{y_i}.$$
+  Soit 
+  $$f_x:=\mathrm{sup}\left\{f^{y_1},\cdots,f^{y_p}\right\}$$
+  $f_x\in\overline\A$ et par définition des $f^y$, on a $f_x(x)=\varphi(x)$. De plus,
+  $$\forall z\in K,\exists i\in\llbracket 1,p\rrbracket\ |\ z\in V^{y_p}$$
+  donc
+  $$f_x(z)\geqslant f^{y_i}(z)>\varphi(x)-\varepsilon.$$
+\end{Proof}
+
+
+\begin{propC}[lemme 3]
+  Soit $\A$ une sous-algèbre unitaire de $C(K,\R)$ séparant les points, soit $\varphi\in\overline{\A}$ et $\varepsilon>0$,\\
+  alors il existe $f\in\overline{\A}$ telle que $||f-\varphi||_{\infty}<\varepsilon.$
+\end{propC}
+
+
+\begin{Proof}
+  Soit $x\in K$ et $f_x$ telle que décrite dans le lemme 2. Puisque $f_x$ et $\varphi$ sont continues, il existe un voisinage $V_x$ de $x$ tel que 
+  $$\forall x\in V_x,\ f_x(z)<\varphi(z)+\varepsilon.$$
+  La famille $(V_x)_{x\in K}$ est un recouvrement par ouverts du compact $K$, donc il existe une numérotation des $x$ telle que 
+  $$K=\bigcup_{i=1}^m V_{x_i}.$$
+  Soit 
+  $$f:=\mathrm{int}\left\{f_{x_1},\cdots,f_{x_m}\right\}$$
+  $f\in\overline{\overline{\A}}=\overline{\A}$ et comme dans la démonstration du lemme précédent, 
+  $$\forall z\in K,\ f(z)<\varphi(z)+\varepsilon\qquad (i).$$
+  Par ailleurs, tous les $f_x$ vérifient aussi
+  $$\forall z\in K,\forall x_i\ |\ f_{x_i}(z)>\varphi(z)-\varepsilon$$
+  chacun des $f_{x_i}$ est supérieur à $\varphi-\varepsilon$, par passage à l'inf on a 
+  $$\forall z\in K,\ f(z)>\varphi-\varepsilon\qquad (ii).$$
+  En combinant $(i)$ et $(ii)$, on obtient l'encadrement suivant :
+  $$\forall z\in K,\ \varphi(z)-\varepsilon<f(z)<\varphi(z)+\varepsilon$$
+  autrement dit 
+  $$||f-\varphi||_{\infty}<\varepsilon.$$
+\end{Proof}
+
+
+On peut enfin prouver le théorème :
+
+
+\begin{Proof}
+  Soient $\varphi\in C(K,\R)$ et $\varepsilon>0$, d'après le lemme 3, il existe $f\in \overline{\A}$ telle que 
+  $$||f-\varphi||<\nicefrac{\varepsilon}{2}.$$
+  Puisque $f\in\overline{\A}$, il existe $g\in\A$ telle que 
+  $$||fèg||<\nicefrac{\varepsilon}{2}$$
+  donc
+  \begin{flalign*}
+    ||\varphi-g||&=||(\varphi-f)+(f-g)||\\
+    &\leqslant ||\varphi-f||+||f-g||\\
+    &\leqslant \varepsilon
+  \end{flalign*}
+  et $\A$ est bien dense dans $C(K,\R)$.
+\end{Proof}
+
+
+\begin{propC}(corollaire]
+  Soient $a<b\in\R$, 
+  
+  alors $\R[X]$ est dense dans $C([a,b],\R)$.
+\end{propC}
+ 
+
+\begin{Proof}
+  Vérifier que $\R[X]$ est une sous-algèbre unitaire de $C([a,b],\R)$ qui sépare les points (le polynôme identité convient pour la séparation).
+\end{Proof}
+
+
+On peut même expliciter un (il n'y a pas unicité de l'approximation) polynôme convenable, soit $f\in C([0,1],\R)$, alors 
+$$B_n(f)(X)=\sum_{i=0}^nf\left(\frac{k}{n}\right)\binom{n}{k}X^i(1-X)^{n-i}$$
+est une suite de polynômes convergeant uniformément sur $[0,1]$ vers $f$.\\[1em]
+
+
+\dnote{ce résultat est faux sur tout $\R$ entier, puisque si il existe $P_n$ une suite de polynômes convergeant uniformément vers $f:\R\longrightarrow \R$ sur $\R$, alors $f$ est polynômiale.}
+
+
+\begin{Proof}
+  Puisque $P_n$ CVU vers $f$, il existe $N$ tel que 
+  $$\forall n\geqslant N,\ ||P_N-f||_{\infty}\leqslant 1$$
+  donc, par inégalité triangulaire,
+  $$\forall n\geqslant N,\ ||P_N-P_n||_{\infty}=||(P_N-f)+(f-P_n)||_{\infty}\leqslant 2$$
+  Les seuls polynômes bornés sont des constantes, donc 
+  $$\forall n\geqslant N,\ \exists \lambda_n\ |\ Pn-P_N=\lambda_n.$$
+  On évalue cette expression en 0 et on trouve que 
+  $$\lambda_n \tend f(0) - P_N(0)=:\lambda_{\infty}.$$
+  Donc $$P_n\tend P_N + \lambda_{\infty}$$
+  et par unicité de la limite, 
+  $$f=P_N+\lambda_{\infty}.$$
+\end{Proof}
+
+
+\dnote{ce résultat est aussi faux sur $\C$ si la sous-algèbre considérée n'est pas stable par conjugaison.}
+
+
+\begin{Proof}
+  On considère l'application $f:z\longmapsto \overline z$,\\
+  $\C[X]$ est bien une sous-algèbre unitaire de $C(\mathbf U,\C)$ qui sépare les points, donc si le théorème de Stones-Weierstra\ss\ est vrai, alors $\C[X]$ est dense dans $C(\mathbf U,\C)$, alors il existe $P_n\in\C[X]$ convergeant uniformément vers $f$.
+
+  On a 
+  $$\forall n\in\N,\ \int_0^{2\pi}\mathrm e^{int}\mathrm e^{it}\mathrm dt=0$$
+  donc par linéarité de l'intégrale,
+  $$\forall n\in\N,\ \int_0^{2\pi}P_n\left(\mathrm e^{it}\right)\mathrm e^{it}\mathrm dt=0$$
+  par convergeance uniforme des $P_n$ vers $f$, on a aussi
+  $$\int_0^{2\pi}f\left(\mathrm e^{it}\right)\mathrm e^{it}\mathrm dt=0$$
+  or on peut calculer
+  $$\int_0^{2\pi}f\left(\mathrm e^{it}\right)\mathrm e^{it}\mathrm dt=\int_0^{2\pi}\mathrm e^{-it}\mathrm e^{it}\mathrm dt=\int_0^{2\pi}1\mathrm dt=2\pi.$$
+  c'et absurde donc le théorème est effectivement faux sur $\C$.
+\end{Proof}
+
+\begin{Def}
+  Une partie $P$ de $\C$ est dite \emph{stable par conjugaison} si, et seulement si
+  $$ x\in E\Rightarrow \overline x\in E.$$
+\end{Def}
+
+\begin{thC}[Stones-Weierstra\ss, cas complexe]
+  Soit $(K,d)$ un espace métrique compact, $\A$ une sous-algèbre unitaire de $C(K,\C)$ qui sépare les points et est stable par conjugaison,\\
+  alors $\A$ est dense dans $C(K,\C).$
+\end{thC}
+
+\begin{Proof}
+  Soit $f\in C(K,\C)$, on pose 
+  $$\A_{\R}:=A\cap C(K,\R),$$
+  c'est une sous-algèbre unitaire de $C(K,\R)$ et, grâce à la stabilité par conjugaison, 
+  $$\Re\ f=\frac{f+\overline f}2\text{ et }\Im\ f=\frac{f-\overline f}2$$
+  sont tous deux dans $\A_{\R}$.
+
+  Vérifions que $\A_{\R}$ sépare les points, soit $(x,y)\in \C$ distincts, puisque $\A$ sépare les points, il existe $\varphi\in \A$ telle que $\varphi(x)\neq \varphi(y)$, donc soit
+  $$\Re \varphi(x)\neq \Re \varphi(y)$$
+  soit 
+  $$\Im \varphi(x)\neq \Im \varphi(y)$$
+  et $\A_{\R}$ sépare aussi les points.
+  On applique donc le théorème de Stone-Weierstra\ss, cas réel à $\Re\ f$ et $\Im\ f$, on fixe $\varepsilon>0$ et il existe $(g,h)\in \A_{\R}$ tels que 
+  $$\left\{\begin{array}{l}
+    ||g-\Re\ f||_{\infty}<\nicefrac{\varepsilon}{2}\\
+    ||h-\Im\ f||_{\infty}<\nicefrac{\varepsilon}{2}.
+  \end{array}\right.$$
+  On pose $$\varphi:=g+ih\in \A$$
+  et on a alors
+  \begin{align*}
+    ||f-\psi||_{\infty}&=||\Re\ f+i\Im\ f-g-ih||_{\infty}\\
+    &\leqslant ||g-\Re\ f||_{\infty}+||h-\Im\ f||_{\infty}\\
+    &\leqslant \varepsilon\\
+  \end{align*}
+  et $\psi$ CVU vers $f$, donc $\A$ est dense dans $C(K,\C)$.
+\end{Proof}
+
+
+\begin{propC}[corollaire, Féjer]
+  L'ensemble
+  $$\left\{z\longmapsto z ^n,\ n\in\mathbf Z\right\}$$
+  est dense dans $C(\mathbf U,\C)$
+\end{propC}
+
+\begin{Proof}
+  On vérifie que le théorème de Stone-Weierstra\ss, cas complexe s'applique.
+\end{Proof}
+
+\NouvelleSubsection{Polynômes trigonométriques}
+
+Un polynôme trigonométrique est une application de la forme
+$$P:t\longmapsto\sum_{k\in\llbracket -N,N\rrbracket}c_k\mathrm e^{ikt}$$
+où les $c_k$ sont des coefficents complexes.
+
+En passant à la forme trigonométrique de $\mathrm e^{ikt}$, on peut ré-écrire $P$ comme
+\begin{flalign*}
+  P(t)&=\sum_{k\in\llbracket -N,N\rrbracket}c_k\left[\cos(kt)+i\sin(kt)\right]\\
+  &=\sum_{k\in\llbracket -N,N\rrbracket} a_k\cos(kt)+b_k \sin(kt).
+\end{flalign*}
+
+\begin{prop}
+  Soit $f:\R\longrightarrow\C$ continue et $2\pi$-périodique,
+
+  alors il existe une suite de polynômes trigonométriques convergeant uniformément vers $f$.
+\end{prop}
+
+\begin{Proof}
+  il suffit de constater que 
+  $$C_{2\pi}(\R)\simeq C(\mathbf U)$$
+  via l'application
+  $$\varphi : f\in C_{2\pi}(\R)\longmapsto \tilde f(t):=f(\mathrm e^{it})\in C(\mathbf U).$$
+\end{Proof}
+
+
+\NouvelleSubsection{Espaces séparables}
+
+\begin{Def}
+  $(E,d)$ est dit séparable si, et seulement si il existe $A\subset E$ dénombrable et dense dans $E$.
+\end{Def}
+
+On rappelle que $A$ est dénombrable si, et seulement si $A$ est fini ou $A\simeq \N$.
+
+$\triangleright$\emph{ex : }$\R$ est séparable car $\overline{\mathbf Q}=\R$ et $\mathbf Q\simeq \N^2\simeq \N$.
+
+On montre (en TD) que tout espace vectoriel de dimension finie est séparable. On a même la propriété suivante, qui est une version un peu plus forte :
+
+
+\begin{prop}
+  Soit $(E,d)$ un espace vectoriel normé, on suppose qu'il existe une famille $(e_n)\in E$ telle que 
+  $$\overline{\mathrm{Vect}(e_i,\ i\in \mathbf N)}=E$$
+  alors $E$ est séparable.
+\end{prop}
+
+
+\begin{Proof}
+  Idée de la preuve : il s'agira de montrer que 
+  $$\left\{\sum{i\in I}\lambda_i e_i,\ \lambda_i\in\mathbf Q,\ I\subset\N\text{ finie}\right\}$$
+  est dense et dénombrable.
+\end{Proof}
+
+
+\begin{prop}
+  Soit $(E,d)$ et $(O_i)_{i\in I}$ une famille quelconque d'ouverts deux à deux disjoints, 
+
+  alors si $E$ est séparable, $I$ est dénombrable.
+\end{prop}
+
+
+$\triangleright$\emph{ ex : }soit $1\leqslant p<\infty$, on rappelle que 
+$$\ell^p:=\left\{x:\N\longrightarrow\C\ |\ \sum_{n\in\N}|x(n)|^p<\infty\right\}$$
+muni de la norme
+$$||\cdot||_p:x\in\ell^p\longmapsto\left(\sum_{n\in\N}|x(n)|^p\right)^{\nicefrac{1}{p}}$$
+est un espace (vectoriel normé) séparable.
+
+
+\begin{Proof}
+  Soit $e_n=\mathbf 1_{\{n\}}=(0,\cdots,0,1,0,\cdots,0)$ où le $1$ est en $n$-ème position et soit $x_n\in\ell^p$, alors 
+  $$\norm{u-\sum_{i=1}^Nx_ie_i}_p=\left(\sum_{i=N+1}^{\infty}|x_n|^p\right)^{\nicefrac{1}{p}}\underset{N\to+\infty}{\longrightarrow 0}$$
+  ce qui montre que (puisque chaque $e_n$ est dans $\ell^p$
+  $$\overline{\mathrm{Vect}(e_i,\ i\in \N)}=\ell^p$$
+  donc $\ell^p$ est bien séparable.
+\end{Proof}
+
+
+\begin{lemme}
+  Soit $(K,d)$ compact,
+
+  alors $K$ est séparable.
+\end{lemme}
+
+\begin{Proof}
+  Soit $n\geqslant 1$, on a 
+  $$K=\bigcup_{x\in K}B(x,\nicefrac{1}{n})$$
+  par compacité de $K$, on peut numéroter ces boules donc 
+  $$K=\bigcup_{i=1}^{N_n}B(x_j^n\nicefrac{1}{n})$$
+  et l'ensemble 
+  $$\mathcal D:=\left\{x_j^n,\ 1\leqslant j\leqslant N_n,\ n\in\N\right\}$$
+  est dénombrable, montrons qu'il est dense,
+
+  soit $x\in K$, alors 
+  $$\forall n\in\N,\ x\in\bigcup_{i=1}^{N_n}B(x_i^n, \nicefrac{1}{n})$$
+  autrement dit, 
+  $$\forall n\in\N,\ \exists i_n\in\llbracket 1,N_n\rrbracket\ |\ x\in B(x_{i_n}^n,\nicefrac{1}{n})$$
+  puisque le rayon de la boule tend vers $0$ quand $n\to+\infty$, on peut écrire 
+  $$x_{i_n}^n\tend x$$
+  ce qui montre que $\mathcal D$ est bien dense dans $K$, et $K$ est séparable.
+\end{Proof}
+
+
+\begin{lemme}
+  Soit $(K,d)$ compact,
+
+  alors $C(K,\R)$ est séparable.
+\end{lemme}
+
+\begin{Proof}
+  $K$ est compact, donc d'après le lemme précédent, il existe $\{a_n\}$ une suite dense dans $K$. Pour $n\geqslant 1$, on pose 
+  $$f_n:t\longmapsto d(a_n,t),$$
+  les applications $f_n$ sont continues et on pose $f_0:=1$.
+
+  On considère l'ensemble $\A$ définit comme suit :
+  $$\A:=\mathrm{Vect}\left(\prod_{i\in I}f_i,\ I\text{ finie}\right)$$
+  c'est une sous-algèbre unitaire et on va montrer que $\A$ sépare les points.
+
+  Soient $(t_1,t_2)\in K$ distincts, alors $\varepsilon:=d(t_1,t_2)>0$. Par densité des $\{a_n\}$ dans $K$, il existe $n\in\N$ tel que 
+  $$d(t_1,a_n)<\nicefrac{\varepsilon}{2}$$
+  donc 
+  $$f_n(t_1)=d(a_n,t_1)<\nicefrac{\varepsilon}{2}$$
+  et de plus,
+  \begin{align*}
+    f_n(t_2)&=d(t_2,a_n)\\
+    &\geqslant d(t_2,t_1)-d(t_1,a_n)\\
+    &>\varepsilon-\nicefrac{\varepsilon}{2}\\
+    f_n(t_2)&>\nicefrac{\varepsilon}{2}
+  \end{align*}
+  donc $\A$ sépare les points, ce qui nous permet d'appliquer le théorème de Stone-Weierstra\ss, donc $\A$ est dense dans $C(K,\R)$, donc $C(K,\R)$ est séparable.
+\end{Proof}
+
+
+\NouvelleSubsection{Théorème d'Ascoli}
+
+
+Le fil directeur de cette partie est la question suivante : peut-on caractériser les partie compacte de $C(K)$ ?
+
+
+\begin{Def}
+  Soit $\mathcal F\in C(K)$,
+
+  $\mathcal F$ est dite \emph{équicontinue en }$x$ si, et seulement si
+  $$\forall \varepsilon>0, \exists\delta>0,\ \forall f\in\mathcal F, \forall y\in B(x,\delta)\cap K,\ |f(x)-f(y)|<\varepsilon.$$
+  $\mathcal F$ est dite \emph{équicontinue} si, et seulement si $\mathcal F$ est équicontinue en tout point de $K$.
+\end{Def}
+
+$\triangleright$\emph{ex : }pour $\ell>0$, l'ensemble des fonctions $\ell$-lipschitzienne forme une famille équicontinue.
+
+
+\begin{thC}[Ascoli, v1]
+  Soient $(K,d)$ un compact et $\mathcal F=\{f_n\}$ une famille dans $C(K)$, si,
+
+  $(\bullet)\ \forall x\in K,\ \big(f_n(x)\big)$ est une suite bornée de $K$,\\
+  $(\bullet\bullet)$ $\mathcal F$ est équicontinue,
+
+  alors il existe une sous-suite des $f_n$ qui converge uniformément dans $C(K).$
+\end{thC}
+
+
+\begin{Proof}
+  Puisque $K$ est un compact, il est séparable et il existe une famille $\D=\{a_n\}$ dense dans $K$. 
+  
+  Par hypothèse, la suite $\left(f_n(a_0)\right)$ est bornée, donc on peut en extraire une sous-suite convergente, donc il existe $\varphi_0:\N\longrightarrow\N$ strictement croissante telle que $\left(f_{\varphi_0(n)}(a_0)\right)_n$ converge.
+
+  De même, la suite $\left(f_{\varphi_0(n)}(a_1)\right)_n$ est bornée donc admet un extractrice $\varphi_1$ telle que $\left(f_{\varphi_0\circ\varphi_1(n)}(a_1)\right)_n$ converge.
+
+  Par récurrence, on va construire les itérations succssives de $\varphi_n$ comme suit, autrement dit 
+  $$\forall k\in\N,\ \left(f_{\varphi_0\circ\cdots\circ\varphi_k(n)}(a_k)\right)_n\text{ converge}$$
+  Soit $\varphi:\N\longrightarrow\N$ telle que 
+  $$\forall n\in\N,\ \varphi(n)=\varphi_0\circ\cdots\circ\varphi_n(n).$$
+    Vérifions, par récurrence, que $\varphi$ est strictement croissante. 
+    
+    $\star$ pour $n=1$, on a (par croissante stricte de $\varphi_1$ et $\varphi_0)\ \varphi(1)=\varphi_1(\varphi_0(0))>\varphi(0).$
+
+    $\star$ Soit $n\in\N$,
+    $$\varphi(n+1)=\varphi_{n+1}(\varphi_0\circ\cdots\circ\varphi_n(n+1))$$
+    et puisque $\varphi_0\circ\cdots\circ\varphi_n$ est strictement croissante, $\varphi_0\circ\cdots\circ\varphi_n(n+1)>\varphi_0\circ\cdots\circ\varphi_n(n)$ et en composant par $\varphi_{n+1}$, on trouve bien
+    $$\varphi(n+1)>\varphi(n)$$
+    ce qui conclut la récurrence.
+
+    Donc $\left(f_{\varphi(n)}\right)$ est une sous-suite de $f_n$ telle que 
+    $$\forall k\in\N,\ \left(f_{\varphi(n)}(a_k)\right)\text{ converge}$$
+    puisque 
+    $$\forall n\geqslant k,\ \left(f_{\varphi(n)}(a_k)\right)=\left(f_{\varphi_{k+1}\circ\cdots\circ\varphi_n(\varphi_1\circ\cdots\circ\varphi_k(n))}(a_k)\right)$$
+    où la suite $\varphi_{k+1}\circ\cdots\circ\varphi_n$ est strictement croissante.
+
+    Soit $\varepsilon>0$, par équicontinuité des $f_n$, pour tout $z\in K$, il existe $\delta_z>0$ tel que 
+    $$\forall n\in \N,\ \forall u\in B(z,\delta_z),\ \left|f_{\varphi(n)}(u)-f_{\varphi(n)}(z)\right|\leqslant \varepsilon$$
+    par inégalité triangulaire,
+    $$\forall (u,v)\in B(z,\delta_z), \left|f_{\varphi(n)}(u)-f_{\varphi(n)}(v)\right|\leqslant \varepsilon\qquad (i).$$
+    On peut écrire $K$ comme 
+    $$K=\bigcup_{z\in K}B(z,\delta_z)$$
+    par compacité de $K$, on a 
+    $$K=\bigcup_{j=1}^NB(z_j,\delta{z_j}).$$
+    Par densité de $\D$ dans $K$, pour tout $j\in\llbracket 1,n\rrbracket$, il existe un $a_{n_j}\in\D$ tel que 
+    $$a_n\in B(z_j,\delta_{z_j})$$
+    où $a_n$ est tel que $\left(f_{\varphi(n)}(a_{n_j})\right)_{n\geqslant 0}$ converge donc est de Cauchy, donc $\exists N_j$ tel que 
+    $$\forall p,q\geqslant N_j,\ \left|f_{\varphi(q)}(a_{n_j})-f_{\varphi(p)}(a_{n_j})\right|\leqslant\varepsilon\qquad (ii).$$
+    Soit $x\in K$, $\exists z_j\in K$ tel que $x\in B(z_j,\delta_{z_j})$ et $\exists a_{n_j}\in\D$ tel que $a_{n_j}\in B(z_j,\delta_{z_j})$, donc les hypothèses de l'inégalité $(i)$ sont valides et
+    $$\forall n\geqslant 1, \left|f_{\varphi(n)}(x)-f_{\varphi(n)}(a_{n_j})\right|\leqslant 2\varepsilon$$
+    pour $p,q\geqslant\mathrm{max}\{N_j,\ j\in\llbracket 1,N\rrbracket\}$
+    \begin{align*}
+      \left|f_{\varphi(q)}(x)-f_{\varphi(p)}(x)\right|&\leqslant \underbrace{\left|f_{\varphi(q)}(x)-f_{\varphi(q)}(a_{n_j})\right|}_{\leqslant 2\varepsilon\text{ d'après }(i)}+\underbrace{\left|f_{\varphi(q)}(a_{n_j})-f_{\varphi(p)}(a_{n_j})\right|}_{\leqslant \varepsilon\text{ d'après }(ii)}+\underbrace{\left|f_{\varphi(q)}(a_{n_j})-f_{\varphi(p)}(x)\right|}_{\leqslant 2\varepsilon\text{ d'après }(i)}\\
+      &\leqslant 2\varepsilon+\varepsilon+2\varepsilon\\
+      \left|f_{\varphi(q)}(x)-f_{\varphi(p)}(x)\right|&\leqslant 5\varepsilon
+    \end{align*}
+    par passage au $\mathrm{\sup}$, $||f_{\varphi(q)}-f_{\varphi(p)}||\leqslant 5\varepsilon$, donc la suite $f_{\varphi(n)}$ est de Cauchy à valeurs dans le complet $C(K)$, donc est convergente.
+\end{Proof}
+
+\begin{Def}
+  Une partie $A\subset X$ de l'espace topologique $X$ est \emph{relativement compacte} si, et seulement si elle est inclue dans une partie compacte de $X$.
+
+  Si $X$ est séparé, alors $A$ est relativement compacte si, et seulement si $\overline A$ est compacte.
+\end{Def}
+
+
+\begin{thC}[Ascoli, v2]
+  Soit $(K,d)$ compact,
+
+  $(\mathit 1)\quad$ les partie compactes de $C(K)$ sont exactement les parties fermées, bornées et équicontinues de $C(K)$,
+
+  $(\mathit 2)\quad$ les parties relativement compactes de $C(K)$ sont exactement les parties bornées et équicontinues.
+\end{thC}
+
+
+\begin{Proof}
+  $\star$ Soit $\mathcal F\subset C(K)$ compacte fermée et bornée, montrons que cette famille est équicontinue. 
+  
+  Soit $\varepsilon>0$,
+  \begin{align*}
+    K&=\bigcup_{f\in\mathcal F}B(f,\varepsilon)\\
+    &=\bigcup{i=1}^NB(f_n,\varepsilon)
+  \end{align*}
+  Pour $i\in\llbracket 1,N\rrbracket$, pour $z\in K$, par continuité de $f_i$, $\exists \delta_{z,i}>0$ tel que 
+  $$\forall u \in B(z,\delta_{z,i}),\ \left|f_i'u)-f_i(z)\right|<\varepsilon\qquad (i)$$
+  On pose 
+  $$\delta_z:=\mathrm{min}\{\delta_{z,i},\ i\in\llbracket 1,N\rrbracket\}>0.$$
+  Soit $f\in\mathcal F$, donc 
+  $$\exists i\in \llbracket 1,N\rrbracket\text{ t.q. }||f-f_i||_{\infty}<\varepsilon\qquad (ii)$$
+  soit $i\in \llbracket 1,N\rrbracket$, $u\in B(z,\delta_z)\subset B(z,\delta_{z,i})$, on a 
+  \begin{align*}
+    |f(u)-f(z)|&\underbrace{\leqslant|f(u)-f_i(u)|}_{\leqslant\varepsilon\text{ d'après }(i)}+\underbrace{|f_i(u)-f_i(z)|}_{\leqslant\varepsilon\text{ d'après }(2)}+\underbrace{|f_i(z)-f(z)|}_{\leqslant\varepsilon\text{ d'après }(i)}\\
+  &\leqslant 3\varepsilon
+  \end{align*}
+  donc $\mathcal  F$ est équicontinue.\\
+
+  $\star$ Réciproquement, si on prend $F\subset C(K)$ fermée bornée équicontinue, montrons que $\mathcal F$ est compacte.
+  
+  Soit $(f_n)\in \mathcal F$, c'est une famille bornée et équicontinue donc d'après le théorème d'Ascoli, elle admet une sous-suite convergente, qui appartient à $\mathcal F$ car c'est un fermé, donc $F$ vérifie la propriété de Weierstra\ss, c'est un compact.
+\end{Proof}
+
+
+\begin{Proof}
+  Se déduit de la proposition précédente en considérant la fermeture de $\mathcal F$.
+\end{Proof}
+
+
+
+\begin{thC}[Ascoli, v3]
+  Soit $(E,d)$ séparable, $(F,\delta)$ métrique et $f_n\in C(E,F)$, si
+
+  $(\bullet)\ \forall x\in E,\ \left\{f_n(x)\right\}_{n\geqslant 0}$ est relativement compacte dans $F$,\\
+  $(\bullet\bullet)\ \left\{f_n\right\}$ est une famille équicontinue,
+
+  alors $f_n$ admet une sous-suite qui converge uniformément sur tout compact de $E$ vers une application continue.
+\end{thC}
+
+
+Le théorème suivant découle du théorème d'Ascoli, et est quant à lui censé avoir plein d'applications :
+
+\begin{thC}[Ascoli-Arzèla-Peano]
+  soit $t_0\in\R,\ x_0\in\R^n, (a,r)>0$, on pose 
+  $$K:=[t_0-a,t_0+a]\times \overline{B(x_0,r)}$$
+  (qui est compact car fermé borné de $R^{n+1}$)\\
+  on prend $f:K\longrightarrow \R^n$ continue, on pose
+  $$M:=\mathrm{sup}_{(x,t)\in K}||f(x,t)||\text{ et }c:=\mathrm{min}(a,\nicefrac{a}{r}).$$
+  Enfin on considère le problème de Cauchy suivant 
+  $$\left\{\begin{array}{rcl}
+    x'(t)&=&f(t,x(t))\\
+    x(t_0)&=&x_0
+  \end{array}\right.$$
+  alors le problème admet une solution $x:[t_0-a,t_0+a]\longrightarrow \overline{B(x_0,r)}$
+\end{thC}
+
+\begin{Proof}
+  Le principe va être de discrétiser $[t_0,t_0+c]$ puis de construire selon la méthode d'Euleur une suite de fonction qui vérifie cette discrétisation.
+
+  Puis on appliquera le théorème d'Ascoli pour montrer que cette suite de fonction CVU vers une fonction, qui sera solution du problème.\\
+
+  $\star$ On considère une subdivision de $[t_0,t_0+c]$, de pas $h:=\nicefrac{c}{n+1}$, donc $\forall i\in\llbracket 0,n\rrbracket,\ t_i=t_0+i\frac{c}{n+1}$. On a alors (méthode d'Euler)
+  $$x(t_{i+1})=x(t_i)+\int_{t_i}^{t_{i+1}}f(t,x(t))\mathrm dt.$$
+  On construit par récurrence les points $x_i$ tels que 
+  $$x_{i+1}=x_i+\frac{c}{n+1}f(t,x_i)$$
+  On montre alors 
+  $$||x_i-x_0||\leqslant i\frac{cM}{n+1}.$$
+  Pour $t\in[t_i,t_{i+1}]$, on pose 
+  $$X_n(t):=a_it+b_i$$
+  où les $a_i$ et $b_i$ sont tels que 
+  $$\left\{\begin{array}{ccl}
+    X_n(t_i)&=&x_i\\
+    X_n(t_{i+1})&=&x_{i+1}
+  \end{array}\right.$$
+  Ainsi on a 
+  $$\left\{\begin{array}{ccl}
+    \displaystyle a_i&=&\frac{x_{i+1}-x_i}{t_{i+1}-t_i}\\
+    b_i&=&x_i-a_i t_i
+  \end{array}\right.$$
+  Chaque $x_n$ est continue sur son $[t_0,t_0+c]$, et de pour tout $t\in [t_i,t_{i+1}]$, $x_n$ y est dérivable et 
+  $$X'_n(t)=a_i=\frac{\nicefrac{c}{n+1}f(t_i,x_i)}{\nicefrac{c}{n+1}}=f(t_i,x_i)$$
+  donc 
+  $$\mathrm{sup}_{t\in]t_i,t_{i+1}[}||X'_n(t)||\leqslant M$$
+  donc (inégalité des accroissements finis) les $(x_n)$ forment une famille $M$-lipschitzienne donc équicontinue.
+
+  On a aussi
+  \begin{align*}
+    \forall n\in\N,\ t\in [t_0,t_0+c],\ ||X_n(t)-x_0||&=||X_n(t)-X_n(t_0)||\\
+    &\leqslant M|t-t_0|\\
+    &\leqslant \\
+    ||X_n(t)-x_0||&\leqslant r\\
+  \end{align*}
+  Donc $X_n(t)\in\overline{B(x_0,r)}$ qui est un fermé bornée de $\R^n$, donc compact. Ainsi, $\forall t\in [t_0,t_0+c]$, $\left\{X_n(t)\right\}_{n\geqslant 0}$ est relativement compact dans $\R^n$.
+
+  D'après le théorème d'Ascoli (quitte à considérer une sous-suite, ce qu'on ne fait pas pour alléger les notations), $(X_n)$ CVU vers $X:[t_0,t_0+c]\longrightarrow\overline{B(x_0,r)}$, où $X$ est continue.
+
+  Soit $t\in[t_i,t_{i+1}]$,
+  \begin{align*}
+    ||X_n(t)-f(t,X_n(t))||&=||f(ti_,x_i)-f(t,X_n(t))||\\
+    &\leqslant \omega \frac{(M+1)c}{n+1}
+  \end{align*}
+  où 
+  $$\omega :=\mathrm{sup}\left\{||(t,x)-t(u,y),\ |t-u|<\delta, ||x-y||<\delta\right\}<\infty$$
+  avec $\delta>0$
+  Donc 
+  $$X_n(t)-x_0-\int_{t_0}^tf(u,X_n(u))\mathrm du\leqslant \omega_fc\frac{M+1}{n+1}\tend 0$$
+  donc 
+  $$X(t)=x_0+\int_{t_0}^tf(u,X_n(u)\mathrm du$$
+  autrement dit, $X$ est solution.
+\end{Proof}
+
+
+\newpage
+
+
+\setcounter{prop}{0}
+
+
+\NouvellePart{Théorèmes fondamentaux de l'analyse fonctionnelle}
+
+
+\NouvelleSubsection{Théorème de Baire}
+
+On rappelle le théorème suivant, déjà vu en topologie de L3 : 
+
+\begin{thC}[des fermés emboités :]
+  Soit $(E,d)$ un espace métrique complet, $F_n$ une suite de fermés non-vide de $E$, si
+  $$\forall n\in\N,\ F_{n+1}\subset F_n$$
+  et
+  $$\mathrm{diam}\ F_n=\mathrm{sup}\left\{d(a,b),\ (a,b)\in\ F_n\right\}\tend 0,$$
+  alors $\bigcap_{n\geqslant 0}F_n$ est un singleton.
+\end{thC}
+
+\begin{Proof}
+  Pour $n\in\N$, soit $x(n)\in F_n$, pour $p<q$, on a $x_q\in F_q\subset F_p$ donc 
+  $$d(x_p,x_q)\leqslant \mathrm{diam}\ F_q\leqslant \mathrm{diam}\ F_p\longrightarrow 0$$
+  et les $x_n$ sont une suite de Cauchy dans $E$ qui est complet, donc $x_n\tend x\in E$.
+
+  Pour tout $m\geqslant n$, $x_n\in F_m\subset F_n$ donc ($F_n$ étant fermé) $x\in F_n$ donc 
+  $$x\in \bigcap_{n\geqslant 0}F_n.$$
+  De plus, pour $(a,b)\in \bigcap F_n$, 
+  $$d(a,b)\leqslant \mathrm{diam}\ F_n\tend 0$$
+  donc $\bigcap_{n\geqslant 0} F_n$ est un singleton, ce qui conclut.
+\end{Proof}
+
+\begin{thC}[de Baire, v1]
+  Soit $(E,d)$ métrique complet, soit $(O_n)$ une suite d'ouverts denses dans $E$,
+
+  alors 
+  $\bigcap_{n\geqslant 0}O_n$ est dense dans $E$.
+\end{thC}
+
+on a une autre version, où on parle de fermés :
+
+\begin{thC}[de Baire, v2]
+  Soit $(E,d)$ métrique complet, soit $(F_n)$ une suite de fermés d'intérieurs non-vides dans $E$,
+
+  alors 
+  $\bigcup_{n\geqslant 0}F_n$ est d'intérieur vide.
+\end{thC}
+
+
+\begin{Proof}
+  Soit $O_n$ une suite d'ouverts, tous denses, soit $\Omega$ un ouvert de $E$, il s'agit de montrer que 
+  $$\Omega\cap\bigcap_{n\geqslant 0}O_n\neq \emptyset.$$
+  $O_0$ est un ouvert dense dans $E$, donc 
+  $$\Omega\cap O_0$$
+  est un ouvert non-vide et l'on peut prendre $x_0\in E,\ r_0\in ]0,1[$ tels que
+  $$\overline{B(x_0,r_0)}\subset \Omega\cap O_0.$$
+  $O_1$ est un ouvert dense dans $E$ donc 
+  $$O_1\cap B(x_0,r_0)$$
+  est un ouvert non-vide et l'on peut prendre $x_1\in E,\ r_1\in]0,\nicefrac12[$ tels que
+  $$\overline{B(x_1,r_1)}\subset O_1\cap B(x_0,r_0)\subset \Omega\cap _0\cap O_1.$$
+  On va construire par récurrence les $B_n=B(x_n,r_n)$ tels que
+  $$\overline{B_{n+1}}\subset B_n\text{, }r_n\leqslant \nicefrac{1}{2^n}\text{ et }\overline{B_n}\subset \Omega\cap O_n.$$
+  $\left(\overline{B_n}\right)$ est une suite décroissante de fermés dont le diamètre tend vers 0, donc le théorème des fermés emboîtés s'applique et $\bigcap_{n\geqslant 0}\overline{B_n}\neq\emptyset$ et puisque $\overline{B_n}\subset \Omega\cap O_n$, alors
+  $$\Omega\cap\bigcap_{n\geqslant 0}O_n\neq\emptyset,$$
+  autrement dit, $\bigcap_{n\geqslant 0}O_n$ est dense dans $E$.
+\end{Proof}
+
+
+On passe maintenant à la v2, \emph{i.e.} la formulation avec des fermés. Il va suffire pour ça de "passer" des fermés à des ouverts, puis d'appliquer la première version du théorème.\\
+
+
+\begin{Proof}
+  Soit $F_n$ une suite de fermés d'intérieurs non vides, on pose 
+  $$O_n:=E\backslash F_n$$
+  qui est une suite d'ouverts et 
+  $$\overline{O_n}=\overline{E\backslash F_n}=E\backslash \mathrm{int}\ {F_n}=E$$
+  on peut donc appliquer la première version du théorème de Baire et $\bigcap_{n\geqslant 0}O_n$ est dense dans $E$ donc
+  $$\mathrm{int}\ \bigcup_{n\geqslant 0}F_n=\mathrm{int}\ E\backslash \bigcap_{n\geqslant 0}O_n=E\backslash \overline{\bigcap_{n\geqslant 0}O_n}=\emptyset.$$
+\end{Proof}
+
+
+\setcounter{CompteurRemarque}{0}
+\begin{RQ}
+  si l'on écrit $\mathbf Q$ (qui est dénombrable) sous la forme 
+  $$\mathbf Q=\left(r_n\right)_{n\in\mathbf N}$$
+  et que l'on choisit comme collection d'ouverts les 
+  $$O_n:=\R\backslash \{r_n\}$$
+  qui sont tous des ouverts denses dans $\R$, on a alors
+  \begin{align*}
+    \bigcap_{n\geqslant 0}O_n&=\bigcap_{n\geqslant 0}R\backslash \{r_n\}\\
+    &=\R\backslash \bigcup_{n\geqslant 0}\{r_n\}\\
+    &=\R\backslash \mathbf Q
+  \end{align*}
+  qui n'est pas un ouvert.
+\end{RQ}
+
+
+\begin{RQ} 
+  le théorème n'est pas valide pour une réunion non-dénombrable, si l'on pose par exemple
+  $$O_x:=\R\backslash \{x\}$$
+  alors 
+  $$\bigcap_{x\in_R}O_x=\emptyset$$
+  qui n'est pas dense dans $\R$.
+\end{RQ}
+
+\begin{RQ}
+  petit rappel de topologie, pour $E$ un espace topologique et $X\subset E$, on a 
+  $$\mathrm{int}\ E\backslash X = E\backslash \overline{X}.$$
+\end{RQ}
+
+
+\begin{Proof}
+  Soit $x\in\mathrm{int}\ E\backslash X$, donc il existe un voisinage $V$ de $x$ tel que 
+  $$x\in V\subset E\backslash X$$
+  donc $V\cap X=\emptyset$, autrement dit $x\notin \overline X$, donc $x\in E\backslash \overline{X}$.\\
+  Réciproquement, soit $x\in E\backslash \overline{X}$, puisque $\overline X$ est un fermé, $E\backslash\overline X$ est un ouvert donc il existe un voisinage $U$ de $x$ tel que 
+  $$x\in V\subset E\backslash\overline X\subset E\backslash X$$
+  donc $x$ est intérieur à $X\subset E\backslash X$, ce qui conclut.
+\end{Proof}
+
+
+\begin{propC}[un corollaire]
+  Soit $(E,d)$ métrique complet et $\left(F_n\right)$ une suite de fermées tels que 
+  $$\bigcup_{n\geqslant 0}F_n=E$$
+  alors $\Omega:=\bigcup_{n\geqslant 0}\mathrm{int}\ F_n$ est un ouvert dense dans $E$, donc à fortiori il existe au moins un $\mathrm{int}\ {F_{n_0}}\neq\emptyset$.
+\end{propC}
+
+\begin{Proof}
+  On a l'équivalence suivante 
+  $$\Omega\text{ dense }\Leftrightarrow E\backslash \Omega\text{ d'intérieur vide}$$
+  on remarque que 
+  \begin{align*}
+    E\backslash\Omega&=\bigcup{k\geqslant 0}F_n\backslash\bigcup_{n\geqslant 0}\mathrm{int}\ F_n\\
+    &\subset \bigcup_{k\geqslant 0}F_k\backslash\mathrm{int}\ F_k.
+  \end{align*}
+  Et $\partial F_k=F_k\backslash\mathrm{int}\ F_k$ est un fermé d'intérieur vide, donc le théorème de Baire s'applique et $\bigcup{k\geqslant 0}\partial F_k$ est d'intérieur vide, donc $E\backslash\Omega$ est aussi d'intérieur vide, donc d'après l'équivalence du début, $\Omega$ est bien dense dans $E$.
+\end{Proof}
+
+$\triangleright$\emph{ ex :} soient $(E,d)$ complet, $f_n:E\longrightarrow \R$ une suite de fonctions continues et $f$ la limite simple des $f_n$, alors 
+$$\mathrm{cont}\ f:=\left\{x\in E\ |\ f\text{ est continue en }x\right\}$$
+est dense dans $E$.
+
+
+\begin{Proof}
+  Soit $n,k\in \N\times\N^*$, on définit
+  \begin{align*}
+    F_n^k:&=\left\{x\in E\text{ t.q. }\forall p,\geqslant n,\ |f_p(x)-f_q(x)<\nicefrac{1}{k}\right\}\\
+    &=\bigcap_{p,q\geqslant n}\left(f_p-f_q\right)^{-1}\left(\left[-\nicefrac{1}{k},\nicefrac{1}{k}\right]\right)
+  \end{align*}
+  Chacun des $F_n^k$ est fermé en tant que pré-image d'un fermé par une application continue.
+  
+  De plus, pour $k\in\N^*$ et $x\in E$, $f_n(x)$ converge donc est de Cauchy donc appartient à au moins un $F_n^k$, ainsi $E=\bigcup_{n\geqslant 0}F_n^k$.
+
+  D'après le corollaire du théorème de Baire, $O_k:=\bigcup_{n\geqslant 0}\mathrm{int}\ F_n^k$ est un ouvert dense dans $E$ donc, en y ré-applicant le théorème de Baire, 
+  $$\Omega:=\bigcap_{k\geqslant 0}\bigcup_{n\geqslant 0}\mathrm{int}\ F_n^k$$
+  est un dense dans $E$, montrons que $\Omega\subset\mathrm{cont}\ f$.
+
+  Soit $x_0\in\Omega$ et $\varepsilon>0$. Soit $k\geqslant 1$ tel que $\nicefrac{1}{k}\leqslant \varepsilon$.
+
+  $x_0\in \Omega$ donc en particulier $x_0\in O_k=\bigcup_{n\geqslant 0}\inté F_n^k$, donc il existe $n_0$ tel que $x_0\in\inté F_{n_0}^k$ et 
+  $$\exists r>0\tq B(x_0,r)\subset\inté F_n^k\subset F_n^k$$
+  donc
+  $$\forall x\in B(x_0,r),\ \forall p\geqslant n_0,\ |f_p(x)-f_{n_0}(x)|\leqslant \nicefrac{1}{k}\geqslant \varepsilon.$$
+  Puisque $p\geqslant n_0$, on peut le faire tendre vers $+\infty$ et 
+  $$\forall x\in B(x_0,r),\ |f(x)-f_{n_0}(x)|\leqslant \varepsilon.$$
+  Par inégalité triangulaire, pour tout $x\in B(x_0,r)$, on a 
+  \begin{align*}
+    |f(x)-f(x_0)|&=|\big(f(x)-f_{n_0}(x)\big)+\big(f_{n_0}(x_0)-f(x_0)\big)+\big(f_{n_0}(x)-f_{n_0}(x_0)\big)|\\ 
+    &\leqslant 2\varepsilon + |f_{n_0}(x)-f_{n_0}(x_0)|
+  \end{align*}
+  $f_{n_0}$ est continue en $x_0$ donc il existe $\tilde{r}$ tel que 
+  $$\forall x\in B(x_0,\tilde{r}),\ |f_{n_0}(x)-f_{n_0}(x_0)|\leqslant \varepsilon$$
+  donc, en posant $R:=\mathrm{min}(r, \tilde r)$, on a 
+  $$\forall x\in N(x_0,R),\ |f(x)-f(x_0)|\leqslant 3\varepsilon$$
+  donc $f$ est continue en $x_0$, ainsi $\Omega$ est bien dense dans $E$, donc $\mathrm{cont}\ f\supset\Omega$ est dense dans $E$
+\end{Proof}
+
+
+\setcounter{CompteurRemarque}{0}
+
+\begin{RQ}
+  si $f:\R\longrightarrow \R$ est dérivable, alors $f'$ est continue sur un ensemble dense, puisque la suite de fonction 
+  $$f_n(x)=\frac{1}{n}\left(f\left(x-\nicefrac{1}{n}\right)-f(x)\right)$$
+  est une suite de fonctions continues qui CV vers $f'$, ainsi l'exemple s'applique.
+\end{RQ}
+
+
+\NouvelleSubsection{Quelques rappels sur les applications linéaires continues}
+
+
+$X$ et $Y$ sont deux espaces vectoriels normés, $T:X\longrightarrow Y$ est une application linéaire.\\[1em]
+
+$T$ est continue si, et seulement si $\exists c>0$ tel que
+$$\forall x\in X,\ ||Tx||_Y\leqslant c||x||_X.$$
+
+On note 
+$$\mathcal L(X,Y):=\left\{T:X\longrightarrow Y\text{ linéaire continue}\right\}$$
+Pour $T\in\mathcal L(X,Y)$, on note
+$$||T||:=\mathrm{inf}\left\{c>0\ |\ \forall x\in X,\ ||Tx||\leqslant c||x||\right\}$$
+on montre que cette définition est équivalente à
+$$\begin{array}{rcl}
+||T||&=&\mathrm{sup}\left\{||Tx||,\ x\in X\ |\ ||x||\leqslant 1\right\}\\
+&=&\mathrm{sup}\left\{||Tx||,\ x\in X\ |\ ||x||= 1\right\}\\
+&=&\mathrm{sup}\left\{\dstyle\frac{||Tx||}{||x||}, x\in X\backslash\{0\}\right\}
+\end{array}$$
+on montre aussi que cette norme est \emph{sous-multiplicative}, \emph{i.e.}
+$$\forall T\in\mathcal L(Y,Z),\ S\in\mathcal L(X,Y),\ ||TS||\leqslant ||T||\times ||S||$$
+on généralise pour les itérations successives de T,
+$$\forall n\in\N,\ ||T^n||=||\underbrace{T\circ T\cdots\circ T}_{n\text{ fois}}||\leqslant ||T||^n.$$
+
+\begin{prop}
+  Soient $(X,Y)$ deux espaces vectoriels normés, où $Y$ est un Banach,\\
+  alors $\mathcal L(X,Y)$ est un Banach (\emph{i.e.} un e.v.n. complet).
+\end{prop}
+
+\begin{Proof}
+  Soit $(T_n)$ une suite de Cauchy dans $\mathcal L(X,Y)$, et soit $\varepsilon>0$,
+  $$\exists n_0\in\N\text{ t.q. }\forall p,q\geqslant n_0,\ ||T_p-T_p||\leqslant \varepsilon$$
+  soient $x\in X,\ p,q\geqslant n_0$
+  $$||T_px-T_qx||=||\left(T_p-T_q\right) x||\leqslant ||T_p-T_q||\ ||x||\leqslant \varepsilon ||x||\qquad (i)$$
+  donc $(T_n(x))$ est une suite de Cauchy à valeurs dans $Y$, donc elle est convergente et on peut poser
+  $$T(x):=\underset{n\to +\infty}{\mathrm{lim}}T_n(x).$$
+  Montrons que $T$ est bien linéaire, soient $(u,v)\in X,\ \lambda\in\K$,
+  \begin{flalign*}
+    T(\lambda u+v)&=\underset{n\to +\infty}{\mathrm{lim}}T_n(\lambda u+v)\\
+    &=\underset{n\to +\infty}{\mathrm{lim}}\lambda T_n(u)+\underset{n\to +\infty}{\mathrm{lim}}T_n(v)\\
+    &=\lambda\underset{n\to +\infty}{\mathrm{lim}} T_n(u)+\underset{n\to +\infty}{\mathrm{lim}}T_n(v)\\
+    T(\lambda u+v)&=\lambda T(u)+T(v)
+  \end{flalign*}
+  donc $T$ est bien linéaire et pour montrer la continuité de $T$, on fait tendre $p\to +\infty$ dans $(i)$, on obtient alors
+  $$||T-T_q||\ ||x||\leqslant \varepsilon||x||$$
+  donc $T-T_p$ est continue, et puisque $T_q$ est continue, donc $T$ l'est et $T\in\mathcal L(X,Y)$.
+\end{Proof}
+
+
+\begin{Def}
+  Soit $X,Y$ deux espaces vectoriels, un \emph{opérateur compact} est une application continue (un \emph{opérateur} continu donc) $T:X\longrightarrow Y$ tel que pour tout $A\in X$ borné, $T(A)$ est une partie relativement compacte de $Y$.
+
+  Si la topologie sur $X$ est la topologie métrique habituelle, alors $T$ est compact si, et seulement si $T(B(0,1))$ est une partie relativement compacte.\\
+\end{Def}
+
+
+$\triangleright$\emph{ ex : }soient $-\infty<a<b<+\infty$ et $K:[a,b]\times[a,b]\longrightarrow \mathbf C$ continue. Pour $f\in C([a,b],\mathbf C)$ et $x\in[a,b]$, on pose 
+$$T_K(f)(x):=\int_a^bK(x,y)f(y)\mathrm dy.$$
+Vérifions que $T_K:C([a,b],\mathbf C)\longrightarrow C([a,b],\mathbf C)$
+
+$(x,y)\longmapsto K(x,y)f(y)$ est continue et l'on intègre des fonctions continues sur un segment, donc $T_K(f)$ est bien continue. Par linéarité de l'intégrale, $T_K$ est aussi linéaire.
+
+Soit $x\in [a,b]$,
+$$|T_K(f)(x)|\leqslant ||K||_{\infty}(b-a)^2||f||_{\infty}=c||f||_{\infty}$$
+avec $||f||_{\infty}<\infty$ car $f$ est continue sur un segment, donc $T_K$ est bien une application linéaire continue.
+
+Montrons que $T_K$ est compact, \emph{i.e.} montrons que 
+$$T_K(\overline{B(0,1)})$$
+est relativement compact dans $C([a,b],\C)$.
+
+On a
+$$T_K(\overline{B(0,1)})=\left\{T_K(f),\ f\in C([a,b],\C)\text{ t.q.} ||f||_{\infty}\leqslant 1\right\}.$$
+Montrons que la famille 
+$$\left\{T_K(f),\ f\in\overline{B(0,1)}\right\}$$
+est équicontinue, soit $\varepsilon>0$ et $x\in[a,b]$, alors pour tout $z\in[a,b]$
+$$T_K(f)(x)-T_K(f)(z)=\int_a^b\left[K(x,y)-K(z,y)\right]f(y)\mathrm dy\qquad (i)$$
+$K$ est continue sur le compact $[a,b]\times[a,b]$ donc $K$ est équicontinue et il existe $\delta>0$ tel que
+$$\forall (x,z)\in[a,b]\times[a,b],\ |x-z|\leqslant\delta\Longrightarrow \forall y\in [a,b],\ |K(x,y)-K(z,y)|\leqslant \varepsilon$$
+soit $y\in B(x,\delta)$, d'après $(i)$ on a 
+\begin{flalign*}
+  |T_K(f)(x)-T_K(f)(z)|&\leqslant \varepsilon \int_a^b|f(y)\mathrm dy\\
+  &\leqslant \varepsilon ||f||_{\infty}(b-a)\\
+  &\leqslant \varepsilon (b-a)
+\end{flalign*}
+on va donc change de $\delta$, on va prendre le $\tilde\delta$ définie à partir de $\nicefrac{\varepsilon}{b-a}$ et on a maintenant
+$$\forall |x-a|\leqslant \tilde\delta,\ |T_K(f)(x)-T_K(f)(z)|\leqslant \varepsilon$$
+donc la famille est bien équicontinue et on peut appliquer le théorème d'Ascoli, et 
+$$T_K(\overline{B(0,1)})$$
+est relativement compacte.
+
+\begin{prop}
+  Soient $X$ un espace vectoriel normé, $Y$ un espace de Banach et $E\subset X$ un sous-espace dense, soit $T\in \mathcal L(E,Y)$,
+
+  alors il existe un unique $\tilde T\in \mathcal L(X,Y)$ tel que 
+  $$\forall x\in E,\ \tilde Tx=Tx$$
+  et plus, ces applications sont de normes égales, \emph{i.e.}
+  $$||\tilde T||_{\mathcal L(X,Y)}=||T||_{\mathcal L(E,Y)}.$$
+\end{prop}
+
+
+\begin{Proof}
+  La preuve est en trois partie; la construction de $\hat T$, s'assurer que cette application est continue puis s'assurer qu'elle est unique.
+
+  $\star$ Pour la construction de $\hat T$, on considère $x\in X\backslash E$. Par densité il existe $e:\N\longrightarrow E$ telle que 
+  $$e_n\tend e$$
+  et pour $x\in E$, on considère la suite constante, donc pour tout $x\in X$, il existe une suite $e_n$ à valeur dans $E$ convergeant vers $x$.
+
+  Montrons que $Te_n$ converge dans $Y$, on a 
+  \begin{align*}
+    ||Te_n-Te_m||&=||T(e_n-e_m)||\\
+    &\leqslant ||T||\ ||e_n-e_m||
+  \end{align*}
+  la suite $e_n$ étant convergente, elle est de Cauchy donc $Te_n$ est aussi de Cauchy, et $Y$ étant un espace de Banach, cette suite est convergente et on peut poser, 
+  $$\hat Tx:=\underset{n\to+\infty}{\mathrm{lim}}Te_n.$$
+  Vérifions que $\hat T$ est bien définie, $\emph{i.e.}$ que la définition n'est pas fonction du choix de la suite convergeant vers $x\in X$. Soient $x\in X$ et $e_n,e_n'$ deux suites convergeants vers $x$
+  $$||Te_n-Te_n'||\leqslant||t||\ ||e_n-e_n'||\tend0$$
+  donc 
+  $$Te_n-Te_n'\tend 0$$
+  et $\hat Tx$ est correctement définie.
+
+  $\star$ Pour la linéarité, soient $(x,y)\in X$, $\lambda\in\K$. On considère $y_n\longrightarrow y$ et $x_n\longrightarrow x$, alors
+  \begin{align*}
+    \hat T(\lambda x+y)&=\underset{n\to+\infty}{\mathrm{lim}}T(\lambda x_n+y_n)\\
+    &=\lambda\underset{n\to+\infty}{\mathrm{lim}}Tx_n+\underset{n\to+\infty}{\mathrm{lim}}Ty_n\\
+    \hat T(\lambda x+y)&=\lambda\hat Tx+\hat Ty
+  \end{align*}
+  et $\hat T$ est bien une application linéaire.
+
+  $\star$ Pour la continuité de $\hat T$, soient $x\in X$ et $x_n\longrightarrow x$, on sait, puisque $T$ est continue, que 
+  $$\forall n\in\N,\ ||Te_n||\leqslant ||T||\ ||e_n||$$
+  par passage à la limite simple
+  $$||\hat Tx||\leqslant ||T||\ ||x||$$
+  donc $\hat T$ est continue, et on a même l'inégalité des normes $||\hat T||\leqslant ||T||$.
+
+  $\star$ Quant aux normes, on a $\hat T\big|_E=T$ donc pour $e\in E$,
+  $$||Te||=||\hat Te||\leqslant ||\hat T||\ ||e||$$
+  donc $||T||\leqslant||\hat T||$ ainsi on a l'égalité des normes recherchée.
+
+  $\star$ Pour l'unicité, on suppose qu'il existe $U$ distinct de $\hat T$ qui convient, alors $\forall x\in X$, il existe $x_n\longrightarrow x$ une suite d'élements  de $E$, alors
+  \begin{align*}
+    U(x)&=\underset{n\to+\infty}{\mathrm{lim}} Ue_n\\
+    &=\underset{n\to+\infty}{\mathrm{lim}}Te_n\\
+    &=\underset{n\to+\infty}{\mathrm{lim}}\hat Te_n\\
+    Ux&=\hat Tx
+  \end{align*}
+  ainsi $U=\hat T$, donc $\hat T$ est effectivement unique.
+\end{Proof}
+
+
+\begin{thC}[Banach-Steinhaus]
+  Soient $X$ un espace de Banach, $Y$ un espace vectoriel normé et $\left\{T_i,\ i\in I\right\}$ une suite quelconque d'application linéaires $X\longrightarrow Y$,
+  
+  alors exactement l'une des assertions suivantes est vraie\\
+  
+  $(i))$ $\underset{i\in I}{\mathrm{sup}}||T_i||<\infty$\\[1em]
+  $(ii) $ $\big\{x\in X\text{ t.q. } \underset{i\in I}{\mathrm{sup}}||T_ix||=+\infty\big\}$ est dense dans $X$.
+\end{thC}
+
+\begin{Proof}
+  On suppose que l'assertion $(ii)$ est fausse, donc que 
+  $$\left\{x\in X\text{ t.q. } \mathrm{sup}_{i\in I}||T_ix||=+\infty\right\}$$ 
+  n'est pas dense dans $X$, autrement dit son complémentaire, noté $F$ est d'intérieur non vide.
+
+  Soit $n\geqslant 0$, on pose 
+  \begin{align*}
+    F_n:&=\left\{x\in X\text{ t.q. }\mathrm{sup}_{i\in I}||T_ix||\leqslant n\right\}\\
+    &=\bigcap_{i\in I}T_i^{-1}\left(\overline{B(0,1)}\right)
+  \end{align*}
+  Les $F_n$ sont tous fermés car ils sont des intersection de pré-images de fermés par l'application continue $T_i$, donc le théorème de Baire s'applique et 
+  $$\exists n_0\geqslant 0, x_0\in X, r>0\text{ t.q. }\overline{B(x_0,r)}\subset F_{n_0}$$
+  pour $x\in X$ tel que $||x||\leqslant r$, on écrit
+  $$x=\frac12\left((x+x_0)+(x-x_0)\right)$$
+  donc, puisque $T_i$ est linéaire
+  $$T_ix=\frac12T(x_0+x)-\frac12T(x_0-x)$$
+  et puisque $x_0+r$ et $x_0-x$ sont tous deux dans $\overline{B(x_0,r)}$, 
+  $$\left\{\begin{array}{l}
+    T_i(x_0+x)\in F_{n_0}\\
+    T_i(x_0-x)\in F_{n_0}
+  \end{array}\right.$$
+  d'où la majoration suivante 
+  $$||T_ix||\leqslant n_0.$$
+  Dans le cas général, pour $u\in X$, on pose $x:=r\frac{u}{||u||}$ (on suppose $u\neq 0$), alors $||x||\leqslant r$ et on est dans le cadre du cas précédent, 
+  \begin{align*}
+    ||T_iu||&=\norm{T_i\left(\frac{||u||}{r}x\right)}\\
+    &=\frac{||u||}{r}\norm{T_i\left(x\right)}\\
+    &\leqslant \frac{||u||}{r} n_0
+  \end{align*}
+  en faisant varier $||u||$ sur le disque unité, on a (passage au sup)
+  $$||T_i||\leqslant \frac{n_0}{r}$$
+  ainsi 
+  $$\mathrm{sup}_{i\in I}||T_i||<\infty$$
+  et l'on est bien dans le cas $\mathit 1$.
+\end{Proof}
+
+$\triangleright$\emph{ ex : }application au séries de Fourier, pour $f:[-\pi,\pi]\longrightarrow\mathbf C$ intégrable, on définit les coefficients de Fourier comme suit :
+$$\hat f(k):=\frac{1}{2\pi}\int_{-\pi}^{\pi}f(t)\ex{-ikt}\mathrm dt$$
+et la somme partielle de Fourier comme 
+$$S_n(f)(t):=\sum_{k=-n}^n\hat f(k)\ex(ikt)$$
+
+On va voir dans quel cas on a, pour $f\in C_{2\pi}(\R,\mathbf C)$,
+$$S_nf\tend f\text{ CVS}$$
+
+On montre d'abord que 
+$$\left\{f\in C([-\pi,\pi])\ |\ \underset{n\geqslant 0}{\mathrm{sup}}|S_nf(0)|=+\infty\right\}$$
+est dense dans $C([-\pi,\pi])$, muni de la norme $||\cdot||_{\infty}$.
+
+\begin{Proof}
+  Soit, pour $n\in \N$, 
+  $$\ell_n: 
+  \begin{array}{|rcl}
+    \mathcal C[-\pi,\pi]&\longrightarrow&\R\\
+    f&\longmapsto&S_nf(0)\\
+  \end{array}$$
+  $\ell_n$ est une application linéaire.
+
+  $\star$ Montrons que $\ell_n$ est continue, soit $f\in\mathcal C[-\pi,\pi]$, on calcule 
+  \begin{align*}
+    \ell_n(f)&=\sum_{k=-n}^n\frac{1}{2_i}\int_{-\pi}^{\pi}f(t)\ex{-ikt}\dt\\
+    \ell_n(f)&=\frac{1}{2\pi}\int_{-\pi}^{\pi}f(t)\sum_{k=-n}^n\ex{-ikt}\dt
+  \end{align*}
+  On définit 
+  $$D_n(t):=\sum_{k=-n}^n\ex{-ikt}$$
+  le noyau de Dirichlet, que l'on peut calculer
+  $$D_n(t)=\left\{\begin{array}{rcr}
+    &\dstyle\frac{\sin(\nicefrac{2n+1}{2}t)}{\sin(\nicefrac{t}{2})}&\text{ si }t\neq 0\\[1em]
+    & 2n+1&\text{ si }t=0  
+  \end{array}\right.$$
+  Avec ces notations, on a 
+  \begin{align*}
+    |\ell_n(f)|&=\frac{1}{2\pi}\left|\int_{-\pi}^{\pi}f(t)D_n(t)\dt\right|\\
+    &\leqslant ||f||_{\infty}\frac{1}{2\pi}\left|\int_{-\pi}^{\pi}D_n(t)\dt\right|\\
+    |\ell_n(f)|&\leqslant ||f||_{\infty}\frac{1}{2\pi}\int_{-\pi}^{\pi}\left|D_n(t)\right|\dt\qquad (i)
+  \end{align*}
+  donc $\ell_n$ est continue.
+
+  $\star$ Montrons que $\underset{n\geqslant 0}{\mathrm{sup}}\ ||\ell_n||=+\infty$
+
+  On montre d'abord que $||\ell_n||=\dstyle\frac{1}{2\pi}\int_{-\pi}^{\pi}|D_n|\dt$. 
+  
+  $\star\star$ L'inégalité $(i)$ nous donne la moitié de l'égalité
+  $$||\ell_n||\leqslant\frac{1}{2\pi}\int_{-\pi}^{\pi}\left|D_n(t)\right|\dt.$$
+  $\star\star$ On va chercher à montrer l'autre sens de cette inégalité, soit $\varepsilon>0$ et 
+  $$f_\varepsilon:t\longmapsto \frac{D_n(t)}{|D_n(t)|+\varepsilon}$$
+  $\sin$ étant $2\pi$-périodique, $f_\varepsilon$ l'est aussi donc $f_\varepsilon\in\mathcal C[-\pi,\pi]$ et 
+  $$\ell_n(f_\varepsilon)=\frac{1}{2\pi}\int_{-\pi}^{\pi}\frac{D_n^2(t)}{|D_n(t)|+\varepsilon}\dt$$
+  De plus, 
+  $$\underset{\varepsilon\to 0^+}{\mathrm{lim}}\frac{D_n^2(t)}{|D_n(t)|+\varepsilon}=|D_n(t)|$$
+  et on peut dominer l'intégrande par $|D_n|$, qui est dans $\mathcal L_1$, donc on peut appliquer le théorème de convergence dominée et 
+  $$\underset{\varepsilon\to 0^+}{\mathrm{lim}}\frac{1}{2\pi}\int_{-\pi}^{\pi}\frac{D_n^2(t)}{|D_n(t)|+\varepsilon}\dt=\frac{1}{2\pi}\int_{-\pi}^{\pi}|D_n(t)|\dt.$$
+  De plus, $\forall \varepsilon>0,\ ||f_\varepsilon||_\infty\leqslant 1$ donc $||f_\varepsilon||_1\leqslant 1$ et $||\ell_n||\geqslant |\ell_n(f_\varepsilon)|$, donc par passage à la limite, 
+  $$||\ell_n||\geqslant \frac{1}{2\pi}\int_{-\pi}^{\pi}|D_n(t)|\dt.$$
+  Ainsi on a les deux majorations / minorations, donc 
+  $$||\ell_n||= \frac{1}{2\pi}\int_{-\pi}^{\pi}|D_n(t)|\dt.$$
+  On peut maintenant passer au calcul de $||\ell_n||$;
+  \begin{align*}
+    ||\ell_n||&=\frac{1}{\pi}\int_{-\pi}^{\pi}|D_n(t)|\dt\\
+    &=\frac{1}{\pi}\int_{-\pi}^{\pi}\left|\frac{\sin\left(t\nicefrac{(2n+1)}{2}\right)}{\sin\left(\nicefrac{t}{2}\right)}\right|\dt\\
+    &\geqslant\frac{1}{\pi}\int_{-\pi}^{\pi}\frac{\left|\sin\left(t\nicefrac{(2n+1)}{2}\right)\right|}{|t|}\dt\\
+    &\geqslant\frac{2}{\pi}\int_0^{\pi}\frac{\left|\sin\left(t\nicefrac{(2n+1)}{2}\right)\right|}{|t|}\dt\\
+    &\geqslant \frac{2}{\pi}\int_0^{\nicefrac{2n+1}{2}}\frac{|\sin u|}{\nicefrac{2u}{2n+1}}\frac{2\mathrm du}{2n+1}\\
+    ||\ell_n||&\geqslant \frac{2}{\pi}\int_0^{\nicefrac{2n+1}{2}}\frac{|\sin u|}{u}\mathrm du\\
+  \end{align*}
+  Donc $||\ell_n||\tend \dstyle\int_{0}^{\infty}\frac{|\sin u|}{u}\mathrm du=+\infty$, donc $\underset{n\geqslant 0}{\mathrm{sup}}\ ||\ell_n||=+\infty$.
+\end{Proof}
+
+
+\begin{thC}[de majoration automatique]
+  Soient $(X,Y)$ des espaces de Banach et $T\in\mathcal L(X,Y)$, si $T$ est surjective,
+
+  alors $\forall \varepsilon>0$, $\exists c>0$ tel que $\forall y\in Y,\ \exists x\in X$ tel que
+  $$y=Tx\text{ et }||x||\leqslant \varepsilon||y||=\varepsilon||Tx|$$
+\end{thC}
+
+
+\begin{Proof}
+  A FAIRE
+\end{Proof}
+
+
+\begin{thC}[d'isomorphisme de Banach]
+  Soient $X,Y$ est espaces de Banach et $T\in \mathcal L(X,Y)$, si $T$ est bijective, 
+
+  alors $T^{-1}\in \mathcal L(Y,X)$.
+\end{thC}
+
+\begin{Proof}
+  Soit $\varepsilon>0$, on sait d'après le théorème de majoration automatique q'il existe $c>0$ tel que $\forall y\in Y,\ \exists x\in X$ vérifiant $Tx=y$ et $||x||\leqslant \varepsilon ||Tx||$. On écrit alors $x=T^{-1}y$ et l'inégalité devient alors 
+  $$||T^{-1}y||\leqslant \varepsilon ||y||$$
+  ceci étant vrai pour tout $y\in Y$, $T^{-1}$ est continue.
+\end{Proof}
+
+
+\begin{thC}[de l'application ouverte]
+  Soient $X,Y$ des espaces de Banach et $T\in\mathcal L(X,y)$, si $T$ est surjective,
+
+  alors $T$ est ouverte, \emph{i.e.} $\forall O$ ouvert, $T(O)$ est un ouvert.
+\end{thC}
+
+
+\begin{Proof}
+  On applique le théorème de majoration automatique, donc il existe $c>0$ tel que 
+  $$B(0,1)\subset T\left(B(0,c)\right),$$
+  ce qui conclut.
+\end{Proof}
+
+
+\begin{thC}
+  Soient $X$ un espace vectoriel normé et $||\cdot||_1$, $||\cdot||_2$ deux normes sur $X$. On suppose que $X$ est complet pour les deux normes et qu'il existe $c>0$ tel que pour tout $x\in X$, $||x||_2\leqslant c||x||_1$, 
+
+  alors $||\cdot||_1$ et $||\cdot||_2$ sont équivalentes.
+\end{thC}
+
+
+\begin{Proof}
+  A FAIRE
+\end{Proof}
+
+\NouvelleSubsection{Théorème du graphe fermé}
+
+
+\begin{prop}
+  Soient $X,Y$ deux Banach, $T\in\mathcal L(X,Y)$, on suppose que pour $x_n\in X$, $y_n\in Y$ telles que $x_n\tend x\in X$, $y_n\tend y\in Y$, alors $Tx=y$,
+
+  alors $T$ est continue
+\end{prop}
+
+\begin{Proof}
+  A FAIRE
+\end{Proof}
+
+
+$\triangleright$\emph{ex :} application en analyse complexe, soit 
+$$H^2:=\left\{f\in\mathrm{Hol}\ D(0,1),\ f(z)=\sum_{n\in\mathbf Z}a_n z^n \tq \sum_{n\in\mathbf Z}|a_n|^2=||f||_2^2<\infty\right\}$$
+l'espace de Hardy,
+
+alors $H^2$ est un espace de Banach.
+
+
+\begin{Proof}
+  A FAIRE
+\end{Proof}
+
+
+\NouvelleSubsection{Théorème de Hann-Banach}
+
+Soit $E$ un espace vectoriel normé, on note $E^*$ ou $E'$ l'ensemble des formes linéaires continues
+$$E^*\left\{\varphi:E\longrightarrow \R\text{ linéaire continue }\right\},$$ 
+muni de la norme d'opérateur 
+$$||\varphi||=\underset{x\in E\{0\}}{\mathrm{sup}}\frac{|\varphi(x)|}{||x||}.$$
+On montre que c'est un espace de Banach, \emph{i.e.} un espace vectoriel normé complet.
+
+$\triangleright$\emph{ex : }si $\dim E<\infty$, en considérant $(e_1,\cdots, e_n)$ une base de $E$, alors $\forall \varphi\in E^*$,
+$$\varphi(x)=\sum_{i=1}^n\varphi(e_i)x_i$$
+où $x=(x_1,\cdots,x_n)$.
+
+$\triangleright$\emph{ex : }pour les espaces $\ell^p$ avec $p<\infty$, on note $q$ le conjugué de $p$, on se donne $a=\left\{a_n\right\}\in\ell^q$, on pose 
+$$\varphi_a:\begin{array}{|rcl}
+  \ell^p&\longrightarrow&\C\\
+  u&\longmapsto\sum_{n\in\N}u_na_n 
+\end{array}$$
+$\varphi_a$ est bien définie (inégalité de Hölder) et est continue, avec 
+$$\varphi_a||\leqslant ||a||_q.$$
+
+On rappelle la propriété suivante : 
+
+
+\begin{prop}
+  Soit $\varphi:E\longrightarrow \C$ linéaire,
+  alors $\varphi\in E^*\Leftrightarrow\ker\ \varphi$ est fermé dans $E$
+\end{prop}
+
+
+\begin{Proof}
+  A FAIRE
+\end{Proof}
+
+
+Soit $E$ un $\mathbf K$-espace vectoriel normé et $F\subset E$ un sous-espace vectoriel, on prend $\varphi:F\longrightarrow \mathbf K$ linéaire continue, on va se demander si il existe un prolongement de $\varphi$ sur $E$ de même norme que $\varphi$. Plus formellement, on cherche $f:E\longrightarrow \mathbf K$ telle que 
+$$f\big|_F=\varphi\text{ et }||f|_E=||\varphi||_F.$$
+
+On fait d'abord une parenthèse en théorie des ensembles, on se donne $(\mathcal E,\preccurlyeq)$ un \emph{ensemble ordonné}, \emph{i.e.} muni d'une relation d'ordre.
+
+$A\subset \mathcal P(\mathcal E)$ est \emph{totalement ordonné} si, et seulement si 
+$$\forall (x,y)\in A, x\preccurlyeq y\text{ ou }y\preccurlyeq x.$$
+
+On dit que $\preccurlyeq$ est \emph{inductif} si toute partie de $\mathcal E$ totalement ordonnée admet un majorant.
+
+On dit que $z\in \mathcal E$ est un \emph{élément maximal} si, et seulement si 
+$$\forall x\in \mathcal E, z\preccurlyeq x\Rightarrow z=x.$$
+
+
+$\triangleright$\emph{ex :} soit $\O$ un ensemble de cardinal supérieur à 2, pour $A,B\in\mathcal P(\O)$, on pose
+$$A\preccurlyeq B\Leftrightarrow A\subset B,$$
+alors $(\mathcal P(\O),\preccurlyeq)$ est un ensemble ordonné non totalement ordonné donc $\O$ est un élément maximal.\\[1em]
+
+On a le résultat / axiome suivant (en fait, c'est équivalent à l'axiome du choix);
+
+
+\begin{thC}[lemme de Zorn]
+  Tout ensemble non vide, ordonné et inductif possède un élément maximal.
+\end{thC}
+
+
+\begin{thC}[de Hann-Banach]
+  Soit $E$ un $\R$-espace vectoriel et $F\subset E$ un sous-espace vectoriel, soit $\varphi\in F^*$, 
+
+  alors il existe $\tilde\varphi\in E^*$ telle que 
+  $$\tilde\varphi\big|_F=\varphi\text{ et }||\varphi||_{F^*}=||\tilde\varphi||_{E^*}$$
+\end{thC}
+
+
+\begin{Proof}
+  A FAIRE
+\end{Proof}
+
+\end{document}
