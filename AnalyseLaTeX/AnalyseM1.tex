@@ -42,7 +42,9 @@ Dans le présent document, $\K=\R$ ou $\mathbf C$, $(K,d)$ est un espace métriq
 $$C(K,\K)=\left\{f:K\longrightarrow\K\text{ continues }\right\}$$
 de la norme 
 $$||f||_{\infty}:=\mathrm{sup}\left\{f(x)|,\ x\in K\right\}.$$
-
+Suivant le contexte, la norme opérateur, pour $E$ et $F$ deux espaces vectoriels normés et $T\in\mathcal L(E,F)$,
+$$||T||=\mathrm{sup}\left\{||T x||, x\in E\tq||x||=1\right\}$$
+sera notée $||\cdot||_{\mathrm{op}}$ pour la distinguer des normes sur $E$ ou $F$ (dans la littérature, on rencontre parfois la notation $|||\cdot|||$)
 
 
 
@@ -896,12 +898,12 @@ On passe maintenant à la v2, \emph{i.e.} la formulation avec des fermés. Il va
 \end{Proof}
 
 
-\begin{propC}{un corollaire}
+\begin{corollaire}
   Soit $(E,d)$ métrique complet et $\left(F_n\right)$ une suite de fermées tels que 
-  $$\bigcup_{n\geqslant 0}F_n=E$$\\
+  $$\bigcup_{n\geqslant 0}F_n=E,$$\\
 
   alors $\Omega:=\bigcup_{n\geqslant 0}\mathrm{int}\ F_n$ est un ouvert dense dans $E$, donc à fortiori il existe au moins un $\mathrm{int}\ {F_{n_0}}\neq\emptyset$.
-\end{propC}
+\end{corollaire}
 
 \begin{Proof}
   On a l'équivalence suivante 
@@ -1399,13 +1401,29 @@ On peut étendre ce théorème dans le cas complexe,
 
   alors\\
   $(\mathit 1)\ \exists x^*\in E^*\tq ||x^*||=1$ et $x^*(x)=||x||$\\[1em]
-  $(\mathit 2)\ ||x|=\mathrm{sup}\left\{|x^*(x)|,\ x^*\in E^*\tq ||x^*||=1\right\}$.
+  $(\mathit 2)\ ||x||=\mathrm{sup}\left\{|x^*(x)|,\ x^*\in E^*\tq ||x^*||=1\right\}$.
 \end{corollaire}
 
 
-\begin{Proof}
-  A FAIRE
-\end{Proof}
+\begin{ProofC}{Démonstration du (1)}
+  Soit $x\in  E$, on considère 
+  $$\varphi:\begin{array}{|rcl}
+    \K x&\longrightarrow&\K\\
+    \lambda x&\longmapsto&\lambda||x||
+  \end{array}$$
+  $\varphi$ est une application linéaire isométrique (donc de norme 1) donc $\varphi$ est continue, donc d'après le théorème de Hahn-Banach, il existe $x^*\in E^*\tq ||x^*||=||\varphi||=1\text{ et }\varphi=x^*\big|_{\K x}$.
+
+  En particulier, $x^*(x)=\varphi(x)=||x||$, ce qui conclut.
+\end{ProofC}
+
+
+\begin{ProofC}{Démonstration du (2)}
+  Soit $x^*\in E^*$ telle que $||x^*||=1$, alors
+  $$|x^*(x)|\leqslant ||x^*||\ ||x||=||x||$$
+  donc 
+  $$\mathrm{sup}\left\{|x^*(x)|,\ x^*\in E^*\tq ||x^*||=1\right\}\leqslant ||x||$$
+  et le point $(1)$ du corollaire nous indique que $||x||$ est atteinte, d'où l'égalité annoncée.
+\end{ProofC}
 
 
 \begin{corollaire}
@@ -1415,6 +1433,11 @@ On peut étendre ce théorème dans le cas complexe,
   $\forall (a,b)\in E\tq a\neq b,\ \exists f\in E^*\tq f(a)\neq f(b).$
 \end{corollaire}
 
+
+\begin{Proof}
+  Soit $(a,b)\in E$ distincts, on pose $x:=a-b$, d'après le corolaire précédent, il existe $x^*\in E^*$ tel que $x^*(x)=||x||$, donc 
+  $$x^*(a)-x^*(b)=||x||\neq0.$$
+\end{Proof}
 
 \begin{Proof}
   A FAIRE
