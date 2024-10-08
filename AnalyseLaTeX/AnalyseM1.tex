@@ -1226,20 +1226,62 @@ est dense dans $C([-\pi,\pi])$, muni de la norme $||\cdot||_{\infty}$.
     &\geqslant \frac{2}{\pi}\int_0^{\nicefrac{2n+1}{2}}\frac{|\sin u|}{\nicefrac{2u}{2n+1}}\frac{2\mathrm du}{2n+1}\\
     ||\ell_n||&\geqslant \frac{2}{\pi}\int_0^{\nicefrac{2n+1}{2}}\frac{|\sin u|}{u}\mathrm du\\
   \end{align*}
-  Donc $||\ell_n||\tend \dstyle\int_{0}^{\infty}\frac{|\sin u|}{u}\mathrm du=+\infty$, donc $\underset{n\geqslant 0}{\mathrm{sup}}\ ||\ell_n||=+\infty$.
+  et puisque 
+  $$\frac{2}{\pi}\int_0^{\nicefrac{2n+1}{2}}\frac{|\sin u|}{u}\mathrm du\longrightarrow\dstyle\int_{0}^{\infty}\frac{|\sin u|}{u}\mathrm du = \infty\text{ quand }n\to\infty,$$
+  $||\ell_n||\longrightarrow\infty$, donc $\underset{n\geqslant 0}{\mathrm{sup}}\ ||\ell_n||=+\infty$.
 \end{Proof}
 
 
 \begin{thC}{de majoration automatique}
   Soient $(X,Y)$ des espaces de Banach et $T\in\mathcal L(X,Y)$, si $T$ est surjective,
 
-  alors $\forall \varepsilon>0$, $\exists c>0$ tel que $\forall y\in Y,\ \exists x\in X$ tel que
-  $$y=Tx\text{ et }||x||\leqslant \varepsilon||y||=\varepsilon||Tx|$$
+  alors il existe $c>0$ tel que $\forall y\in Y,\ \exists x\in X$ tel que
+  $$y=Tx\text{ et }||x||\leqslant c||y||=c||Tx||$$
 \end{thC}
 
 
 \begin{Proof}
-  A FAIRE
+  $\star$ On commence par montrer qi'il existe $M>0$ tel que $B(0,1)\subset \overline{T\left[B(0,M)\right]}$. On a l'écriture suivante pour $X$,
+  $$X=\bigcup_{n\geqslant 1}B(0,)$$
+  Par surjectivité de $T$, on a aussi
+  $$Y=T(X)=\bigcup_{n\geqslant 1}T\left[B(0,n)\right]$$
+  et on a aussi, en posant $F_n:=\overline{T\left[B(0,n)\right]}$
+  $$Y=\bigcup_{n\geqslant 1}F_n.$$
+  Les $F_n$ sont tous fermés et $Y$ est un espace de Banach, on peut donc y appliquer le théorème de Baire, donc il existe $n_0$ tel que $F_n{n_0}$ est d'intérieur non vide, donc
+  $$\exists y_0\in Y,\ \exists r>0\tq B(y_0,r)\subset F_{n_0}\subset \overline{T\left[B(0,n)\right]}.$$
+
+  Montrons que $B(y_0,r)\subset F_{n_0}$, soit $y\in B(0,r)$ alors 
+  $$y_0-y,y_0=Y\in B(y_0,r)$$
+  donc, pour $(u_n,v_n)\in B(y_0,n_0)$ tellle que 
+  $$T(u_n)\longrightarrow y_0+y\text{ et }T(v_n)\longrightarrow y_0-y$$,
+  $$T\left(\frac12\left(u_n+v_n\right)\right)\longrightarrow y$$
+  et $\forall n\in\N,\ \frac12\left(u_n+v_n\right)\in B(0,n_0).$
+
+  Puisque $F_{n_0}$ est un fermé, $y\in F_{n_0}$ et $B(0,r)\subset\overline{T\left[B(0,n_0)\right]}$, autrement dit (linéarité ??? oui), en posant $M:=\nicefrac{n_0}{r}$, on obtient 
+  $$B(0,1)\subset \overline{T\left[B(0,M)\right]}.$$
+  $\hfill\square$ 
+
+  $\star$ On va maintenant montrer qu'il existe $c_1>0$ tel que $B(0,1)\subset\left[B(0,c_1)\right].$ Soit $z_0\in B(0,1)\subset \overline{T\left[B(0,M)\right]}$ alrs il existe $x_0\in B(0,M)$ tel que
+  $$||z_0-Tx_0||<\frac12$$
+  on pose $z_1:=z_0-Tx_0$, alors $z_1\in B(0,\nicefrac12)\subset \subset \overline{T\left[B(0,\nicefrac{M}{2})\right]}$ donc il existe $x_1\in B(0,\nicefrac{M}{2})$ tel que 
+  $$||z_1-Tx_1||<\frac14$$
+  on pose (encore) $z_2:=z_1-Tx_1$ et on montre (par récurrence) qu'il existe $x_n,x_n$ telles que 
+  $$\forall n\in \N,\ z_n\in B\left(0,\frac{1}{2^n}\right),\ x_n\in B\left(0,\frac{M}{2^n}\right)\tq z_{n+1}=z_n-Tx_n$$
+  Ainsi 
+  $$\sum_{n=0}^\infty ||x_n||<\sum_{n=0}^\infty\frac{M}{2^n}=2M$$
+  $X$ étant un espace de Banach, la convergence absolue implique la convergence et l'on peut définir 
+  $$x:=\sum_{n=0}^\infty x_n$$
+  et $x\in B(0,2M)$.
+
+  On peut calculer $Tx$,
+  $$Tx=\sum_{n=0}^\infty Tx_n=\sum_{n=0}^\infty z_n-z_{n+1}$$
+  et puisque $z_n\longrightarrow 0$, on a alors $Tx=z_0$ et $c_1:=2M$ convient.
+  $\hfill\square$
+
+  $\star$ Pour conclure, soit $y\in Y\backslash {0}$ et $z:=\frac{y}{2||y||}$, alors $z\in B(0,1)$ donc il existe $x_1\in X$ tel que $||x_1||\leqslant c_1$ et $z=Tx_1$, donc
+  $$y=T(2||y||x_1)=Tx$$
+  (en posant $x:=2||y||x_1$) et l'on a 
+  $$||x||=2||y||\ ||x_1||<2c_1||y||.$$
 \end{Proof}
 
 
@@ -1250,9 +1292,13 @@ est dense dans $C([-\pi,\pi])$, muni de la norme $||\cdot||_{\infty}$.
 \end{thC}
 
 \begin{Proof}
-  Soit $\varepsilon>0$, on sait d'après le théorème de majoration automatique q'il existe $c>0$ tel que $\forall y\in Y,\ \exists x\in X$ vérifiant $Tx=y$ et $||x||\leqslant \varepsilon ||Tx||$. On écrit alors $x=T^{-1}y$ et l'inégalité devient alors 
-  $$||T^{-1}y||\leqslant \varepsilon ||y||$$
-  ceci étant vrai pour tout $y\in Y$, $T^{-1}$ est continue.
+  D'après le théorème de majoration automatique, il existe $c>0$ tel que
+  $$\forall y\in Y,\ \exists x\in X\tq y=Tx\text{ et }||x||\leqslant c||y||$$
+  puisque $T$ est bijective, le $x$ est unique, donc on peut ré-écrire 
+  $$\forall x\in X,\ ||x||\leqslant c||y||$$
+  et puisque $x=T^{-1}y$, on a 
+  $$\forall y\in Y,\ ||T^{-1}y||\leqslant c||x||$$
+  autrement dit, $T^{-1}$ est continue. 
 \end{Proof}
 
 
@@ -1270,15 +1316,20 @@ est dense dans $C([-\pi,\pi])$, muni de la norme $||\cdot||_{\infty}$.
 \end{Proof}
 
 
-\begin{thC}
+\begin{prop}
   Soient $X$ un espace vectoriel normé et $||\cdot||_1$, $||\cdot||_2$ deux normes sur $X$. On suppose que $X$ est complet pour les deux normes et qu'il existe $c>0$ tel que pour tout $x\in X$, $||x||_2\leqslant c||x||_1$, 
 
   alors $||\cdot||_1$ et $||\cdot||_2$ sont équivalentes.
-\end{thC}
+\end{prop}
 
 
 \begin{Proof}
-  A FAIRE
+  Soit $\mathrm{Id}:(X,||\cdot||_1)\longrightarrow(X,||\cdot||_2)$, cette application est bijective et linéaire, d'après le théorème d'isomorphisme de Banach, c'est un homéomorphisme, donc 
+  $$\left\{\begin{array}{l}
+    \mathrm{Id} \text{ est continue donc }\exists c>0\tq \forall x\in X, ||x||_2=||\mathrm{Id}x||_2\leqslant c||x||_1\\
+    \mathrm{Id}^{-1} \text{ est continue donc }\exists c^{-1}>0\tq \forall x\in X, ||x||_1=||\mathrm{Id}^{-1}x||_1\leqslant c||x||_2
+  \end{array}\right.$$
+  et les normes $||\cdot||_1$ et $||\cdot||_2$ sont effectivement équivalentes.
 \end{Proof}
 
 \NouvelleSubsection{Théorème du graphe fermé}
