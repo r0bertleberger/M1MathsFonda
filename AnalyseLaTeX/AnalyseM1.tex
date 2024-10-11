@@ -1537,5 +1537,89 @@ alors $\mathrm{Vect}\left(f_{a_n},\ n\in\N\right)$ est dense dans $\left(C[-1,1]
 \end{Proof}
 
 
+\setcounter{prop}{0}
+
+
+\NouvellePart{Espaces de Hilbert}
+
+
+\PremiereNouvelleSubsection{Rappels sur les espaces préhilbertiens}
+
+
+\begin{Def}
+  Soit $E$ un $\K$-espace vectoriel et $\langle \cdot,\cdot\rangle:E\times E\longrightarrow E$ une application,\\
+
+  $(E,\langle \cdot,\cdot\rangle)$ est un \emph{espace préhilbertien} si, et seulement si \\
+  $\forall (x,y,z)\in E,\ \forall \lambda\in\K$,\\
+  $(\bullet)\quad \langle x,y\rangle =\overline{\langle y,x\rangle}$\\
+  $(\bullet\bullet)\quad \langle x+y,z\rangle =\langle y,z\rangle+\langle y,z\rangle$\\
+  $(\bullet\bullet\bullet)\quad \langle \lambda x,y\rangle =\lambda\langle y,x\rangle$\\
+  $(\bullet\bullet\bullet\bullet)\quad \langle x,x\rangle \geqslant 0$\\
+  $(\bullet\bullet\bullet\bullet\bullet)\quad \langle x,x\rangle = 0\Leftrightarrow x=0.$\\
+\end{Def}
+
+
+\begin{RQ}
+  Si $\langle \cdot,\cdot\rangle$ vérifie uniquement les deux premiers points, c'est une \emph{forme hermitienne}, si il vérifie les quatres premiers points c'est une \emph{forme hermitienne positive} et si il vérifies tous ces points, on peut dire que c'est un \emph{produit scalaire} ou une \emph{forme hermitienne définie positive}, 
+\end{RQ}
+
+
+\begin{propC}{Cauchy-Schwarz}
+  Soit $(E,\langle \cdot,\cdot\rangle)$ un espaces préhilbertien,\\
+
+  alors 
+  $$\forall (x,y)\in E,\ |\langle x,y\rangle|\leqslant \sqrt{\langle x,x\rangle}\sqrt{\langle y,y\rangle},$$
+  une autre version est 
+  $$\forall (x,y)\in E,\ \langle x,y\rangle^2\leqslant ||x||\ ||y||.$$
+  De plus, en posant 
+  $$||\cdot||:x\longmapsto \sqrt{\langle x,x\rangle}$$
+  on obtient un espace vectoriel normé $(E,||\cdot||)$.
+\end{propC}
+
+
+$\triangleright$\emph{ex :} soit $A=\left(a_{i,j}\right)\in M_n(\C)$ une matrice hermitienne, alors 
+$$f_A:\begin{array}{ccl}
+  \C^n\times\C^n&\longrightarrow&\C\\
+  (u,v)&\longmapsto&\langle Au,v\rangle
+\end{array}$$
+est une forme hermitienne et 
+$$f_a\text{ positive }\Leftrightarrow\mathrm{Sp}\ A\subset\R_+,$$
+$$f_a\text{ définie positive }\Leftrightarrow\mathrm{Sp}\ A\subset\R_+^*,$$
+
+
+$\triangleright$\emph{ex :} si 
+$$\ell^2(\C):=\left\{u:\N\longrightarrow\C\tq \sum_{n\geqslant 0}|u_n|^2<\infty\right\}$$
+alors 
+$$\langle u,v\rangle:=\sum_{n\geqslant 0}u_n\overline{v_n}$$
+est un produit scalaire, dit \emph{canonique} sur $\ell^2(\C).$
+
+
+\begin{propC}{identitié du parallélogramme}
+  Pour $H$ un espace préhilbertien et $(x,y)\in H$, on a 
+  $$||x+y||^2+||x-y||^2=2\left(||x||^2+||y||^2\right).$$
+\end{propC}
+
+
+\begin{proof}
+  Soient $(x,y)\in H$,
+  \begin{align*}
+    ||x+y||^2&=\langle x+y,x+y\rangle\\
+    &=||x||^2+||y||^2+\langle x,y\rangle+\langle y,x\rangle\\
+    &=||x||^2+||y||^2+\langle x,y\rangle+\overline{\langle y,x\rangle}\\
+    ||x+y||^2&=||x||^2+||y||^2+\Re \langle x,y\rangle\qquad (i)\\
+  \end{align*}
+  et la même manière, on a 
+  $$||x-y||^2=||x||^2+||y||^2-\Re \langle x,y\rangle\qquad (ii)$$
+  on obtient donc, en sommant les points $(i)$ et $(ii)$
+  $$||x+y||^2+||x-y||^2=2\left(||x||^2+||y||^2\right).$$
+\end{proof}
+
+
+\begin{propC}{identité de polarisation}
+  Pour $H$ un espace préhilbertien et $(x,y)\in H$, on a 
+  $$\text{ si }\K=\R,\ \langle x,y\rangle=\frac14\left(||x+y||^2-||x-y||^2\right),$$
+  $$\text{ si }\K=\C,\ \langle x,y\rangle=\frac14\left(\sum_{k=0}^3i^k||x+i^ky||\right),$$
+\end{propC}
+
 
 \end{document}
