@@ -1382,25 +1382,37 @@ est dense dans $C([-\pi,\pi])$, muni de la norme $||\cdot||_{\infty}$.
 
 $\triangleright$\emph{ex :} application en analyse complexe, soit 
 $$H^2:=\left\{f\in\mathrm{Hol}\ D(0,1),\ f(z)=\sum_{n\in\mathbf Z}a_n z^n \tq \sum_{n\in\mathbf Z}|a_n|^2=||f||_2^2<\infty\right\}$$
-l'espace de Hardy,
+l'espace de Hardy, qui est un espace de Banach car l'application
+$$T:\begin{array}{|ccc}
+  \ell^2(\C)&\longrightarrow&H^2\\
+   a_n&\longmapsto&f(x)=\dstyle\sum_{n\in\mathbf Z}a_n z^n
+\end{array}$$
+est un isomorphisme isométrique, donc la complétude de $ \ell^2(\C)$ implique la complétude de $H^2$.\\
 
-alors $H^2$ est un espace de Banach.
-
+On pose, pour $|\lambda|<1$, $E_\lambda:f\in H^2\longmapsto f(\lambda)$ et l'on a (inégalité de Cauchy-Schwarz),
+$$E_{\lambda}(f)|=\left|\sum_{n\in\mathbf Z}a_n\lambda^n\right|\leqslant \sqrt{\sum_{n\in\mathbf Z}|a_n|^2}\sqrt{\sum_{n\in\mathbf Z}|\lambda|^{2n}}\longrightarrow 0\text{ quand }||f||_2\to 0$$
+donc $E_\lambda$ est (linéaire) continue en 0, $E_\lambda$ est continue, ainsi pour $f_n\to f$ dans $H^2$, on a 
+$$\forall \lambda\in D(0,1),\ f_n(\lambda)\longrightarrow f(\lambda).$$
+Soit $X\subset H^2$ un espace de Banach de fonctions holomorphes sur $D(0,1)$ telle que 
+$$f_n\longrightarrow f\text{ dans }X\Rightarrow\forall \lambda\in D(0,1),\ f_n(\lambda)\longrightarrow f(\lambda)$$
+alors $i:X\longrightarrow H^2$ (c'est l'\emph{injection canonique}) est continue :
 
 \begin{Proof}
-  L'application
-  $$T:\begin{array}{|ccc}
-    \ell^2(\C)&\longrightarrow&H^2\\
-     a_n&\longmapsto&f(x)=\dstyle\sum_{n\in\mathbf Z}a_n z^n
-  \end{array}$$
-  est un isomorphisme isométrique, donc la complétude de $ \ell^2(\C)$ implique la complétude de $H^2$.
+  $i$ est linéaire, $H^2$ et $X$ sont complets et soit $f_n$ convergeante dans $X$, donc il existe $f\in X$ telle que $f_n\longrightarrow f$ dans $X$. $f_n$ est une suite de fonction convergeante, donc il existe aussi $g\in H^2$ telle que $f_n\longrightarrow g$ dans $H^2$.
 
-  On pose, pour $|\lambda|<1$, $E_\lambda:f\in H^2\longmapsto f(\lambda)$ et l'on a (inégalité de Cauchy-Schwarz),
-  $$E_{\lambda}(f)|=\left|\sum_{n\in\mathbf Z}a_n\lambda^n\right|\leqslant \sqrt{\sum_{n\in\mathbf Z}|a_n|^2}\sqrt{\sum_{n\in\mathbf Z}|\lambda|^{2n}}\longrightarrow 0\text{ quand }||f||_2\to 0$$
-  donc $E\lambda$ est (linéaire) continue en 0, $E_\lambda$ est continue, ainsi pour $f_n\to f$ dans $H^2$, on a 
-  $$\forall \lambda\in D(0,1),\ f_n(\lambda)\longrightarrow f(\lambda).$$
-  Soit $X$ un 
+  Par hypothèse, on a 
+  $$\left\{\begin{array}{c}
+    f_n(\lambda)\tend f(\lambda)\\
+    f_n(\lambda)\tend g(\lambda)
+  \end{array}\right.$$
+  par unicité de la limite, $f=$, ou plus précisément $i(f)=g$.
+
+  On peut donc appliquer le théorème du graphe fermé et $i$ est continue.
 \end{Proof}
+
+
+Pourquoi ce résultat est non-trivial ? question pour demain.
+
 
 
 \NouvelleSubsection{Théorème de Hann-Banach}
