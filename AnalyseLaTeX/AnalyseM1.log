@@ -1,4 +1,4 @@
-This is XeTeX, Version 3.141592653-2.6-0.999996 (TeX Live 2024) (preloaded format=xelatex 2024.9.22)  11 OCT 2024 15:37
+This is XeTeX, Version 3.141592653-2.6-0.999996 (TeX Live 2024) (preloaded format=xelatex 2024.9.22)  12 OCT 2024 22:08
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -2175,6 +2175,11 @@ Package mdframed Info: mdframed detected package amsthm
  changed the theorem header of amsthm
 (mdframed)              on input line 1305.
 
+Underfull \hbox (badness 10000) in paragraph at lines 1305--1307
+
+ []
+
+
 Underfull \hbox (badness 10000) in paragraph at lines 1312--1312
 
  []
@@ -2188,6 +2193,11 @@ Package mdframed Info: mdframed detected package amsthm
  changed the theorem header of amsthm
 (mdframed)              on input line 1319.
 
+Underfull \hbox (badness 10000) in paragraph at lines 1319--1321
+
+ []
+
+
 Underfull \hbox (badness 10000) in paragraph at lines 1326--1326
 
  []
@@ -2196,13 +2206,6 @@ Package mdframed Info: mdframed works in twoside mode on input line 1327.
 Package mdframed Info: mdframed detected package amsthm 
  changed the theorem header of amsthm
 (mdframed)              on input line 1327.
-
-Package mdframed Warning: You got a bad break
-(mdframed)                because the last box will be empty
-(mdframed)                you have to change it manually
-(mdframed)                by changing the text, the space
-(mdframed)                or something else on input line 1333.
-
 
 
 
@@ -2224,33 +2227,32 @@ Package fancyhdr Warning: \headheight is too small (12.0pt):
 (fancyhdr)                \addtolength{\topmargin}{-1.59999pt}.
 
 [35]
-Package mdframed Info: mdframed works in twoside mode on input line 1338.
+Package mdframed Info: mdframed works in twoside mode on input line 1335.
 Package mdframed Info: mdframed detected package amsthm 
  changed the theorem header of amsthm
-(mdframed)              on input line 1338.
+(mdframed)              on input line 1335.
 
-Underfull \hbox (badness 10000) in paragraph at lines 1338--1340
+Underfull \hbox (badness 10000) in paragraph at lines 1335--1337
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 1344--1344
+Underfull \hbox (badness 10000) in paragraph at lines 1341--1341
 
  []
 
-Package mdframed Info: mdframed works in twoside mode on input line 1345.
+Package mdframed Info: mdframed works in twoside mode on input line 1342.
 Package mdframed Info: mdframed detected package amsthm 
  changed the theorem header of amsthm
-(mdframed)              on input line 1345.
+(mdframed)              on input line 1342.
 
-Underfull \hbox (badness 10000) in paragraph at lines 1356--1356
+Underfull \hbox (badness 10000) in paragraph at lines 1354--1356
 
  []
 
-Package mdframed Info: mdframed works in twoside mode on input line 1357.
-Package mdframed Info: mdframed detected package amsthm 
- changed the theorem header of amsthm
-(mdframed)              on input line 1357.
+
+Underfull \vbox (badness 1796) has occurred while \output is active []
+
 
 
 
@@ -2262,11 +2264,6 @@ Package fancyhdr Warning: \headheight is too small (12.0pt):
 (fancyhdr)                \addtolength{\topmargin}{-1.59999pt}.
 
 [36]
-Package mdframed Info: mdframed works in twoside mode on input line 1384.
-Package mdframed Info: mdframed detected package amsthm 
- changed the theorem header of amsthm
-(mdframed)              on input line 1384.
-
 Underfull \hbox (badness 10000) in paragraph at lines 1390--1390
 
  []
@@ -2275,16 +2272,6 @@ Package mdframed Info: mdframed works in twoside mode on input line 1391.
 Package mdframed Info: mdframed detected package amsthm 
  changed the theorem header of amsthm
 (mdframed)              on input line 1391.
-
-Underfull \hbox (badness 10000) in paragraph at lines 1410--1412
-
- []
-
-Package mdframed Info: mdframed works in twoside mode on input line 1416.
-Package mdframed Info: mdframed detected package amsthm 
- changed the theorem header of amsthm
-(mdframed)              on input line 1416.
-Package mdframed Info: Not enough space on this page on input line 1418.
 
 
 
@@ -2296,80 +2283,29 @@ Package fancyhdr Warning: \headheight is too small (12.0pt):
 (fancyhdr)                \addtolength{\topmargin}{-1.59999pt}.
 
 [37]
-Package mdframed Info: Not enough space on this page on input line 1418.
-Package mdframed Info: mdframed works in twoside mode on input line 1421.
+Package mdframed Info: mdframed works in twoside mode on input line 1429.
 Package mdframed Info: mdframed detected package amsthm 
  changed the theorem header of amsthm
-(mdframed)              on input line 1421.
+(mdframed)              on input line 1429.
 
-Underfull \hbox (badness 10000) in paragraph at lines 1421--1423
+Underfull \hbox (badness 10000) in paragraph at lines 1435--1435
 
  []
 
+Package mdframed Info: mdframed works in twoside mode on input line 1436.
+Package mdframed Info: mdframed detected package amsthm 
+ changed the theorem header of amsthm
+(mdframed)              on input line 1436.
 
-Underfull \hbox (badness 10000) in paragraph at lines 1429--1429
+Underfull \hbox (badness 10000) in paragraph at lines 1455--1457
 
  []
 
-Package mdframed Info: mdframed works in twoside mode on input line 1430.
+Package mdframed Info: mdframed works in twoside mode on input line 1461.
 Package mdframed Info: mdframed detected package amsthm 
  changed the theorem header of amsthm
-(mdframed)              on input line 1430.
-Package mdframed Info: mdframed works in twoside mode on input line 1437.
-Package mdframed Info: mdframed detected package amsthm 
- changed the theorem header of amsthm
-(mdframed)              on input line 1437.
-
-Underfull \hbox (badness 10000) in paragraph at lines 1437--1439
-
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 1445--1445
-
- []
-
-Package mdframed Info: mdframed works in twoside mode on input line 1446.
-Package mdframed Info: mdframed detected package amsthm 
- changed the theorem header of amsthm
-(mdframed)              on input line 1446.
-Package mdframed Info: mdframed works in twoside mode on input line 1450.
-Package mdframed Info: mdframed detected package amsthm 
- changed the theorem header of amsthm
-(mdframed)              on input line 1450.
-
-Underfull \hbox (badness 10000) in paragraph at lines 1450--1452
-
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 1459--1459
-
- []
-
-Package mdframed Info: mdframed works in twoside mode on input line 1460.
-Package mdframed Info: mdframed detected package amsthm 
- changed the theorem header of amsthm
-(mdframed)              on input line 1460.
-
-Underfull \hbox (badness 10000) in paragraph at lines 1471--1471
-
- []
-
-Package mdframed Info: mdframed works in twoside mode on input line 1472.
-Package mdframed Info: mdframed detected package amsthm 
- changed the theorem header of amsthm
-(mdframed)              on input line 1472.
-
-Package mdframed Warning: You got a bad break
-(mdframed)                because the last box will be empty
-(mdframed)                you have to change it manually
-(mdframed)                by changing the text, the space
-(mdframed)                or something else on input line 1477.
-
-Package mdframed Info: Box was splittet wrong
- starting loop to iterate the splitting point
-(mdframed)              on input line 1477.
+(mdframed)              on input line 1461.
+Package mdframed Info: Not enough space on this page on input line 1463.
 
 
 
@@ -2381,79 +2317,80 @@ Package fancyhdr Warning: \headheight is too small (12.0pt):
 (fancyhdr)                \addtolength{\topmargin}{-1.59999pt}.
 
 [38]
-Package mdframed Info: mdframed works in twoside mode on input line 1480.
+Package mdframed Info: Not enough space on this page on input line 1463.
+Package mdframed Info: mdframed works in twoside mode on input line 1466.
 Package mdframed Info: mdframed detected package amsthm 
  changed the theorem header of amsthm
-(mdframed)              on input line 1480.
+(mdframed)              on input line 1466.
 
-Underfull \hbox (badness 10000) in paragraph at lines 1480--1482
+Underfull \hbox (badness 10000) in paragraph at lines 1466--1468
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 1488--1488
+Underfull \hbox (badness 10000) in paragraph at lines 1474--1474
 
  []
 
-Package mdframed Info: mdframed works in twoside mode on input line 1489.
+Package mdframed Info: mdframed works in twoside mode on input line 1475.
 Package mdframed Info: mdframed detected package amsthm 
  changed the theorem header of amsthm
-(mdframed)              on input line 1489.
-
-Underfull \hbox (badness 10000) in paragraph at lines 1493--1493
-
- []
-
-Package mdframed Info: mdframed works in twoside mode on input line 1494.
+(mdframed)              on input line 1475.
+Package mdframed Info: mdframed works in twoside mode on input line 1482.
 Package mdframed Info: mdframed detected package amsthm 
  changed the theorem header of amsthm
-(mdframed)              on input line 1494.
-Package mdframed Info: mdframed works in twoside mode on input line 1498.
-Package mdframed Info: mdframed detected package amsthm 
- changed the theorem header of amsthm
-(mdframed)              on input line 1498.
+(mdframed)              on input line 1482.
 
-Underfull \hbox (badness 10000) in paragraph at lines 1498--1500
+Underfull \hbox (badness 10000) in paragraph at lines 1482--1484
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 1506--1506
+Underfull \hbox (badness 10000) in paragraph at lines 1490--1490
 
  []
 
-Package mdframed Info: mdframed works in twoside mode on input line 1507.
+Package mdframed Info: mdframed works in twoside mode on input line 1491.
 Package mdframed Info: mdframed detected package amsthm 
  changed the theorem header of amsthm
-(mdframed)              on input line 1507.
-Package mdframed Info: mdframed works in twoside mode on input line 1510.
+(mdframed)              on input line 1491.
+Package mdframed Info: mdframed works in twoside mode on input line 1495.
 Package mdframed Info: mdframed detected package amsthm 
  changed the theorem header of amsthm
-(mdframed)              on input line 1510.
-Package mdframed Info: mdframed works in twoside mode on input line 1516.
-Package mdframed Info: mdframed detected package amsthm 
- changed the theorem header of amsthm
-(mdframed)              on input line 1516.
+(mdframed)              on input line 1495.
 
-Underfull \hbox (badness 10000) in paragraph at lines 1516--1518
+Underfull \hbox (badness 10000) in paragraph at lines 1495--1497
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 1529--1531
+Underfull \hbox (badness 10000) in paragraph at lines 1504--1504
 
  []
 
-
-Underfull \hbox (badness 10000) in paragraph at lines 1535--1535
-
- []
-
-Package mdframed Info: mdframed works in twoside mode on input line 1536.
+Package mdframed Info: mdframed works in twoside mode on input line 1505.
 Package mdframed Info: mdframed detected package amsthm 
  changed the theorem header of amsthm
-(mdframed)              on input line 1536.
-Package mdframed Info: Not enough space on this page on input line 1537.
+(mdframed)              on input line 1505.
+
+Underfull \hbox (badness 10000) in paragraph at lines 1516--1516
+
+ []
+
+Package mdframed Info: mdframed works in twoside mode on input line 1517.
+Package mdframed Info: mdframed detected package amsthm 
+ changed the theorem header of amsthm
+(mdframed)              on input line 1517.
+
+Package mdframed Warning: You got a bad break
+(mdframed)                because the last box will be empty
+(mdframed)                you have to change it manually
+(mdframed)                by changing the text, the space
+(mdframed)                or something else on input line 1522.
+
+Package mdframed Info: Box was splittet wrong
+ starting loop to iterate the splitting point
+(mdframed)              on input line 1522.
 
 
 
@@ -2465,7 +2402,79 @@ Package fancyhdr Warning: \headheight is too small (12.0pt):
 (fancyhdr)                \addtolength{\topmargin}{-1.59999pt}.
 
 [39]
-Package mdframed Info: Not enough space on this page on input line 1537.
+Package mdframed Info: mdframed works in twoside mode on input line 1525.
+Package mdframed Info: mdframed detected package amsthm 
+ changed the theorem header of amsthm
+(mdframed)              on input line 1525.
+
+Underfull \hbox (badness 10000) in paragraph at lines 1525--1527
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 1533--1533
+
+ []
+
+Package mdframed Info: mdframed works in twoside mode on input line 1534.
+Package mdframed Info: mdframed detected package amsthm 
+ changed the theorem header of amsthm
+(mdframed)              on input line 1534.
+
+Underfull \hbox (badness 10000) in paragraph at lines 1538--1538
+
+ []
+
+Package mdframed Info: mdframed works in twoside mode on input line 1539.
+Package mdframed Info: mdframed detected package amsthm 
+ changed the theorem header of amsthm
+(mdframed)              on input line 1539.
+Package mdframed Info: mdframed works in twoside mode on input line 1543.
+Package mdframed Info: mdframed detected package amsthm 
+ changed the theorem header of amsthm
+(mdframed)              on input line 1543.
+
+Underfull \hbox (badness 10000) in paragraph at lines 1543--1545
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 1551--1551
+
+ []
+
+Package mdframed Info: mdframed works in twoside mode on input line 1552.
+Package mdframed Info: mdframed detected package amsthm 
+ changed the theorem header of amsthm
+(mdframed)              on input line 1552.
+Package mdframed Info: mdframed works in twoside mode on input line 1555.
+Package mdframed Info: mdframed detected package amsthm 
+ changed the theorem header of amsthm
+(mdframed)              on input line 1555.
+Package mdframed Info: mdframed works in twoside mode on input line 1561.
+Package mdframed Info: mdframed detected package amsthm 
+ changed the theorem header of amsthm
+(mdframed)              on input line 1561.
+
+Underfull \hbox (badness 10000) in paragraph at lines 1561--1563
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 1574--1576
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 1580--1580
+
+ []
+
+Package mdframed Info: mdframed works in twoside mode on input line 1581.
+Package mdframed Info: mdframed detected package amsthm 
+ changed the theorem header of amsthm
+(mdframed)              on input line 1581.
+Package mdframed Info: Not enough space on this page on input line 1582.
 
 
 
@@ -2477,37 +2486,7 @@ Package fancyhdr Warning: \headheight is too small (12.0pt):
 (fancyhdr)                \addtolength{\topmargin}{-1.59999pt}.
 
 [40]
-
-Package hyperref Warning: Difference (2) between bookmark levels is greater 
-(hyperref)                than one, level fixed on input line 1546.
-
-Package mdframed Info: mdframed works in twoside mode on input line 1549.
-Package mdframed Info: mdframed detected package amsthm 
- changed the theorem header of amsthm
-(mdframed)              on input line 1549.
-
-Underfull \hbox (badness 10000) in paragraph at lines 1549--1551
-
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 1552--1559
-
- []
-
-Package mdframed Info: mdframed works in twoside mode on input line 1567.
-Package mdframed Info: mdframed detected package amsthm 
- changed the theorem header of amsthm
-(mdframed)              on input line 1567.
-
-Underfull \hbox (badness 10000) in paragraph at lines 1567--1569
-
- []
-
-Package mdframed Info: mdframed works in twoside mode on input line 1597.
-Package mdframed Info: mdframed detected package amsthm 
- changed the theorem header of amsthm
-(mdframed)              on input line 1597.
+Package mdframed Info: Not enough space on this page on input line 1582.
 
 
 
@@ -2519,10 +2498,37 @@ Package fancyhdr Warning: \headheight is too small (12.0pt):
 (fancyhdr)                \addtolength{\topmargin}{-1.59999pt}.
 
 [41]
-Package mdframed Info: mdframed works in twoside mode on input line 1618.
+
+Package hyperref Warning: Difference (2) between bookmark levels is greater 
+(hyperref)                than one, level fixed on input line 1591.
+
+Package mdframed Info: mdframed works in twoside mode on input line 1594.
 Package mdframed Info: mdframed detected package amsthm 
  changed the theorem header of amsthm
-(mdframed)              on input line 1618.
+(mdframed)              on input line 1594.
+
+Underfull \hbox (badness 10000) in paragraph at lines 1594--1596
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 1597--1604
+
+ []
+
+Package mdframed Info: mdframed works in twoside mode on input line 1612.
+Package mdframed Info: mdframed detected package amsthm 
+ changed the theorem header of amsthm
+(mdframed)              on input line 1612.
+
+Underfull \hbox (badness 10000) in paragraph at lines 1612--1614
+
+ []
+
+Package mdframed Info: mdframed works in twoside mode on input line 1642.
+Package mdframed Info: mdframed detected package amsthm 
+ changed the theorem header of amsthm
+(mdframed)              on input line 1642.
 
 
 
@@ -2533,21 +2539,40 @@ Package fancyhdr Warning: \headheight is too small (12.0pt):
 
 (fancyhdr)                \addtolength{\topmargin}{-1.59999pt}.
 
-[42] (./AnalyseM1.aux)
+[42]
+Package mdframed Info: mdframed works in twoside mode on input line 1663.
+Package mdframed Info: mdframed detected package amsthm 
+ changed the theorem header of amsthm
+(mdframed)              on input line 1663.
+
+
+
+Package fancyhdr Warning: \headheight is too small (12.0pt): 
+(fancyhdr)                Make it at least 13.59999pt, for example:
+(fancyhdr)                \setlength{\headheight}{13.59999pt}.
+(fancyhdr)                You might also make \topmargin smaller to compensate:
+
+(fancyhdr)                \addtolength{\topmargin}{-1.59999pt}.
+
+[43] (./AnalyseM1.aux)
  ***********
 LaTeX2e <2024-06-01> patch level 2
 L3 programming layer <2024-08-30>
  ***********
+
+
+LaTeX Warning: Label(s) may have changed. Rerun to get cross-references right.
+
 Package rerunfilecheck Info: File `AnalyseM1.out' has not changed.
 (rerunfilecheck)             Checksum: FB738D1A6A825F6BDB3215011C97175D;2818.
  ) 
 Here is how much of TeX's memory you used:
  28470 strings out of 474235
  545981 string characters out of 5742253
- 1051412 words of memory out of 5000000
+ 1051410 words of memory out of 5000000
  50659 multiletter control sequences out of 15000+600000
  643557 words of font info for 82 fonts, out of 8000000 for 9000
  1348 hyphenation exceptions out of 8191
  131i,17n,135p,546b,1025s stack positions out of 10000i,1000n,20000p,200000b,200000s
 
-Output written on AnalyseM1.pdf (42 pages).
+Output written on AnalyseM1.pdf (43 pages).

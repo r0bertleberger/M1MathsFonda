@@ -9,6 +9,6 @@
 \contentsline {subsection}{\numberline {1}Théorème de Baire}{22}{subsection.0.1}%
 \contentsline {subsection}{\numberline {2}Quelques rappels sur les applications linéaires continues}{26}{subsection.0.2}%
 \contentsline {subsection}{\numberline {3}Théorème du graphe fermé}{36}{subsection.0.3}%
-\contentsline {subsection}{\numberline {4}Théorème de Hann-Banach}{37}{subsection.0.4}%
-\contentsline {part}{III\hspace {1em}Espaces de Hilbert}{41}{part.3}%
-\contentsline {subsection}{\numberline {1}Rappels sur les espaces préhilbertiens}{41}{subsection.0.1}%
+\contentsline {subsection}{\numberline {4}Théorème de Hann-Banach}{38}{subsection.0.4}%
+\contentsline {part}{III\hspace {1em}Espaces de Hilbert}{42}{part.3}%
+\contentsline {subsection}{\numberline {1}Rappels sur les espaces préhilbertiens}{42}{subsection.0.1}%
