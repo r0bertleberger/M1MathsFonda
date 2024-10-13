@@ -1,4 +1,4 @@
-This is XeTeX, Version 3.141592653-2.6-0.999996 (TeX Live 2024) (preloaded format=xelatex 2024.9.22)  14 OCT 2024 00:30
+This is XeTeX, Version 3.141592653-2.6-0.999996 (TeX Live 2024) (preloaded format=xelatex 2024.9.22)  14 OCT 2024 00:35
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -2587,9 +2587,6 @@ Package mdframed Info: mdframed works in twoside mode on input line 1749.
 Package mdframed Info: mdframed detected package amsthm 
  changed the theorem header of amsthm
 (mdframed)              on input line 1749.
-Package mdframed Info: Box was splittet wrong
- starting loop to iterate the splitting point
-(mdframed)              on input line 1776.
 
 
 
@@ -2613,35 +2610,35 @@ Package fancyhdr Warning: \headheight is too small (12.0pt):
 [45]
 
 Package hyperref Warning: Difference (2) between bookmark levels is greater 
-(hyperref)                than one, level fixed on input line 1785.
+(hyperref)                than one, level fixed on input line 1787.
 
-Package mdframed Info: mdframed works in twoside mode on input line 1788.
+Package mdframed Info: mdframed works in twoside mode on input line 1790.
 Package mdframed Info: mdframed detected package amsthm 
  changed the theorem header of amsthm
-(mdframed)              on input line 1788.
+(mdframed)              on input line 1790.
 
-Underfull \hbox (badness 10000) in paragraph at lines 1788--1790
+Underfull \hbox (badness 10000) in paragraph at lines 1790--1792
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 1791--1798
+Underfull \hbox (badness 10000) in paragraph at lines 1793--1800
 
  []
 
-Package mdframed Info: mdframed works in twoside mode on input line 1806.
+Package mdframed Info: mdframed works in twoside mode on input line 1808.
 Package mdframed Info: mdframed detected package amsthm 
  changed the theorem header of amsthm
-(mdframed)              on input line 1806.
+(mdframed)              on input line 1808.
 
-Underfull \hbox (badness 10000) in paragraph at lines 1806--1808
+Underfull \hbox (badness 10000) in paragraph at lines 1808--1810
 
  []
 
-Package mdframed Info: mdframed works in twoside mode on input line 1836.
+Package mdframed Info: mdframed works in twoside mode on input line 1838.
 Package mdframed Info: mdframed detected package amsthm 
  changed the theorem header of amsthm
-(mdframed)              on input line 1836.
+(mdframed)              on input line 1838.
 
 
 
@@ -2653,10 +2650,10 @@ Package fancyhdr Warning: \headheight is too small (12.0pt):
 (fancyhdr)                \addtolength{\topmargin}{-1.59999pt}.
 
 [46]
-Package mdframed Info: mdframed works in twoside mode on input line 1857.
+Package mdframed Info: mdframed works in twoside mode on input line 1859.
 Package mdframed Info: mdframed detected package amsthm 
  changed the theorem header of amsthm
-(mdframed)              on input line 1857.
+(mdframed)              on input line 1859.
 
 
 
