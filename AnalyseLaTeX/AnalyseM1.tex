@@ -44,7 +44,9 @@ de la norme
 $$||f||_{\infty}:=\mathrm{sup}\left\{f(x)|,\ x\in K\right\}.$$
 Suivant le contexte, la norme opérateur, pour $E$ et $F$ deux espaces vectoriels normés et $T\in\mathcal L(E,F)$,
 $$||T||=\mathrm{sup}\left\{||T x||, x\in E\tq||x||=1\right\}$$
-sera notée $||\cdot||_{\mathrm{op}}$ pour la distinguer des normes sur $E$ ou $F$ (dans la littérature, on rencontre parfois la notation $|||\cdot|||$)
+sera notée $||\cdot||_{\mathrm{op}}$ pour la distinguer des normes sur $E$ ou $F$ (dans la littérature, on rencontre parfois la notation $|||\cdot|||$).\\
+
+Le symbole $\square$ signifie \emph{C.Q.F.D.}, le symbole $(\bullet)$ indique plusieurs hypothèses à vérifier, le symbole $\star$ indique une étape de la preuve et le symbole $\dagger$ indique une disjonction de cas.
 
 
 
@@ -889,10 +891,10 @@ On passe maintenant à la v2, \emph{i.e.} la formulation avec des fermés. Il va
 
 
 \begin{Proof}
-  Soit $x\in\mathrm{int}\ E\backslash X$, donc il existe un voisinage $V$ de $x$ tel que 
+  $\star$ Soit $x\in\mathrm{int}\ E\backslash X$, donc il existe un voisinage $V$ de $x$ tel que 
   $$x\in V\subset E\backslash X$$
   donc $V\cap X=\emptyset$, autrement dit $x\notin \overline X$, donc $x\in E\backslash \overline{X}$.\\
-  Réciproquement, soit $x\in E\backslash \overline{X}$, puisque $\overline X$ est un fermé, $E\backslash\overline X$ est un ouvert donc il existe un voisinage $U$ de $x$ tel que 
+  $\star$ Réciproquement, soit $x\in E\backslash \overline{X}$, puisque $\overline X$ est un fermé, $E\backslash\overline X$ est un ouvert donc il existe un voisinage $U$ de $x$ tel que 
   $$x\in V\subset E\backslash\overline X\subset E\backslash X$$
   donc $x$ est intérieur à $X\subset E\backslash X$, ce qui conclut.
 \end{Proof}
@@ -1405,7 +1407,7 @@ alors $i:X\longrightarrow H^2$ (c'est l'\emph{injection canonique}) est continue
     f_n(\lambda)\tend f(\lambda)\\
     f_n(\lambda)\tend g(\lambda)
   \end{array}\right.$$
-  par unicité de la limite, $f=$, ou plus précisément $i(f)=g$.
+  par unicité de la limite, $f(\lambda)=g(\lambda)$, d'où $i(f)=g$.
 
   On peut donc appliquer le théorème du graphe fermé et $i$ est continue.
 \end{Proof}
@@ -1415,10 +1417,10 @@ Pourquoi ce résultat est non-trivial ? question pour demain.
 
 
 
-\NouvelleSubsection{Théorème de Hann-Banach}
+\NouvelleSubsection{Théorème de Hahn-Banach}
 
 Soit $E$ un espace vectoriel normé, on note $E^*$ ou $E'$ l'ensemble des formes linéaires continues
-$$E^*\left\{\varphi:E\longrightarrow \R\text{ linéaire continue }\right\},$$ 
+$$E^*:=\left\{\varphi:E\longrightarrow \R\text{ linéaire continue }\right\},$$ 
 muni de la norme d'opérateur 
 $$||\varphi||=\underset{x\in E\{0\}}{\mathrm{sup}}\frac{|\varphi(x)|}{||x||}.$$
 On montre que c'est un espace de Banach, \emph{i.e.} un espace vectoriel normé complet.
@@ -1445,19 +1447,49 @@ On rappelle la propriété suivante :
 
 
 \begin{Proof}
-  A FAIRE
+  $\star$ si $\varphi$ est continue, alors 
+  $$\ker\ \varphi=\varphi^{-1}(\{0\})$$
+  est un fermé en tant que pré-image du fermé $\{0\}$ par l'application continue $\varphi$.
+
+  $\star$ Réciproquement, on suppose que $\ker\ \varphi$ est fermé et on procède par l'absurde, c'est à dire qu'on suppose que $\varphi$ n'est pas continue, donc que $\mathrm{sup}_{||x||=1}|\varphi(x)|=+\infty$. Ainsi il existe une  suite $x_n\in E$ telle que 
+  $$\forall n\in \N,\ ||x_n||=1\text{ et }|\varphi(x_n)|\tend +\infty.$$
+  En particulier, il existe $N\geqslant 0$ tel que $x_n\neq 0$, pour $n\geqslant N$.
+
+  On considère la suite $y_n$ telle que 
+  $$\forall n\geqslant N,\ y_n:=x_N-\frac{\varphi(x_N)}{\varphi(x_n)}x_n,$$
+  par le calcul, on vérifie que $\forall n\geqslant N,\ y_n\in\ker\ \varphi$.
+
+  De plus, on a 
+  $$||y_n-x_N||=\left|\frac{\varphi(x_N)}{\varphi(x_n)}\right|\ ||x_n||=\left|\frac{\varphi(x_N)}{\varphi(x_n)}\right|\tend 0.$$
+  Donc $x_N$ est la limite d'une suite d'éléments de $\ker\ \varphi$ qui est un fermé, donc $x_N\in\ker\ \varphi$ ce qui est absurde, donc $\varphi$ est nécessairement continue.
 \end{Proof}
+
+
+\newpage
 
 
 Soit $E$ un $\mathbf K$-espace vectoriel normé et $F\subset E$ un sous-espace vectoriel, on prend $\varphi:F\longrightarrow \mathbf K$ linéaire continue, on va se demander si il existe un prolongement de $\varphi$ sur $E$ de même norme que $\varphi$. Plus formellement, on cherche $f:E\longrightarrow \mathbf K$ telle que 
 $$f\big|_F=\varphi\text{ et }||f|_E=||\varphi||_F.$$
+
+
+\begin{Def}
+  Soit $E$ un $\R$-espace vectoriel, une application $p:E\longrightarrow\R$ est une \emph{fonctionnelle sous-linéaire} si, et seulement si\\
+  $(\bullet)\ \forall (x,y)\in E,\ p(x+y)\leqslant p(x)+p(y)$\\
+  $(\bullet\bullet)\ \forall x\in E,\ \forall \lambda\in \R_+,\ p(\lambda x)=\lambda p(x).$
+\end{Def}
+
+
+$\triangleright$\emph{ex :} toute forme linéaire est une fonctionnelle sous-linéaire.\\
+
+$\triangleright$\emph{ex bis:} toute norme est une une fonctionnelle sous-linéaire.\\
+
 
 On fait d'abord une parenthèse en théorie des ensembles, on se donne $(\mathcal E,\preccurlyeq)$ un \emph{ensemble ordonné}, \emph{i.e.} muni d'une relation d'ordre.
 
 $A\subset \mathcal P(\mathcal E)$ est \emph{totalement ordonné} si, et seulement si 
 $$\forall (x,y)\in A, x\preccurlyeq y\text{ ou }y\preccurlyeq x.$$
 
-On dit que $\preccurlyeq$ est \emph{inductif} si toute partie de $\mathcal E$ totalement ordonnée admet un majorant.
+On dit que $(\mathcal E,\preccurlyeq)$ est \emph{inductif} si toute partie de $\mathcal E$ totalement ordonnée admet un majorant.
 
 On dit que $z\in \mathcal E$ est un \emph{élément maximal} si, et seulement si 
 $$\forall x\in \mathcal E, z\preccurlyeq x\Rightarrow z=x.$$
@@ -1476,6 +1508,95 @@ On a le résultat / axiome suivant (en fait, c'est équivalent à l'axiome du ch
 
 
 \begin{thC}{de Hann-Banach}
+  Soit $E$ un $\R$-espace vectoriel, $p:E\longrightarrow \R$ une fonctionnelle sous-linéaire, $V$ un sous-espace vectoriel de $E$, soit $\varphi:V\longrightarrow\R$ une forme linéaire telle que $\forall x\in V,\ \varphi(x)\leqslant p(x).$\\
+
+  Alors il existe $\tilde\varphi:E\longrightarrow\R$ prolongeant $\varphi$ et majorée par $p$.
+\end{thC}
+
+
+Avant de prouver ce résultat, on pose la définition suivante : $h:G\longrightarrow\R$, où $G\subset E$ est un sous-espace vectoriel, est un \emph{prolongement admissible} si, et seulement si\\
+$(\bullet)\ F\subset G$\\
+$(\bullet\bullet)\ h\big|_F=\varphi$\\
+$(\bullet\bullet\bullet)\ \forall x\in G,\ h(x)\leqslant p(x).$\\
+
+
+On aura besoin du lemme suivant : 
+
+
+\begin{lemme}
+  Soit $h:G\longrightarrow\R$ un prolongement admissible de $\varphi$ et $x_0\in E\backslash G$, alors\\
+
+  il existe $\tilde h:G\oplus x_0\R\longrightarrow\R$ qui est un prolongement admissible de $\varphi$.
+\end{lemme}
+
+
+\begin{Proof}
+  on pose $G_1:= G\oplus x_0\R\subset E$ et 
+  $$\tilde h:\begin{array}{|ccc}
+    G_1&\longrightarrow&\R\\
+    x+\lambda x_0&\longmapsto&\varphi(x)+\lambda\alpha
+  \end{array}$$
+  où $\alpha$ est un paramètre à choisir de façon à avoir $\tilde h\big|_F=\varphi$ et $\tilde h(x+\lambda x_0)=\varphi(x)+\lambda\alpha\leqslant p(x+\lambda _0)$. 
+
+
+  Puisque $\tilde h$ est linéaire, il nous faut \og juste\fg\ 
+  $$\forall \lambda>0,\ \forall x\in \tilde G,\ \begin{cases}
+    \varphi(x)+\alpha\lambda\leqslant p(x+\lambda x_0)\\
+    \varphi(x)-\alpha\lambda\leqslant p(x-\lambda x_0)
+  \end{cases}$$
+  c'est équivalent à 
+  $$\forall \lambda>0,\ \varphi\left(\frac{x}{\lambda}\right)-p\left(\frac{x}{\lambda}-x_0\right)\leqslant \alpha\leqslant p\left(\frac{x}{\lambda}+x_0\right)-\varphi\left(\frac{x}{\lambda}\right).$$
+  Ainsi pour qu'$\alpha$ existe, il suffit que 
+  $$\mathrm{sup}\left\{\varphi\left(v\right)-p\left(v-x_0\right), v\in G\right\}\leqslant \mathrm{inf}\left\{p\left(u-x_0\right)-\varphi\left(u\right), u\in G\right\}.$$
+  Cette condition est vérifiée puisque 
+  $$\forall (u,v)\in G,\ \varphi(u)+\tilde\varphi(v)=\varphi(u+v)\leqslant p(u+v)\leqslant p(u-x_0)+p(v+x_0)$$
+  autrement dit 
+  $$\varphi(u)-p(u-x_0)\leqslant p(v-x_0)-\varphi(v).$$
+  Donc $\alpha$ existe bien, et puisque $F\subset G\subset E$, $\tilde h$ est bien un prolongement admissible.
+\end{Proof}
+
+
+\begin{Proof}
+  On note $X$ l'ensemble des couples
+  $$(G,h)$$
+  où $F\subset G\subset E$ et où $h:G\longrightarrow \R$ est un prolongement admissible.
+
+  On peut munir $X$ de la relation d'ordre (partielle) suivante 
+  $$(G_1,h_1)\preccurlyeq(G_2,h_2)\Leftrightarrow\begin{cases}
+    G_1\subset G_2\\
+    \forall x\in G_1,\ h_1(x)=h_2(x)
+  \end{cases}$$
+
+  $\star$ Montrons que $(X,\preccurlyeq)$ est inductif, soit $(G_i,h_i)_{i\in I}$ une famille totalement ordonné d'éléments de $X$, on va montrer que $(G_i,h_i)$ possède un majorant.
+
+  Soit 
+  $$G:=\bigcup_{i\in I}G_i$$
+  et $h$ vérifiant 
+  $$\forall x\in G,\ \forall i\in I\tq x\in G_i,\ h(x):=h_i(x).$$
+  On a bien défini $h$ car si \og conflit\fg\ de définition, pour $x\in G_i\cap G_j$, on a (car la famille est totalement ordonnée) (sans perte de généralité)
+  $$(G_i,h_i)\preccurlyeq(G_j,h_j)$$
+  donc $h_i=h_j\big|_{G_i}$ et $h_i(x)=h_j(x).$
+
+  $\star\star$ $G$ est un espace vectoriel : soient $(x,y)\in G,\ \lambda\in \R$, il existe un couple $(i,j)$ tel que 
+  $$x\in G_i,\ y\in G_j$$
+  puisque la famille est totalement ordonnée, on a (sans perte de généralité) $G_i\subset G_j$ donc $x\in G_j$ et (car $G_j$ est un espace vectoriel) $x+\lambda y\in G_j\subset G.$
+
+  $\star\star$ $h$ est admissible : soit $x\in G$ donc $x\in G_i$ et 
+  $$|h(x)|=|h_i(x)|\leqslant p(x)$$
+  donc $h$ est admissible et $(G,h)\in X$.
+
+  On vérifie alors que $(G,h)$ est un majorant de $(G_i,h_i)_{i\in I}$, donc $(X,\preccurlyeq)$ est inductif.\\
+
+  On applique le lemme de Zorn, donc il existe $(\tilde G,\tilde\varphi)$ maximal.\\
+
+  $\dagger$ Si $\tilde G=E$, alors $\tilde\varphi$ convient.
+
+  $\dagger$ Si $\tilde G\neq E$, alors il existe $x_0\in E\backslash g$ et en considérant le prolongement admissible du lemme, il existe $(G_1, \tilde\varphi_0)$ tel que 
+  $$(\tilde G,\tilde\varphi)\preccurlyeq(G_1, \tilde\varphi_0)$$
+  c'est absurde, donc $G=E$ et le théorème est prouvé.
+\end{Proof}
+
+\begin{thC}{Hann-Banach, cas réel}
   Soit $E$ un $\R$-espace vectoriel et $F\subset E$ un sous-espace vectoriel, soit $\varphi\in F^*$,\\
 
   alors il existe $\tilde\varphi\in E^*$ telle que 
@@ -1484,9 +1605,16 @@ On a le résultat / axiome suivant (en fait, c'est équivalent à l'axiome du ch
 
 
 \begin{Proof}
-  A FAIRE
+  On pose 
+  $$\forall x\in E,\ p(x):=||\varphi||\ ||x||$$
+  d'après le théorème de Hahn-Banach, il existe $\tilde\varphi:E\longrightarrow\R$ prolongeant $\varphi$ et telle que 
+  $$\forall x\in E,\ \tilde\varphi(x)\leqslant ||\varphi||\ ||x||.$$
+  Par linéairité, on a aussi 
+  $$\forall x\in E,\ |\tilde\varphi(x)|\leqslant ||\varphi||\ ||x||$$
+  donc $\tilde\varphi$ est continue et telle que $||\tilde\varphi||\leqslant ||\varphi||$
+  Et comme $\tilde\varphi$ est un prolongement de $\varphi$, on a aussi $||\tilde\varphi||\geqslant ||\varphi||$ donc 
+  $$\tilde\varphi\big|_F =\varphi\text{ et }||\tilde\varphi||= ||\varphi||.$$
 \end{Proof}
-
 
 On peut étendre ce théorème dans le cas complexe, 
 
@@ -1500,7 +1628,12 @@ On peut étendre ce théorème dans le cas complexe,
   
 
 \begin{Proof}
-  A FAIRE
+  $\varphi_\R:=\Re\ \varphi$ est une forme linéaire réelle continue, donc on peut appliquer le théorème de Hahn-Banach réel. Il existe donc $\tilde\varphi_\R\in E^*$ telle que 
+  $$\tilde\varphi_\R\big|_F=\tilde\varphi_\R\text{ et }||\tilde\varphi_\R||=||\varphi_\R||$$
+  En posant 
+  $$\tilde\varphi:x\in E\longmapsto \tilde\varphi_\R(x)-i\tilde\varphi_\R(ix)$$
+  on vérifie que $\tilde\varphi:E\longrightarrow\C$ est linéaire continue et 
+  $$\tilde\varphi\big|_F=\varphi\text{ et }||\varphi||=||\tilde\varphi||$$
 \end{Proof}
 
 
@@ -1547,10 +1680,6 @@ On peut étendre ce théorème dans le cas complexe,
   $$x^*(a)-x^*(b)=||x||\neq0.$$
 \end{Proof}
 
-\begin{Proof}
-  A FAIRE
-\end{Proof}
-
 
 \begin{corollaire}
   Soit $E$ un $\K$-espace vectoriel, $F\subset E$ un sous-espace vectoriel fermé et $a\in E\backslash F$,\\
@@ -1561,7 +1690,17 @@ On peut étendre ce théorème dans le cas complexe,
 
 
 \begin{Proof}
-  A FAIRE
+  Soit 
+  $$\varphi_a:\begin{array}{|ccc}
+    F\oplus \K a&\longrightarrow&\K\\
+    x+\lambda a&\longmapsto&\lambda
+  \end{array}$$
+  $\varphi_a$ est linéaire et de noyau $\ker\ \varphi_a=F$ fermé (par hypothèse) donc $\varphi_a$ est continue.
+
+  D'après le théorème de Hahn-Banach, il existe $x*\in E^*$ telle que 
+  $$||x^*||=||\varphi_a||\text{ et }x^*\big|_{F\oplus \K a}=\varphi_a$$
+  on vérifie alors que ce $x^*$ convient, \emph{i.e.} 
+  $$x^*(a)=\varphi_a(a)=1\text{ et }x^*\big|_F=0.$$
 \end{Proof}
 
 \begin{Def}
@@ -1579,6 +1718,23 @@ On peut étendre ce théorème dans le cas complexe,
 \end{corollaire}
 
 
+\begin{Proof}
+  $\star$ Si $\overline F=E$, soit $x^*\in F^\bot$ donc $x^*\big|_F=0$, montrons que $x^*=0$. 
+  
+  Soit $x\in E$, par densité de $F$ dans $E$, il existe $x_n\in F$ convergeant vers $x$. 
+  
+  Par continuité, on a 
+  $$x^*(x)=\underset{n\to\infty}{\mathrm{lim}}x^*(x_n)=\underset{n\to\infty}{\mathrm{lim}} 0=0.$$
+  et $F^\bot=\{0\}$
+
+  $\star$ Réciproquement, si $F^\bot=\{0\}$ on va supposer que $\overline F\neq E$, donc il existe $x\in E\backslash\overline{F}$.
+  
+  Puisque $\overline{F}$ est un fermé, on applique le corollaire précédent et il existe $x^*\in E^*$ tel que 
+  $$x^*(x)=1\text{ et }x^*\big|_{\overline{F}}=0,$$
+  puisque $F\subset\overline{F}$, on a aussi $x^*\big|_{{F}}=0$ donc $x^*\in F^\bot$, ce qui est absurde car $x^*$ est non nul (en $x$), ce qui contredit l'hypothèse sur $F^\bot$
+\end{Proof}
+
+
 $\triangleright$\emph{ex :} soit $a_i\in\C$ avec $|a|>1$, on considère
 $$f_a:\begin{array}{|rcl}
   [-1,1]&\longrightarrow&\C\\
@@ -1590,7 +1746,33 @@ alors $\mathrm{Vect}\left(f_{a_n},\ n\in\N\right)$ est dense dans $\left(C[-1,1]
 
 
 \begin{Proof}
-  A FAIRE
+  Soit $\varphi\in C([-1,1])$ (éventuellement nulle) telle que 
+  $$\forall n\geqslant 0,\ \varphi(f_{a_n})=0.$$
+  Montrons que $\varphi$ est nécessairement nulle, soit $t\in[-1,1]$, on a 
+  \begin{align*}
+    f_a(t)&\frac{1}{a\left(1-\nicefrac{t}{a}\right)}\\
+    &=\frac{1}{a}\sum{k=0}^\infty\frac{t^k}{a^k}\\
+    &=\sum{k=0}^\infty\frac{t^k}{a^{k+1}}
+  \end{align*}
+  Puisque 
+  $$\mathrm{sup}\left\{\frac{t^k}{a^{k+1}},\ t\in[-1,1]\right\}=\frac{1}{a^{k+1}}$$
+  et que $\sum_{k\geqslant 0}\frac{1}{a^{k+1}}<\infty$,
+  $$\sum{k=0}^\infty\frac{t^k}{a^{k+1}}\text{ CVN sur }[-1,1].$$
+  Soit $e_n:t\in[-1,1]\longmapsto t^n$, alors 
+  $$f_a=\sum{k=0}^\infty\frac{e_n}{a^{k+1}}$$
+  donc
+  $$\varphi(f_a)=\sum{k=0}^\infty\varphi(e_k)\frac{1}{a^{k+1}}.$$
+  On pose 
+  $$L(z):=\sum{k=0}^\infty\frac{t^k}z^k$$
+  et on a l'inégalité suivante 
+  $$\forall k\in\N,\ \varphi(e_k)\leqslant ||\varphi||\ ||e_k||_\infty\leqslant ||\varphi||$$
+  donc pour $|z|<1$, $L(z)$ converge et le rayon de convergeance de cette série est plus grand que $1$.
+
+  $f$ est holomorphe, $f$ est nulle en $\frac{1}{a_n}$, pour $n\in\N$ et $\frac{1}{a_n}\longrightarrow 0$, donc en vertue du principe des zéros isolés, $f=0$.
+
+  En particulier, pour tout $k\in \N,\ \varphi(e_k)=0$, donc par linéarité, 
+  $$\forall P\in \C[X],\ \varphi(P)=0$$
+  or $C[X]$ est dense dans $C([-1,1])$ donc $\varphi$ est nulle. A POURSUIVRE.
 \end{Proof}
 
 
@@ -1651,7 +1833,7 @@ $$\langle u,v\rangle:=\sum_{n\geqslant 0}u_n\overline{v_n}$$
 est un produit scalaire, dit \emph{canonique} sur $\ell^2(\C).$
 
 
-\begin{propC}{identitié du parallélogramme}
+\begin{propC}{identité du parallélogramme}
   Pour $H$ un espace préhilbertien et $(x,y)\in H$, on a 
   $$||x+y||^2+||x-y||^2=2\left(||x||^2+||y||^2\right).$$
 \end{propC}
