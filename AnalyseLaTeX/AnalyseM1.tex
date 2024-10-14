@@ -1794,7 +1794,7 @@ alors $\mathrm{Vect}\left(f_{a_n},\ n\in\N\right)$ est dense dans $\left(C[-1,1]
   $\forall (x,y,z)\in E,\ \forall \lambda\in\K$,\\
   $(\bullet)\quad \langle x,y\rangle =\overline{\langle y,x\rangle}$\\
   $(\bullet\bullet)\quad \langle x+y,z\rangle =\langle y,z\rangle+\langle y,z\rangle$\\
-  $(\bullet\bullet\bullet)\quad \langle \lambda x,y\rangle =\lambda\langle y,x\rangle$\\
+  $(\bullet\bullet\bullet)\quad \langle \lambda x,y\rangle =\lambda\langle x,y\rangle$\\
   $(\bullet\bullet\bullet\bullet)\quad \langle x,x\rangle \geqslant 0$\\
   $(\bullet\bullet\bullet\bullet\bullet)\quad \langle x,x\rangle = 0\Leftrightarrow x=0.$\\
 \end{Def}
@@ -1958,15 +1958,38 @@ forme un système orthonormé.
 \begin{prop}
   Soit $(H,\ps{\cdot,\cdot})$ préhilbertien,\\
   $(\mathit 1)$ pour $(x_1,\cdots,x_n)$ un système orthogonal, on a 
-  $$\sum_{i=1}^n||x_i|^2=\norm{\sum_{i=1}^n x_i}^2$$
+  $$\sum_{i=1}^n||x_i||^2=\norm{\sum_{i=1}^n x_i}^2$$
   $(\mathit 2)$ pour $(e_i)_{i\geqslant 0}$ un système orthonormé, on a 
-  $$\forall x\in H,\ \sum_{n=1}^\infty\abs{\ps{e_n,x}}\leqslant ||x||^2.$$
+  $$\forall x\in H,\ \sum_{n=0}^\infty\abs{\ps{e_n,x}}\leqslant ||x||^2.$$
 \end{prop}
 
 
-\begin{Proof}
-  À FAIRE
-\end{Proof}
+\begin{ProofC}{Démonstration du $(\mathit 1)$}
+  Par récurrence sur $n$, à l'aide de l'égalité de Pythagore.
+\end{ProofC}
+
+
+\begin{ProofC}{Démonstration du $(\mathit 2)$}
+  Soit $N\in\N$, on pose 
+  $$u:=\sum_{n=0}^N\ps{x,e_n}e_n$$
+  et $v:=x-u.$ On calcule
+  \begin{align*}
+    \ps{u,v}&=\ps{\sum_{n=0}^N\ps{e_n,x}e_n,x-\sum_{n=0}^N\ps{x,e_n}e_n}\\
+    &=\ps{\sum_{n=0}^N\ps{e_n,x}e_n,x}-\ps{\sum_{n=0}^N\ps{e_n,x}e_n,\sum_{n=0}^N\ps{x,e_n}e_n}\\
+    &=\sum_{n=0}^N\ps{x,e_n}\ps{e_n,x}-\norm{\sum_{n=0}^N\ps{x,e_n}e_n}^2\\
+    \ps{u,v}&=\sum_{n=0}^N\abs{\ps{x,e_n}}^2-\norm{\sum_{n=0}^N\ps{x,e_n}e_n}^2
+  \end{align*}
+  puisque la famille $(e_n)$ est orthonormée, l'égalité de Pythagore s'applique et 
+  $$\ps{u,v}=\sum_{n=0}^N\abs{\ps{x,e_n}}^2-\sum_{n=0}^N\abs{\ps{x,e_n}}^2=0.$$
+  Par ailleurs, on a aussi
+  \begin{align*}
+    ||x^2||=||u+v||^2&=||u||^2+||v||^2+2\Re\ps{u,v}\\
+    &=||u||^2+||v||
+    &\geqslant ||u||^2
+  \end{align*}
+  ainsi 
+  $$|xx||^2\geqslant \sum{n=0}^N\abs{\ps{x,e_n}}^2\tend \sum_{n=0}^\infty\abs{\ps{e_n,x}}$$
+\end{ProofC}
 
 
 \NouvelleSubsection{Espace de Hilbert}
@@ -2014,16 +2037,80 @@ une formulation équivalente de ce théorème est
 \end{thC}
 
 
-\begin{Proof}{démonstration du théorème de projection}
-  À FAIRE
-\end{Proof}
+\begin{ProofC}{Démonstration du théorème de projection}
+  Soit $H$ un espace de Hilbert, $K\subset H$ un convexe fermé et non vide, soit $x\in H$,
+
+  $\star$ Existence : soit $d:=\mathrm{dist}(x,K)$, par caractérisation de l'inférieur d'une partie, il existe $u_n\in K$ telle que 
+  $$||u_n-x||\tend d.$$
+  Montrons que $(u_n)$ est de Cauchy, soit $\alpha_n:=x-u_n$, on calcule
+  $$||a_n+a_m||^2+||a_n-a_m||^2=2\left(||a_n||^2+||a_m||^2\right)$$
+  d'après l'égalité du parallélogramme, donc 
+  $$||2x-(u_n+u_m)||^2+||u_n-u_m||^2=2\left(||x-u_n||^2+||x-u_m||^2\right)$$
+  et 
+  $$||u_n-u_m||^2=2\left(||x-u_n||^2+||x-u_m||^2\right)-4\norm{x-\frac{u_n+u_m}{2}}^2.\qquad (i)$$
+  $K$ étant convexe, $\displaystyle\frac{u_n+u_m}{2}\in K$ donc 
+  $$||x-\frac{u_n+u_m}{2}||^2\geqslant d^2$$
+  et l'égalité $(i)$ devient 
+  $$||u_n-u_m||^2\leqslant2\left(||x-u_n||^2+||x-u_m||^2\right)-4d^2$$
+  puisque $||x-u_n||^2\longrightarrow d^2$, on a 
+  $$||u_n-u_m||\underset{n,m\to\infty}{\longrightarrow}0.$$
+  $(u_n)$ est donc de Cauchy, donc elle converge vers $u\in E$ car $E$ est complet, et puisque $K$ est fermé, $u_n\longrightarrow u\in K$. De plus, 
+  $$d=\underset{n\to\infty}{\mathrm{lim}}||x-u_n||=||x-u||$$
+  et la distance est donc atteinte.
+
+  $\star$ Unicité : on suppose qu'il existe aussi $u\in K$ telle que $d=||x-u||$, alors d'après l'égalité du parallélogramme, on a 
+  $$||(x-u)+(x-v)||^2+||(x-u)-(x-v)||^2=2\left(||x-u||^2+||x-v||^2\right)$$
+  donc 
+  $$||2x-(u+v)||^2+||v-u||^2=4d^2.$$
+  Puisque $K$ est convexe, on a la majoration suivante ;
+  $$|u-v||^2\leqslant 4d^2-\underbrace{4\norm{x-\frac{u+v}{2}}^2}_{\leqslant 4d^2}\leqslant 0$$
+  donc $u=v$ et le projeté est effectivement unique.
+\end{ProofC}
 
 
-\begin{Proof}{démonstration de la formulation variationelle}
-  À FAIRE
-\end{Proof}
+\begin{ProofC}{Démonstration de la formulation variationelle}
+  $\star$ Si $u=P_K(x)$, alors pour $t\in [0,1],\ v\in K$, on pose 
+  $$w(t):=(1-t)u+tv$$
+  par convexité de $K$, $w\in K$ et on a 
+  \begin{align*}
+    ||x-u||^2&\leqslant ||x-w||^2=||x-(1-t)u-tw||^2\\
+    &\leqslant ||(x-u)-t(v-u)||^2\\
+    ||x-u||^2&\leqslant ||x-u||^2+t^2||u-v||-2\Re\ps{x-u,v-u}
+  \end{align*}
+  donc 
+  $$2\Re \ps{x-u,v-u}\geqslant t||u-v||$$
+  en faisant tendre $t$ vers $0^+$, on obtient bien 
+  $$2\Re \ps{x-u,v-u}\geqslant 0.$$
+
+  $\star$ Réciproquement, si $u\in K$ et $(\mathit 2)$ est vérifiée, alors 
+  \begin{align*}
+    ||x-v||^2&=||(x-u)+(u-v)||^2\\
+    &=||x-u||^2+||u-v||^2+2\Re\ps{x-u,u-v}\\
+    ||x-v||^2&=||x-u||^2+||u-v||^2-2\Re\ps{x-u,v-u}\\
+  \end{align*}
+  donc, puisque $2\Re\ps{x-u,v-u}\leqslant 0$, 
+  $$||x-v||\geqslant ||x-u||$$
+  et 
+  $$||x-u||\leqslant\mathrm{inf}\ens{||x-v||, v\in K}=P_K(x).$$
+\end{ProofC}
 
 
+$\triangleright$\emph{ex : }Soit $K=\overline{B(0,1)}$, montrons que 
+$$\forall ||x||\geqslant 1,\ P_K(x)=\frac{x}{||x||}.$$
+Soit $||x||\geqslant 1$, on a utiliser la caractérisation variationelle :\\
+
+$\star$ il est clair que $\displaystyle\frac{x}{||x||}\in\K$\\
+
+$\star$ soit $v\in K$, on a 
+\begin{align*}
+  \ps{x-\dstyle\frac{x}{||x||},v-\dstyle\frac{x}{||x||}}&=\ps{x,v}-||x||-\frac{1}{||x||}\ps{x,v}+1\\
+  &=1-||x||+\ps{x,v}\left(1-\frac{1}{||x||}\right)\\
+  &=1-||x||+\ps{\dstyle\frac{x}{||x||},v}\left(||x||-1\right)\\
+  \ps{x-\dstyle\frac{x}{||x||},v-\dstyle\frac{x}{||x||}}&=\left(1-||x||\right)\left(1-\ps{\dstyle\frac{x}{||x||},v}\right)
+\end{align*}
+on passe à la partie réelle :
+$$\Re\ps{x-\dstyle\frac{x}{||x||},v-\dstyle\frac{x}{||x||}}=\underbrace{\left(1-||x||\right)}_{\leqslant 0}\Bigg(1-\underbrace{\Re\ps{\dstyle\frac{x}{||x||},v}}_{\leqslant 1}\Bigg)\leqslant 0$$
+donc pour $||x||\geqslant 1$, on a bien $P_K(x)=\dstyle\frac{x}{||x||}$ et pour $x\in K,\ P_K(x)=x.$
 \begin{prop}
   Soit $H$ de Hilbert, $K$ un convexe non-vide et fermé de $E$,\\
 
@@ -2033,7 +2120,7 @@ une formulation équivalente de ce théorème est
 \end{prop}
 
 
-\begin{Proof}{démonstration de la formulation variationelle}
+\begin{Proof}
   À FAIRE
 \end{Proof}
 
@@ -2042,14 +2129,38 @@ une formulation équivalente de ce théorème est
 \begin{propC}{projection sur un s.e.v. fermé}
   Soit $H$ de Hilbert et $M\subset H$ un sous-espace vectoriel fermé de $E$, pour $x\in H$ et $u\in H$,\\
 
-  on a 
-  $$u=P_M(x)\Leftrightarrow\begin{cases}
-    u\in M\\
-    \forall v\in M,\ \ps{x-u,v}=0.
-  \end{cases}$$
+  alors les assertions suivantes sont équivalentes :\\
+  $(i)\ u=P_M(x)$\\
+  $(ii)\ u\in M\text{ et }\forall v\in M,\ \ps{x-u,v}=0.$
 \end{propC}
 
 
+\begin{RQ}
+  $M$ étant un sous-espace vectoriel, $M$ est convexe donc la définition de $P_M$ ne pose aucun poblème.
+\end{RQ}
+
+\begin{Proof}
+  $\star$ Si $u=P_M(x)$, alors d'après la caractérisation variationelle, on a $u\in M$ et 
+  $$\forall m\in M,\ \Re\ps{x-u,m-u}\leqslant 0.\qquad (i)$$
+  Puisque $M$ est un espace vectoriel, $m-u\in M$ et on peut reformuler $(i)$ en 
+  $$\forall v\in M,\ \Re\ps{x-u,v}\leqslant 0.$$
+  Par linéarité du produit scalaire (car $v\in M\Rightarrow -v\in M$), on a aussi 
+  $$\Re\ps{x-u,-v}\leqslant 0\Leftrightarrow-\Re\ps{x-u,v}\leqslant 0\Leftrightarrow \Re\ps{x-u,v}=0.$$
+  ainsi on a 
+  $$\forall v\in M,\ \Re\ps{x-u,v}=0.$$
+
+  $\dagger$ Si $H$ est un $\R$-espace vectoriel, c'est fini.
+
+  $\dagger$ Si $H$ est un $\C$-espace vectoriel, alors en considérant $v\to iv$, on a 
+  $$\Re\ps{x-u,iv}=0\Leftrightarrow -\Im\ps{x-u,v}=0$$
+  donc $\ps{x-u,v}=0$ et c'est fini.
+
+  $\star$ Réciproquement, si $(ii)$ est vérifiée, puisque $v-u\in M$, on a 
+  $$\forall v\in M,\ \ps{x-u,v-u}=0$$ 
+  donc à fortiori
+  $$\forall v\in M,\ \Re\ps{x-u,v-u}\leqslant0$$
+  puisque $u\in M$, la caractérisation variationnelle est vérifié et $u=P_M(x).$
+\end{Proof}
 
 \begin{corollaire}
   Soit $H$ de Hilbert et $M\subset H$ un sous-espace vectoriel fermé de $E$, pour $x\in H$ et $u\in H$,\\
