@@ -2167,13 +2167,30 @@ donc pour $||x||\geqslant 1$, on a bien $P_K(x)=\dstyle\frac{x}{||x||}$ et pour 
   
   $(\mathit 1)\ P_M$ est linéaire continue et de norme $1$,\\
   $(\mathit 2)\ P_M^2=P_M$,\\
-  $(\mathit 3) \ forall (x,y)\in H, \ps{P_M(x),P_M(y)}=\ps{x,P_M(y)}=\ps{P_M(x),y}.$
+  $(\mathit 3) \ \forall (x,y)\in H, \ps{P_M(x),P_M(y)}=\ps{x,P_M(y)}=\ps{P_M(x),y}.$
 \end{corollaire}
 
 
-\begin{Proof}
-  À FAIRE
-\end{Proof}
+\begin{ProofC}{Démonstration du $(\mathit 1)$}
+  Soient $(x,y)\in H$, $\lambda\in\K$, on a 
+  $$\forall v\in M,\ \ps{x-P_M(x),v}=0\text{ et }\ps{\lambda y-\lambda P_M(y),v}=0$$
+  par linéarité par rapport à la première variable, on a 
+  $$\forall v\in M,\ \ps{(x+\lambda y)-(P_M(x)+\lambda P_M(y)),v}=0$$
+  donc 
+  $$P_M(x+\lambda y)=P_M(x)+\lambda P_M(y)$$
+  et $P_M$ est linéaire.
+  $P_M$ est $1$-lipschitzienne et, pour $x\neq 0$ et $x\in M$, $P_M(x)=x$ donc $||P_M||=1.$
+\end{ProofC}
+
+
+\begin{ProofC}{Démonstration du $(\mathit 2)$}
+    Claire 
+\end{ProofC}
+
+
+\begin{ProofC}{Démonstration du $(\mathit 3)$}
+  A faire
+\end{ProofC}
 
 
 \begin{corollaire}

@@ -1,4 +1,4 @@
-This is XeTeX, Version 3.141592653-2.6-0.999996 (TeX Live 2024) (preloaded format=xelatex 2024.9.22)  14 OCT 2024 15:10
+This is XeTeX, Version 3.141592653-2.6-0.999996 (TeX Live 2024) (preloaded format=xelatex 2024.9.22)  14 OCT 2024 16:57
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -2927,29 +2927,20 @@ Package mdframed Info: mdframed works in twoside mode on input line 2175.
 Package mdframed Info: mdframed detected package amsthm 
  changed the theorem header of amsthm
 (mdframed)              on input line 2175.
-Package mdframed Info: mdframed works in twoside mode on input line 2179.
+Package mdframed Info: mdframed works in twoside mode on input line 2186.
 Package mdframed Info: mdframed detected package amsthm 
  changed the theorem header of amsthm
-(mdframed)              on input line 2179.
+(mdframed)              on input line 2186.
 
-Underfull \hbox (badness 10000) in paragraph at lines 2179--2181
-
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 2182--2184
+Underfull \hbox (badness 10000) in paragraph at lines 2186--2188
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 2193--2193
+Underfull \hbox (badness 10000) in paragraph at lines 2189--2191
 
  []
 
-Package mdframed Info: mdframed works in twoside mode on input line 2194.
-Package mdframed Info: mdframed detected package amsthm 
- changed the theorem header of amsthm
-(mdframed)              on input line 2194.
 
 
 
@@ -2961,7 +2952,16 @@ Package fancyhdr Warning: \headheight is too small (12.0pt):
 (fancyhdr)                \addtolength{\topmargin}{-1.59999pt}.
 
 [54]
-Package mdframed Info: Not enough space on this page on input line 2195.
+Package mdframed Info: Not enough space on this page on input line 2191.
+
+Underfull \hbox (badness 10000) in paragraph at lines 2200--2200
+
+ []
+
+Package mdframed Info: mdframed works in twoside mode on input line 2201.
+Package mdframed Info: mdframed detected package amsthm 
+ changed the theorem header of amsthm
+(mdframed)              on input line 2201.
 
 
 
