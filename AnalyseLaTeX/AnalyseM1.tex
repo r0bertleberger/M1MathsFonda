@@ -1430,9 +1430,9 @@ $$\varphi(x)=\sum_{i=1}^n\varphi(e_i)x_i$$
 où $x=(x_1,\cdots,x_n)$.
 
 $\triangleright$\emph{ex : }pour les espaces $\ell^p$ avec $p<\infty$, on note $q$ le conjugué de $p$, on se donne $a=\left\{a_n\right\}\in\ell^q$, on pose 
-$$\varphi_a:\begin{array}{|rcl}
+$$\varphi_a:\begin{array}{|ccc}
   \ell^p&\longrightarrow&\C\\
-  u&\longmapsto\sum_{n\in\N}u_na_n 
+  u&\longmapsto&\sum_{n\in\N}u_na_n 
 \end{array}$$
 $\varphi_a$ est bien définie (inégalité de Hölder) et est continue, avec 
 $$\varphi_a||\leqslant ||a||_q.$$
@@ -1549,14 +1549,14 @@ On aura besoin du lemme suivant :
   Ainsi pour qu'$\alpha$ existe, il suffit que 
   $$\mathrm{sup}\left\{\varphi\left(v\right)-p\left(v-x_0\right), v\in G\right\}\leqslant \mathrm{inf}\left\{p\left(u-x_0\right)-\varphi\left(u\right), u\in G\right\}.$$
   Cette condition est vérifiée puisque 
-  $$\forall (u,v)\in G,\ \varphi(u)+\tilde\varphi(v)=\varphi(u+v)\leqslant p(u+v)\leqslant p(u-x_0)+p(v+x_0)$$
+  $$\forall (u,v)\in G,\ \varphi(u)+\varphi(v)=\varphi(u+v)\leqslant p(u+v)\leqslant p(u-x_0)+p(v+x_0)$$
   autrement dit 
   $$\varphi(u)-p(u-x_0)\leqslant p(v-x_0)-\varphi(v).$$
   Donc $\alpha$ existe bien, et puisque $F\subset G\subset E$, $\tilde h$ est bien un prolongement admissible.
 \end{Proof}
 
 
-\begin{Proof}
+\begin{Proof}{démonstration du théorème}
   On note $X$ l'ensemble des couples
   $$(G,h)$$
   où $F\subset G\subset E$ et où $h:G\longrightarrow \R$ est un prolongement admissible.
@@ -1609,7 +1609,7 @@ On aura besoin du lemme suivant :
   $$\forall x\in E,\ p(x):=||\varphi||\ ||x||$$
   d'après le théorème de Hahn-Banach, il existe $\tilde\varphi:E\longrightarrow\R$ prolongeant $\varphi$ et telle que 
   $$\forall x\in E,\ \tilde\varphi(x)\leqslant ||\varphi||\ ||x||.$$
-  Par linéairité, on a aussi 
+  Par linéarité, on a aussi 
   $$\forall x\in E,\ |\tilde\varphi(x)|\leqslant ||\varphi||\ ||x||$$
   donc $\tilde\varphi$ est continue et telle que $||\tilde\varphi||\leqslant ||\varphi||$
   Et comme $\tilde\varphi$ est un prolongement de $\varphi$, on a aussi $||\tilde\varphi||\geqslant ||\varphi||$ donc 
@@ -1859,8 +1859,229 @@ est un produit scalaire, dit \emph{canonique} sur $\ell^2(\C).$
 \begin{propC}{identité de polarisation}
   Pour $H$ un espace préhilbertien et $(x,y)\in H$, on a 
   $$\text{ si }\K=\R,\ \langle x,y\rangle=\frac14\left(||x+y||^2-||x-y||^2\right),$$
-  $$\text{ si }\K=\C,\ \langle x,y\rangle=\frac14\left(\sum_{k=0}^3i^k||x+i^ky||\right),$$
+  $$\text{ si }\K=\C,\ \langle x,y\rangle=\frac14\left(\sum_{k=0}^3i^k||x+i^ky||\right).$$
 \end{propC}
+
+
+\begin{Proof}
+  Par le calcul.
+\end{Proof}
+
+
+\begin{prop}
+  Soient $H$ un espace préhilbertien, $(x_n)\in H$ telle que $x_n\longrightarrow x$ et $y_n\in H$ telle que $y_n\longrightarrow y$,\\
+
+  alors
+  $$\langle x_n,y_n\rangle\tend \langle x,y\rangle$$
+\end{prop}
+
+
+\begin{Proof}
+  Soit $n\in\N$, on calcule :
+  \begin{align*}
+    \left|\langle x_n,y_n\rangle-\ps{x,y}\right|&=\abs{\ps{x_n-x,y_n}+\ps{x,y_n-y}}\\
+    &\leqslant \abs{\ps{x_n-x,y_n}}+\abs{\ps{x,y_n-y}}\\
+    &\leqslant \norm{x_n-x}\ \norm{y_n}+\norm{x}\ \norm{y_n-y}
+  \end{align*}
+  et $\norm{x_n-x}\longrightarrow 0$, $\norm{y_n-y}\longrightarrow 0$ donc 
+  $$\left|\langle x_n,y_n\rangle-\ps{x,y}\right|\tend 0.$$
+\end{Proof}
+
+
+\begin{Def}
+  Soit $(H,\ps{\cdot,\cdot})$ un préhilbertien,\\
+  $\bullet\ (x,y)\in H$ sont dits \emph{orthogonaux} \ssi 
+  $$\ps{x,y}=0.$$
+  $\bullet$ pour $A\subset H$, l'\emph{orthogonal de }$A$, noté $A^\bot$, est défini tel que 
+  $$A^\bot:=\ens{x\in H\tq \forall y\in A,\ \ps{x,y}=0}.$$
+  $\bullet$ $A\subset H$ et $B\subset H$ sont \emph{orthogonaux}, noté $A\perp B$, \ssi
+  $$\forall x\in A,\ \forall b\in B,\ \ps{a,b}=0.$$
+\end{Def}
+
+
+\begin{propC}{caractérisation de l'orthogonal}
+  Soit $H$ préhilbertien, pour $(x,y)\in H$,\\
+
+  alors 
+  $$x\perp y\Leftrightarrow \norm{x+y}^2=||x||^2+||y||^2.$$
+\end{propC}
+
+
+\begin{Proof}
+  Par le calcul.
+\end{Proof}
+
+
+on a aussi les propriétés générales suivantes, que l'on ne démontrera pas (par flemme + déjà vu en prépa)
+
+
+\begin{propC}{propriétés générales}
+  Soit $H$ préhilbertien et $(A,B,C)\subset H$,\\
+
+  $(\mathit 1)\ A\subset B\Rightarrow A^\bot\supset B^\bot$\\
+  $(\mathit 2)\ \overline{A}=H\Rightarrow A^\bot=\{0\}$\\
+  $(\mathit 3)$ est un sous-espace vectoriel fermé de $H$, même si $A$ n'est pas un sous-espace vectoriel.
+\end{propC}
+
+
+
+\NouvelleSubsection{Système orthonormé}
+
+
+Dans ce chapitre, $(H,\ps{\cdot,\cdot})$ est un espace préhilbertien et $(x_i)_{i\in\Z}$ est un ensemble de vecteurs de $H$.
+
+
+
+\begin{Def}{\color{white} blabla}\\
+  $\bullet$ Le système $(x_i)$ est un \emph{système orthogonal} \ssi 
+  $$\forall (i,j)\in\Z,\ \ps{x_i,x_j}=0,$$
+  $\bullet$ le système $(x_i)$ est un \emph{système orthonormé} \ssi il est orthogonal et 
+  $$\forall i\in\Z,\ ||x_i||=1.$$
+\end{Def}
+
+
+$\triangleright$\emph{ex : }sur $\ell^1(\C)$, les 
+$$e_i:=(\underbrace{0,\cdots,0}_{i-1},1,0,\cdots)$$
+forment un système orthonormé.
+
+
+$\triangleright$\emph{ex bis: }on pose 
+$$L^2([-\pi,\pi]):=\ens{f:[-\pi,\pi]\longrightarrow\C\text{ mesurable }\tq\dstyle\int_{-\pi}^\pi |f(t)|^2\dt}$$
+muni du produit scalaire 
+$$\ps{f,g}:=\frac{1}{\pi}\int_{-\pi}^\pi f(t)\overline{g(t)}\dt$$
+alors les 
+$$e_n:t\longmapsto \ex{int}$$
+forme un système orthonormé.
+
+
+
+\begin{prop}
+  Soit $(H,\ps{\cdot,\cdot})$ préhilbertien,\\
+  $(\mathit 1)$ pour $(x_1,\cdots,x_n)$ un système orthogonal, on a 
+  $$\sum_{i=1}^n||x_i|^2=\norm{\sum_{i=1}^n x_i}^2$$
+  $(\mathit 2)$ pour $(e_i)_{i\geqslant 0}$ un système orthonormé, on a 
+  $$\forall x\in H,\ \sum_{n=1}^\infty\abs{\ps{e_n,x}}\leqslant ||x||^2.$$
+\end{prop}
+
+
+\begin{Proof}
+  À FAIRE
+\end{Proof}
+
+
+\NouvelleSubsection{Espace de Hilbert}
+
+
+\begin{Def}
+  Un \emph{espace de Hilbert} est un espac préhilertien complet.
+\end{Def}
+
+
+\begin{RQ}
+  En dimension finie, tout espace préhilbertien est un espace de Hilbert
+\end{RQ}
+
+
+$\triangleright$\emph{ex : }$\ell^2(\C)$ muni du produit scalaire habituel est un espace de Hilbert.\\
+
+
+$\triangleright$\emph{ex : }pour $(\O,\A,\mu)$ un espace mesuré, $L^2(\O,\A,\mu)$ est un espace de Hilbert.\\
+
+
+$\triangleright$\emph{contre-ex : }Soit $C([0,1])$ muni du produit scalaire 
+$$\ps{f,g}:=\int_0^1f(t)\overline{g(t)}\dt$$
+n'est pas un espace de Hilbert.
+
+
+\begin{thC}{de projection sur un convexe fermé}
+  Soit $H$ de Hilbert et $K$ (non vide) un convexe fermé de $H$,\\
+
+  alors pour tout $x\in H$, il existe un unique $u\in K$ tel que 
+  $$||x-u||=d(x,K)=\mathrm{inf}\ens{||x-z||,\ z\in K}$$
+  l'élement en question est le \emph{projeté de }$x$\emph{ sur }$K$, on le note $P_K(x).$
+\end{thC}
+
+
+une formulation équivalente de ce théorème est 
+
+
+\begin{thC}{formulation variationelle}
+  Soit $H$ de Hilbert et $K$ (non vide) un convexe fermé de $H$,\\
+
+  les assertions suivantes sont équivalentes\\
+  $(\mathit 1)\ u=P_K(x)$\\
+  $(\mathit 2)\ u\in K\text{ et }\forall v\in K,\ \Re\ps{x-u,v-u}\leqslant 0$
+\end{thC}
+
+
+\begin{Proof}{démonstration du théorème de projection}
+  À FAIRE
+\end{Proof}
+
+
+\begin{Proof}{démonstration de la formulation variationelle}
+  À FAIRE
+\end{Proof}
+
+
+\begin{prop}
+  Soit $H$ de Hilbert, $K$ un convexe non-vide et fermé de $E$,\\
+
+  alors 
+  $$\forall (x,y)\in H,\ \norm{P_K(x)-P_K(y)}\leqslant\norm{x-y}$$
+  donc $P_K$ est une application continue.
+\end{prop}
+
+
+\begin{Proof}{démonstration de la formulation variationelle}
+  À FAIRE
+\end{Proof}
+
+
+
+\begin{propC}{projection sur un s.e.v. fermé}
+  Soit $H$ de Hilbert et $M\subset H$ un sous-espace vectoriel fermé de $E$, pour $x\in H$ et $u\in H$,\\
+
+  on a 
+  $$u=P_M(x)\Leftrightarrow\begin{cases}
+    u\in M\\
+    \forall v\in M,\ \ps{x-u,v}=0.
+  \end{cases}$$
+\end{propC}
+
+
+
+\begin{corollaire}
+  Soit $H$ de Hilbert et $M\subset H$ un sous-espace vectoriel fermé de $E$, pour $x\in H$ et $u\in H$,\\
+  
+  $(\mathit 1)\ P_M$ est linéaire continue et de norme $1$,\\
+  $(\mathit 2)\ P_M^2=P_M$,\\
+  $(\mathit 3) \ forall (x,y)\in H, \ps{P_M(x),P_M(y)}=\ps{x,P_M(y)}=\ps{P_M(x),y}.$
+\end{corollaire}
+
+
+\begin{Proof}
+  À FAIRE
+\end{Proof}
+
+
+\begin{corollaire}
+  Soit $H$ de Hilbert et $M\subset H$ un sous-espace vectoriel fermé de $E$, pour $x\in H$ et $u\in H$,\\
+  
+  $(\mathit 1)\ H=M\oplus M^\bot$\\
+  $(\mathit 2)\ \forall x\in H,\ x=P_M(x)+P_{M^\bot}(x)$\\
+\end{corollaire}
+
+
+\begin{RQ}
+  La décomposition de $x$ est orthogonale, c'est à dire que l'on a 
+  $$||x||^2=||P_M(x)||^2+||Pm_{M^\bot}(x)||^2.$$
+\end{RQ}
+
+
+\begin{Proof}
+  À FAIRE
+\end{Proof}
 
 
 \end{document}

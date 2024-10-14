@@ -61,7 +61,7 @@
 \renewcommand{\subsection}{\@startsection{subsection}{2}{0pt}{-3.25ex plus -1ex minus -.2ex}{1.5ex}{\large\bfseries\markright   {\thesubsection~\@title}}}
 \makeatother
 \renewcommand{\thesection}{\arabic{section}}
-\renewcommand{\thesubsection}{\arabic{subsection}}
+\renewcommand{\thesubsection}{\arabic{Subsection}}
 
 
 %%%%%%
@@ -88,6 +88,7 @@
 \newcounter{prop}
 \newcounter{corollaire}
 \newcounter{lemme}
+\newcounter{Subsection}
 
 
 %%%%%%
@@ -96,14 +97,16 @@
 \newcommand{\NouvelleSubsection}[1]{
   \newpage
   \subsection{#1}
+  \stepcounter{Subsection}
 }
 \newcommand{\PremiereNouvelleSubsection}[1]{
     \subsection{#1}
+    \stepcounter{Subsection}
 }
 \newcommand{\NouvellePart}[1]{
   \newpage
   \part{#1}
-  \setcounter{subsection}{0}
+  \setcounter{Subsection}{1}
   \setcounter{prop}{0}
 }
 
@@ -193,7 +196,7 @@
   \setcounter{corollaire}{0}
   \setcounter{lemme}{0}
   \setcounter{CompteurRemarque}{0}
-  {\bf Théorème \arabic{prop}} (\emph{#1}) :
+  {\bf Théorème \arabic{prop}} (\emph{#1}){\bf :}
 }{
   \end{rouge}
 }
@@ -204,7 +207,7 @@
   \setcounter{corollaire}{0}
   \setcounter{lemme}{0}
   \setcounter{CompteurRemarque}{0}
-  {\bf Propriété \arabic{prop}} 
+  {\bf Propriété \arabic{prop} :} 
 }{
   \end{orange}
 }
@@ -216,7 +219,7 @@
   \setcounter{corollaire}{0}
   \setcounter{lemme}{0}
   \setcounter{CompteurRemarque}{0}
-  {\bf Propriétés \arabic{prop}} 
+  {\bf Propriétés \arabic{prop} :} 
 }{
   \end{orange}
 }
@@ -228,7 +231,7 @@
   \setcounter{corollaire}{0}
   \setcounter{lemme}{0}
   \setcounter{CompteurRemarque}{0}
-  {\bf Propriété \arabic{prop}} (\emph{#1}) :
+  {\bf Propriété \arabic{prop}} (\emph{#1}) {\bf :}
 }{
   \end{orange}
 }
@@ -240,7 +243,7 @@
   \setcounter{corollaire}{0}
   \setcounter{lemme}{0}
   \setcounter{CompteurRemarque}{0}
-  {\bf Propriétés \arabic{prop}} (\emph{#1}) :
+  {\bf Propriétés \arabic{prop}} (\emph{#1}){\bf :}
 }{
   \end{orange}
 }
@@ -249,7 +252,7 @@
 {
   \begin{vertBis}
   \setcounter{CompteurRemarque}{0}
-  {\bf Définition :}:
+  {\bf Définition :}
 }{
   \end{vertBis}
 }
@@ -258,7 +261,7 @@
 {
   \begin{vertBis}
   \setcounter{CompteurRemarque}{0}
-  {\bf Définitions }:
+  {\bf Définitions :}
 }{
 \end{vertBis}
 }
@@ -267,7 +270,7 @@
 {
   \begin{vertBis}
   \setcounter{CompteurRemarque}{0}
-  {\bf Définition }:
+  {\bf Définition } (\emph{#1}){\bf :}
 }{
 \end{vertBis}
 }
@@ -276,7 +279,7 @@
 {
   \begin{vertBis}
   \setcounter{CompteurRemarque}{0}
-  {\bf Définition }:
+  {\bf Définitions }(\emph{#1}){\bf :}
 }{
 \end{vertBis}
 }
@@ -286,7 +289,7 @@
   \begin{bleu}
   \stepcounter{corollaire}
   \setcounter{CompteurRemarque}{0}
-  {\bf Corollaire \arabic{corollaire} }:
+  {\bf Corollaire \arabic{corollaire} :}
 }{
 \end{bleu}
 }
@@ -296,7 +299,7 @@
   \begin{bleu}
   \stepcounter{corollaire}
   \setcounter{CompteurRemarque}{0}
-  {\bf Corollaire \arabic{corollaire}} (\emph{#1}):
+  {\bf Corollaire \arabic{corollaire}} (\emph{#1}){\bf :}
 }{
 \end{bleu}
 }
@@ -307,7 +310,7 @@
   \begin{Cyan}
   \stepcounter{lemme}
   \setcounter{CompteurRemarque}{0}
-  {\bf Lemme \arabic{lemme}}:
+  {\bf Lemme \arabic{lemme} :}
 }{
   \end{Cyan}
 }
@@ -355,10 +358,13 @@
 % les alias pour des lettres
 %%%%%%
 \newcommand{\N}{\mathbf N}
+\newcommand{\Z}{\mathbf Z}
+\newcommand{\Q}{\mathbf Q}
 \newcommand{\R}{\mathbf R}
+\newcommand{\C}{\mathbf C}
+
 \newcommand{\K}{\mathbf K}
 \newcommand{\A}{\mathcal A}
-\newcommand{\C}{\mathbf C}
 \renewcommand{\O}{\Omega}
 \newcommand{\D}{\mathcal D} 
 
@@ -368,9 +374,9 @@
 % les alias un peu complexes
 %%%%%%
 \newcommand{\dt}{\mathrm dt}
-\newcommand{\norm}[1]{\left\lVert#1\right\rVert}
 \newcommand{\inté}{\mathrm{int}\ }
 \newcommand{\tq}{\text{ t.q. }}
+\newcommand{\TQ}{\ |\ }
 \newcommand\YUGE{\fontsize{38.4}{48}\selectfont}
 \newcommand{\dstyle}{\displaystyle}
 \newcommand{\tend}{\underset{n\to+\infty}{\longrightarrow}}
@@ -385,3 +391,11 @@
     \end{tabular}%
     \par % ... and this too.
 }
+\newcommand{\ssi}{si, et seulement si\ }
+\newcommand{\norm}[1]{\left\lVert#1\right\rVert}
+\newcommand{\ps}[1]{\left\langle #1 \right\rangle}
+\newcommand{\ens}[1]{\left\{#1\right\}}
+\newcommand{\abs}[1]{\left| #1\right|}
+\newcommand{\Bullet}{(\bullet)}
+\newcommand{\BBullet}{(\bullet\bullet)}  
+\newcommand{\BBbullet}{(\bullet\bullet\bullet)}
