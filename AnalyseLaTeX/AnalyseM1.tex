@@ -2121,7 +2121,35 @@ donc pour $||x||\geqslant 1$, on a bien $P_K(x)=\dstyle\frac{x}{||x||}$ et pour 
 
 
 \begin{Proof}
-  À FAIRE
+  Soient $(x_1,x_2)\in H$, on note $u_1:=P_K(x_1)$ et $u_2:=P_K(x_2)$, donc par caractérisation variationelle
+  $$\forall v\in K,\ \begin{cases}
+    \Re\ps{x_1-u_1,v-u_1}\leqslant 0\\
+    \Re\ps{x_2-u_2,v-u_2}\leqslant 0\\
+  \end{cases}$$
+  on évalue ce système en $v=u_2$ dans la première équation et $v=u_1$ dans la deuxième équation,
+  $$\begin{cases}
+    \Re\ps{x_1-u_1,u_2-u_1}\leqslant 0\\
+    \Re\ps{x_2-u_2,u_1-u_2}\leqslant 0\\
+  \end{cases}$$
+  par antisymétrie (deux fois), on a
+  $$\begin{cases}
+    \Re\ps{x_1-u_1,u_2-u_1}\leqslant 0\\
+    \Re\ps{x_2-u_2,u_1-u_2}\leqslant 0\\
+  \end{cases}$$
+  en sommant les deux lignes on trouve 
+  $$\Re\ps{(x_1-u_1)+(u_2-x_2),u_2-u_1}\leqslant 0$$
+  autrement dit
+  $$\Re\ps{(x_1-x_2)+(u_2-u_1),u_2-u_1}\leqslant 0.$$
+  et 
+  $$\Re\ps{x_1-x_2,u_2-u_1}+||u_2-u_1||^2\leqslant 0.$$
+  On peut ensuite majorer comme suit
+  \begin{align*}
+    ||u_1-u_1||^2&=-\Re\ps{x_1-x_2,u_2-u_1}\\
+    &\leqslant \abs{\ps{x_1-x_2,u_2-u_1}}\\
+    ||u_1-u_1||^2&\leqslant ||x_1-x_2||\ ||u_1-u_2||
+  \end{align*}
+  puisque $u_1\neq u_2$, on peut simplifier l'inégalité et 
+  $$\norm{P_K(x)-P_K(y)}=\norm{u_1-u_2}\leqslant\norm{x-y}$$
 \end{Proof}
 
 
@@ -2184,12 +2212,23 @@ donc pour $||x||\geqslant 1$, on a bien $P_K(x)=\dstyle\frac{x}{||x||}$ et pour 
 
 
 \begin{ProofC}{Démonstration du $(\mathit 2)$}
-    Claire 
+    Clair
 \end{ProofC}
 
 
 \begin{ProofC}{Démonstration du $(\mathit 3)$}
-  A faire
+  Puisque $P_M(y)\in M$, on a 
+  $$\ps{x-P_M(x),P_M(y)}=0$$
+  donc (linéarité par rapport à la première variable)
+  $$\ps{x,P_M(y)}=\ps{P_M(x),P_M(y)}.$$
+  En échangeant $x$ et $y$, on trouve
+  $$\ps{y,P_M(x)}=\ps{P_M(y),P_M(x)}$$
+  on conjugue cette égalité
+  $$\overline{\ps{y,P_M(x)}}=\overline{\ps{P_M(y),P_M(x)}}$$
+  et on trouve bien 
+  $$\ps{P_M(x),y}=\ps{P_M(x),P_M(y)}$$
+  d'où l'égalité recherchée 
+  $$\ps{P_M(x),P_M(y)}=\ps{x,P_M(y)}=\ps{P_M(x),y}.$$
 \end{ProofC}
 
 
@@ -2207,9 +2246,25 @@ donc pour $||x||\geqslant 1$, on a bien $P_K(x)=\dstyle\frac{x}{||x||}$ et pour 
 \end{RQ}
 
 
-\begin{Proof}
-  À FAIRE
-\end{Proof}
+\begin{ProofC}{Démonstration du $(\mathit 1)$}
+  Pour $x\in M$, on a 
+  $$\forall v\in M, \ps{x-P_M(x),v}=0$$
+  donc $x-P_M(x)\in M^\bot$ et en écrivant 
+  $$x=\underbrace{x-P_M(x)}_{\in M^\bot}+\underbrace{P_M(x)}_{\in M}$$
+  on obtient que $H=M+M^\bot.$ Cette somme est directe car pour $x\in M\cap M^\bot$ on a 
+  $$\begin{array}{c}
+    x\in M^\bot\text{ donc }\forall v\in M,\ \ps{x,v}=0\\
+    x\in M\text{ donc }\ps{x,x}=0\Leftrightarrow x=0.
+  \end{array}$$
+  d'où $H=M\oplus M^\bot$.
+\end{ProofC}
+
+
+\begin{ProofC}{Démonstration du $(\mathit 1)$}
+  Montrons que $P_{M^\bot}(x)=x-P_M(x)$, on calcule
+  $$\forall v\in M^\bot,\ \ps{x-(x-P_M(x)),v}=\ps{P_M(x),v}=0,$$
+  car $P_M(x)\in M$, d'où $P_{M^\bot}(x)=x-P_M(x)$.
+\end{ProofC}
 
 
 \end{document}
