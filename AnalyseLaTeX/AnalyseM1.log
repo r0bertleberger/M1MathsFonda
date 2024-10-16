@@ -1,4 +1,4 @@
-This is XeTeX, Version 3.141592653-2.6-0.999996 (TeX Live 2024) (preloaded format=xelatex 2024.9.22)  16 OCT 2024 11:55
+This is XeTeX, Version 3.141592653-2.6-0.999996 (TeX Live 2024) (preloaded format=xelatex 2024.9.22)  16 OCT 2024 12:59
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -3325,9 +3325,16 @@ Underfull \hbox (badness 10000) in paragraph at lines 2443--2444
 
  []
 
-Package mdframed Info: Box was splittet wrong
- starting loop to iterate the splitting point
-(mdframed)              on input line 2484.
+
+Underfull \hbox (badness 10000) in paragraph at lines 2467--2469
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 2473--2475
+
+ []
+
 
 
 
@@ -3339,24 +3346,24 @@ Package fancyhdr Warning: \headheight is too small (12.0pt):
 (fancyhdr)                \addtolength{\topmargin}{-1.59999pt}.
 
 [61]
-Package mdframed Info: mdframed works in twoside mode on input line 2487.
+Package mdframed Info: mdframed works in twoside mode on input line 2491.
 Package mdframed Info: mdframed detected package amsthm 
  changed the theorem header of amsthm
-(mdframed)              on input line 2487.
+(mdframed)              on input line 2491.
 
-Underfull \hbox (badness 10000) in paragraph at lines 2487--2489
+Underfull \hbox (badness 10000) in paragraph at lines 2491--2493
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 2494--2494
+Underfull \hbox (badness 10000) in paragraph at lines 2498--2498
 
  []
 
-Package mdframed Info: mdframed works in twoside mode on input line 2495.
+Package mdframed Info: mdframed works in twoside mode on input line 2499.
 Package mdframed Info: mdframed detected package amsthm 
  changed the theorem header of amsthm
-(mdframed)              on input line 2495.
+(mdframed)              on input line 2499.
 
 
 
@@ -3367,21 +3374,35 @@ Package fancyhdr Warning: \headheight is too small (12.0pt):
 
 (fancyhdr)                \addtolength{\topmargin}{-1.59999pt}.
 
-[62] (./AnalyseM1.aux)
+[62]
+
+
+Package fancyhdr Warning: \headheight is too small (12.0pt): 
+(fancyhdr)                Make it at least 13.59999pt, for example:
+(fancyhdr)                \setlength{\headheight}{13.59999pt}.
+(fancyhdr)                You might also make \topmargin smaller to compensate:
+
+(fancyhdr)                \addtolength{\topmargin}{-1.59999pt}.
+
+[63] (./AnalyseM1.aux)
  ***********
 LaTeX2e <2024-06-01> patch level 2
 L3 programming layer <2024-08-30>
  ***********
+
+
+LaTeX Warning: Label(s) may have changed. Rerun to get cross-references right.
+
 Package rerunfilecheck Info: File `AnalyseM1.out' has not changed.
 (rerunfilecheck)             Checksum: FF7ACF32CDC4466DC926153410126FF3;3285.
  ) 
 Here is how much of TeX's memory you used:
- 28673 strings out of 474235
- 550198 string characters out of 5742253
- 1053331 words of memory out of 5000000
- 50862 multiletter control sequences out of 15000+600000
+ 28676 strings out of 474235
+ 550264 string characters out of 5742253
+ 1053399 words of memory out of 5000000
+ 50865 multiletter control sequences out of 15000+600000
  643557 words of font info for 82 fonts, out of 8000000 for 9000
  1348 hyphenation exceptions out of 8191
  131i,17n,135p,546b,1025s stack positions out of 10000i,1000n,20000p,200000b,200000s
 
-Output written on AnalyseM1.pdf (62 pages).
+Output written on AnalyseM1.pdf (63 pages).
