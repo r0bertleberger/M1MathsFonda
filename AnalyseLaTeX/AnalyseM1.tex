@@ -447,11 +447,11 @@ En passant à la forme trigonométrique de $\mathrm e^{ikt}$, on peut ré-écrir
   &=\sum_{k\in\llbracket -N,N\rrbracket} a_k\cos(kt)+b_k \sin(kt).
 \end{flalign*}
 
-\begin{corollaire}
+\begin{corollaireC}{Féjer}
   Soit $f:\R\longrightarrow\C$ continue et $2\pi$-périodique,\\
 
   alors il existe une suite de polynômes trigonométriques convergeant uniformément vers $f$.
-\end{corollaire}
+\end{corollaireC}
 
 \begin{Proof}
   il suffit de constater que 
@@ -980,12 +980,12 @@ $$\forall x\in X,\ ||Tx||_Y\leqslant c||x||_X.$$
 On note 
 $$\mathcal L(X,Y):=\left\{T:X\longrightarrow Y\text{ linéaire continue}\right\}$$
 Pour $T\in\mathcal L(X,Y)$, on note
-$$||T||:=\mathrm{inf}\left\{c>0\ |\ \forall x\in X,\ ||Tx||\leqslant c||x||\right\}$$
+$$||T||_{\mathrm{op}}:=\mathrm{inf}\left\{c>0\ |\ \forall x\in X,\ ||Tx||\leqslant c||x||\right\}$$
 on montre que cette définition est équivalente à
 $$\begin{array}{rcl}
-||T||&=&\mathrm{sup}\left\{||Tx||,\ x\in X\ |\ ||x||\leqslant 1\right\}\\
+||T||_{\mathrm{op}}&=&\mathrm{sup}\left\{||Tx||,\ x\in X\ |\ ||x||\leqslant 1\right\}\\
 &=&\mathrm{sup}\left\{||Tx||,\ x\in X\ |\ ||x||= 1\right\}\\
-&=&\mathrm{sup}\left\{\dstyle\frac{||Tx||}{||x||}, x\in X\backslash\{0\}\right\}
+||T||_{\mathrm{op}}&=&\mathrm{sup}\left\{\dstyle\frac{||Tx||}{||x||}, x\in X\backslash\{0\}\right\}
 \end{array}$$
 on montre aussi que cette norme est \emph{sous-multiplicative}, \emph{i.e.}
 $$\forall T\in\mathcal L(Y,Z),\ S\in\mathcal L(X,Y),\ ||TS||\leqslant ||T||\times ||S||$$
@@ -1002,7 +1002,7 @@ $$\forall n\in\N,\ ||T^n||=||\underbrace{T\circ T\cdots\circ T}_{n\text{ fois}}|
   Soit $(T_n)$ une suite de Cauchy dans $\mathcal L(X,Y)$, et soit $\varepsilon>0$,
   $$\exists n_0\in\N\text{ t.q. }\forall p,q\geqslant n_0,\ ||T_p-T_p||\leqslant \varepsilon$$
   soient $x\in X,\ p,q\geqslant n_0$
-  $$||T_px-T_qx||=||\left(T_p-T_q\right) x||\leqslant ||T_p-T_q||\ ||x||\leqslant \varepsilon ||x||\qquad (i)$$
+  $$||T_px-T_qx||=||\left(T_p-T_q\right) x||\leqslant \nop{T_p-T_q}\ ||x||\leqslant \varepsilon ||x||\qquad (i)$$
   donc $(T_n(x))$ est une suite de Cauchy à valeurs dans $Y$, donc elle est convergente et on peut poser
   $$T(x):=\underset{n\to +\infty}{\mathrm{lim}}T_n(x).$$
   Montrons que $T$ est bien linéaire, soient $(u,v)\in X,\ \lambda\in\K$,
@@ -1013,13 +1013,13 @@ $$\forall n\in\N,\ ||T^n||=||\underbrace{T\circ T\cdots\circ T}_{n\text{ fois}}|
     T(\lambda u+v)&=\lambda T(u)+T(v)
   \end{flalign*}
   donc $T$ est bien linéaire et pour montrer la continuité de $T$, on fait tendre $p\to +\infty$ dans $(i)$, on obtient alors
-  $$||T-T_q||\ ||x||\leqslant \varepsilon||x||$$
+  $$\nop{T-T_q}\ ||x||\leqslant \varepsilon||x||$$
   donc $T-T_p$ est continue, et puisque $T_q$ est continue, donc $T$ l'est et $T\in\mathcal L(X,Y)$.
 \end{Proof}
 
 
 \begin{Def}
-  Soit $X,Y$ deux espaces vectoriels, un \emph{opérateur compact} est une application continue (un \emph{opérateur} continu donc) $T:X\longrightarrow Y$ tel que pour tout $A\in X$ borné, $T(A)$ est une partie relativement compacte de $Y$.
+  Soient $X,Y$ deux espaces vectoriels, un \emph{opérateur compact} est une application continue (un \emph{opérateur} continu donc) $T:X\longrightarrow Y$ tel que pour tout $A\in X$ borné, $T(A)$ est une partie relativement compacte de $Y$.
 
   Si la topologie sur $X$ est la topologie métrique habituelle, alors $T$ est compact si, et seulement si $T(B(0,1))$ est une partie relativement compacte.\\
 \end{Def}
@@ -1079,7 +1079,7 @@ est relativement compacte.
   Montrons que $Te_n$ converge dans $Y$, on a 
   \begin{align*}
     ||Te_n-Te_m||&=||T(e_n-e_m)||\\
-    &\leqslant ||T||\ ||e_n-e_m||
+    ||Te_n-Te_m||&\leqslant \nop{T}\ ||e_n-e_m||
   \end{align*}
   la suite $e_n$ étant convergente, elle est de Cauchy donc $Te_n$ est aussi de Cauchy, et $Y$ étant un espace de Banach, cette suite est convergente et on peut poser, 
   $$\hat Tx:=\underset{n\to+\infty}{\mathrm{lim}}Te_n.$$
@@ -2512,4 +2512,89 @@ alors $u=0$ donc $(e_i)$ est une base hilbertienne.
   $$\mathrm{Im}\ \phi\subset\overline{\mathrm{Im}\ \phi}\subset\overline{\mathrm{Vect}\ens{\varepsilon_i,\ i\in\N}}=\ell^2(\C)$$
   et $\phi$ est bon bien bijective, ce qui conclut.
 \end{Proof}
+
+
+\NouvelleSubsection{Application aux séries de Fourier}
+
+On rappelle que, par définition, 
+$$\mathcal L^2[-\pi,\pi]:=\ens{f:[-\pi,\pi]\longrightarrow\C\text{ mesurable telle que }||f||_2<\infty}$$
+où la norme 2 $||\cdot||_2$ est 
+$$||f||_2:=\left(\frac{1}{2\pi}\int_{-\pi}^{\pi}|f(t)|^2\dt\right)^{\nicefrac12}.$$
+Cette norme est en fait une \emph{semi-norme}, donc pour faire de $\mathcal L^2[-\pi,\pi]$ un espace métrique, on considère la relation d'équivalence suivante 
+$$f\sim g\Leftrightarrow\ f=g\ \lambda\text{-pp}$$
+et on va donc se placer dans 
+$$L^2[-\pi,\pi]:=\mathcal L^2[-\pi,\pi]/\sim.$$
+
+
+$L^2[-\pi,\pi]$ est un espace de Hilbert, on note, pour $n\in\Z$, $e_n:t\longmapsto\ex{itn}$, on a alors le théorème suivant :
+
+
+\begin{Th}
+  $\ens{e_n,\ n\in\Z}$ est une base hilbertienne de $L^2[-\pi,\pi]$
+\end{Th}
+
+Avant de prouver ce résultat, on va (temporairement) admettre le lemme suivant : 
+
+
+\begin{lemme}
+  On pose 
+  $$C_c]-\pi,\pi[:=\ens{f:]-\pi,\pi[\longrightarrow\C\text{ continue à support compact}}$$
+
+  alors cet ensemble est dense dans $L^2[-\pi,\pi]$
+\end{lemme}
+
+
+
+\begin{Proof}
+  $\star$ La suite est orthogonale : par le calcul.\\
+
+  $\star$ La suite est complète : soit $f\in L^2[-\pi,\pi]$ et $\varepsilon>0$. Par densité de $C_c]-\pi,\pi[$, il existe $g\in C_c]-\pi,\pi[$ telle que 
+  $$||f-g||_2<\Nfrac{2}$$
+  en particulier, puisque $g$ est continue, on a 
+  $$g(-\pi)=0=g(\pi)$$
+  donc $g$ est prolongeable en une fonction $2\pi$-périodique et continue. On peut donc appliquer le théorème de Féjer, donc il existe 
+  $$p\in\mathrm{Vect}\ens{e_n,\ n\in\Z}\text{ telle que }||g-p||_2<\Nfrac{2}$$
+  et par inégalité triangulaire, on trouve 
+  $$||f-p||_2<\varepsilon,$$
+  donc la famille $\ens{e_n,\ n\in\Z}$ est bien une base hilbertienne.
+\end{Proof}
+
+
+On va donc retrouver tous les résultats de la sous-partie précédente, à savoir 
+
+
+\begin{Th}
+  On peut décomposer toute fonction $f\in L^2[-\pi,\pi]$ en sa série de Fourier, plus précisément,\\
+
+  $(\mathit 1)$ 
+  $$f=\sum_{n=-\infty}^{\infty}\hat f(n)e_n$$
+  et la série converge, où pour tout $n\in\Z$, on a posé 
+  $$\hat f(n):=\ps{f,e_n}=\frac{1}{2\pi}\int_{-\pi}^{\pi}f(t)\ex{-int}\dt$$
+  $(\mathit 2)$  
+  $$||f||_2^2=\sum_{n=-\infty}^{\infty}|\hat f(n)|^2$$
+  $(\mathit 2)$ pour $g\in L^2[-\pi,\pi]$,
+  $$\ps{f,g}=\sum_{n=-\infty}^{\infty}\hat f(n)\overline{\hat g(n)}$$
+\end{Th}
+
+
+\Dnote{Tous ces résultats sont valables pour la norme 2, pour la norme infinie il n'y a pas nécessairement de convergence. Une conséquence du théorème de Banach-Steinhaus est le résultat suivant :
+$$\left\{f\in C([-\pi,\pi])\ |\ \underset{n\geqslant 0}{\mathrm{sup}}|S_nf(0)|=+\infty\right\}$$
+est dense dans $\left(C([-\pi,\pi]),||\cdot||_{\infty}\right)$.}
+
+
+\NouvelleSubsection{Dualité et théorème de Riesz}
+
+
+Soit $H$ un espace de Hilbert et $x_0\in H$, on pose 
+$$\varphi_{x_0}:\begin{array}{|ccl}
+  H&\longrightarrow&\C\\
+  x&\longmapsto&\ps{x,x_0}
+\end{array}$$
+c'est une forme linéaire et, pour $x\in H$, on a 
+$$\abs{\varphi_{x_0}(x)}=\abs{\ps{x,x_0}}\leqslant ||x||\ ||x_0||$$
+donc $\varphi_{x_0}$ est continue avec $||\varphi_{x_0}||_{\mathrm{op}}\leqslant ||x_0||.$
+
+On évalue en $x_0/||x_0||$ (si $x_0=0,$ $\varphi_{x_0}$ est l'application nulle) et
+$$\varphi_{x_0}\left(\frac{x_0}{||x_0||}\right)=\frac{1}{||x_0||}\ps{x_0,x_0}=||x_0||$$
+d'où $\nop{\varphi_{x_0}}=||x_0||.$
 \end{document}

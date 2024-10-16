@@ -385,6 +385,7 @@
 % les alias un peu complexes
 %%%%%%
 \newcommand{\dt}{\mathrm dt}
+\newcommand{\Nfrac}[1]{\dstyle\nicefrac{\varepsilon}{#1}}
 \newcommand{\inté}{\mathrm{int}\ }
 \newcommand{\TQ}{\ |\ }
 \newcommand\YUGE{\fontsize{38.4}{48}\selectfont}
@@ -394,10 +395,18 @@
 \newcommand{\Lf}{L^2([-\pi,\pi])}
 \newcommand{\intr}{\dstyle\int_{-\infty}^{+\infty}}
 \newcommand{\ex}[1]{\mathrm{e}^{#1}}
+
 \newcommand{\dnote}[1]{%
     \noindent % I guess this is intended...
     \begin{tabular}{@{}m{0.13\textwidth}@{}m{0.87\textwidth}@{}}%
         \large\textdbend &#1%
+    \end{tabular}%
+    \par % ... and this too.
+}
+\newcommand{\Dnote}[1]{%
+    \noindent % I guess this is intended...
+    \begin{tabular}{@{}m{0.13\textwidth}@{}m{0.87\textwidth}@{}}%
+        \huge\textdbend &#1%
     \end{tabular}%
     \par % ... and this too.
 }
@@ -413,3 +422,4 @@
 \newcommand{\Bullet}{(\bullet)}
 \newcommand{\BBullet}{(\bullet\bullet)}  
 \newcommand{\BBBullet}{(\bullet\bullet\bullet)}
+\newcommand{\nop}[1]{\left|\left|#1\right|\right|_{\mathrm{op}}}
