@@ -161,7 +161,7 @@ $\A$ est \emph{unitaire} si il contient une élement neutre pour $+$.
 
 
 \begin{Def}
-  Une partie $\mathcal B$ de l'algèbre $\A$ est une \emph{sous-algèbre de}$\A$ si, et seulement si\\
+  Une partie $\mathcal B$ de l'algèbre $\A$ est une \emph{sous-algèbre de} $\A$ si, et seulement si\\
   $(\bullet)\quad (\mathcal B,+,.)$ est un sous-espace vectoriel de $(\A,+,.)$,\\
   $(\bullet\bullet)\quad \mathcal B$ est stable pour la loi $\times$.\\
 \end{Def}
@@ -226,6 +226,7 @@ Avant de passer aux théorèmes de Stone-Weierstra\ss, on montre quelques propri
 
 \begin{thC}{Stones-Weierstra\ss, cas réel}
   Soit $(K,d)$ un espace métrique compact, $\A$ une sous-algèbre unitaire de $C(K,\R)$ qui sépare les points,\\
+
   alors $\A$ est dense dans $C(K,\R).$
 \end{thC}
 
@@ -414,12 +415,12 @@ est une suite de polynômes convergeant uniformément sur $[0,1]$ vers $f$.\\[1e
     ||g-\Re\ f||_{\infty}<\nicefrac{\varepsilon}{2}\\
     ||h-\Im\ f||_{\infty}<\nicefrac{\varepsilon}{2}.
   \end{array}\right.$$
-  On pose $$\varphi:=g+ih\in \A$$
+  On pose $$\psi:=g+ih\in \A$$
   et on a alors
   \begin{align*}
     ||f-\psi||_{\infty}&=||\Re\ f+i\Im\ f-g-ih||_{\infty}\\
     &\leqslant ||g-\Re\ f||_{\infty}+||h-\Im\ f||_{\infty}\\
-    &\leqslant \varepsilon\\
+    ||f-\psi||_{\infty}&\leqslant \varepsilon\\
   \end{align*}
   et $\psi$ CVU vers $f$, donc $\A$ est dense dans $C(K,\C)$.
 \end{Proof}
@@ -476,7 +477,8 @@ On montre (en TD) que tout espace vectoriel de dimension finie est séparable. O
 
 \begin{prop}
   Soit $(E,d)$ un espace vectoriel normé, on suppose qu'il existe une famille $(e_n)\in E$ telle que 
-  $$\overline{\mathrm{Vect}(e_i,\ i\in \mathbf N)}=E$$\\
+  $$\overline{\mathrm{Vect}\ens{e_i,\ i\in \mathbf N}}=E$$
+  où $\mathrm{Vect}(e_i,\ i\in \mathbf N)$ est l'ensemble des combinaisons linéaires finies des $(e_n)$,\\
 
   alors $E$ est séparable.
 \end{prop}
@@ -490,9 +492,9 @@ On montre (en TD) que tout espace vectoriel de dimension finie est séparable. O
 
 
 \begin{prop}
-  Soit $(E,d)$ et $(O_i)_{i\in I}$ une famille quelconque d'ouverts deux à deux disjoints,\\
+  Soit $(E,d)$ un espace métrique et $(O_i)_{i\in I}$ une famille quelconque d'ouverts deux à deux disjoints, on suppose que $E$ est séparable,\\
 
-  alors si $E$ est séparable, $I$ est dénombrable.
+  alors $I$ est dénombrable.
 \end{prop}
 
 
@@ -506,7 +508,7 @@ est un espace (vectoriel normé) séparable.
 \begin{Proof}
   Soit $e_n=\mathbf 1_{\{n\}}=(0,\cdots,0,1,0,\cdots,0)$ où le $1$ est en $n$-ème position et soit $x_n\in\ell^p$, alors 
   $$\norm{u-\sum_{i=1}^Nx_ie_i}_p=\left(\sum_{i=N+1}^{\infty}|x_n|^p\right)^{\nicefrac{1}{p}}\underset{N\to+\infty}{\longrightarrow 0}$$
-  ce qui montre que (puisque chaque $e_n$ est dans $\ell^p$
+  ce qui montre que (puisque chaque $e_n$ est dans $\ell^p$),
   $$\overline{\mathrm{Vect}(e_i,\ i\in \N)}=\ell^p$$
   donc $\ell^p$ est bien séparable.
 \end{Proof}
@@ -894,6 +896,7 @@ On passe maintenant à la v2, \emph{i.e.} la formulation avec des fermés. Il va
   $\star$ Soit $x\in\mathrm{int}\ E\backslash X$, donc il existe un voisinage $V$ de $x$ tel que 
   $$x\in V\subset E\backslash X$$
   donc $V\cap X=\emptyset$, autrement dit $x\notin \overline X$, donc $x\in E\backslash \overline{X}$.\\
+
   $\star$ Réciproquement, soit $x\in E\backslash \overline{X}$, puisque $\overline X$ est un fermé, $E\backslash\overline X$ est un ouvert donc il existe un voisinage $U$ de $x$ tel que 
   $$x\in V\subset E\backslash\overline X\subset E\backslash X$$
   donc $x$ est intérieur à $X\subset E\backslash X$, ce qui conclut.
@@ -1067,7 +1070,7 @@ est relativement compacte.
 
 
 \begin{Proof}
-  La preuve est en trois partie; la construction de $\hat T$, s'assurer que cette application est continue puis s'assurer qu'elle est unique.
+  La preuve est en trois partie; la construction de $\hat T$, s'assurer que cette application est continue puis s'assurer qu'elle est unique.\\
 
   $\star$ Pour la construction de $\hat T$, on considère $x\in X\backslash E$. Par densité il existe $e:\N\longrightarrow E$ telle que 
   $$e_n\tend e$$
@@ -1084,7 +1087,7 @@ est relativement compacte.
   $$||Te_n-Te_n'||\leqslant||t||\ ||e_n-e_n'||\tend0$$
   donc 
   $$Te_n-Te_n'\tend 0$$
-  et $\hat Tx$ est correctement définie.
+  et $\hat Tx$ est correctement définie.\\
 
   $\star$ Pour la linéarité, soient $(x,y)\in X$, $\lambda\in\K$. On considère $y_n\longrightarrow y$ et $x_n\longrightarrow x$, alors
   \begin{align*}
@@ -1092,17 +1095,17 @@ est relativement compacte.
     &=\lambda\underset{n\to+\infty}{\mathrm{lim}}Tx_n+\underset{n\to+\infty}{\mathrm{lim}}Ty_n\\
     \hat T(\lambda x+y)&=\lambda\hat Tx+\hat Ty
   \end{align*}
-  et $\hat T$ est bien une application linéaire.
+  et $\hat T$ est bien une application linéaire.\\
 
   $\star$ Pour la continuité de $\hat T$, soient $x\in X$ et $x_n\longrightarrow x$, on sait, puisque $T$ est continue, que 
   $$\forall n\in\N,\ ||Te_n||\leqslant ||T||\ ||e_n||$$
   par passage à la limite simple
   $$||\hat Tx||\leqslant ||T||\ ||x||$$
-  donc $\hat T$ est continue, et on a même l'inégalité des normes $||\hat T||\leqslant ||T||$.
+  donc $\hat T$ est continue, et on a même l'inégalité des normes $||\hat T||\leqslant ||T||$.\\
 
   $\star$ Quant aux normes, on a $\hat T\big|_E=T$ donc pour $e\in E$,
   $$||Te||=||\hat Te||\leqslant ||\hat T||\ ||e||$$
-  donc $||T||\leqslant||\hat T||$ ainsi on a l'égalité des normes recherchée.
+  donc $||T||\leqslant||\hat T||$ ainsi on a l'égalité des normes recherchée.\\
 
   $\star$ Pour l'unicité, on suppose qu'il existe $U$ distinct de $\hat T$ qui convient, alors $\forall x\in X$, il existe $x_n\longrightarrow x$ une suite d'élements  de $E$, alors
   \begin{align*}
@@ -1116,12 +1119,11 @@ est relativement compacte.
 
 
 \begin{thC}{Banach-Steinhaus}
-  Soient $X$ un espace de Banach, $Y$ un espace vectoriel normé et $\left\{T_i,\ i\in I\right\}$ une suite quelconque d'application linéaires $X\longrightarrow Y$,
+  Soient $X$ un espace de Banach, $Y$ un espace vectoriel normé et $\left\{T_i,\ i\in I\right\}$ une suite quelconque d'application linéaires $X\longrightarrow Y$,\\
   
   alors exactement l'une des assertions suivantes est vraie\\
-  
-  $(i))$ $\underset{i\in I}{\mathrm{sup}}||T_i||<\infty$\\[1em]
-  $(ii) $ $\big\{x\in X\text{ t.q. } \underset{i\in I}{\mathrm{sup}}||T_ix||=+\infty\big\}$ est dense dans $X$.
+  $(i)$ $\underset{i\in I}{\mathrm{sup}}||T_i||<\infty$\\[1em]
+  $(ii) $ $\Big\{x\in X\text{ t.q. } \underset{i\in I}{\mathrm{sup}}||T_ix||=+\infty\Big\}$ est dense dans $X$.
 \end{thC}
 
 \begin{Proof}
@@ -1179,7 +1181,7 @@ est dense dans $C([-\pi,\pi])$, muni de la norme $||\cdot||_{\infty}$.
     \mathcal C[-\pi,\pi]&\longrightarrow&\R\\
     f&\longmapsto&S_nf(0)\\
   \end{array}$$
-  $\ell_n$ est une application linéaire.
+  $\ell_n$ est une application linéaire.\\
 
   $\star$ Montrons que $\ell_n$ est continue, soit $f\in\mathcal C[-\pi,\pi]$, on calcule 
   \begin{align*}
@@ -1199,7 +1201,7 @@ est dense dans $C([-\pi,\pi])$, muni de la norme $||\cdot||_{\infty}$.
     &\leqslant ||f||_{\infty}\frac{1}{2\pi}\left|\int_{-\pi}^{\pi}D_n(t)\dt\right|\\
     |\ell_n(f)|&\leqslant ||f||_{\infty}\frac{1}{2\pi}\int_{-\pi}^{\pi}\left|D_n(t)\right|\dt\qquad (i)
   \end{align*}
-  donc $\ell_n$ est continue.
+  donc $\ell_n$ est continue.\\
 
   $\star$ Montrons que $\underset{n\geqslant 0}{\mathrm{sup}}\ ||\ell_n||=+\infty$
 
@@ -1259,9 +1261,9 @@ est dense dans $C([-\pi,\pi])$, muni de la norme $||\cdot||_{\infty}$.
   $$T\left(\frac12\left(u_n+v_n\right)\right)\longrightarrow y$$
   et $\forall n\in\N,\ \frac12\left(u_n+v_n\right)\in B(0,n_0).$
 
-  Puisque $F_{n_0}$ est un fermé, $y\in F_{n_0}$ et $B(0,r)\subset\overline{T\left[B(0,n_0)\right]}$, autrement dit (linéarité ??? oui), en posant $M:=\nicefrac{n_0}{r}$, on obtient 
+  Puisque $F_{n_0}$ est un fermé, $y\in F_{n_0}$ et $B(0,r)\subset\overline{T\left[B(0,n_0)\right]}$, autrement dit (linéarité ? oui), en posant $M:=\nicefrac{n_0}{r}$, on obtient 
   $$B(0,1)\subset \overline{T\left[B(0,M)\right]}.$$
-  $\hfill\square$ 
+  $\hfill\square$\\
 
   $\star$ On va maintenant montrer qu'il existe $c_1>0$ tel que $B(0,1)\subset\left[B(0,c_1)\right].$ Soit $z_0\in B(0,1)\subset \overline{T\left[B(0,M)\right]}$ alrs il existe $x_0\in B(0,M)$ tel que
   $$||z_0-Tx_0||<\frac12$$
@@ -1278,7 +1280,7 @@ est dense dans $C([-\pi,\pi])$, muni de la norme $||\cdot||_{\infty}$.
   On peut calculer $Tx$,
   $$Tx=\sum_{n=0}^\infty Tx_n=\sum_{n=0}^\infty z_n-z_{n+1}$$
   et puisque $z_n\longrightarrow 0$, on a alors $Tx=z_0$ et $c_1:=2M$ convient.
-  $\hfill\square$
+  $\hfill\square$\\
 
   $\star$ Pour conclure, soit $y\in Y\backslash {0}$ et $z:=\frac{y}{2||y||}$, alors $z\in B(0,1)$ donc il existe $x_1\in X$ tel que $||x_1||\leqslant c_1$ et $z=Tx_1$, donc
   $$y=T(2||y||x_1)=Tx$$
@@ -1288,7 +1290,7 @@ est dense dans $C([-\pi,\pi])$, muni de la norme $||\cdot||_{\infty}$.
 
 
 \begin{thC}{d'isomorphisme de Banach}
-  Soient $X,Y$ est espaces de Banach et $T\in \mathcal L(X,Y)$, si $T$ est bijective, 
+  Soient $X,Y$ est espaces de Banach et $T\in \mathcal L(X,Y)$, si $T$ est bijective,\\
 
   alors $T^{-1}\in \mathcal L(Y,X)$.
 \end{thC}
@@ -1365,7 +1367,7 @@ est dense dans $C([-\pi,\pi])$, muni de la norme $||\cdot||_{\infty}$.
     x_n\tend x\\
     Tx_n\tend y
   \end{array}\right.$$
-  donc par hypothèse, $Tx=y$ et $(x,y)\in G_x(T)$ ce qui montre que le graphe est bien fermé.
+  donc par hypothèse, $Tx=y$ et $(x,y)\in G_x(T)$ ce qui montre que le graphe est bien fermé.\\
 
   $\star$ On note $\pi_X:G_x(T)\longrightarrow X$ et $\pi_Y:G_x(T)\longrightarrow Y$ les projecteurs, on a 
   $$\begin{array}{rcccr}
@@ -1441,7 +1443,8 @@ On rappelle la propriété suivante :
 
 
 \begin{prop}
-  Soit $\varphi:E\longrightarrow \C$ linéaire,
+  Soit $\varphi:E\longrightarrow \C$ linéaire,\\
+
   alors $\varphi\in E^*\Leftrightarrow\ker\ \varphi$ est fermé dans $E$
 \end{prop}
 
@@ -1449,7 +1452,7 @@ On rappelle la propriété suivante :
 \begin{Proof}
   $\star$ si $\varphi$ est continue, alors 
   $$\ker\ \varphi=\varphi^{-1}(\{0\})$$
-  est un fermé en tant que pré-image du fermé $\{0\}$ par l'application continue $\varphi$.
+  est un fermé en tant que pré-image du fermé $\{0\}$ par l'application continue $\varphi$.\\
 
   $\star$ Réciproquement, on suppose que $\ker\ \varphi$ est fermé et on procède par l'absurde, c'est à dire qu'on suppose que $\varphi$ n'est pas continue, donc que $\mathrm{sup}_{||x||=1}|\varphi(x)|=+\infty$. Ainsi il existe une  suite $x_n\in E$ telle que 
   $$\forall n\in \N,\ ||x_n||=1\text{ et }|\varphi(x_n)|\tend +\infty.$$
@@ -1589,7 +1592,7 @@ On aura besoin du lemme suivant :
 
   On applique le lemme de Zorn, donc il existe $(\tilde G,\tilde\varphi)$ maximal.\\
 
-  $\dagger$ Si $\tilde G=E$, alors $\tilde\varphi$ convient.
+  $\dagger$ Si $\tilde G=E$, alors $\tilde\varphi$ convient.\\
 
   $\dagger$ Si $\tilde G\neq E$, alors il existe $x_0\in E\backslash g$ et en considérant le prolongement admissible du lemme, il existe $(G_1, \tilde\varphi_0)$ tel que 
   $$(\tilde G,\tilde\varphi)\preccurlyeq(G_1, \tilde\varphi_0)$$
@@ -1724,8 +1727,8 @@ On peut étendre ce théorème dans le cas complexe,
   Soit $x\in E$, par densité de $F$ dans $E$, il existe $x_n\in F$ convergeant vers $x$. 
   
   Par continuité, on a 
-  $$x^*(x)=\underset{n\to\infty}{\mathrm{lim}}x^*(x_n)=\underset{n\to\infty}{\mathrm{lim}} 0=0.$$
-  et $F^\bot=\{0\}$
+  $$x^*(x)=\underset{n\to\infty}{\mathrm{lim}}x^*(x_n)=\underset{n\to\infty}{\mathrm{lim}} 0=0,$$
+  et $F^\bot=\{0\}$.\\
 
   $\star$ Réciproquement, si $F^\bot=\{0\}$ on va supposer que $\overline F\neq E$, donc il existe $x\in E\backslash\overline{F}$.
   
@@ -1805,6 +1808,13 @@ alors $\mathrm{Vect}\left(f_{a_n},\ n\in\N\right)$ est dense dans $\left(C[-1,1]
 \end{RQ}
 
 
+\begin{RQ}
+  Pour $\ps{\cdot,\cdot}$ une forme hermitienne, on a aussi 
+  $$\forall (x,y)\in H,\forall \lambda\in \K,\ \ps{x,\lambda y}=\overline{\lambda}\ps{x,y}.$$
+  (c'est trivial, mais il faut garder ça en tête)
+\end{RQ}
+
+
 \begin{propC}{Cauchy-Schwarz}
   Soit $(E,\langle \cdot,\cdot\rangle)$ un espaces préhilbertien,\\
 
@@ -1841,7 +1851,7 @@ est un produit scalaire, dit \emph{canonique} sur $\ell^2(\C).$
 \end{propC}
 
 
-\begin{proof}
+\begin{Proof}
   Soient $(x,y)\in H$,
   \begin{align*}
     ||x+y||^2&=\langle x+y,x+y\rangle\\
@@ -1853,7 +1863,7 @@ est un produit scalaire, dit \emph{canonique} sur $\ell^2(\C).$
   $$||x-y||^2=||x||^2+||y||^2-\Re \langle x,y\rangle\qquad (ii)$$
   on obtient donc, en sommant les points $(i)$ et $(ii)$
   $$||x+y||^2+||x-y||^2=2\left(||x||^2+||y||^2\right).$$
-\end{proof}
+\end{Proof}
 
 
 \begin{propC}{identité de polarisation}
@@ -1881,7 +1891,7 @@ est un produit scalaire, dit \emph{canonique} sur $\ell^2(\C).$
   \begin{align*}
     \left|\langle x_n,y_n\rangle-\ps{x,y}\right|&=\abs{\ps{x_n-x,y_n}+\ps{x,y_n-y}}\\
     &\leqslant \abs{\ps{x_n-x,y_n}}+\abs{\ps{x,y_n-y}}\\
-    &\leqslant \norm{x_n-x}\ \norm{y_n}+\norm{x}\ \norm{y_n-y}
+    \left|\langle x_n,y_n\rangle-\ps{x,y}\right|&\leqslant \norm{x_n-x}\ \norm{y_n}+\norm{x}\ \norm{y_n-y}
   \end{align*}
   et $\norm{x_n-x}\longrightarrow 0$, $\norm{y_n-y}\longrightarrow 0$ donc 
   $$\left|\langle x_n,y_n\rangle-\ps{x,y}\right|\tend 0.$$
@@ -1984,11 +1994,11 @@ forme un système orthonormé.
   Par ailleurs, on a aussi
   \begin{align*}
     ||x^2||=||u+v||^2&=||u||^2+||v||^2+2\Re\ps{u,v}\\
-    &=||u||^2+||v||
-    &\geqslant ||u||^2
+    &=||u||^2+||v||\\
+    ||x||^2&\geqslant ||u||^2
   \end{align*}
   ainsi 
-  $$|xx||^2\geqslant \sum{n=0}^N\abs{\ps{x,e_n}}^2\tend \sum_{n=0}^\infty\abs{\ps{e_n,x}}$$
+  $$||x||^2\geqslant \sum_{n=0}^N\abs{\ps{x,e_n}}^2\tend \sum_{n=0}^\infty\abs{\ps{e_n,x}}$$
 \end{ProofC}
 
 
@@ -2028,7 +2038,7 @@ n'est pas un espace de Hilbert.
 une formulation équivalente de ce théorème est 
 
 
-\begin{thC}{formulation variationelle}
+\begin{thC}{formulation variationnelle}
   Soit $H$ de Hilbert et $K$ (non vide) un convexe fermé de $H$,\\
 
   les assertions suivantes sont équivalentes\\
@@ -2038,7 +2048,7 @@ une formulation équivalente de ce théorème est
 
 
 \begin{ProofC}{Démonstration du théorème de projection}
-  Soit $H$ un espace de Hilbert, $K\subset H$ un convexe fermé et non vide, soit $x\in H$,
+  Soit $H$ un espace de Hilbert, $K\subset H$ un convexe fermé et non vide, soit $x\in H$,\\
 
   $\star$ Existence : soit $d:=\mathrm{dist}(x,K)$, par caractérisation de l'inférieur d'une partie, il existe $u_n\in K$ telle que 
   $$||u_n-x||\tend d.$$
@@ -2056,19 +2066,19 @@ une formulation équivalente de ce théorème est
   $$||u_n-u_m||\underset{n,m\to\infty}{\longrightarrow}0.$$
   $(u_n)$ est donc de Cauchy, donc elle converge vers $u\in E$ car $E$ est complet, et puisque $K$ est fermé, $u_n\longrightarrow u\in K$. De plus, 
   $$d=\underset{n\to\infty}{\mathrm{lim}}||x-u_n||=||x-u||$$
-  et la distance est donc atteinte.
+  et la distance est donc atteinte.\\
 
   $\star$ Unicité : on suppose qu'il existe aussi $u\in K$ telle que $d=||x-u||$, alors d'après l'égalité du parallélogramme, on a 
   $$||(x-u)+(x-v)||^2+||(x-u)-(x-v)||^2=2\left(||x-u||^2+||x-v||^2\right)$$
   donc 
   $$||2x-(u+v)||^2+||v-u||^2=4d^2.$$
   Puisque $K$ est convexe, on a la majoration suivante ;
-  $$|u-v||^2\leqslant 4d^2-\underbrace{4\norm{x-\frac{u+v}{2}}^2}_{\leqslant 4d^2}\leqslant 0$$
+  $$||u-v||^2\leqslant 4d^2-\underbrace{4\norm{x-\frac{u+v}{2}}^2}_{\leqslant 4d^2}\leqslant 0$$
   donc $u=v$ et le projeté est effectivement unique.
 \end{ProofC}
 
 
-\begin{ProofC}{Démonstration de la formulation variationelle}
+\begin{ProofC}{Démonstration de la formulation variationnelle}
   $\star$ Si $u=P_K(x)$, alors pour $t\in [0,1],\ v\in K$, on pose 
   $$w(t):=(1-t)u+tv$$
   par convexité de $K$, $w\in K$ et on a 
@@ -2097,9 +2107,9 @@ une formulation équivalente de ce théorème est
 
 $\triangleright$\emph{ex : }Soit $K=\overline{B(0,1)}$, montrons que 
 $$\forall ||x||\geqslant 1,\ P_K(x)=\frac{x}{||x||}.$$
-Soit $||x||\geqslant 1$, on a utiliser la caractérisation variationelle :\\
+Soit $||x||\geqslant 1$, on a utiliser la caractérisation variationnelle :\\
 
-$\star$ il est clair que $\displaystyle\frac{x}{||x||}\in\K$\\
+$\star$ il est clair que $\displaystyle\frac{x}{||x||}\in K$\\
 
 $\star$ soit $v\in K$, on a 
 \begin{align*}
@@ -2121,7 +2131,7 @@ donc pour $||x||\geqslant 1$, on a bien $P_K(x)=\dstyle\frac{x}{||x||}$ et pour 
 
 
 \begin{Proof}
-  Soient $(x_1,x_2)\in H$, on note $u_1:=P_K(x_1)$ et $u_2:=P_K(x_2)$, donc par caractérisation variationelle
+  Soient $(x_1,x_2)\in H$, on note $u_1:=P_K(x_1)$ et $u_2:=P_K(x_2)$, donc par caractérisation variationnelle
   $$\forall v\in K,\ \begin{cases}
     \Re\ps{x_1-u_1,v-u_1}\leqslant 0\\
     \Re\ps{x_2-u_2,v-u_2}\leqslant 0\\
@@ -2168,7 +2178,7 @@ donc pour $||x||\geqslant 1$, on a bien $P_K(x)=\dstyle\frac{x}{||x||}$ et pour 
 \end{RQ}
 
 \begin{Proof}
-  $\star$ Si $u=P_M(x)$, alors d'après la caractérisation variationelle, on a $u\in M$ et 
+  $\star$ Si $u=P_M(x)$, alors d'après la caractérisation variationnelle, on a $u\in M$ et 
   $$\forall m\in M,\ \Re\ps{x-u,m-u}\leqslant 0.\qquad (i)$$
   Puisque $M$ est un espace vectoriel, $m-u\in M$ et on peut reformuler $(i)$ en 
   $$\forall v\in M,\ \Re\ps{x-u,v}\leqslant 0.$$
@@ -2181,7 +2191,7 @@ donc pour $||x||\geqslant 1$, on a bien $P_K(x)=\dstyle\frac{x}{||x||}$ et pour 
 
   $\dagger$ Si $H$ est un $\C$-espace vectoriel, alors en considérant $v\to iv$, on a 
   $$\Re\ps{x-u,iv}=0\Leftrightarrow -\Im\ps{x-u,v}=0$$
-  donc $\ps{x-u,v}=0$ et c'est fini.
+  donc $\ps{x-u,v}=0$ et c'est fini.\\
 
   $\star$ Réciproquement, si $(ii)$ est vérifiée, puisque $v-u\in M$, on a 
   $$\forall v\in M,\ \ps{x-u,v-u}=0$$ 
@@ -2242,7 +2252,7 @@ donc pour $||x||\geqslant 1$, on a bien $P_K(x)=\dstyle\frac{x}{||x||}$ et pour 
 
 \begin{RQ}
   La décomposition de $x$ est orthogonale, c'est à dire que l'on a 
-  $$||x||^2=||P_M(x)||^2+||Pm_{M^\bot}(x)||^2.$$
+  $$||x||^2=||P_M(x)||^2+||P_{M^\bot}(x)||^2.$$
 \end{RQ}
 
 
@@ -2267,4 +2277,235 @@ donc pour $||x||\geqslant 1$, on a bien $P_K(x)=\dstyle\frac{x}{||x||}$ et pour 
 \end{ProofC}
 
 
+
+\begin{prop}
+  Soit $H$ un espace préhilbertien et $F$ un sous-espace vectoriel fermé de $H$, alors\\
+  
+  $$F=F^{\bot\bot}$$
+\end{prop}
+
+
+\begin{Proof}
+  $\star$ Soit $x\in F$, alors pour $w\in F^\bot$, $\ps{x,w}=0$ donc $x\in F^{\bot\bot}$ et $F\subset F^{\bot\bot}$.\\
+
+  $\star$ Réciproquement, soit $x\in F^{\bot\bot}$, alors on va écrire $x$ sous la forme 
+  $$x=x_F+x_{F^\bot}$$
+  et on a 
+  \begin{align*}
+    ||x_{F^\bot}||^2&=\ps{x_{F^\bot},x_{F^\bot}}\\
+    &=\ps{x-x_F,x_{F^\bot}}\\
+    ||x_{F^\bot}||^2&=0
+  \end{align*}
+  donc $x_{F^\bot}=0$ et $x\in F$.
+\end{Proof}
+
+
+\begin{prop}
+  Soit $F$ un sous-espace vectoriel de $H$, \\
+
+  alors\\
+  $(\mathit 1)\ F^{\bot\bot}=\overline{F}$\\
+  $(\mathit 2)\ F$ est dense dans $H$ \ssi $F^\bot=\{0\}.$
+\end{prop}
+
+
+\begin{ProofC}{Démonstration du $(\mathit 1)$}
+  $\star$ D'une part, on a $F\subset \overline{F}$, donc $\overline{F}^\bot\subset F^\bot$ et, en composant à nouveau par $^\bot$, $F^{\bot\bot}\subset \overline{F}^{\bot\bot}$. $\overline{F}$ étant fermé, on peut appliquer la propriété précédente et $\overline{F}^{\bot\bot}=\overline{F}$ d'où $F^{\bot\bot}\subset\overline{F}$.\\
+
+  $\star$ Réciproquement, $F\subset F^{\bot\bot}$ et puisque $F^{\bot\bot}$ est un fermé, on peut considérer la fermture de $F$ et $\overline{F}\subset F^{\bot\bot}$. On a donc l'inclusion réciproque, et $\overline{F}= F^{\bot\bot}$.
+\end{ProofC}
+
+
+
+\begin{ProofC}{Démonstration du $(\mathit 2)$}
+  $F$ est dense \ssi $\overline{F}=H$ donc $F$ est dense \ssi $\overline{F}^\bot=H^\bot=\{0\}.$
+\end{ProofC}
+
+
+\NouvelleSubsection{Base de Hilbert}
+
+
+
+\begin{Def}
+  Soit $(e_n)_{n\geqslant 0}\in H$, on dit que $(e_n)$ est \emph{complète} \ssi,\\
+  $$\overline{\mathrm{Vect}\left\{e_n,\ n\geqslant 0\right\}}=H,$$
+  où $\mathrm{Vect}\left\{e_n,\ n\geqslant 0\right\}$ désigne l'emsemble des combinaisons linéaires finies des vecteurs de $(e_n)$.
+\end{Def}
+
+
+
+\begin{RQ}
+  Si $H$ admet une suite complète, alors $H$ est nécessairement séparable
+\end{RQ}
+
+
+\begin{Proof}
+  Pourquoi ? à investiguer.
+\end{Proof}
+
+
+\begin{prop}
+  Soit $H$ un espace de Hilbert séparable et $(e_n)\in H$,\\
+
+  alors \lasse\\
+  $(\mathit 1)\ (e_n)$ est complète\\
+  $(\mathit 2)\forall x\in H\TQ \forall n\in\N,\ \ps{x,e_n}=0,\ x=0.$
+\end{prop}
+
+
+\begin{Proof}
+  $\star$ Si $(e_n)$ est complète, soit $x\in H$ tel que $\forall n\in \N,\ \ps{x,e_n}=0$, par linéarité par rapport à la seconde variable du produit scalaire, on a 
+  $$x\perp\mathrm{Vect}\left\{e_n,\ n\geqslant 0\right\}$$
+  puisque $w\longmapsto\ps{x,w}$ est continue, on a 
+  $$x\perp\overline{\mathrm{Vect}\left\{e_n,\ n\geqslant 0\right\}}=H$$
+  donc $x\in H^\bot=\{0\}$ donc $x=0$.\\
+
+  $\star$ Réciproquement, si la famille vérifie $(ii)$, alors 
+  $$\mathrm{Vect}\left\{e_n,\ n\geqslant 0\right\}^\bot=\{0\}$$
+  et d'après la dernière propriété de la sous-partie précédente, $\mathrm{Vect}\left\{e_n,\ n\geqslant 0\right\}$ est dense dans $H$, donc $(e_n)$ est complète.
+\end{Proof}
+
+
+\begin{Def}
+  Soit $H$ un espace de Hilbert séparable et $(e_n)_{n\geqslant 0}\in H$ une suite, $(e_n)$ est une \emph{base hilbertienne} \ssi\\
+  $\Bullet\ (e_n)$ est orthogonale\\
+  $\BBullet\ (e_n)$ est une suite complète.
+\end{Def}
+
+
+$\triangleright$\emph{ex : }si $H=\ell^2(\C)$ et $e_i=(\underbrace{0,\cdots,0}_{i-1},1,0,\cdots)$, alors $(e_i)_{i\geqslant 0}$ est une famille orthonormale et, pour $u\in\ell^2(\C)$, on a 
+$$\forall i\in \N,\ \ps{u,e_i}=u_i$$
+donc si $u$ vérifie 
+$$\forall i\in \N,\ \ps{u,e_i}=0$$
+alors $u=0$ donc $(e_i)$ est une base hilbertienne.
+
+
+\begin{Th}
+  Soit $H$ de Hilbert séparable, $(e_i)$ une suite orthonormale,\\
+
+  alors \lasse\\
+  $(i)\ (e_i)$ est une base hilbertienne\\
+  $(ii)\ \forall x\in H,$ 
+  $$x=\sum_{n=0}^\infty\ps{x,e_n}e_n$$
+  (et cette série est convergente)\\
+  $(iii)\ \forall (x,y)\in H,$
+  $$\ps{x,y}=\sum_{n=0}^\infty\ps{x,e_n}\overline{\ps{y,e_n}}$$
+  $(iv)\ \forall x\in H,$ 
+  $$||x||^2=\sum_{n=0}^\infty\abs{\ps{x,e_n}}^2$$
+\end{Th}
+
+
+\begin{RQ}
+  L'égalité $(iv)$ est appellée \emph{égalité de Parseval}.
+\end{RQ}
+
+
+\begin{Proof}
+  $\star\ (i)\Rightarrow(ii)$ Soit $\dstyle S_N:=\sum_{n=0}^N\ps{x,e_n}e_n$, montrons que la suite des sommes partielles est de Cauchy, soient $N\geqslant M$,
+  $$||S_N-S_M||^2=\norm{\sum_{n=M+1}^N\ps{x,e_n}e_n}^2=\sum_{n=M+1}^N|\ps{x,e_n}\underset{M,N\to\infty}{\longrightarrow}0$$
+  car la série esty convergente, donc $S_N$ est de Cauchy dans un espace complet, ainsi $S_N$ converge vers $\dstyle S=\displaystyle\sum_{n=0}^\infty\ps{x,e_n}e_n$.
+
+  Soit $j\geqslant 0$, on calcule
+  \begin{align*}
+    \ps{x-S,e_j}&=\ps{x-\dstyle\sum_{n=0}^\infty\ps{x,e_n}e_n,e_j}\\
+    &=\ps{x,e_j}-\sum_{n=0}^\infty\ps{x,e_n}\ps{e_n,e_j}\\
+    &=\ps{e,e_j}-\ps{x,e_j}\\
+    \ps{x-S,e_j}&=0
+  \end{align*}
+  donc $x-S\perp e_j,\ \forall j\in\N$ donc par complétude de la suite $(e_n)$, $x-S=0$ et 
+  $$x=\displaystyle\sum_{n=0}^\infty\ps{x,e_n}e_n.$$
+
+  $\star\ (ii)\Rightarrow (iii)$ Soient $(x,y)\in H$, d'après le point $(ii)$, on a alors 
+  $$x=\displaystyle\sum_{i=0}^\infty\ps{x,e_i}e_i\text{ et }y=\displaystyle\sum_{n=0}^\infty\ps{y,e_n}e_n$$
+  ainsi on calcule
+  \begin{align*}
+    \ps{x,y}&=\ps{\displaystyle\sum_{i=0}^\infty\ps{x,e_i}e_i,\displaystyle\sum_{j=0}^\infty\ps{y,e_j}e_j}\\
+    &=\dstyle\sum_{i=0}^\infty\sum_{j=0}^\infty\ps{x,e_i}\overline{\ps{y,e_j}}\ps{e_i,e_j}\\
+    &=\dstyle\sum_{n=0}^\infty\ps{x,e_n}\overline{\ps{y,e_n}}.
+  \end{align*}
+
+  $\star\ (iii)\Rightarrow(iv)$ On applique $(iii)$ avec $y=x$.\\
+
+  $\star\ (iv)\Rightarrow(i)$ Soit $x\in H$ tel que $\forall n\in\N,\ \ps{x,e_n}=0$, alors 
+  $$||x||^2=\sum_{n=0}^\infty\abs{\ps{x,e_n}}^2=0$$
+  donc $x=0$ et la suite $(e_n)$ est complète.
+\end{Proof}
+
+
+\begin{Th}
+  Soit $H$ de Hilbert séparable,\\
+  
+  alors $H$ admet une base de Hibert.
+\end{Th}
+
+
+\begin{Proof}
+  $\dagger$ Si $\dim H<\infty$, c'est immédiat.\\
+
+  $\dagger$ On suppose donc $\dim H=\infty$. $H$ est séparable donc il existe une suite $(g_n)_{n\geqslant 0}$ dense dans $H$, on va suppose que les $(_n)$ sont tous non-nuls. 
+
+  $\star$ On va construire une sous-suite $(g_{\varphi(n)})_{n\geqslant 0}$ telle que\\
+  $\Bullet\ \forall n\geqslant 0,\ \ens{g_{\varphi(k)},\ 0\leqslant k\leqslant n}$ est une famille libre\\
+  $\BBullet\ \forall n\geqslant 0,$
+  $$\mathrm{Vect}\ens{g_j,\ 0\leqslant j\leqslant n}=\mathrm{Vect}\ens{g_{\varphi(j)},\ 0\leqslant j\leqslant n}.$$
+
+  $\star\star$ Pour $n=0$, on pose $\varphi(0)=0$ et c'est bon.
+
+  $\star\star$ On suppose que $\varphi(0),\cdots,\varphi(n)$ sont construits;
+
+  SI 
+  $$\forall k\geqslant \varphi(n),\ g_k\in \mathrm{Vect}\ens{g_j,\ 0\leqslant j\leqslant \varphi(n)}$$ 
+  alors
+  $$\mathrm{Vect}\ens{g_k,\ k\geqslant 0}=\mathrm{Vect}\ens{g_j,\ 0\leqslant j\leqslant \varphi(n)}=\mathrm{Vect}\ens{g_j,\ 0\leqslant j\leqslant n}=:F$$
+  $F$ est un sous-espace vectoriel de dimension $n+1$, donc $F$ est fermé et $H=F$, c'est absurde. Ainsi il existe $k_0>\varphi(n)$ tel que 
+  $$g_{k_0}\notin \mathrm{Vect}\ens{g_j,\ 0\leqslant j\leqslant \varphi(n)}.$$
+  On va donc pouvoir poser 
+  $$\varphi(n+1):=\mathrm{min}\Big\{k\tq\varphi(n)<k\leqslant k_0\text{ et }g_{k}\notin \mathrm{Vect}\ens{g_j,\ 0\leqslant j\leqslant \varphi(n)}\Big\}$$
+  donc
+  $$g_{\varphi(n+1)}\notin \mathrm{Vect}\ens{g_j\ 0\leqslant j\leqslant \varphi(n)}=\mathrm{Vect}\ens{g_{\varphi(k)},\ 0\leqslant k\leqslant n}$$
+  donc la famille 
+  $$\ens{g_{\varphi(k)},\ 0\leqslant k\leqslant n+1}$$
+  est libre.
+  
+  À COMPLÉTER / FINIR
+
+  $\star$ On applique le procédé de Gramm-Schmidt à la famille $(g_{\varphi(n)})$ donc il existe une famille $(e_n)$ orthonormale telle que 
+  $$\forall n\in \N,\ \mathrm{Vect}\ens{g_{\varphi(k)},\ 0\leqslant k\leqslant n}= \mathrm{Vect}\ens{e_k,\ 0\leqslant k\leqslant n}$$
+
+  $\star$ Montrons que la famille est complète, soit $x\in H$ et $\varepsilon>0$, il existe $N\in\N\tq \forall n\geqslant N,\ \norm{g_N-x}<\varepsilon.$ Soit $n$ tel que $\varphi(n)>N$, alors 
+  \begin{align*}
+    g_N&\in \mathrm{Vect}\ens{g_j,\ 0\leqslant j\leqslant \varphi(n)}\\
+    &= \mathrm{Vect}\ens{g_{\varphi(k)},\ 0\leqslant k\leqslant n}\\
+    &=\mathrm{Vct}\ens{e_k, 0\leqslant k\leqslant n}
+  \end{align*}
+  donc $g_N=\dstyle\sum_{k=0}^na_ke_k$ et 
+  $$\norm{x-\sum_{k=0}^na_ke_k}<\varepsilon,$$
+  et $\mathrm{Vect}\ens{e_k,e\ 0\leqslant k\leqslant n}$ est dense dans $H$.
+\end{Proof}
+
+
+\begin{Th}
+  Soit $H$ un espace de Hibert séparable,\\
+
+  alors $H$ est isométriquement isomorphe à $\ell^2(\C)$.
+\end{Th}
+
+
+\begin{Proof}
+  Soit $(e_n)$ une base hilbertienne de $H$, on pose
+  $$\phi:\begin{array}{|ccc}
+    H&\longrightarrow&\ell^2(\C)\\
+    x&\longmapsto&\phi(x):=\left(\ps{x,e_n}\right)_{n\geqslant 0}
+  \end{array}$$
+  d'après l'inégalité de Bessel, $\phi$ est bien définie (et linéaire).
+  D'après l'égalité de Parseval, pour $x\in H$, on a
+  $$||x||_{H}^2=\sum_{n=0}^\infty\abs{\ps{x,e_n}}^2=||\phi(x)||_{\ell^2(\C)}^2$$
+  donc $\phi$ est continue et isométrique.
+
+  $\phi$ est injective, montrons qu'elle est aussi surjective : soit $i\in \N$, 
+  $$\phi(e_j)=(\underbrace{0,\cdots,0}_{i-1},1,0,\cdots)=:\varepsilon_i$$
+  donc 
+  $$\mathrm{Im}\ \phi\subset\overline{\mathrm{Im}\ \phi}\subset\overline{\mathrm{Vect}\ens{\varepsilon_i,\ i\in\N}}=\ell^2(\C)$$
+  et $\phi$ est bon bien bijective, ce qui conclut.
+\end{Proof}
 \end{document}

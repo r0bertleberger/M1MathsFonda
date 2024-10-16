@@ -200,6 +200,17 @@
 }{
   \end{rouge}
 }
+\newenvironment{Th}
+{
+  \begin{rouge}
+  \stepcounter{prop}
+  \setcounter{corollaire}{0}
+  \setcounter{lemme}{0}
+  \setcounter{CompteurRemarque}{0}
+  {\bf Théorème \arabic{prop}}{\bf :}
+}{
+  \end{rouge}
+}
 \newenvironment{prop}
 {
   \begin{orange}
@@ -375,7 +386,6 @@
 %%%%%%
 \newcommand{\dt}{\mathrm dt}
 \newcommand{\inté}{\mathrm{int}\ }
-\newcommand{\tq}{\text{ t.q. }}
 \newcommand{\TQ}{\ |\ }
 \newcommand\YUGE{\fontsize{38.4}{48}\selectfont}
 \newcommand{\dstyle}{\displaystyle}
@@ -391,11 +401,15 @@
     \end{tabular}%
     \par % ... and this too.
 }
+
+\newcommand{\tq}{\text{ t.q. }}
 \newcommand{\ssi}{si, et seulement si\ }
+\newcommand{\lasse}{les assertions suivantes sont équivalentes}
+
 \newcommand{\norm}[1]{\left\lVert#1\right\rVert}
 \newcommand{\ps}[1]{\left\langle #1 \right\rangle}
 \newcommand{\ens}[1]{\left\{#1\right\}}
 \newcommand{\abs}[1]{\left| #1\right|}
 \newcommand{\Bullet}{(\bullet)}
 \newcommand{\BBullet}{(\bullet\bullet)}  
-\newcommand{\BBbullet}{(\bullet\bullet\bullet)}
+\newcommand{\BBBullet}{(\bullet\bullet\bullet)}
