@@ -26,6 +26,7 @@
 \usepackage[framemethod=tikz]{mdframed}
 \usepackage{etoolbox} % Pour la gestion conditionnelle
 \usepackage[dvipsnames]{xcolor}
+\usepackage{tocloft}
 
 
 %%%%%%
@@ -47,21 +48,13 @@
 
 \fancypagestyle{TestPage}{
 	\fancyfoot[C]{\emph{Analyse}}
-    \fancyhead[LE,RO]{\rightmark}
+  \fancyhead[LE,RO]{\rightmark}
 	\fancyfoot[LE,RO]{\thepage}
 	\renewcommand{\footrulewidth}{0.4pt}\vspace{-0.2cm}
 }
 
 
-%%%%%%
-% du chatGPT
-%%%%%%
-\makeatletter
-\renewcommand{\section}{\@startsection{section}{1}{0pt}{-3.5ex plus -1ex minus -.2ex}{1pt}{\Large\bfseries\markright{\thesection~\@title}}}
-\renewcommand{\subsection}{\@startsection{subsection}{2}{0pt}{-3.25ex plus -1ex minus -.2ex}{1.5ex}{\large\bfseries\markright   {\thesubsection~\@title}}}
-\makeatother
-\renewcommand{\thesection}{\arabic{section}}
-\renewcommand{\thesubsection}{\arabic{Subsection}}
+
 
 
 %%%%%%
@@ -89,24 +82,37 @@
 \newcounter{corollaire}
 \newcounter{lemme}
 \newcounter{Subsection}
+\newcounter{Section}
 
+
+\providecommand\phantomsection{}
+
+\setcounter{tocdepth}{2}
 
 %%%%%%
 % les sections alternatives
 %%%%%%
 \newcommand{\NouvelleSubsection}[1]{
-  \newpage
-  \subsection{#1}
+  \subsection*{#1}
   \stepcounter{Subsection}
 }
-\newcommand{\PremiereNouvelleSubsection}[1]{
-    \subsection{#1}
-    \stepcounter{Subsection}
+\newcommand{\NouvelleSection}[1]{
+  \newpage
+  \section*{\arabic{Section}] #1}
+  \phantomsection
+  \addcontentsline{toc}{subsection}{#1}
+  \stepcounter{Section} 
+}
+\newcommand{\PremiereNouvelleSection}[1]{
+    \section*{\arabic{Section}] #1}
+    \phantomsection
+    \addcontentsline{toc}{subsection}{#1}
+    \stepcounter{Section}
 }
 \newcommand{\NouvellePart}[1]{
   \newpage
   \part{#1}
-  \setcounter{Subsection}{1}
+  \setcounter{Section}{1}
   \setcounter{prop}{0}
 }
 
@@ -395,6 +401,9 @@
 \newcommand{\Lf}{L^2([-\pi,\pi])}
 \newcommand{\intr}{\dstyle\int_{-\infty}^{+\infty}}
 \newcommand{\ex}[1]{\mathrm{e}^{#1}}
+\renewcommand{\ker}{\mathrm{ker}}
+\newcommand{\Id}{\mathrm{Id}}
+\newcommand{\Par}[1]{\left(#1\right)}
 
 \newcommand{\dnote}[1]{%
     \noindent % I guess this is intended...

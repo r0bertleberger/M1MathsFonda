@@ -58,7 +58,7 @@ Le symbole $\square$ signifie \emph{C.Q.F.D.}, le symbole $(\bullet)$ indique pl
 
 On commence par (re)voir quelques notions de topologies qui vont nous servir au cours de ce chapitre :
 
-\PremiereNouvelleSubsection{3 notions importantes}
+\PremiereNouvelleSection{3 notions importantes}
 
 
 $\bullet\quad$ densité : si $(E,d)$ est un espace métrique, $A\subset E$ est dite \emph{dense dans }$E$ si, et seulement si 
@@ -81,7 +81,7 @@ la densité s'identifie avec une approximation par des fonctions régulières et
 
 
 
-\NouvelleSubsection{Théorème de Dini}
+\NouvelleSection{Théorème de Dini}
 
 
 On sait, depuis la \emph{spé} que la convergence uniforme implique la convergence simple, et qu'il n'y a \emph{à priori} pas de réciproque (un contre-exemple est $f_n :t\in ]0,1[ \longmapsto t^n$, qui converge simplement vers la fonction nulle, mais dont la norme infinie est constante égale à 1).\\
@@ -144,7 +144,7 @@ alors $P_n$ est une suite de polynômes convergeant uniformément vers $t\in[0,1
 
 
 
-\NouvelleSubsection{Théorème(s) de Stone-Weierstra\ss}
+\NouvelleSection{Théorème(s) de Stone-Weierstra\ss}
 
 
 On commence par une parenthèse algébrique : soit $\A$ un ensemble, muni des lois $(+,.,\times)$.
@@ -439,7 +439,7 @@ est une suite de polynômes convergeant uniformément sur $[0,1]$ vers $f$.\\[1e
 
 Un polynôme trigonométrique est une application de la forme
 $$P:t\longmapsto\sum_{k\in\llbracket -N,N\rrbracket}c_k\mathrm e^{ikt}$$
-où les $c_k$ sont des coefficents complexes.
+où les $c_k$ sont des coefficients complexes.
 
 En passant à la forme trigonométrique de $\mathrm e^{ikt}$, on peut ré-écrire $P$ comme
 \begin{flalign*}
@@ -462,7 +462,7 @@ En passant à la forme trigonométrique de $\mathrm e^{ikt}$, on peut ré-écrir
 
 
 
-\NouvelleSubsection{Espaces séparables}
+\NouvelleSection{Espaces séparables}
 
 \begin{Def}
   $(E,d)$ est dit séparable si, et seulement si il existe $A\subset E$ dénombrable et dense dans $E$.
@@ -478,7 +478,7 @@ On montre (en TD) que tout espace vectoriel de dimension finie est séparable. O
 \begin{prop}
   Soit $(E,d)$ un espace vectoriel normé, on suppose qu'il existe une famille $(e_n)\in E$ telle que 
   $$\overline{\mathrm{Vect}\ens{e_i,\ i\in \mathbf N}}=E$$
-  où $\mathrm{Vect}(e_i,\ i\in \mathbf N)$ est l'ensemble des combinaisons linéaires finies des $(e_n)$,\\
+  où $\mathrm{Vect}\ens{e_i,\ i\in \mathbf N}$ est l'ensemble des combinaisons linéaires finies des $(e_n)$,\\
 
   alors $E$ est séparable.
 \end{prop}
@@ -509,7 +509,7 @@ est un espace (vectoriel normé) séparable.
   Soit $e_n=\mathbf 1_{\{n\}}=(0,\cdots,0,1,0,\cdots,0)$ où le $1$ est en $n$-ème position et soit $x_n\in\ell^p$, alors 
   $$\norm{u-\sum_{i=1}^Nx_ie_i}_p=\left(\sum_{i=N+1}^{\infty}|x_n|^p\right)^{\nicefrac{1}{p}}\underset{N\to+\infty}{\longrightarrow 0}$$
   ce qui montre que (puisque chaque $e_n$ est dans $\ell^p$),
-  $$\overline{\mathrm{Vect}(e_i,\ i\in \N)}=\ell^p$$
+  $$\overline{\mathrm{Vect}\ens{e_i,\ i\in \N}}=\ell^p$$
   donc $\ell^p$ est bien séparable.
 \end{Proof}
 
@@ -546,12 +546,12 @@ est un espace (vectoriel normé) séparable.
 \end{lemme}
 
 \begin{Proof}
-  $K$ est compact, donc d'après le lemme précédent, il existe $\{a_n\}$ une suite dense dans $K$. Pour $n\geqslant 1$, on pose 
+  $K$ est compact, donc d'après le lemme précédent, il existe $(a_n)$ une suite dense dans $K$. Pour $n\geqslant 1$, on pose 
   $$f_n:t\longmapsto d(a_n,t),$$
   les applications $f_n$ sont continues et on pose $f_0:=1$.
 
   On considère l'ensemble $\A$ définit comme suit :
-  $$\A:=\mathrm{Vect}\left(\prod_{i\in I}f_i,\ I\text{ finie}\right)$$
+  $$\A:=\mathrm{Vect}\ens{\prod_{i\in I}f_i,\ I\text{ finie}}$$
   c'est une sous-algèbre unitaire et on va montrer que $\A$ sépare les points.
 
   Soient $(t_1,t_2)\in K$ distincts, alors $\varepsilon:=d(t_1,t_2)>0$. Par densité des $\{a_n\}$ dans $K$, il existe $n\in\N$ tel que 
@@ -570,7 +570,7 @@ est un espace (vectoriel normé) séparable.
 
 
 
-\NouvelleSubsection{Théorème d'Ascoli}
+\NouvelleSection{Théorème d'Ascoli}
 
 
 Le fil directeur de cette partie est la question suivante : peut-on caractériser les partie compacte de $C(K)$ ?
@@ -699,8 +699,8 @@ $\triangleright$\emph{ex : }pour $\ell>0$, l'ensemble des fonctions $\ell$-lipsc
 \begin{thC}{Ascoli, v3}
   Soit $(E,d)$ séparable, $(F,\delta)$ métrique et $f_n\in C(E,F)$, si
 
-  $(\bullet)\ \forall x\in E,\ \left\{f_n(x)\right\}_{n\geqslant 0}$ est relativement compacte dans $F$,\\
-  $(\bullet\bullet)\ \left\{f_n\right\}$ est une famille équicontinue,\\
+  $(\bullet)\ \forall x\in E,\ \left(f_n(x)\right)_{n\geqslant 0}$ est relativement compacte dans $F$,\\
+  $(\bullet\bullet)\ \left(f_n\right)$ est une famille équicontinue,\\
 
   alors $f_n$ admet une sous-suite qui converge uniformément sur tout compact de $E$ vers une application continue.
 \end{thC}
@@ -759,7 +759,7 @@ Le théorème suivant découle du théorème d'Ascoli, et est quant à lui cens�
     &\leqslant \\
     ||X_n(t)-x_0||&\leqslant r\\
   \end{align*}
-  Donc $X_n(t)\in\overline{B(x_0,r)}$ qui est un fermé bornée de $\R^n$, donc compact. Ainsi, $\forall t\in [t_0,t_0+c]$, $\left\{X_n(t)\right\}_{n\geqslant 0}$ est relativement compact dans $\R^n$.
+  Donc $X_n(t)\in\overline{B(x_0,r)}$ qui est un fermé bornée de $\R^n$, donc compact. Ainsi, $\forall t\in [t_0,t_0+c]$, $\left(X_n(t)\right)_{n\geqslant 0}$ est relativement compact dans $\R^n$.
 
   D'après le théorème d'Ascoli (quitte à considérer une sous-suite, ce qu'on ne fait pas pour alléger les notations), $(X_n)$ CVU vers $X:[t_0,t_0+c]\longrightarrow\overline{B(x_0,r)}$, où $X$ est continue.
 
@@ -788,12 +788,12 @@ Le théorème suivant découle du théorème d'Ascoli, et est quant à lui cens�
 \NouvellePart{Théorèmes fondamentaux de l'analyse fonctionnelle}
 
 
-\PremiereNouvelleSubsection{Théorème de Baire}
+\PremiereNouvelleSection{Théorème de Baire}
 
 On rappelle le théorème suivant, déjà vu en topologie de L3 : 
 
 \begin{thC}{des fermés emboités :}
-  Soit $(E,d)$ un espace métrique complet, $F_n$ une suite de fermés non-vide de $E$, si
+  Soit $(E,d)$ un espace métrique complet, $(F_n)$ une suite de fermés non-vide de $E$, si
   $$\forall n\in\N,\ F_{n+1}\subset F_n$$
   et
   $$\mathrm{diam}\ F_n=\mathrm{sup}\left\{d(a,b),\ (a,b)\in\ F_n\right\}\tend 0,$$\\
@@ -918,7 +918,7 @@ On passe maintenant à la v2, \emph{i.e.} la formulation avec des fermés. Il va
     E\backslash\Omega&=\bigcup{k\geqslant 0}F_n\backslash\bigcup_{n\geqslant 0}\mathrm{int}\ F_n\\
     &\subset \bigcup_{k\geqslant 0}F_k\backslash\mathrm{int}\ F_k.
   \end{align*}
-  Et $\partial F_k=F_k\backslash\mathrm{int}\ F_k$ est un fermé d'intérieur vide, donc le théorème de Baire s'applique et $\bigcup{k\geqslant 0}\partial F_k$ est d'intérieur vide, donc $E\backslash\Omega$ est aussi d'intérieur vide, donc d'après l'équivalence du début, $\Omega$ est bien dense dans $E$.
+  Et $\partial F_k=F_k\backslash\mathrm{int}\ F_k$ est un fermé d'intérieur vide, donc le théorème de Baire s'applique et $\bigcup_{k\geqslant 0}\partial F_k$ est d'intérieur vide, donc $E\backslash\Omega$ est aussi d'intérieur vide, donc d'après l'équivalence du début, $\Omega$ est bien dense dans $E$.
 \end{Proof}
 
 $\triangleright$\emph{ ex :} soient $(E,d)$ complet, $f_n:E\longrightarrow \R$ une suite de fonctions continues et $f$ la limite simple des $f_n$, alors 
@@ -963,13 +963,13 @@ est dense dans $E$.
 
 \begin{RQ}
   si $f:\R\longrightarrow \R$ est dérivable, alors $f'$ est continue sur un ensemble dense, puisque la suite de fonction 
-  $$f_n(x)=\frac{1}{n}\left(f\left(x-\nicefrac{1}{n}\right)-f(x)\right)$$
+  $$f_n(x)=\frac{1}{n}\Big(f\big(x-\nicefrac{1}{n}\big)-f(x)\Big)$$
   est une suite de fonctions continues qui CV vers $f'$, ainsi l'exemple s'applique.
 \end{RQ}
 
 
 
-\NouvelleSubsection{Quelques rappels sur les applications linéaires continues}
+\NouvelleSection{Quelques rappels sur les applications linéaires continues}
 
 
 $X$ et $Y$ sont deux espaces vectoriels normés, $T:X\longrightarrow Y$ est une application linéaire.\\[1em]
@@ -1027,7 +1027,7 @@ $$\forall n\in\N,\ ||T^n||=||\underbrace{T\circ T\cdots\circ T}_{n\text{ fois}}|
 
 $\triangleright$\emph{ ex : }soient $-\infty<a<b<+\infty$ et $K:[a,b]\times[a,b]\longrightarrow \mathbf C$ continue. Pour $f\in C([a,b],\mathbf C)$ et $x\in[a,b]$, on pose 
 $$T_K(f)(x):=\int_a^bK(x,y)f(y)\mathrm dy.$$
-Vérifions que $T_K:C([a,b],\mathbf C)\longrightarrow C([a,b],\mathbf C)$
+$\star$ Vérifions que $T_K:C([a,b],\mathbf C)\longrightarrow C([a,b],\mathbf C)$
 
 $(x,y)\longmapsto K(x,y)f(y)$ est continue et l'on intègre des fonctions continues sur un segment, donc $T_K(f)$ est bien continue. Par linéarité de l'intégrale, $T_K$ est aussi linéaire.
 
@@ -1035,13 +1035,13 @@ Soit $x\in [a,b]$,
 $$|T_K(f)(x)|\leqslant ||K||_{\infty}(b-a)^2||f||_{\infty}=c||f||_{\infty}$$
 avec $||f||_{\infty}<\infty$ car $f$ est continue sur un segment, donc $T_K$ est bien une application linéaire continue.
 
-Montrons que $T_K$ est compact, \emph{i.e.} montrons que 
+$\star$ Montrons que $T_K$ est compact, \emph{i.e.} montrons que 
 $$T_K(\overline{B(0,1)})$$
 est relativement compact dans $C([a,b],\C)$.
 
 On a
 $$T_K(\overline{B(0,1)})=\left\{T_K(f),\ f\in C([a,b],\C)\text{ t.q.} ||f||_{\infty}\leqslant 1\right\}.$$
-Montrons que la famille 
+$\star\star$ Montrons que la famille 
 $$\left\{T_K(f),\ f\in\overline{B(0,1)}\right\}$$
 est équicontinue, soit $\varepsilon>0$ et $x\in[a,b]$, alors pour tout $z\in[a,b]$
 $$T_K(f)(x)-T_K(f)(z)=\int_a^b\left[K(x,y)-K(z,y)\right]f(y)\mathrm dy\qquad (i)$$
@@ -1081,10 +1081,10 @@ est relativement compacte.
     ||Te_n-Te_m||&=||T(e_n-e_m)||\\
     ||Te_n-Te_m||&\leqslant \nop{T}\ ||e_n-e_m||
   \end{align*}
-  la suite $e_n$ étant convergente, elle est de Cauchy donc $Te_n$ est aussi de Cauchy, et $Y$ étant un espace de Banach, cette suite est convergente et on peut poser, 
+  la suite $(e_n)$ étant convergente, elle est de Cauchy donc $(Te_n)$ est aussi de Cauchy, et $Y$ étant un espace de Banach, cette suite est convergente et on peut poser, 
   $$\hat Tx:=\underset{n\to+\infty}{\mathrm{lim}}Te_n.$$
   Vérifions que $\hat T$ est bien définie, $\emph{i.e.}$ que la définition n'est pas fonction du choix de la suite convergeant vers $x\in X$. Soient $x\in X$ et $e_n,e_n'$ deux suites convergeants vers $x$
-  $$||Te_n-Te_n'||\leqslant||t||\ ||e_n-e_n'||\tend0$$
+  $$||Te_n-Te_n'||\leqslant||T||\ ||e_n-e_n'||\tend0$$
   donc 
   $$Te_n-Te_n'\tend 0$$
   et $\hat Tx$ est correctement définie.\\
@@ -1134,7 +1134,7 @@ est relativement compacte.
   Soit $n\geqslant 0$, on pose 
   \begin{align*}
     F_n:&=\left\{x\in X\text{ t.q. }\underset{i\in I}{\mathrm{sup}}||T_ix||\leqslant n\right\}\\
-    &=\bigcap_{i\in I}T_i^{-1}\left(\overline{B(0,1)}\right)
+    F_n&=\bigcap_{i\in I}T_i^{-1}\left(\overline{B(0,1)}\right)
   \end{align*}
   Les $F_n$ sont tous fermés car ils sont des intersection de pré-images de fermés par l'application continue $T_i$, donc le théorème de Baire s'applique et 
   $$\exists n_0\geqslant 0, x_0\in X, r>0\text{ t.q. }\overline{B(x_0,r)}\subset F_{n_0}$$
@@ -1153,7 +1153,7 @@ est relativement compacte.
   \begin{align*}
     ||T_iu||&=\norm{T_i\left(\frac{||u||}{r}x\right)}\\
     &=\frac{||u||}{r}\norm{T_i\left(x\right)}\\
-    &\leqslant \frac{||u||}{r} n_0
+    ||T_iu||&\leqslant \frac{||u||}{r} n_0
   \end{align*}
   en faisant varier $||u||$ sur le disque unité, on a (passage au sup)
   $$||T_i||\leqslant \frac{n_0}{r}$$
@@ -1237,7 +1237,7 @@ est dense dans $C([-\pi,\pi])$, muni de la norme $||\cdot||_{\infty}$.
 
 
 \begin{thC}{de majoration automatique}
-  Soient $(X,Y)$ des espaces de Banach et $T\in\mathcal L(X,Y)$, si $T$ est surjective,
+  Soient $(X,Y)$ des espaces de Banach et $T\in\mathcal L(X,Y)$, si $T$ est surjective,\\
 
   alors il existe $c>0$ tel que $\forall y\in Y,\ \exists x\in X$ tel que
   $$y=Tx\text{ et }||x||\leqslant c||y||=c||Tx||$$
@@ -1328,12 +1328,12 @@ est dense dans $C([-\pi,\pi])$, muni de la norme $||\cdot||_{\infty}$.
 
 
 \begin{Proof}
-  Soit $\mathrm{Id}:(X,||\cdot||_1)\longrightarrow(X,||\cdot||_2)$, cette application est bijective et linéaire. L'hypothèse $||\cdot||_2\leqslant c||\cdot||_1$ nous indique que $\mathrm{Id}$ est continue, donc le théorème d'isomorphisme de Banach s'applique et $\mathrm{Id}^{-1}:(X,||\cdot||_2)\longrightarrow(X,||\cdot||_1)$ est continue, donc 
+  Soit $\mathrm{\Id}:(X,||\cdot||_1)\longrightarrow(X,||\cdot||_2)$, cette application est bijective et linéaire. L'hypothèse $||\cdot||_2\leqslant c||\cdot||_1$ nous indique que $\mathrm{\Id}$ est continue, donc le théorème d'isomorphisme de Banach s'applique et $\mathrm{\Id}^{-1}:(X,||\cdot||_2)\longrightarrow(X,||\cdot||_1)$ est continue, donc 
   $$\exists c_2>0\ |\ \forall x\in X,\ |x||_1\leqslant c||x||_2$$
   et les normes $||\cdot||_1$ et $||\cdot||_2$ sont effectivement équivalentes.
 \end{Proof}
 
-\NouvelleSubsection{Théorème du graphe fermé}
+\NouvelleSection{Théorème du graphe fermé}
 
 
 \begin{prop}
@@ -1388,10 +1388,10 @@ $\triangleright$\emph{ex :} application en analyse complexe, soit
 $$H^2:=\left\{f\in\mathrm{Hol}\ D(0,1),\ f(z)=\sum_{n\in\mathbf Z}a_n z^n \tq \sum_{n\in\mathbf Z}|a_n|^2=||f||_2^2<\infty\right\}$$
 l'espace de Hardy, qui est un espace de Banach car l'application
 $$T:\begin{array}{|ccc}
-  \ell^2(\C)&\longrightarrow&H^2\\
+  \ell^2(\N)&\longrightarrow&H^2\\
    a_n&\longmapsto&f(x)=\dstyle\sum_{n\in\mathbf Z}a_n z^n
 \end{array}$$
-est un isomorphisme isométrique, donc la complétude de $ \ell^2(\C)$ implique la complétude de $H^2$.\\
+est un isomorphisme isométrique, donc la complétude de $ \ell^2(\N)$ implique la complétude de $H^2$.\\
 
 On pose, pour $|\lambda|<1$, $E_\lambda:f\in H^2\longmapsto f(\lambda)$ et l'on a (inégalité de Cauchy-Schwarz),
 $$E_{\lambda}(f)|=\left|\sum_{n\in\mathbf Z}a_n\lambda^n\right|\leqslant \sqrt{\sum_{n\in\mathbf Z}|a_n|^2}\sqrt{\sum_{n\in\mathbf Z}|\lambda|^{2n}}\longrightarrow 0\text{ quand }||f||_2\to 0$$
@@ -1419,7 +1419,7 @@ Pourquoi ce résultat est non-trivial ? question pour demain.
 
 
 
-\NouvelleSubsection{Théorème de Hahn-Banach}
+\NouvelleSection{Théorème de Hahn-Banach}
 
 Soit $E$ un espace vectoriel normé, on note $E^*$ ou $E'$ l'ensemble des formes linéaires continues
 $$E^*:=\left\{\varphi:E\longrightarrow \R\text{ linéaire continue }\right\},$$ 
@@ -1431,13 +1431,13 @@ $\triangleright$\emph{ex : }si $\dim E<\infty$, en considérant $(e_1,\cdots, e_
 $$\varphi(x)=\sum_{i=1}^n\varphi(e_i)x_i$$
 où $x=(x_1,\cdots,x_n)$.
 
-$\triangleright$\emph{ex : }pour les espaces $\ell^p$ avec $p<\infty$, on note $q$ le conjugué de $p$, on se donne $a=\left\{a_n\right\}\in\ell^q$, on pose 
+$\triangleright$\emph{ex : }pour les espaces $\ell^p$ avec $p<\infty$, on note $q$ le conjugué de $p$, on se donne $a=\left(a_n\right)\in\ell^q$, on pose 
 $$\varphi_a:\begin{array}{|ccc}
   \ell^p&\longrightarrow&\C\\
   u&\longmapsto&\sum_{n\in\N}u_na_n 
 \end{array}$$
 $\varphi_a$ est bien définie (inégalité de Hölder) et est continue, avec 
-$$\varphi_a||\leqslant ||a||_q.$$
+$$||\varphi_a||\leqslant ||a||_q.$$
 
 On rappelle la propriété suivante : 
 
@@ -1468,9 +1468,6 @@ On rappelle la propriété suivante :
 \end{Proof}
 
 
-\newpage
-
-
 Soit $E$ un $\mathbf K$-espace vectoriel normé et $F\subset E$ un sous-espace vectoriel, on prend $\varphi:F\longrightarrow \mathbf K$ linéaire continue, on va se demander si il existe un prolongement de $\varphi$ sur $E$ de même norme que $\varphi$. Plus formellement, on cherche $f:E\longrightarrow \mathbf K$ telle que 
 $$f\big|_F=\varphi\text{ et }||f|_E=||\varphi||_F.$$
 
@@ -1484,8 +1481,10 @@ $$f\big|_F=\varphi\text{ et }||f|_E=||\varphi||_F.$$
 
 $\triangleright$\emph{ex :} toute forme linéaire est une fonctionnelle sous-linéaire.\\
 
-$\triangleright$\emph{ex bis:} toute norme est une une fonctionnelle sous-linéaire.\\
+$\triangleright$\emph{ex bis:} toute norme est une une fonctionnelle sous-linéaire.\\[2em]
 
+
+\NouvelleSubsection{Parenthèse ensembliste}
 
 On fait d'abord une parenthèse en théorie des ensembles, on se donne $(\mathcal E,\preccurlyeq)$ un \emph{ensemble ordonné}, \emph{i.e.} muni d'une relation d'ordre.
 
@@ -1559,7 +1558,7 @@ On aura besoin du lemme suivant :
 \end{Proof}
 
 
-\begin{Proof}{démonstration du théorème}
+\begin{ProofC}{Démonstration du théorème}
   On note $X$ l'ensemble des couples
   $$(G,h)$$
   où $F\subset G\subset E$ et où $h:G\longrightarrow \R$ est un prolongement admissible.
@@ -1597,7 +1596,7 @@ On aura besoin du lemme suivant :
   $\dagger$ Si $\tilde G\neq E$, alors il existe $x_0\in E\backslash g$ et en considérant le prolongement admissible du lemme, il existe $(G_1, \tilde\varphi_0)$ tel que 
   $$(\tilde G,\tilde\varphi)\preccurlyeq(G_1, \tilde\varphi_0)$$
   c'est absurde, donc $G=E$ et le théorème est prouvé.
-\end{Proof}
+\end{ProofC}
 
 \begin{thC}{Hann-Banach, cas réel}
   Soit $E$ un $\R$-espace vectoriel et $F\subset E$ un sous-espace vectoriel, soit $\varphi\in F^*$,\\
@@ -1787,7 +1786,7 @@ alors $\mathrm{Vect}\left(f_{a_n},\ n\in\N\right)$ est dense dans $\left(C[-1,1]
 \NouvellePart{Espaces de Hilbert}
 
 
-\PremiereNouvelleSubsection{Rappels sur les espaces préhilbertiens}
+\PremiereNouvelleSection{Rappels sur les espaces préhilbertiens}
 
 
 \begin{Def}
@@ -1819,9 +1818,9 @@ alors $\mathrm{Vect}\left(f_{a_n},\ n\in\N\right)$ est dense dans $\left(C[-1,1]
   Soit $(E,\langle \cdot,\cdot\rangle)$ un espaces préhilbertien,\\
 
   alors 
-  $$\forall (x,y)\in E,\ |\langle x,y\rangle|\leqslant \sqrt{\langle x,x\rangle}\sqrt{\langle y,y\rangle},$$
+  $$\forall (x,y)\in E,\ |\langle x,y\rangle|\leqslant ||x||\cdot ||y||=\sqrt{\langle x,x\rangle}\sqrt{\langle y,y\rangle},$$
   une autre version est 
-  $$\forall (x,y)\in E,\ \langle x,y\rangle^2\leqslant ||x||\ ||y||.$$
+  $$\forall (x,y)\in E,\ \langle x,y\rangle^2\leqslant \ps{x,x}\cdot\ps{y,y}.$$
   De plus, en posant 
   $$||\cdot||:x\longmapsto \sqrt{\langle x,x\rangle}$$
   on obtient un espace vectoriel normé $(E,||\cdot||)$.
@@ -1839,10 +1838,10 @@ $$f_a\text{ définie positive }\Leftrightarrow\mathrm{Sp}\ A\subset\R_+^*,$$
 
 
 $\triangleright$\emph{ex :} si 
-$$\ell^2(\C):=\left\{u:\N\longrightarrow\C\tq \sum_{n\geqslant 0}|u_n|^2<\infty\right\}$$
+$$\ell^2(\N):=\left\{u:\N\longrightarrow\C\tq \sum_{n\geqslant 0}|u_n|^2<\infty\right\}$$
 alors 
 $$\langle u,v\rangle:=\sum_{n\geqslant 0}u_n\overline{v_n}$$
-est un produit scalaire, dit \emph{canonique} sur $\ell^2(\C).$
+est un produit scalaire, dit \emph{canonique} sur $\ell^2(\N).$
 
 
 \begin{propC}{identité du parallélogramme}
@@ -1935,7 +1934,7 @@ on a aussi les propriétés générales suivantes, que l'on ne démontrera pas (
 
 
 
-\NouvelleSubsection{Système orthonormé}
+\NouvelleSection{Système orthonormé}
 
 
 Dans ce chapitre, $(H,\ps{\cdot,\cdot})$ est un espace préhilbertien et $(x_i)_{i\in\Z}$ est un ensemble de vecteurs de $H$.
@@ -2002,7 +2001,7 @@ forme un système orthonormé.
 \end{ProofC}
 
 
-\NouvelleSubsection{Espace de Hilbert}
+\NouvelleSection{Espace de Hilbert}
 
 
 \begin{Def}
@@ -2015,7 +2014,7 @@ forme un système orthonormé.
 \end{RQ}
 
 
-$\triangleright$\emph{ex : }$\ell^2(\C)$ muni du produit scalaire habituel est un espace de Hilbert.\\
+$\triangleright$\emph{ex : }$\ell^2(\N)$ muni du produit scalaire habituel est un espace de Hilbert.\\
 
 
 $\triangleright$\emph{ex : }pour $(\O,\A,\mu)$ un espace mesuré, $L^2(\O,\A,\mu)$ est un espace de Hilbert.\\
@@ -2322,7 +2321,7 @@ donc pour $||x||\geqslant 1$, on a bien $P_K(x)=\dstyle\frac{x}{||x||}$ et pour 
 \end{ProofC}
 
 
-\NouvelleSubsection{Base de Hilbert}
+\NouvelleSection{Base de Hilbert}
 
 
 
@@ -2373,7 +2372,7 @@ donc pour $||x||\geqslant 1$, on a bien $P_K(x)=\dstyle\frac{x}{||x||}$ et pour 
 \end{Def}
 
 
-$\triangleright$\emph{ex : }si $H=\ell^2(\C)$ et $e_i=(\underbrace{0,\cdots,0}_{i-1},1,0,\cdots)$, alors $(e_i)_{i\geqslant 0}$ est une famille orthonormale et, pour $u\in\ell^2(\C)$, on a 
+$\triangleright$\emph{ex : }si $H=\ell^2(\N)$ et $e_i=(\underbrace{0,\cdots,0}_{i-1},1,0,\cdots)$, alors $(e_i)_{i\geqslant 0}$ est une famille orthonormale et, pour $u\in\ell^2(\N)$, on a 
 $$\forall i\in \N,\ \ps{u,e_i}=u_i$$
 donc si $u$ vérifie 
 $$\forall i\in \N,\ \ps{u,e_i}=0$$
@@ -2491,27 +2490,27 @@ alors $u=0$ donc $(e_i)$ est une base hilbertienne.
 \begin{Th}
   Soit $H$ un espace de Hibert séparable,\\
 
-  alors $H$ est isométriquement isomorphe à $\ell^2(\C)$.
+  alors $H$ est isométriquement isomorphe à $\ell^2(\N)$.
 \end{Th}
 
 
 \begin{Proof}
   Soit $(e_n)$ une base hilbertienne de $H$, on pose
   $$\phi:\begin{array}{|ccl}
-    H&\longrightarrow&\ell^2(\C)\\
+    H&\longrightarrow&\ell^2(\N)\\
     x&\longmapsto&\phi(x):=\left(\ps{x,e_n}\right)_{n\geqslant 0}
   \end{array}$$
   d'après l'inégalité de Bessel, $\phi$ est bien définie (et linéaire).
   D'après l'égalité de Parseval, pour $x\in H$, on a
-  $$||x||_{H}^2=\sum_{n=0}^\infty\abs{\ps{x,e_n}}^2=||\phi(x)||_{\ell^2(\C)}^2$$
+  $$||x||_{H}^2=\sum_{n=0}^\infty\abs{\ps{x,e_n}}^2=||\phi(x)||_{\ell^2(\N)}^2$$
   donc $\phi$ est continue et isométrique.
 
   $\phi$ est injective, montrons qu'elle est aussi surjective : soit $i\in \N$, 
   $$\phi(e_j)=(\underbrace{0,\cdots,0}_{i-1},1,0,\cdots)=:\varepsilon_i$$
   donc 
-  $$\mathrm{Im}\ \phi\subset\overline{\mathrm{Im}\ \phi}\subset\overline{\mathrm{Vect}\ens{\varepsilon_i,\ i\in\N}}=\ell^2(\C)$$
+  $$\mathrm{Im}\ \phi\subset\overline{\mathrm{Im}\ \phi}\subset\overline{\mathrm{Vect}\ens{\varepsilon_i,\ i\in\N}}=\ell^2(\N)$$
   et $\phi$ est bon bien bijective, ce qui conclut.
-\end{Proof}
+\end{Proof}{\color{white}test}\\[2em]
 
 
 \NouvelleSubsection{Application aux séries de Fourier}
@@ -2578,11 +2577,11 @@ On va donc retrouver tous les résultats de la sous-partie précédente, à savo
 
 
 \Dnote{Tous ces résultats sont valables pour la norme 2, pour la norme infinie il n'y a pas nécessairement de convergence. Une conséquence du théorème de Banach-Steinhaus est le résultat suivant :
-$$\left\{f\in C([-\pi,\pi])\ |\ \underset{n\geqslant 0}{\mathrm{sup}}|S_nf(0)|=+\infty\right\}$$
+$\big\{f\in C([-\pi,\pi])\ |\ \underset{n\geqslant 0}{\mathrm{sup}}|S_nf(0)|=+\infty\big\}$
 est dense dans $\left(C([-\pi,\pi]),||\cdot||_{\infty}\right)$.}
 
 
-\NouvelleSubsection{Dualité et théorème de Riesz}
+\NouvelleSection{Dualité et théorème de Riesz}
 
 
 Soit $H$ un espace de Hilbert et $x_0\in H$, on pose 
@@ -2597,4 +2596,494 @@ donc $\varphi_{x_0}$ est continue avec $||\varphi_{x_0}||_{\mathrm{op}}\leqslant
 On évalue en $x_0/||x_0||$ (si $x_0=0,$ $\varphi_{x_0}$ est l'application nulle) et
 $$\varphi_{x_0}\left(\frac{x_0}{||x_0||}\right)=\frac{1}{||x_0||}\ps{x_0,x_0}=||x_0||$$
 d'où $\nop{\varphi_{x_0}}=||x_0||.$
+
+
+\begin{thC}{Riesz}
+  Soit $\Phi\in H^*$,\\
+
+   alors il existe $x_0\in H$ tel que $\Phi=\varphi_{x_0}.$
+\end{thC}
+
+
+\begin{RQ}
+  De plus, $x_0$ vérifie $||x_0||=\nop{\Phi}.$
+\end{RQ}
+
+
+\begin{Proof}
+  $\star$ Existence :
+
+  $\star\star$ Si $\Phi=0$, alors $x_0=0$ convient.
+
+  $\star\star$ On suppose que $\Phi\neq0$, donc $\ker\ \Phi$ est un sous-espace strict de $H$. Il est de plus fermé car $\Phi$ est continue, il existe donc $g\in \left(\ker\Phi\right)^\bot.$
+  Pour $x\in H$, on a 
+  $$x-\frac{\Phi(x)}{\Phi(g)}g\in\ker\Phi$$
+  donc (puisque $g\in \left(\ker\Phi\right)^\bot$)
+  $$\forall x\in H,\ \ps{x-\frac{\Phi(x)}{\Phi(g)}g,g}=0$$
+  autrement dit, 
+  $$\forall x\in H,\ \Phi(x)=\ps{x,\Phi(g)g}$$
+  on obtient le résultat en posant $x_0=\Phi(g)g$.\\
+
+  $\star$ Unicité :
+  Si $x_0$ et $x_1$ conviennent, 
+  $$\forall x\in H,\ \Phi(x)=\ps{x,x_0}=\ps{x,x_1}$$
+  donc 
+  $$\forall x\in H,\ \ps{x,x_0-x_1}=0$$
+  $$\norm{x_0-x_1}^2=0$$
+  et $x_0=x_1$ d'où l'unicité de $x_0.$
+\end{Proof}
+
+\newpage
+
+\NouvelleSubsection{Adjoint d'un opérateur continu}
+
+
+\begin{corollaire}
+  Soient $H_1,H_2$ des espaces de Hilbert munis des produits scalaire $\ps{\cdot,\cdot}_{H_1}$ et $\ps{\cdot,\cdot}_{H_2}$, soit $T\in\mathcal L(H_1,H_2)$,\\
+
+  alors il existe un unique $T^*\in \mathcal L(H_2,H_1)$ tel que 
+  $$\forall (h_1,h_2)\in H_1\times H_2,\ \ps{Th_1,h_2}_{H_1}=\ps{h_1,T^*h_2}_{H_2}.$$
+  $T^*$ est appellé \emph{adjoint de }$T$.
+\end{corollaire}
+
+
+\begin{RQ}
+  Si $H_1=H_2$ et $\dim\ H_1<\infty$, alors pour $(e_1,\cdots,e_n)$ un base de $H_1$, on a 
+  $$\ps{Te_i,e_j}=\ps{e_i,T^*e_j}=\overline{\ps{T^*e_j,e_i}}$$
+  donc la matrice de $T^*$ est la transposée conjuguée de la matrice de $T$. 
+\end{RQ}
+
+
+\begin{Proof}
+  Soit $h_2\in H_2$, l'application
+  $$\Phi:\begin{array}{|ccc}
+    H_1&\longrightarrow&\K\\
+    h_1&\longmapsto&\ps{Th_1,h_2}
+  \end{array}$$
+  est linéaire et continue, donc d'après le théorème de Riesz, il existe un unique $h(h_2)\in H_2$ tel que 
+  $$\forall h_1\in H_1,\ \ps{Th_1,h_2}_{H_2}=\ps{h_1,h(h_2)}_{H_1}$$
+  en notant $T^*=h$, on vérifie que $T^*$ est linéaire. Quand à la continuité, on a 
+  $$\norm{T^*h_2}=\norm{h(h_2)}=\nop{\Phi}=\underset{||h_1||=1}{\mathrm{sup}}\abs{\ps{Th_1,h_2}}\leqslant ||h_2||\cdot\underset{||h_1||=1}{\mathrm{sup}}\norm {Th_1}\leqslant \nop{T}||h_2||,$$
+  donc $T^*$ est continue et on a même la majoration de $\norm{T^*}$ suivante : $\norm{T^*}\leqslant \norm{T}$.
+\end{Proof}
+
+
+\begin{propC}{prop générales}
+  Soient $T,S\in\mathcal L(H_1,H_2)$ et $\lambda\in\K$,\\
+ 
+  alors\\
+  $(\mathit 1)\ \left(\lambda T+ S\right)^*=\overline{\lambda}T^*+S^*$\\
+  $(\mathit 2)\ \left(T^*\right)^*=T$\\
+  $(\mathit 3)\ \norm{T^*}=\norm{T}$\\
+  $(\mathit 4)\  \norm{TT^*}=\norm{T}^2$\\
+  $(\mathit 5)$ si $TS$ a un sens, $\left(TS\right)^*=S^*T^*$
+\end{propC}
+
+
+\begin{ProofC}{Démonstration du $(\mathit 3)$}
+  On a déjà $\norm{T^*}\leqslant \norm{T}$ et de plus, 
+  $$\norm{T^*}\leqslant \norm{T}=\norm{T^{**}}\leqslant \norm{T^*}$$ 
+  d'où l'égalité recherchée.  
+\end{ProofC}
+
+
+$\triangleright$\emph{ex :} on considère l'opérateur \emph{shif}
+$$S:\begin{array}{|ccc}
+  \ell^2(\N)&\longrightarrow&\ell^2(\N)\\
+  (a_0,\cdots a_n,\cdots)&\longmapsto&(0,a_0,\cdots a_n,\cdots)
+\end{array}$$
+$S$ est un opérateur linéaire (unitaire) donc $S\in\mathcal L(\ell^2(\N))$, on va calculer son ajdoint. Soient $(a,b)\in\ell^2(\N)$, alors 
+$$\ps{Sa,b}=\ps{a,S^*b}\Leftrightarrow\sum_{n=1}^\infty a_{n-1}\overline{b_n}=\sum_{n=0}^\infty a_{n}\overline{S^*b_n}$$
+En particulier, en prenant $a=e_0=(1,0,\cdots)$, on trouve que $\overline{(S^*b)_0}=\overline{b_1}$, en prenant $a=e_1$, on trouve que $\overline{(S^*b)_1}=\overline{b_2}$, d'où (par récurrence);
+$$(S^*b)=(b_1,\cdots,b_n,\cdots).$$\\
+
+
+
+{\bf{\emph{Spectre d'un opérateur}}}\\[2em]
+
+
+
+Soit $H$ un espace de Hilbert complexe et $T\in\mathcal L(H)$, on définit le \emph{spectre de }$T$ par 
+$$\sigma(T):=\ens{\lambda\in \C\tq T-\lambda \Id\text{ n'est pas inversible}}$$
+on définit aussi le \emph{spectre ponctuel de }$T$ par 
+$$\sigma_p(T):=\ens{\lambda\in \C\tq \ker\ \left(T-\lambda \\Id\right)\neq \ens{0}}.$$
+
+
+
+\begin{RQ}
+  Si $\dim H<\infty$, alors $T-\lambda \Id$ non-inversible $\Leftrightarrow \left(T-\lambda \Id\right)\neq \ens{0}$ donc $\sigma(T)=\sigma_p(T).$\\
+\end{RQ}
+
+
+\begin{RQ}
+  Si $\lambda$ est tel que $\left(T-\lambda \Id\right)\neq \ens{0}$, alors $T-\lambda \Id$ n'est pas inversible, donc il y a l'inclusion $\sigma_p(T)\subset \sigma(T).$\\
+\end{RQ}
+
+
+\begin{prop}
+  Soit $T\in\mathcal L(H)$\\
+
+  alors $\sigma(T)$ est un compact contenu dans $\overline{D(0,\nop{T})}.$
+\end{prop}
+
+
+On aura besoin des deux lemmes suivants : 
+
+
+\begin{lemme}
+  Pour $U\in\mathcal L(H)$ tel que $\nop{U}<1$,\\
+
+  alors $\Id-U$ est inversible et 
+  $$\Par{\Id-U}^{-1}=\sum_{n=0}^{\infty}U^k.$$
+\end{lemme}
+
+
+\begin{Proof}
+  ????
+\end{Proof}
+
+
+\begin{lemme}
+  L'ensemble 
+  $$\mathrm{Inv}\mathcal L(H):=\ens{U\in\mathcal L(H)\ :\ U\text{ est inversible}}$$
+  est un ouvert de $\mathcal L(H).$
+\end{lemme}
+
+
+\begin{Proof}
+  Soit $T_0\in\mathrm{Inv}\mathcal L(H)$, on cherche $\delta>0$ tel que 
+  $$\norm{T-T_0}\leqslant \delta\Rightarrow T\in\mathrm{Inv}\mathcal L(H)$$
+  Soit 
+  $$T=T_0-(T_0-T)=T_0\Par{\Id-T_0^{-1}\Par{T_0-T}}$$
+  donc 
+  si l'on prend $\delta$ tel que 
+  $$\delta\norm{T_0^{-1}}<1$$
+  alors $$\norm{T-T_0}\leqslant \delta\Rightarrow\norm{T_0^{-1}\Par{T_0-T}}<1$$ 
+  donc
+  $$T=\Id-T_0^{-1}\Par{T_0-T}\in\mathrm{Inv}\mathcal L(H)$$ 
+  et $\mathrm{Inv}\mathcal L(H)$ est bien un ouvert de $\mathcal L(H)$.
+\end{Proof} 
+
+
+\begin{ProofC}{la démonstration de la propriété}
+  $\star$ On commence par montrer que $\sigma(T)\subset \overline{D(0,\norm{T})}$, soit $\abs{\lambda}>\norm{T}$, montrons que $T-\lambda \Id$ est inversible : on a 
+  $$T-\lambda\Id=-\lambda\left(\Id-\frac{T}{\lambda}\right)$$
+  et puisque $\dstyle\abs{\frac{\norm T}{\lambda}}<1$, on peut utiliser le développement en série entière de $\dstyle x\longmapsto\frac{1}{1-x}$
+  donc 
+  $$\Par{T-\lambda\Id}=-\lambda\sum_{n=0}^\infty\Par{\frac{T}{\lambda}}^k.$$
+  donc $\abs{\lambda}>\norm{T}$ implique que $T-\lambda \Id$ est inversible donc que $T-\lambda\Id\notin\sigma(T).$\\
+
+  $\star$ On a aussi 
+  $$\C\backslash\sigma(T)=\ens{\lambda\in\C\ :\ T-\lambda\Id\in\mathrm{Inv}\mathcal L(H)}=f^{-1}\ens{\mathrm{Inv}\mathcal L(H)}$$
+  où $f$ est 
+  $$f:\begin{array}{|ccc}
+    \C&\longrightarrow&\mathcal L(H)\\
+    \lambda&\longmapsto&T-\lambda\Id
+  \end{array}$$
+  $f$ étant continue, $\C\backslash\sigma(T)$ est un ouvert donc $\sigma(T)$ est fermé. $\sigma(T)$ est aussi borné (car inclus dans $\overline{D(0,\norm{T})}$) donc c'est un fermé borné de $\C$, autrement dit un compact.
+\end{ProofC}
+
+
+\begin{prop}
+  Soit $T\in\mathcal L(H)$,\\
+
+  alors 
+  $$\sigma(T^*)=\overline{\sigma(T)}=\ens{\overline{\lambda},\ \lambda\in\sigma(T)}.$$
+\end{prop}
+
+
+\begin{Proof}
+  Soit $\mu\in \C$, on a 
+  \begin{align*}
+    \mu\notin\sigma(T^*)&\Leftrightarrow T^*-\mu\Id\text{ est inversible}\\
+    &\Leftrightarrow \Par{T-\overline\mu\Id}^*\text{ est inversible}\\
+    &\Leftrightarrow\exists A\in\mathcal L(H)\ : \ A\Par{T-\overline\mu\Id}^*=\Id=\Par{T-\overline\mu\Id}^*A\\
+    &\Leftrightarrow\exists A\in\mathcal L(H)\ : \ \Par{T-\overline\mu\Id}A^*=\Id=A^*\Par{T-\overline\mu\Id}\\
+    &\Leftarrow T-\overline\mu\Id\text{ est inversible}\\
+    \mu\notin\sigma(T^*)&\Leftrightarrow\overline{\mu}\notin\sigma(T)
+  \end{align*}
+\end{Proof}
+
+
+$\triangleright$\emph{ex :} retour sur le \emph{shift}, montrons que $\sigma(S)=\overline{D(0,1)}$:
+
+
+\begin{Proof}
+  $\star$ Pour l'inclusion, puisque $\nop{S}=1$, on sait déjà que $\sigma(S)\subset\overline{D(0,1)}$\\
+
+  $\star$ Pour l'inclusion réciproque, soit $\lambda\in\C$ et $æ\in\ell^2(\N)$, alors 
+  \begin{align*}
+    S^*a=\lambda a&\Leftrightarrow\Par(a_1,a_2\cdots)=\lambda(a_0,a_1,\cdots)\\
+    &\Leftrightarrow \forall k\geqslant 0,\ a_{k+1}=\lambda a_k\\
+    &\Leftrightarrow \forall k\geqslant 0,\ a_{k+1}=\lambda^k a_0\\
+  \end{align*}
+  et $a\in\ell^2(\N)$ \ssi $\abs{\lambda}<1$ (suite géométrique).
+  
+  Ainsi, $\sigma(T^*)=D(0,1)$.
+
+  On a donc la chaîne d'inclusion suivante : 
+  $$\sigma_p(S^*)=D(0,1)\subset \sigma(S)\subset\overline{D(0,1)}$$
+  et puisque $\sigma(S)$ est un fermé, nécessairement $\sigma(S)=\overline{D(0,1)}$
+\end{Proof}
+
+
+
+\NouvellePart{Esaces $\mathcal L^p$ et $L^p$}
+
+
+Beaucoups de rappels du cours d'Analyse pour l'ingénieur, \emph{s/o} Augustin Mouze;
+
+\PremiereNouvelleSection{Espaces $\mathcal L^p$, inégalités de Hölder et Minkowski}
+
+\begin{Def}
+  Soit $(X,m,\mu)$ un espace mesuré et $1\leqslant p<+\infty$, on pose 
+$$\mathcal L^p=\mathcal L^p(X,m,\mu)=\ens{f:X\longrightarrow\C\text{ mesurable telle que}\int_X\abs{f}^p\mathrm d\mu<\infty}$$
+et l'on pose 
+$$\norm{f}_p:=\left(\int_X\abs{f}^p\mathrm d\mu\right)^{\nicefrac{1}{p}}.$$
+\end{Def}
+
+
+\begin{RQ}
+  Pour $p=1$, $\mathcal L^1$ est l'espace des fonctions intégrales, on sait que c'est un sous-espace vectoriel et que $\norm{\cdot}_1$ définit une \emph{semi-norme}, \emph{i.e.} une norme à qui il manque la propriété de définition, c'est à dire que 
+$$\norm{f}_1=0\Leftrightarrow f=0\ \mu\text{-p.p.}$$
+\end{RQ}
+
+\begin{Def}
+  Une fonction $f:X\longrightarrow\C$ est dite \emph{essentiellement bornée} si, et seulement si 
+$$\exists M\geqslant 0\text{ tel que }\mu\left(\ens{x\in X\ :\ \abs{f(x)}\geqslant M}\right)=0\qquad (i)$$
+la borne indérieure des $M$ vérifiant $(i)$ est \emph{la borne supérieure essentielle de }$f$, on la note $\norm{f}_{\infty}$, donc 
+$$\norm{f}_\infty=\mathrm{inf}\ens{M\geqslant 0 : \abs{f}\geqslant M\ \mu\text{-p.p.}}.$$
+On peut donc définir $\mathcal L^\infty$ comme suit
+$$\mathcal L^\infty=\mathcal L^\infty(X,m,\mu)=\ens{f:X\longrightarrow\C\text{ essentiellement bornée}}.$$
+\end{Def}
+
+
+\begin{RQ}
+Les élément de $\mathcal L^\infty$ peuvent être assez moches, par exemple 
+$$f(x):\begin{cases}
+  1\text{ si }x\in\R\backslash\Q\\
+  +\infty\text{ si }x\in\Q
+\end{cases}$$
+appartient à $\mathcal L^\infty$.
+\end{RQ}
+
+
+\begin{RQ}
+  Pour $f\in\mathcal L^\infty$, on a 
+  $$\abs{f(x)}\leqslant \norm{f}_\infty\ \mu\text{-p.p.}$$
+\end{RQ}
+
+
+\begin{Proof}
+  Pour $n\geqslant 1$, on pose 
+  $$N_n:=\ens{x\in X\ :\ \abs{f(x)}\geqslant \norm{f}_\infty+\frac1n}$$
+  alors $\mu(N_n)=0$ par hypothèse et 
+  $$N:=\bigcup_{n\geqslant 0}N_n=\ens{x\in X\ :\ \abs{f(x)}>\norm{f}_\infty}$$
+  est aussi de mesure nulle, puisque c'est la réunion dénombrable d'ensembles de mesures nulles.
+\end{Proof}
+
+
+On voit voir que les $\mathcal L^p$ sont des espaces vectoriels, et qu'il est possible d'en faire des espaces vectoriels normés.
+
+
+\begin{prop}
+  Soient $(\alpha,\beta)\in[0,1]$ tels que $\alpha+\beta=1$,\\
+
+  alors 
+  $$\forall (u,v)\in\R_+,\ u^\alpha+v^\beta\leqslant \alpha u+\beta v.$$
+\end{prop}
+
+
+\begin{Proof}
+  Par concavité de la fonction $\ln$, on a 
+  $$\alpha\ln u+\beta\ln v\leqslant\ln\left(\alpha u+\beta v\right),$$
+  autrement dit, 
+  $$\ln\left(u^\alpha v^\beta\right)\leqslant\ln\left(\alpha u+\beta v\right).$$
+  On compose cette inégalité par la fonction $\exp$ qui est strictement croissante et l'on obtient
+  $$u^\alpha+v^\beta\leqslant \alpha u+\beta v.$$
+\end{Proof}
+
+
+\begin{Def}
+  Soit $1\leqslant p\leqslant+\infty$, l'\emph{exposant conjugué de }$p$ est l'unique réel vérifiant
+  $$\frac1p+\frac1q=1$$
+  où, par convention, si $p=1,\ q:=+\infty$ et réciproquement si $p=+\infty$ alors $q:=1$
+\end{Def}
+
+
+\begin{propC}{inégalité d'Hölder}
+  Soient $1< p\leqslant+\infty$ et $q$ son exposant conjugué, soient $(f,g):X\longrightarrow\C$ mesurable\\
+
+  alors
+  $$||fg||_1\leqslant||f||_p||g||_q.$$
+\end{propC}
+  
+\begin{Proof}
+  On suppose que $||f||_p\notin \ens{0,\infty}$ et $||g||_p\notin \ens{0,\infty}$ sinon l'inégalité est triviale, d'où $f\in\mathcal L^p$ et $g\in\mathcal L^q$.
+
+  On pose 
+  $$F:=\frac{f}{\norm{f}_p}\text{ et }G:=\frac{g}{\norm{g}_q}$$
+  on a, d'après le lemme,
+  $$\forall x\in X,\ \abs{F(x)G(x)}\leqslant \frac{1}{p}\abs{F(x)}^p+\frac{1}{q}\abs{G(x)}^q$$
+  on intègre sur $X$ d'où
+  $$\int_X\frac{\abs{fg}}{\norm{f}_p\norm{g}_q}\mathrm d\mu\leqslant \frac{1}{p}\int_X\abs{F(x)}^p\mathrm d\mu+\frac{1}{q}\int_X\abs{G(x)}^q\mathrm d\mu=\frac1p+\frac1q=1$$
+  donc
+  $$\int_X\abs{fg}\mathrm d\mu\leqslant \norm{f}_p\norm{g}_q.$$
+\end{Proof}
+
+
+\begin{propC}{inégalité d'Hölder, bis}
+  Soient $f\in\mathcal L^1$ et $g\in\mathcal L^\infty$\\
+
+  alors
+  $$||fg||_1\leqslant||f||_1||g||_\infty.$$
+\end{propC}
+
+
+\begin{Proof}
+  On a 
+  $$\abs{g(x)}\leqslant \norm{g}_\infty\ \mu\text{-p.p.}$$
+  donc 
+  $$\abs{f(x)g(x)}\leqslant \abs{f(x)}\norm{g}_\infty\ \mu\text{-p.p.}$$
+  et
+  $$\norm{fg}_1\leqslant\int_X\abs{f(x)g(x)}\mathrm d\mu(x)\leqslant\norm{f}_1\norm{g}_\infty$$
+\end{Proof}
+  
+  
+\begin{propC}{inégalité de Minkowski}
+  Soient $1\leqslant p\leqslant+\infty$ et $(f,g)\in\mathcal L^p$, alors\\
+  
+  $$||f+g||_p\leqslant ||f||_p+||g||_p,$$
+  autrement dit, $\norm{\cdot}_p$ vérifie l'inégalité triangulaire.
+\end{propC}
+  
+\begin{Proof}
+  Soient $(f,g)\in\mathcal L^p$, on suppose que l'une au moins est non nulle $m$-presque partout,\\
+  $\dagger\quad$si $p=1$ ou $p=+\infty$, l'inégalité triangulaire suffit.\\
+  $\dagger\quad$si $p>1$, on considère $q$ l'exposant conjugué de $p$. On écrit $$|f+g|^p=|f+g||f+g|^{p-1}\leqslant|f||f+g|^{p-1}+|g||f+g|^{p-1}\ (i).$$ On va maintenant appliquer l'inégalité de Hölder, qui nous dit tout d'abord que $|f||f+g|^{p-1}$ et $|g||f+g|^{p-1}$ sont $\mu$-intégrables et :
+  $$||f(f+g)^{p-1}||_1=\int_X|f||f+g|^{p-1}\mathrm dm \leqslant ||f||_p\bigg(\int_X\Big(|f+g|^{(p-1)}\Big)^q\mathrm dm\bigg)^{\nicefrac1q}\ (ii)$$
+  $$||g(f+g)^{p-1}||_1=\int_X|g||f+g|^{p-1}\mathrm dm \leqslant ||g||_p\bigg(\int_X\Big(|f+g|^{(p-1)}\Big)^q\mathrm dm\bigg)^{\nicefrac1q}\ (iii).$$
+  En sommant $(ii)$ et $(iii)$ et en comparant avec $(i)$, on obtient :
+  $$\int_X|f+g|^p\mathrm dm \leqslant \bigg(||f||_p+||g||_p\bigg)\bigg(\int_X|f+g|^{(p-1)q}\mathrm dm\bigg)^{\nicefrac1q}.$$
+  On peut diviser par $\dstyle\Big(\int_X|f+g|^{(p-1)q}\mathrm dm\Big)^{\nicefrac1q}$, puisque $f$ ou $g$ est non nulle $m$-presque partout, on obtient (on rappelle que $(p-1)q=p$) :
+  $$\bigg(\int_X|f+g|^p\mathrm dm\bigg)^{1-\nicefrac1q} \leqslant \bigg(||f||_p+||g||_p\bigg).$$
+  Puisque $\dstyle1-\nicefrac1q=\nicefrac1p$, on obtient finalement :
+  $$\bigg(\int_X|f+g|^p\mathrm dm\bigg)^{\nicefrac1p:} \leqslant \bigg(||f||_p+||g||_p\bigg).$$
+  Ce qui se ré-écrit en $||f+g||_p\leqslant ||f||_p+||g||_p$.
+\end{Proof}
+
+
+Ainsi, nos espaces $\mathcal L^p$ (pour $1\leqslant p\leqslant +\infty$) sont tous des espaces vectoriels, et $\norm{\cdot}_p$ est une \emph{semi-norme}, on va voir qu'il est possible d'en faire des espaces vectoriels normés.
+
+
+\NouvelleSection{Théorème de Riesz-Fischer, espaces $L^p$}
+
+Soit $(X,m,\mu)$ un espace mesuré et $1\leqslant p\leqslant +\infty$. On sait que, pour $f\in\mathcal L^p$, 
+$$\norm{f}_p=0\Leftrightarrow f=0\ \mu_text{-p.p.},$$
+on va donc considérer la relation d'équivalence (exercice) suivante
+$$f\sim g \Leftrightarrow f=g\ \mu_text{-p.p.}$$
+On va définir les espaces $L^p$ comme étant le quotient des $\mathcal L^p$ par cette relation d'équivalence, donc 
+$$L^p=L^p(X,m,\mu):=\mathcal L^p/\sim$$
+ainsi, en notant $[f]$ la classe d'une fonction de $\mathcal L^p$, on a 
+$$L^p:\ens{[f],\ f\in\mathcal L^p}.$$
+On va le munir d'une norme, 
+$$\norm{[f]}_p:=\norm{f}_p$$
+il n'y a pas d'ambiguité dans la définition de $\norm{[f]}_p$ puisque les élements d'une classe d'équivalence sont identiques à un ensemble de mesure nulle près.
+
+Les $L^p$ sont donc des espaces vectoriels normés, puisque 
+$$\norm{[f]}_p=0\Leftrightarrow [f]=[0]=0.$$
+
+Dans la suite du document, on fera toujours l'identification entre $f$ et $[f]$, donc pour $(f,g)\in L^p$, $f=$ signifie que $f=g\ \mu$-p.p.
+
+
+\begin{Th}
+  Soit $1\leqslant p<+\infty$, soit $(f_n)\in L^p$ tels que $\sum_{n\geqslant 0}\norm{f_n}_p<\infty$,\\
+
+  alors $\sum_{n\geqslant 0}f_n$ converge $\mu$-p.p. et en notant $F=\sum_{n\geqslant 0}f_n$, on a 
+  $$\norm{\sum_{n= 0}^Nf_n-F}_p\longrightarrow 0\text{ quand }N\to\infty.$$
+\end{Th}
+
+
+\begin{Proof}
+  À FAIRE
+\end{Proof}
+
+
+\begin{thC}{de Riesz-Fischer}
+  Soit $1\leqslant p<+\infty$,\\
+
+  l'espace $L^p$ est un Banach, ou plus précisément, pour $(f_n)\in L^p$ une suite de Cauchy\\
+  $(\mathit 1)\ \exists f\in L^p$ telle que 
+  $$\norm{f_n-f}_p\tend 0$$
+  $(\mathit 2)$ il existe une sous-suite telle que 
+  $$f_{n_k}(x)\tend f(x)\ \mu\text{-p.p.}$$
+\end{thC}
+
+
+\begin{Proof}
+  À FAIRE
+\end{Proof}
+
+
+\begin{Th}
+  $L^\infty$ est un espace de Banach.
+\end{Th}
+
+
+\begin{Proof}
+  À FAIRE
+\end{Proof}
+
+
+\NouvelleSection{Théorèmes de densité}
+
+
+Soit $1\leqslant p<+\infty$
+
+
+\begin{lemme}
+  Soit $f:X\longrightarrow[0,+\infty]$ une application mesurable, pour $n\in\N$ et $0\leqslant k\leqslant n2^n-1$, on pose 
+  $$E_{n,k}:=\ens{x\in X\tq\frac{k}{2^n}\leqslant f(x)\leqslant \frac{k+1}{2^n}},$$
+  $$F_n:=\ens{x\in X\tq f(x)\geqslant n}.$$
+  Alors
+  $$s_n:=\sum_{k=0}^{n2^n-1}\frac{k}{2^n}\chi_{E_{n,k}}+n\chi_{F_n}$$
+  est une suite croissante de fonctions étagées convergeant simplement vers $f$.
+\end{lemme}
+
+
+\begin{Proof}
+  Se référer au cours de L3/AIN
+\end{Proof}
+
+\begin{corollaire}
+  Soit $\mathcal E:=\mathrm{Vect}\ens{\chi_A,\ a\in m}$ l'ensemble des fonctions étagées,\\
+
+  alors $\mathcal E\cap L^p$ est dense dans $L^p$.
+\end{corollaire}
+
+
+\begin{RQ}
+  Pour $f\in L^p$, $a>0$ et $A_a:=\ens{x\in X\ :\ \abs{f(x)}}$, alors $\chi_{A_a}\in L^p$, puisque 
+  $$a^p\mu(A_a)\leqslant\int_{A_a}\abs{f}^p\mathrm d\mu\leqslant \int_{X}\abs{f}^p\mathrm d\mu<\infty.$$
+\end{RQ}
+
+
+\begin{Proof}
+  En séparant 
+  $$f=\Re f+i\Im f$$
+  on peut supposer que $f$ est réelle et en séparant 
+  $$f=f⁺-f⁻$$
+  on peut supposer que $f$ est positive.
+
+  D'après le lemme, il existe $(s_n)$ une suite croissante de fonctions étagées positives convergeant simplement vers $f$. D'après la remaque et l'expression explicite de $s_n$, 
+  $$\forall n\in\N,\ s_n\in \mathcal E\cap L^p$$
+  et $f_n(x)\longrightarrow f(x)$ sur $X$. 
+  La limite étant croissante, on a 
+  $$\forall x\in X,\ 0\leqslant f(x)-s_n(x)\leqslant f(x),$$
+  $t\mapsto t^p$ étant croissante,
+  $$\forall x\in X,\ \abs{f(x)-s_n(x)}^p\leqslant \abs{f(x)}^p$$
+  on peut donc appliquer le théorème de convergence dominée et 
+  $$\int_X\abs{f-s_n}^p\mathrm d\mu=\norm{f-s_n}_p^p\tend 0.$$
+\end{Proof}
+
 \end{document}
