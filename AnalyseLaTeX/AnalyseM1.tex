@@ -2765,7 +2765,7 @@ On aura besoin des deux lemmes suivants :
 \end{Proof} 
 
 
-\begin{ProofC}{la démonstration de la propriété}
+\begin{ProofC}{La démonstration de la propriété}
   $\star$ On commence par montrer que $\sigma(T)\subset \overline{D(0,\norm{T})}$, soit $\abs{\lambda}>\norm{T}$, montrons que $T-\lambda \Id$ est inversible : on a 
   $$T-\lambda\Id=-\lambda\left(\Id-\frac{T}{\lambda}\right)$$
   et puisque $\dstyle\abs{\frac{\norm T}{\lambda}}<1$, on peut utiliser le développement en série entière de $\dstyle x\longmapsto\frac{1}{1-x}$
@@ -3005,7 +3005,15 @@ Dans la suite du document, on fera toujours l'identification entre $f$ et $[f]$,
 
 
 \begin{Proof}
-  À FAIRE
+  On va définir 
+  $$M:=\sum_{n\geqslant 0}\norm{f_n}_p\text{ et }M<\infty\text{ par hypothèse},$$
+  $$G_n(x)=\sum_{k=0}^n\abs{f_n(x)}$$
+  et
+  $$G(x)=\sum_{n\geqslant 0}\abs{f_n(x)}.$$
+  D'après l'inégalité de Minkowski, on a 
+  $$\forall n\in\N,\ \norm{G_n}_p\leqslant \sum_{k=0}^n\norm{f_n}<\infty.$$
+  De plus, $\Par{G_n(x)}_{n\geqslant 0}$ est une suite croissante donc on peut y appliquer le théorème de Beppo-Lévi et 
+  
 \end{Proof}
 
 
@@ -3031,7 +3039,20 @@ Dans la suite du document, on fera toujours l'identification entre $f$ et $[f]$,
 
 
 \begin{Proof}
-  À FAIRE
+  Soit $(f_n)\in L^\infty$ une suite de Cauchy, donc 
+  $$\forall\varepsilon>0,\ \exists n(\varepsilon)\in\N\ :\ \forall n,m\geqslant n(\varepsilon),\ \norm{f_n-f_m}_\infty\leqslant \varepsilon.$$
+  On pose 
+  $$N_{n,m}(\varepsilon):=\ens{x\in X\tq \abs{f_n(x)-f_m(x)}>\varepsilon}$$
+  tous les $N_{n,m}(\varepsilon)$ sont de mesure nulles par hypothèse, donc 
+  $$N:=\bigcup_{j\geqslant 1}\bigcup_{n,m\geqslant n(\nicefrac1j)}N_{n,m}(\nicefrac1j)$$
+  $N$ est de mesure nulle en tant que réunion dénombrable d'ensembles de mesures nulles et 
+  $$\forall x\in X\backslash N,\ \forall j\in\N,\ \forall n,m\geqslant n(\nicefrac1j),\ \abs{f_n(x)-f_m(x)}\leqslant\frac1j$$
+  par passsage au $\mathrm{sup}$, on a 
+  $$\forall j\in\N,\ \forall n,m\geqslant n(\nicefrac1j),\ \underset{x\notin N}{\mathrm{sup}}\abs{f_n(x)-f_m(x)}\leqslant\frac1j.$$
+  Donc $(f_n)$ est de Cauchy dans $X\backslash N$, donc $f_n$ converge uniformément (POURQUOI ???) sur $X\backslash N$ vers $f\in L^{\infty}$.
+
+  Sur $N$, on pose $f=0$ donc $f$ est toujours dans $L^\infty$, donc on a bien 
+  $$\norm{f_n-f}_\infty\longrightarrow 0\text{ quand }n\to\infty.$$
 \end{Proof}
 
 

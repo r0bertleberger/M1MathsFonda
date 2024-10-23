@@ -1,4 +1,4 @@
-This is XeTeX, Version 3.141592653-2.6-0.999996 (TeX Live 2024) (preloaded format=xelatex 2024.9.22)  23 OCT 2024 00:15
+This is XeTeX, Version 3.141592653-2.6-0.999996 (TeX Live 2024) (preloaded format=xelatex 2024.9.22)  23 OCT 2024 12:49
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -3951,25 +3951,16 @@ Package mdframed Info: mdframed works in twoside mode on input line 3008.
 Package mdframed Info: mdframed detected package amsthm 
  changed the theorem header of amsthm
 (mdframed)              on input line 3008.
-Package mdframed Info: mdframed works in twoside mode on input line 3012.
-Package mdframed Info: mdframed detected package amsthm 
- changed the theorem header of amsthm
-(mdframed)              on input line 3012.
 
-Underfull \hbox (badness 10000) in paragraph at lines 3012--3014
+Package mdframed Warning: You got a bad break
+(mdframed)                because the last box will be empty
+(mdframed)                you have to change it manually
+(mdframed)                by changing the text, the space
+(mdframed)                or something else on input line 3017.
 
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 3023--3023
-
- []
-
-Package mdframed Info: mdframed works in twoside mode on input line 3024.
-Package mdframed Info: mdframed detected package amsthm 
- changed the theorem header of amsthm
-(mdframed)              on input line 3024.
-Package mdframed Info: Not enough space on this page on input line 3025.
+Package mdframed Info: You first box width is to small
+ mdframed fixed it
+(mdframed)              on input line 3017.
 
 
 
@@ -3981,20 +3972,42 @@ Package fancyhdr Warning: \headheight is too small (12.0pt):
 (fancyhdr)                \addtolength{\topmargin}{-1.59999pt}.
 
 [74]
-Package mdframed Info: Not enough space on this page on input line 3025.
-Package mdframed Info: mdframed works in twoside mode on input line 3028.
+
+Package mdframed Warning: You got a bad break
+(mdframed)                because the last split box is empty
+(mdframed)                You have to change the settings on input line 3017.
+
+Package mdframed Info: mdframed works in twoside mode on input line 3020.
 Package mdframed Info: mdframed detected package amsthm 
  changed the theorem header of amsthm
-(mdframed)              on input line 3028.
+(mdframed)              on input line 3020.
 
-Underfull \hbox (badness 10000) in paragraph at lines 3033--3033
+Underfull \hbox (badness 10000) in paragraph at lines 3020--3022
 
  []
 
-Package mdframed Info: mdframed works in twoside mode on input line 3034.
+
+Underfull \hbox (badness 10000) in paragraph at lines 3031--3031
+
+ []
+
+Package mdframed Info: mdframed works in twoside mode on input line 3032.
 Package mdframed Info: mdframed detected package amsthm 
  changed the theorem header of amsthm
-(mdframed)              on input line 3034.
+(mdframed)              on input line 3032.
+Package mdframed Info: mdframed works in twoside mode on input line 3036.
+Package mdframed Info: mdframed detected package amsthm 
+ changed the theorem header of amsthm
+(mdframed)              on input line 3036.
+
+Underfull \hbox (badness 10000) in paragraph at lines 3041--3041
+
+ []
+
+Package mdframed Info: mdframed works in twoside mode on input line 3042.
+Package mdframed Info: mdframed detected package amsthm 
+ changed the theorem header of amsthm
+(mdframed)              on input line 3042.
 
 
 
@@ -4006,43 +4019,39 @@ Package fancyhdr Warning: \headheight is too small (12.0pt):
 (fancyhdr)                \addtolength{\topmargin}{-1.59999pt}.
 
 [75]
-Package mdframed Info: mdframed works in twoside mode on input line 3044.
+Package mdframed Info: mdframed works in twoside mode on input line 3065.
 Package mdframed Info: mdframed detected package amsthm 
  changed the theorem header of amsthm
-(mdframed)              on input line 3044.
+(mdframed)              on input line 3065.
 
-Underfull \hbox (badness 10000) in paragraph at lines 3054--3054
+Underfull \hbox (badness 10000) in paragraph at lines 3075--3075
 
  []
 
-Package mdframed Info: mdframed works in twoside mode on input line 3055.
+Package mdframed Info: mdframed works in twoside mode on input line 3076.
 Package mdframed Info: mdframed detected package amsthm 
  changed the theorem header of amsthm
-(mdframed)              on input line 3055.
-Package mdframed Info: mdframed works in twoside mode on input line 3058.
+(mdframed)              on input line 3076.
+Package mdframed Info: mdframed works in twoside mode on input line 3079.
 Package mdframed Info: mdframed detected package amsthm 
  changed the theorem header of amsthm
-(mdframed)              on input line 3058.
+(mdframed)              on input line 3079.
 
-Underfull \hbox (badness 10000) in paragraph at lines 3058--3060
+Underfull \hbox (badness 10000) in paragraph at lines 3079--3081
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 3071--3071
+Underfull \hbox (badness 10000) in paragraph at lines 3092--3092
 
  []
 
-Package mdframed Info: mdframed works in twoside mode on input line 3072.
+Package mdframed Info: mdframed works in twoside mode on input line 3093.
 Package mdframed Info: mdframed detected package amsthm 
  changed the theorem header of amsthm
-(mdframed)              on input line 3072.
+(mdframed)              on input line 3093.
 Missing character: There is no ⁺ ("207A) in font rm-lmr10!
 Missing character: There is no ⁻ ("207B) in font rm-lmr10!
-
-LaTeX Warning: Reference `mdf@pagelabel-223' on page 76 undefined on input line
- 3087.
-
 
 
 
@@ -4058,21 +4067,14 @@ Package fancyhdr Warning: \headheight is too small (12.0pt):
 LaTeX2e <2024-06-01> patch level 2
 L3 programming layer <2024-08-30>
  ***********
-
-
-LaTeX Warning: There were undefined references.
-
-
-LaTeX Warning: Label(s) may have changed. Rerun to get cross-references right.
-
 Package rerunfilecheck Info: File `AnalyseM1.out' has not changed.
 (rerunfilecheck)             Checksum: CB1C9BCA3436F6B854AE64D1FB1BFA80;4290.
  ) 
 Here is how much of TeX's memory you used:
- 29162 strings out of 474235
- 558510 string characters out of 5742253
- 1063824 words of memory out of 5000000
- 51335 multiletter control sequences out of 15000+600000
+ 29165 strings out of 474235
+ 558576 string characters out of 5742253
+ 1063964 words of memory out of 5000000
+ 51338 multiletter control sequences out of 15000+600000
  704587 words of font info for 129 fonts, out of 8000000 for 9000
  1348 hyphenation exceptions out of 8191
  131i,17n,135p,546b,1023s stack positions out of 10000i,1000n,20000p,200000b,200000s
