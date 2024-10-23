@@ -1,4 +1,4 @@
-This is XeTeX, Version 3.141592653-2.6-0.999996 (TeX Live 2024) (preloaded format=xelatex 2024.9.22)  23 OCT 2024 12:49
+This is XeTeX, Version 3.141592653-2.6-0.999996 (TeX Live 2024) (preloaded format=xelatex 2024.9.22)  23 OCT 2024 21:04
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -4052,6 +4052,10 @@ Package mdframed Info: mdframed detected package amsthm
 (mdframed)              on input line 3093.
 Missing character: There is no ⁺ ("207A) in font rm-lmr10!
 Missing character: There is no ⁻ ("207B) in font rm-lmr10!
+Package mdframed Info: mdframed works in twoside mode on input line 3114.
+Package mdframed Info: mdframed detected package amsthm 
+ changed the theorem header of amsthm
+(mdframed)              on input line 3114.
 
 
 
@@ -4062,21 +4066,136 @@ Package fancyhdr Warning: \headheight is too small (12.0pt):
 
 (fancyhdr)                \addtolength{\topmargin}{-1.59999pt}.
 
-[76] (./AnalyseM1.aux)
+[76]
+Package mdframed Info: Not enough space on this page on input line 3119.
+Package mdframed Info: mdframed works in twoside mode on input line 3131.
+Package mdframed Info: mdframed detected package amsthm 
+ changed the theorem header of amsthm
+(mdframed)              on input line 3131.
+
+Underfull \hbox (badness 10000) in paragraph at lines 3131--3133
+
+ []
+
+Package mdframed Info: mdframed works in twoside mode on input line 3141.
+Package mdframed Info: mdframed detected package amsthm 
+ changed the theorem header of amsthm
+(mdframed)              on input line 3141.
+
+Underfull \hbox (badness 10000) in paragraph at lines 3147--3147
+
+ []
+
+Package mdframed Info: mdframed works in twoside mode on input line 3148.
+Package mdframed Info: mdframed detected package amsthm 
+ changed the theorem header of amsthm
+(mdframed)              on input line 3148.
+Package mdframed Info: mdframed works in twoside mode on input line 3162.
+Package mdframed Info: mdframed detected package amsthm 
+ changed the theorem header of amsthm
+(mdframed)              on input line 3162.
+
+Underfull \hbox (badness 10000) in paragraph at lines 3164--3166
+
+ []
+
+Package mdframed Info: mdframed works in twoside mode on input line 3178.
+Package mdframed Info: mdframed detected package amsthm 
+ changed the theorem header of amsthm
+(mdframed)              on input line 3178.
+
+Underfull \hbox (badness 10000) in paragraph at lines 3186--3186
+
+ []
+
+Package mdframed Info: mdframed works in twoside mode on input line 3187.
+Package mdframed Info: mdframed detected package amsthm 
+ changed the theorem header of amsthm
+(mdframed)              on input line 3187.
+Package mdframed Info: Not enough space on this page on input line 3188.
+
+
+
+Package fancyhdr Warning: \headheight is too small (12.0pt): 
+(fancyhdr)                Make it at least 13.59999pt, for example:
+(fancyhdr)                \setlength{\headheight}{13.59999pt}.
+(fancyhdr)                You might also make \topmargin smaller to compensate:
+
+(fancyhdr)                \addtolength{\topmargin}{-1.59999pt}.
+
+[77]
+Package mdframed Info: Not enough space on this page on input line 3188.
+
+Underfull \hbox (badness 10000) in paragraph at lines 3191--3191
+
+ []
+
+Package mdframed Info: mdframed works in twoside mode on input line 3191.
+Package mdframed Info: mdframed detected package amsthm 
+ changed the theorem header of amsthm
+(mdframed)              on input line 3191.
+
+
+
+Package fancyhdr Warning: \headheight is too small (12.0pt): 
+(fancyhdr)                Make it at least 13.59999pt, for example:
+(fancyhdr)                \setlength{\headheight}{13.59999pt}.
+(fancyhdr)                You might also make \topmargin smaller to compensate:
+
+(fancyhdr)                \addtolength{\topmargin}{-1.59999pt}.
+
+[78]
+
+Package hyperref Warning: Difference (2) between bookmark levels is greater 
+(hyperref)                than one, level fixed on input line 3199.
+
+Package mdframed Info: mdframed works in twoside mode on input line 3201.
+Package mdframed Info: mdframed detected package amsthm 
+ changed the theorem header of amsthm
+(mdframed)              on input line 3201.
+Package mdframed Info: mdframed works in twoside mode on input line 3213.
+Package mdframed Info: mdframed detected package amsthm 
+ changed the theorem header of amsthm
+(mdframed)              on input line 3213.
+
+Underfull \hbox (badness 10000) in paragraph at lines 3213--3215
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 3222--3222
+
+ []
+
+Package mdframed Info: mdframed works in twoside mode on input line 3222.
+Package mdframed Info: mdframed detected package amsthm 
+ changed the theorem header of amsthm
+(mdframed)              on input line 3222.
+
+
+
+Package fancyhdr Warning: \headheight is too small (12.0pt): 
+(fancyhdr)                Make it at least 13.59999pt, for example:
+(fancyhdr)                \setlength{\headheight}{13.59999pt}.
+(fancyhdr)                You might also make \topmargin smaller to compensate:
+
+(fancyhdr)                \addtolength{\topmargin}{-1.59999pt}.
+
+[79] (./AnalyseM1.aux)
  ***********
 LaTeX2e <2024-06-01> patch level 2
 L3 programming layer <2024-08-30>
  ***********
 Package rerunfilecheck Info: File `AnalyseM1.out' has not changed.
-(rerunfilecheck)             Checksum: CB1C9BCA3436F6B854AE64D1FB1BFA80;4290.
+(rerunfilecheck)             Checksum: B844BBEFC053AB0B3FE332A226DCBB21;4707.
  ) 
 Here is how much of TeX's memory you used:
- 29165 strings out of 474235
- 558576 string characters out of 5742253
- 1063964 words of memory out of 5000000
- 51338 multiletter control sequences out of 15000+600000
+ 29199 strings out of 474235
+ 559310 string characters out of 5742253
+ 1065170 words of memory out of 5000000
+ 51372 multiletter control sequences out of 15000+600000
  704587 words of font info for 129 fonts, out of 8000000 for 9000
  1348 hyphenation exceptions out of 8191
  131i,17n,135p,546b,1023s stack positions out of 10000i,1000n,20000p,200000b,200000s
 
-Output written on AnalyseM1.pdf (76 pages).
+Output written on AnalyseM1.pdf (79 pages).

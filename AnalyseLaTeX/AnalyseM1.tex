@@ -3049,7 +3049,7 @@ Dans la suite du document, on fera toujours l'identification entre $f$ et $[f]$,
   $$\forall x\in X\backslash N,\ \forall j\in\N,\ \forall n,m\geqslant n(\nicefrac1j),\ \abs{f_n(x)-f_m(x)}\leqslant\frac1j$$
   par passsage au $\mathrm{sup}$, on a 
   $$\forall j\in\N,\ \forall n,m\geqslant n(\nicefrac1j),\ \underset{x\notin N}{\mathrm{sup}}\abs{f_n(x)-f_m(x)}\leqslant\frac1j.$$
-  Donc $(f_n)$ est de Cauchy dans $X\backslash N$, donc $f_n$ converge uniformément (POURQUOI ???) sur $X\backslash N$ vers $f\in L^{\infty}$.
+  Donc $(f_n)$ est de Cauchy dans l'espace $C_b(X\backslash N,\norm{\cdot}_\infty)$ où $\norm{\cdot}_\infty$ est la norme $\mathrm{sup}$ habituelle. Cet espace est un Banach (on le montre de la même façon qu'on montre que $(C(K,\K,\norm{\cdot}_\infty)$ est complet) donc $f_n$ converge uniformément sur $X\backslash N$ vers $f\in L^{\infty}$.
 
   Sur $N$, on pose $f=0$ donc $f$ est toujours dans $L^\infty$, donc on a bien 
   $$\norm{f_n-f}_\infty\longrightarrow 0\text{ quand }n\to\infty.$$
@@ -3107,4 +3107,119 @@ Soit $1\leqslant p<+\infty$
   $$\int_X\abs{f-s_n}^p\mathrm d\mu=\norm{f-s_n}_p^p\tend 0.$$
 \end{Proof}
 
+
+Dans la suite du document, $X=\R$, $m=\mathcal B(\R)$ et $\mu$ est la mesure de Lebesgue, donc $L^p=L^p(\R,\mathcal B(\R),\lambda)$.
+
+
+\begin{Def}
+  Pour $f\in L^p$, on appelle \emph{support de }$f$ le complémentaire du plus grand ouvert $U$ tel que 
+  $$f\big|_U=0\ \lambda\text{-p.p.}$$
+  Ainsi, si $f$ est continue, on a 
+  $$\mathrm{supp}\ f=\overline{\ens{x\in X\ :\ f(x)\neq 0}}.$$
+\end{Def}
+
+
+On note $C_{cc}$ l'ensemble des fonctions continues à support compact, 
+$$C_{cc}:=\ens{f:\R\longrightarrow\C\text{ continue à support compact}}$$
+donc 
+$$f\in C_{cc}\Leftrightarrow\begin{cases}
+  f\text{ est continue }\\
+  \exists a>0\ :\ \abs{x}\geqslant a\Rightarrow f(x)=0.
+\end{cases}$$
+
+
+\begin{Th}
+  Soit $1\leqslant p<+\infty$,\\
+
+  alors $C_{cc}$ est dense dans $L^p$.
+\end{Th}
+
+
+La preuve de ce théorème requiert le lemme suivant, qui découle de la construction de la mesure de Lebesgue, donc que l'on ne démontrera pas.
+
+
+\begin{lemme}
+  La mesure de Lebesgue est \emph{régulière}, c'est à dire que pour $A\in\mathcal B(\R)$ avec $\lambda(A)<\infty$, pour $\varepsilon>0$, il existe un compact $K$ et un ouvert $\O$ tel que 
+  $$K\subset A\subset \O\text{ et }\lambda(\O\backslash K)\leqslant \varepsilon.$$
+\end{lemme}
+
+
+\begin{Proof}
+  À FAIRE
+\end{Proof}
+
+
+\begin{RQ}
+  Ce théorème reste vrai dans $L^p(U)$ où $U\subset\R^n$ est un ouvert.
+\end{RQ}
+
+
+\begin{RQ}
+  Pour $1\leqslant p>+\infty$, $L^p$ est séparable.
+\end{RQ}
+
+
+\begin{Th}
+  SOit $1\leqslant p<+\infty$, pour $f\in L^p$ on pose 
+  $$f_x:t\longmapsto f(t-x)$$
+  l'opérateur de translation,\\
+
+  alors 
+  $$\begin{array}{|ccc}
+    \R&\longrightarrow& L^p\\
+    x&\longmapsto&f_x
+  \end{array}$$
+  est uniformément continu.
+\end{Th}
+
+La preuve de ce théorème requiert le lemme suivant,
+
+
+\begin{lemme}
+  Soit $f:\R\longrightarrow\C$ continue telle que 
+  $$f(x)\underset{\abs{x}\to+\infty}{\longrightarrow}0,$$
+  
+  alors $f$ est uniformément continue.
+\end{lemme}
+
+
+\begin{ProofC}{Démonstration du lemme}
+  À FAIRE
+\end{ProofC}
+
+
+\begin{Proof}{Démonstration du théorème}
+  À FAIRE
+\end{Proof}
+
+
+\NouvellePart{Convolution et tranformée de Fourier}
+
+
+\PremiereNouvelleSection{Produit de convolution}
+
+\begin{Def}
+  Pour $(f,g):\R\longrightarrow\C$, si pour tout $x\in \R,\ t\longmapsto f(x-t)g(t)\in L^1$, on définit la \emph{convolée de }$f$\emph{ par }$g$ par 
+  $$\forall x\in\R,\ (f*g)(x):=\int_{-\infty}^{+\infty}f(x-t)g(t)\dt=\int_{-\infty}^{+\infty}f(u)(x-u)\mathrm du.$$
+  (on passe de la première intégrale à la seconde via le changement de variable $u=x-t$)
+\end{Def}
+
+
+\begin{RQ}
+  On remarque que la loi de composition $*$ est commutative.
+\end{RQ}
+
+
+\begin{Th}
+  Soit $1\leqslant p\leqslant +\infty$, soit $q$ l'exposant conjugué de $p$,\\
+
+  $(\mathit 1)$ si $f\in L^p,\ g\in L^p$, alors $f*g$ est définie sur $\R$ et $f*g\in C_b(\R)$.\\
+  $(\mathit 2)$ si $1<p<+\infty$, alors 
+  $$(f*g)(x)\longrightarrow 0\text{ quand }\abs x\to 0.$$ 
+\end{Th}
+
+
+\begin{Proof}{Démonstration du théorème}
+  À FAIRE
+\end{Proof}
 \end{document}
