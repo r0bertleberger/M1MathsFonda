@@ -2885,6 +2885,11 @@ appartient à $\mathcal L^\infty$.
 
 On voit voir que les $\mathcal L^p$ sont des espaces vectoriels, et qu'il est possible d'en faire des espaces vectoriels normés.
 
+On commence par deux inégalité de convexité, qui seront utiles au cours du chapitre.
+
+
+\NouvelleSubsection{Deux inégalités de convexité}
+
 
 \begin{prop}
   Soient $(\alpha,\beta)\in[0,1]$ tels que $\alpha+\beta=1$,\\
@@ -2902,6 +2907,77 @@ On voit voir que les $\mathcal L^p$ sont des espaces vectoriels, et qu'il est po
   On compose cette inégalité par la fonction $\exp$ qui est strictement croissante et l'on obtient
   $$u^\alpha+v^\beta\leqslant \alpha u+\beta v.$$
 \end{Proof}
+
+Avant de passer à l'inégalité de Jensen, on rappelle l'inégalité des pentes : 
+
+
+\begin{prop}
+  Soit $\varphi:I\subset R\longrightarrow\R$ une application convexe, où $I$ est un intervalle ouvert de $\R$,\\
+
+  alors 
+  $$\forall x<y<z,\ \frac{\varphi(y)-\varphi(x)}{y-x}\leqslant\frac{\varphi(z)-\varphi(x)}{z-x}\leqslant \frac{\varphi(z)-\varphi(y)}{z-y}$$
+\end{prop}
+
+
+\begin{propC}{inégalité de Jensen}
+  Si $\mu$ est une mesure de probabilité, pour $g:X\longrightarrow I\subset \R$ intégrable (où $I$ est un intervalle ouvert), pour $\varphi:I\longrightarrow\R$ convexe,\\
+
+  on a 
+  $$\varphi\circ\int_Xf\mathrm d\mu\leqslant \int_X\varphi\circ f\mathrm d\mu.$$
+\end{propC}
+
+
+On commence par un lemme,
+
+
+\begin{lemme}
+  Soit $\varphi:I\subset R\longrightarrow\R$ une application convexe, où $I$ est un intervalle ouvert de $\R$ et $x\in I$,\\
+
+  alors $h_x:t\in I\backslash\ens{x}\longmapsto\dstyle\frac{\varphi(x)-\varphi(t)}{x-t}$ est croissante admet des limites en $x^+$ et $x^-$.
+\end{lemme}
+
+
+\begin{Proof}
+  On va appliquer l'inégalité des pentes dans les trois configurations possibles,\\
+  $\dagger$ si $a<b<x$,
+  $$\begin{array}{rcccl}
+    \dstyle\frac{\varphi(b)-\varphi(a)}{b-a}&\leqslant&\dstyle\frac{\varphi(x)-\varphi(a)}{x-a}&\leqslant& \dstyle\frac{\varphi(x)-\varphi(b)}{x-b}\\[1.1em]
+    &&h_x(a)&\leqslant& h_x(b)
+  \end{array}$$
+  $\dagger$ si $a<x<b$,
+  $$\begin{array}{rcccl}
+    \dstyle\frac{\varphi(x)-\varphi(a)}{x-a}&\leqslant&\dstyle\frac{\varphi(b)-\varphi(a)}{b-a}&\leqslant& \dstyle\frac{\varphi(b)-\varphi(x)}{b-x}\\[1.1em]
+    h_x(a)&\leqslant& &\leqslant& h_x(b)
+  \end{array}$$
+  $\dagger$ si $x<a<b$,
+  $$\begin{array}{rcccl}
+    \dstyle\frac{\varphi(a)-\varphi(x)}{a-x}&\leqslant&\dstyle\frac{\varphi(b)-\varphi(x)}{b-x}&\leqslant&\dstyle\frac{\varphi(a)-\varphi(b)}{a-b}\\[1.1em]
+  h_x(a)&\leqslant&h_x(b)&&
+  \end{array}$$
+  Ainsi on constate que $h_x$ est effectivement croissante.
+
+  Dans la deuxième ligne, on constate que $h_x$ est majorée sur $]-\infty,x[\cap I$, donc puisque $h_x$ est croissante, $\underset{t\to x^-}{\mathrm{lim}}h_x(t)$ existe (on fait tendre $a\to x^-$).
+
+  De même, $h_x$ est minorée sur $I\cap]x,+\infty[$, donc puisque $h_x$ est croissante, $\underset{t\to x^+}{\mathrm{lim}}h_x(t)$ existe (on fait tendre $b\to x^+$).
+\end{Proof}
+
+
+\begin{ProofC}{Démonstration de l'inégalité de Jensen}
+  Soit $x\in I$ et $\alpha$ tel que $\underset{t\to x^-}{\mathrm{lim}}h_x(t)\leqslant \alpha\leqslant \underset{t\to x^+}{\mathrm{lim}}h_x(t)$, ainsi 
+  $$\forall t\in I,\ \alpha(t-x)\leqslant \varphi(t)-\varphi(x)$$
+  (on considère d'abord le cas $t\neq x$, puis on étend en $t=x$), donc 
+  $$\forall t\in I,\ \varphi(t)\geqslant \alpha t +\Par{\varphi(x)-\alpha x}=\alpha t +\beta.$$
+  On remarque que $\varphi(x)=\alpha x+\beta$, donc en chaque point de $I$, il existe une fonction affine inférieure à $\varphi$ partout et qui coincide en un unique point. On peut donc donc ré-écrire $\varphi$ comme suit
+  $$\forall x\in I,\ \varphi(x)=\underset{(\alpha,\beta)\in E}{\mathrm{sup}}\ \Par{\alpha x+\beta}$$
+  où $E$ est l'ensemble des affines majorées par $\varphi$, 
+  $$E:=\ens{(\alpha,\beta)\in \R\tq \forall x\in\R,\ \varphi(x)\geqslant \alpha x+\beta}.$$
+  On a donc les majorations suivantes :
+  \begin{align*}
+    \int_X\varphi\circ f\mathrm d\mu&\geqslant \underset{(\alpha,\beta)\in E}{\mathrm{sup}}\int_X \Par{\alpha f+\beta}\mathrm d\mu\\
+    &\geqslant \underset{(\alpha,\beta)\in E}{\mathrm{sup}} \Par{\alpha\int_X f\mathrm d\mu+\beta}\\
+     \int_X\varphi\circ f\mathrm d\mu&\geqslant \varphi\circ\int_Xf\mathrm d\mu.
+  \end{align*}
+\end{ProofC}
 
 
 \begin{Def}
@@ -2979,7 +3055,7 @@ Ainsi, nos espaces $\mathcal L^p$ (pour $1\leqslant p\leqslant +\infty$) sont to
 \NouvelleSection{Théorème de Riesz-Fischer, espaces $L^p$}
 
 Soit $(X,m,\mu)$ un espace mesuré et $1\leqslant p\leqslant +\infty$. On sait que, pour $f\in\mathcal L^p$, 
-$$\norm{f}_p=0\Leftrightarrow f=0\ \mu_text{-p.p.},$$
+$$\norm{f}_p=0\Leftrightarrow f=0\ \mu\text{-p.p.},$$
 on va donc considérer la relation d'équivalence (exercice) suivante
 $$f\sim g \Leftrightarrow f=g\ \mu_text{-p.p.}$$
 On va définir les espaces $L^p$ comme étant le quotient des $\mathcal L^p$ par cette relation d'équivalence, donc 
@@ -3006,14 +3082,33 @@ Dans la suite du document, on fera toujours l'identification entre $f$ et $[f]$,
 
 \begin{Proof}
   On va définir 
-  $$M:=\sum_{n\geqslant 0}\norm{f_n}_p\text{ et }M<\infty\text{ par hypothèse},$$
-  $$G_n(x)=\sum_{k=0}^n\abs{f_n(x)}$$
+  $$M:=\sum_{n\geqslant 0}\norm{f_n}_p<\infty\text{ par hypothèse},$$
+  $$G_n:=\sum_{k=0}^n\abs{f_n},\ G:=\sum_{n\geqslant 0}\abs{f_n}$$
   et
-  $$G(x)=\sum_{n\geqslant 0}\abs{f_n(x)}.$$
+  $$F_n:=\sum_{k=0}^nf_n,\ F:=\sum_{n\geqslant 0}f_n.$$
   D'après l'inégalité de Minkowski, on a 
   $$\forall n\in\N,\ \norm{G_n}_p\leqslant \sum_{k=0}^n\norm{f_n}<\infty.$$
   De plus, $\Par{G_n(x)}_{n\geqslant 0}$ est une suite croissante donc on peut y appliquer le théorème de Beppo-Lévi et 
-  
+  \begin{align*}
+    \int_X \abs{G(x)}^p\mathrm d\mu&=\int_X\underset{n\to\infty}{\mathrm{lim}}G_n(x)^p\mathrm d\mu\\
+    &=\underset{n\to\infty}{\mathrm{lim}}\int_XG_n(x)^p\mathrm d\mu\\
+    &\leqslant M^p\\
+    \int_X \abs{G(x)}^p\mathrm d\mu&<\infty
+  \end{align*}
+  ENTOURLOUPE DANS LA DÉMO, À INVESTIGUER.
+
+  Donc $G^p\in L^1$, ains $G<\infty\ \mu$-p.p. donc il existe $N\subset X$ de mesure nulle tel que 
+  $$\forall x\in X\backslash N,\ F(x)=\sum_{n\geqslant 0}f_n(x)<\infty.$$
+  Donc, à part sur un ensemble de mesure nulle, $F_n$ converge simplement vers $F$ et on a aussi 
+  \begin{align*}
+    \forall x\in X\backslash N,\ \abs{F_n(x)-F(x)}^p&=\abs{\sum_{k=n+1}^\infty f_n(x)}^p\\
+    &\leqslant \Par{\sum_{k=n+1}^\infty \abs{f_n(x)}}^p\\
+    \abs{F_n(x)-F(x)}^p&\leqslant G(x)^p\in L^1
+  \end{align*}
+  on peut donc appliquer le théorème de convergence dominée et 
+  $$\Lim \int_{X\backslash N}\abs{F_n-F }^p\mathrm d\mu=\int_{X\backslash N}\Lim\abs{F_n-F }^p\mathrm d\mu=0$$
+  et puisque l'intégrale ne change pas si on rajoute/enlève un ensemble de mesure nulle, 
+  $$\Lim \int_X\abs{F_n-F }^p\mathrm d\mu=\Lim\norm{F_n-F}_p^p=0.$$
 \end{Proof}
 
 
@@ -3029,7 +3124,24 @@ Dans la suite du document, on fera toujours l'identification entre $f$ et $[f]$,
 
 
 \begin{Proof}
-  À FAIRE
+  Soit $(f_n)\in L^p$ une suite de Cauchy, on construit l'extractrice $n:N\longrightarrow N$ strictement croissante de telle sorte que 
+  $$\forall k\geqslant 1,\ \forall n,m\geqslant k,\ \norm{f_{n_n}-f_{n_m}}_p\leqslant\frac{1}{k^2}$$
+  Soit 
+  $$u_0:=f_{n_1}\text{ et }u_k:=f_{n_{k+1}}-f_{n_k}$$
+  ainsi $\forall k\in \N,\ \norm{u_k}_p\leqslant \nicefrac{1}{k^2}$ donc 
+  $$\sum_{k\geqslant 0}\norm{u_n}_p<\infty$$
+  D'après le théorème précédent, il existe $f\in L^p$ tel que 
+  $$\sum_{k=0}^nu_k\tend f\ \mu\text{-p.p.}$$
+  et
+  $$\norm{\sum_{k=0}^n u_k-f}_p\tend 0$$
+  donc, puisque la série des $u_k$ est téléscopique, 
+  $$f_{n_n}\tend f\ \mu\text{-p.p.}$$
+  et 
+  $$\norm{f_{n_n}-f}_p\tend 0.$$
+  Pour le point $(\mathit 1)$, on écrit 
+  $$\norm{f_n-f}_p\leqslant \norm{f_n-f_{n_k}}_p+\norm{f_{n_k}-f}_p$$
+  puisque chacun de termes tend vers 0, on obtient bien 
+  $$\norm{f_n-f}_p\tend 0.$$
 \end{Proof}
 
 
@@ -3049,9 +3161,13 @@ Dans la suite du document, on fera toujours l'identification entre $f$ et $[f]$,
   $$\forall x\in X\backslash N,\ \forall j\in\N,\ \forall n,m\geqslant n(\nicefrac1j),\ \abs{f_n(x)-f_m(x)}\leqslant\frac1j$$
   par passsage au $\mathrm{sup}$, on a 
   $$\forall j\in\N,\ \forall n,m\geqslant n(\nicefrac1j),\ \underset{x\notin N}{\mathrm{sup}}\abs{f_n(x)-f_m(x)}\leqslant\frac1j.$$
-  Donc $(f_n)$ est de Cauchy dans l'espace $C_b(X\backslash N,\norm{\cdot}_\infty)$ où $\norm{\cdot}_\infty$ est la norme $\mathrm{sup}$ habituelle. Cet espace est un Banach (on le montre de la même façon qu'on montre que $(C(K,\K,\norm{\cdot}_\infty)$ est complet) donc $f_n$ converge uniformément sur $X\backslash N$ vers $f\in L^{\infty}$.
+  De plus, les $(f_n)$ sont essentiellements bornées, donc chaque $f_n$ est bornée, sauf sur un ensemble $M_n$, qui est de mesure nulle.
+  On considère 
+  $$\tilde N:=N\cup\Par{\bigcup_{n\geqslant 0}M_n}$$
+  qui est aussi de mesure nulle.
+  Donc $(f_n)$ est de Cauchy dans l'espace $C_b(X\backslash \tilde N,\norm{\cdot}_\infty)$ où $\norm{\cdot}_\infty$ est la norme $\mathrm{sup}$ habituelle. Cet espace est un Banach (on le montre de la même façon qu'on montre que $(C(K,\K,\norm{\cdot}_\infty)$ est complet) donc $f_n$ converge uniformément sur $X\backslash \tilde N$ vers $f\in L^{\infty}$.
 
-  Sur $N$, on pose $f=0$ donc $f$ est toujours dans $L^\infty$, donc on a bien 
+  Sur $\tilde N$, on pose $f=0$ donc $f$ est toujours dans $L^\infty$, donc on a bien 
   $$\norm{f_n-f}_\infty\longrightarrow 0\text{ quand }n\to\infty.$$
 \end{Proof}
 
@@ -3145,7 +3261,29 @@ La preuve de ce théorème requiert le lemme suivant, qui découle de la constru
 
 
 \begin{Proof}
-  À FAIRE
+  On a déjà montré que $\mathcal E\cap L^p$ est dense dans $L^p$, donc il suffit de montrer que pour $A\in \mathcal B(\R)$ de mesure finie, $\chi_A\in\overline{C_{cc}}$ (au sens de la norme $L^p$).
+
+  Soit $A\in \mathcal B(\R)$ et $\varepsilon>0$, on considère la propriété de régularité de la mesure de Lebesgue avec $\Par{\Nfrac{2}}^p$. Le $K$ est un compact de $\R$ donc il existe $N>0$ tel que 
+  $$K\subset [-N,N[,$$
+  on pose 
+  $$F:=\Par{\O\cap]-N,N[}^c$$
+  $F$ est un fermé d'intersection nulle avec $K$, donc on peut poser 
+  $$\varphi (t):=\frac{\mathrm d(t,F)}{\mathrm d(t,F)+\mathrm d(t,K)}\text{ pour }t\in \R$$
+  $\varphi$ est continue, et pour $t\in F,\ \varphi(t)=0$, donc 
+  $$\mathrm{supp}\varphi\subset \O\cap ]-N,N[\subset ]-N,N[$$
+  c'est un fermé (car pré-image du fermé $\ens{0}$ par une application continue) et borné, donc c'est un compact et $\varphi$ est continue à support compact.
+  On a 
+  $$\int_X\abs{\chi_A-\varphi}^p\mathrm d\lambda=\int_K\abs{\chi_A-\varphi}^p\mathrm d\lambda+\int_{\O\backslash K}\abs{\chi_A-\varphi}^p\mathrm d\lambda+\int_{\R\backslash \O}\abs{\chi_A-\varphi}^p\mathrm d\lambda.$$ 
+  Pour $t\in K,\ \varphi(t)=1=\chi_A(t)$ donc le premier terme de l'intégrale est nul.
+
+  Pour $t\in \R\backslash\O,\ \varphi(t)=0=\chi_A$ et le dernier terme est aussi nul, donc 
+  \begin{align*}
+    \int_X\abs{\chi_A-\varphi}^p\mathrm d\lambda&=\int_{\R\backslash \O}\abs{\chi_A-\varphi}^p\mathrm d\lambda\\
+    &\leqslant 2^p\lambda(\R\backslash\O)\\
+    \int_X\abs{\chi_A-\varphi}^p\mathrm d\lambda&\leqslant \varepsilon^p
+  \end{align*}
+  donc 
+  $$\norm{\chi_A-\varphi}\leqslant \varepsilon.$$
 \end{Proof}
 
 
@@ -3155,21 +3293,16 @@ La preuve de ce théorème requiert le lemme suivant, qui découle de la constru
 
 
 \begin{RQ}
-  Pour $1\leqslant p>+\infty$, $L^p$ est séparable.
+  Pour $1\leqslant p<+\infty$, $L^p$ est séparable (exercice).
 \end{RQ}
 
 
 \begin{Th}
-  SOit $1\leqslant p<+\infty$, pour $f\in L^p$ on pose 
+  Soit $1\leqslant p<+\infty$, pour $f\in L^p$ on pose 
   $$f_x:t\longmapsto f(t-x)$$
   l'opérateur de translation,\\
 
-  alors 
-  $$\begin{array}{|ccc}
-    \R&\longrightarrow& L^p\\
-    x&\longmapsto&f_x
-  \end{array}$$
-  est uniformément continu.
+  alors $x\longmapsto f_x$ est uniformément continu.
 \end{Th}
 
 La preuve de ce théorème requiert le lemme suivant,
@@ -3184,15 +3317,60 @@ La preuve de ce théorème requiert le lemme suivant,
 
 
 \begin{ProofC}{Démonstration du lemme}
-  À FAIRE
+  Soit $\varepsilon>0$, il existe $a>0$ tel que 
+  $$\abs x>a\Rightarrow \abs{f(x)}<\Nfrac{2}\qquad (i)$$
+  $f$ est continue sur $[-2a,2a]$ qui est un compact donc (théorème de Heine) $f$ y est uniformément continue et il existe $0<\delta<a$ tel que 
+  $$\forall (x,y)\in [-2a,2a],\ \abs{x-y}<\delta\Rightarrow \abs{f(x)-f(y)}<\varepsilon$$
+  Soient $(x,y)\in \R$ tels que $\abs{x-y}<\delta$, 
+
+  $\dagger$ si $x$ et $y$ sont dans $[-2a,2a]$ c'est bon,
+  
+  $\dagger$ si ce n'est pas le cas, supposons que $\abs x>2a$, alors par inégalité triangulaire,
+  $$\abs y=\abs{x-(x-y)}\geqslant \abs x-\abs{x-y}\geqslant 2a-\delta>a$$
+  donc, d'après $(i)$, on a 
+  $$\abs{f(x)-f(y)}\leqslant \abs{f(x)}+\abs{f(y)}\leqslant \varepsilon$$
+  et $f$ est effectivement uniformément continue.
 \end{ProofC}
 
 
-\begin{Proof}{Démonstration du théorème}
-  À FAIRE
-\end{Proof}
+\begin{ProofC}{Démonstration du théorème}
+  Vérifions d'abord que l'opérateur translation est bien définie, \emph{i.e.} que pour tout $x\in\R,\ f_x\in L^p$. Soit $x\in\R$, on a 
+  $$\norm{f_x}_p^p=\int_{-\infty}^{+\infty}\abs{f(x-t)}^p\dt=\int_{-\infty}^{+\infty}\abs{f(u)}^p\mathrm du=\norm{f}_p^p<\infty$$
+  donc $f_n$ est bien dans $L^p$.
 
+  $\star$ Si $f$ est continue à support compact (on suppose même que ce support est inclus dans $]-N,N[$), alors son support est borné donc $f(x)\longrightarrow 0$ quand $\abs x\to 0$, ainsi d'après le lemme, $f$ est uniformément continue et il existe $0<\delta<N$ tel que 
+  $$\abs{x-y}<\delta\Rightarrow \abs{f(x)-f(y)}<\varepsilon.$$
+  On a, par changement de variable,
+  $$\intI \abs{f_x(t)-f_y(t)}^p\dt=\intI\abs{f(u)-f(u+(x-y))}^p\mathrm du.$$
+  Soient $\abs{x-y}<\delta$, alors
 
+  $\dagger$ si $u\leqslant -N-\delta$, alors 
+  $$u+(x-y)\leqslant  -N-\delta+(x-y)\leqslant -N$$
+  et $f(u)=f(u+(x-y))=0$.
+
+  $\dagger$ si $u\geqslant N+\delta$, alors 
+  $$u+(x-y)\geqslant N+\delta+(x-y)\geqslant N$$
+  et $f(u)=f(u+(x-y))=0$.
+
+  On peut donc réduire les bornes d'intégration et 
+  \begin{align*}
+    \intI\abs{f_x-f_y}^p\mathrm d\lambda&=\int_{-N-\delta}^{N+\delta}\abs{f(u)-f(u+(x-y))}^p\mathrm du\\
+    &\leqslant \varepsilon^p\Par(2N+2\delta)\\
+    &\leqslant 4N\varepsilon^p
+  \end{align*}
+  $N$ étant fixe, on peut revenir au début de la preuve et choisir un $\varepsilon$ adapté, ce qui conclut.\\
+
+  $\star$ Dans le cas général, par densité de $C_{cc}$, il existe $g\in C_{cc}$ telle que 
+  $$\norm{f-g}_p<\varepsilon.$$
+  De plus, d'après le cas précédent, il existe $\delta>0$ tel que 
+  $$\abs{x-y}<\delta\Rightarrow\norm{g_x-g_y}\leqslant \varepsilon$$
+  donc, par inégalité triangulaire et pour $\abs{x-y}<\delta$,
+  \begin{align*}
+    \norm{f_x-f_y}_p&\leqslant \norm{f_x-g_x}_p+\norm{g_x-g_y}_p+\norm{g_y-f_y}_p\\
+    &\leqslant \norm{f-g}_p+\norm{g_x-g_y}_p+\norm{g-f}_p\\
+    \norm{f_x-f_y}_p&\leqslant 3\varepsilon
+  \end{align*}
+\end{ProofC}
 \NouvellePart{Convolution et tranformée de Fourier}
 
 

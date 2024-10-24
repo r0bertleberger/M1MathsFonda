@@ -42,19 +42,16 @@
 \fancypagestyle{pageGarde}{
     \fancyhead[L,R,C]{}
     \fancyfoot[C]{\emph{Analyse}}
+    \renewcommand{\headrulewidth}{0pt}
     \renewcommand{\footrulewidth}{0.4pt}\vspace{-0.2cm}
 }
 
 
 \fancypagestyle{TestPage}{
 	\fancyfoot[C]{\emph{Analyse}}
-  \fancyhead[LE,RO]{\rightmark}
 	\fancyfoot[LE,RO]{\thepage}
 	\renewcommand{\footrulewidth}{0.4pt}\vspace{-0.2cm}
 }
-
-
-
 
 
 %%%%%%
@@ -110,7 +107,7 @@
     \stepcounter{Section}
 }
 \newcommand{\NouvellePart}[1]{
-  \newpage
+  \cleardoublepage
   \part{#1}
   \setcounter{Section}{1}
   \setcounter{prop}{0}
@@ -387,6 +384,8 @@
 
 
 
+
+
 %%%%%%
 % les alias un peu complexes
 %%%%%%
@@ -404,6 +403,8 @@
 \renewcommand{\ker}{\mathrm{ker}}
 \newcommand{\Id}{\mathrm{Id}}
 \newcommand{\Par}[1]{\left(#1\right)}
+\newcommand{\Lim}{\underset{n\to\infty}{\mathrm{lim}}}
+\newcommand{\intI}{\dstyle\int_{-\infty}^{+\infty}}
 
 \newcommand{\dnote}[1]{%
     \noindent % I guess this is intended...
