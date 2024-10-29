@@ -66,7 +66,7 @@ $$\forall x\in E,\ \exists \left(a_n\right)\in A\ \mathrm{t.q.}\ d(a_n,x)\tend 0
 
 $\bullet\quad$ compacité : l'espace métrique $(E,d)$ est \emph{compact} si, et seulement si toute suite dans $E$ admet une sous-suite convergente.\\
 C'est équivalent à : pour tout recouvrement de $E$ par une collection quelconque d'ouverts $\left(V_i\right)_{i\in I}$, il existe un sous-recouvrement fini, \emph{i.e.} 
-$$E=\bigcup_{k=1}^nV_k.$$
+$$E\subset\bigcup_{k=1}^nV_k.$$
 
 $\bullet\quad$ complétude :  l'espace métrique $(E,d)$ est \emph{complet} si toute suite de Cauchy à valeur dans $E$ converge dans $E$.\\
 
@@ -105,9 +105,9 @@ Le théorème suivant nous donne un critère de réciproque :\\
   On a aussi 
   $$K=\bigcup_{n\geqslant 1}\O_n$$
   $K$ étant compact, on peut re-numéroter les $\O_n$ de façon à avoir 
-  $$K=\bigcup_{i=1}^N\O_{N_i}.$$
+  $$K=\bigcup_{i=1}^N\O_{n_i}.$$
   Quitte à réarranger la suite $(n_i)$, on la suppose croissante. Puisque chaque $\left(f_n(x)\right)$ est croissante, on a aussi les inclusions 
-  $$\forall i\in \llbracket 1,N\rrbracket,\ \O_{n_i}\subset\O_{n_N}$$
+  $$\forall i\in \llbracket 1,N-1\rrbracket,\ \O_{n_i}\subset\O_{n_{i+1}}$$
   donc 
   $$K=\O_{m_n}.$$
   Autrement dit,
@@ -216,7 +216,7 @@ Avant de passer aux théorèmes de Stone-Weierstra\ss, on montre quelques propri
 \end{ProofC}
 
 
-\begin{ProofC}{Démonstration du $(\mathit1)$}
+\begin{ProofC}{Démonstration du $(\mathit2$)}
   C'est une conséquence immédiate du premier point, en écrivant nos fonctions sous les formes suivantes : 
   $$\mathrm{sup}(f,g)=\frac12\left(f+g+|f-g|\right)$$
   et
@@ -627,7 +627,7 @@ $\triangleright$\emph{ex : }pour $\ell>0$, l'ensemble des fonctions $\ell$-lipsc
   Soit $\varepsilon>0$, par équicontinuité des $f_n$, pour tout $z\in K$, il existe $\delta_z>0$ tel que 
   $$\forall n\in \N,\ \forall u\in B(z,\delta_z),\ \left|f_{\varphi(n)}(u)-f_{\varphi(n)}(z)\right|\leqslant \varepsilon$$
   par inégalité triangulaire,
-  $$\forall (u,v)\in B(z,\delta_z), \left|f_{\varphi(n)}(u)-f_{\varphi(n)}(v)\right|\leqslant \varepsilon\qquad (i).$$
+  $$\forall (u,v)\in B(z,\delta_z), \left|f_{\varphi(n)}(u)-f_{\varphi(n)}(v)\right|\leqslant 2\varepsilon\qquad (i).$$
   On peut écrire $K$ comme 
   $$K=\bigcup_{z\in K}B(z,\delta_z)$$
   par compacité de $K$, on a 
@@ -2576,6 +2576,7 @@ On va donc retrouver tous les résultats de la sous-partie précédente, à savo
 \end{Th}
 
 
+
 \Dnote{Tous ces résultats sont valables pour la norme 2, pour la norme infinie il n'y a pas nécessairement de convergence. Une conséquence du théorème de Banach-Steinhaus est le résultat suivant :
 $\big\{f\in C([-\pi,\pi])\ |\ \underset{n\geqslant 0}{\mathrm{sup}}|S_nf(0)|=+\infty\big\}$
 est dense dans $\left(C([-\pi,\pi]),||\cdot||_{\infty}\right)$.}
@@ -2828,7 +2829,7 @@ $\triangleright$\emph{ex :} retour sur le \emph{shift}, montrons que $\sigma(S)=
 
 
 
-\NouvellePart{Esaces $\mathcal L^p$ et $L^p$}
+\NouvellePart{Espaces $\mathcal L^p$ et $L^p$}
 
 
 Beaucoups de rappels du cours d'Analyse pour l'ingénieur, \emph{s/o} Augustin Mouze;
@@ -2851,8 +2852,8 @@ $$\norm{f}_1=0\Leftrightarrow f=0\ \mu\text{-p.p.}$$
 \begin{Def}
   Une fonction $f:X\longrightarrow\C$ est dite \emph{essentiellement bornée} si, et seulement si 
 $$\exists M\geqslant 0\text{ tel que }\mu\left(\ens{x\in X\ :\ \abs{f(x)}\geqslant M}\right)=0\qquad (i)$$
-la borne indérieure des $M$ vérifiant $(i)$ est \emph{la borne supérieure essentielle de }$f$, on la note $\norm{f}_{\infty}$, donc 
-$$\norm{f}_\infty=\mathrm{inf}\ens{M\geqslant 0 : \abs{f}\geqslant M\ \mu\text{-p.p.}}.$$
+la borne inférieure des $M$ vérifiant $(i)$ est \emph{la borne supérieure essentielle de }$f$, on la note $\norm{f}_{\infty}$, donc 
+$$\norm{f}_\infty=\mathrm{inf}\ens{M\geqslant 0 : \abs{f}\leqslant M\ \mu\text{-p.p.}}.$$
 On peut donc définir $\mathcal L^\infty$ comme suit
 $$\mathcal L^\infty=\mathcal L^\infty(X,m,\mu)=\ens{f:X\longrightarrow\C\text{ essentiellement bornée}}.$$
 \end{Def}
@@ -3081,8 +3082,7 @@ Dans la suite du document, on fera toujours l'identification entre $f$ et $[f]$,
 
 
 \begin{Proof}
-  On va définir 
-  $$M:=\sum_{n\geqslant 0}\norm{f_n}_p<\infty\text{ par hypothèse},$$
+  On va définir
   $$G_n:=\sum_{k=0}^n\abs{f_n},\ G:=\sum_{n\geqslant 0}\abs{f_n}$$
   et
   $$F_n:=\sum_{k=0}^nf_n,\ F:=\sum_{n\geqslant 0}f_n.$$
@@ -3092,10 +3092,12 @@ Dans la suite du document, on fera toujours l'identification entre $f$ et $[f]$,
   \begin{align*}
     \int_X \abs{G(x)}^p\mathrm d\mu&=\int_X\underset{n\to\infty}{\mathrm{lim}}G_n(x)^p\mathrm d\mu\\
     &=\underset{n\to\infty}{\mathrm{lim}}\int_XG_n(x)^p\mathrm d\mu\\
-    &\leqslant M^p\\
-    \int_X \abs{G(x)}^p\mathrm d\mu&<\infty
+    &=\underset{n\to\infty}{\mathrm{lim}}\norm{G_n}_p^p\\
+    &=\underset{n\to\infty}{\mathrm{lim}}\norm{\sum_{i=0}^n f_n}_p^p\\
+    \int_X \abs{G(x)}^p\mathrm d\mu&\leqslant\underset{n\to\infty}{\mathrm{lim}}\sum_{i=0}^n\norm{ f_n}_p^p
   \end{align*}
-  ENTOURLOUPE DANS LA DÉMO, À INVESTIGUER.
+  Puisque la séries de $\sum_{n\geqslant 0}\norm{f_n}_p$ converge, APCR $\norm{f_n}_p<1$ donc APCR $\norm{f_n}_p^p<\norm{f_n}_p$ et par comparaison de séries à termes positifs, la série des $\sum_{n\geqslant 0}\norm{f_n}_p^p$ converge et 
+  $$\int_X \abs{G(x)}^p\mathrm d\mu<\infty.$$
 
   Donc $G^p\in L^1$, ains $G<\infty\ \mu$-p.p. donc il existe $N\subset X$ de mesure nulle tel que 
   $$\forall x\in X\backslash N,\ F(x)=\sum_{n\geqslant 0}f_n(x)<\infty.$$

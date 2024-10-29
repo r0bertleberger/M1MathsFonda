@@ -16,7 +16,7 @@
 \contentsline {subsection}{Espace de Hilbert}{54}{section*.12}%
 \contentsline {subsection}{Base de Hilbert}{61}{section*.13}%
 \contentsline {subsection}{Dualité et théorème de Riesz}{67}{section*.14}%
-\contentsline {part}{IV\hspace {1em}Esaces $\mathcal L^p$ et $L^p$}{73}{part.4}%
+\contentsline {part}{IV\hspace {1em}Espaces $\mathcal L^p$ et $L^p$}{73}{part.4}%
 \contentsline {subsection}{Espaces $\mathcal L^p$, inégalités de Hölder et Minkowski}{73}{section*.15}%
 \contentsline {subsection}{Théorème de Riesz-Fischer, espaces $L^p$}{78}{section*.16}%
 \contentsline {subsection}{Théorèmes de densité}{82}{section*.17}%
