@@ -32,19 +32,18 @@ Raphaël Casanova\\
 \newpage
 
 
-Ce document est une transciption en \LaTeX\ plus ou moins fidèle au cours d'analyse d'Emmanuel Fricain en première année de master, en 2024-2025.\\
+Ce document est une transciption en \LaTeX\ plus ou moins fidèle au cours d'analyse d'Emmanuel Fricain en première année de master, en 2024-2025.\\[3em]
+
 En terme de notation, j'ai préféré utiliser les notations en {\bf gras} pour les ensembles : 
 $$\N,\mathbf Z,\mathbf Q,\R,\mathbf C$$ plutôt que celles en : $$\mathbb N,\mathbb Z, \mathbb Q,\mathbb R,\mathbb C$$ pour coller à la norme ISO 80000-2.\\
+La notation $f:E\hookrightarrow F$ indique que l'application $f$ est injective de $E$ dans $F$, la notation $f:E\twoheadrightarrow F$ indique que l'application $f$ est surjective de $E$ dans $F$.\\
 La notation 
 $$f_n\ttend f$$
 indique que la suite de fonction $\left(f_n\right)$ converge uniformément vers $f$.\\
-Dans le présent document, $\K=\R$ ou $\mathbf C$, $(K,d)$ est un espace métrique compact et l'on munit l'espace 
-$$C(K,\K)=\left\{f:K\longrightarrow\K\text{ continues }\right\}$$
-de la norme 
-$$||f||_{\infty}:=\mathrm{sup}\left\{f(x)|,\ x\in K\right\}.$$
-Suivant le contexte, la norme opérateur, pour $E$ et $F$ deux espaces vectoriels normés et $T\in\mathcal L(E,F)$,
-$$||T||=\mathrm{sup}\left\{||T x||, x\in E\tq||x||=1\right\}$$
-sera notée $||\cdot||_{\mathrm{op}}$ pour la distinguer des normes sur $E$ ou $F$ (dans la littérature, on rencontre parfois la notation $|||\cdot|||$).\\
+La norme opérateur sera notée $||\cdot||_{\mathrm{op}}$ ou $\norm{\cdot}$ si il n'y a pas de confusion possible avec les autres normes (dans la littérature, on rencontre parfois la notation $|||\cdot|||$).\\
+Pour $x:N\longrightarrow E$ une suite, la notation $(x_n)_{n\geqslant 0}$ insiste sur l'aspect \og suite\fg\ tandis que la notation $\ens{x_n}_{n\geqslant 0}$ insiste sur l'aspect \og ensemble de points\fg.\\[2em]
+
+Dans le présent document, $\K=\R$ ou $\mathbf C$, $(K,d)$ est un espace métrique compact.\\[2em]
 
 Le symbole $\square$ signifie \emph{C.Q.F.D.}, le symbole $(\bullet)$ indique plusieurs hypothèses à vérifier, le symbole $\star$ indique une étape de la preuve et le symbole $\dagger$ indique une disjonction de cas.
 
@@ -80,6 +79,10 @@ la densité s'identifie avec une approximation par des fonctions régulières et
 \end{RQ} 
 
 
+\begin{Proof}
+  À FAIRE
+\end{Proof}
+
 
 \NouvelleSection{Théorème de Dini}
 
@@ -92,7 +95,7 @@ Le théorème suivant nous donne un critère de réciproque :\\
   soit $\left(f_n\right)\in C(K,\R)$, avec $K$ un compact, on suppose\\
   $(\bullet)\quad f_n$ converge simplement vers $f:K\longrightarrow\R$,\\
   $(\bullet\bullet)\quad f$ est continue,\\
-  $(\bullet\bullet\bullet)\quad \forall x\in K,\ \left(f_n(x)\right)$ est croissante,\\
+  $(\bullet\bullet\bullet)\quad \forall x\in K,\ \left(f_n(x)\right)_{n\geqslant 0}$ est croissante,\\
 
   alors $f_n$ converge uniformément vers $f$.
 \end{thC}
@@ -590,7 +593,7 @@ $\triangleright$\emph{ex : }pour $\ell>0$, l'ensemble des fonctions $\ell$-lipsc
 \begin{thC}{Ascoli, v1}
   Soient $(K,d)$ un compact et $\mathcal F=\{f_n\}$ une famille dans $C(K)$, si,
 
-  $(\bullet)\ \forall x\in K,\ \big(f_n(x)\big)$ est une suite bornée de $K$,\\
+  $(\bullet)\ \forall x\in K,\ \big(f_n(x)\big)_{n\geqslant 0}$ est une suite bornée de $K$,\\
   $(\bullet\bullet)$ $\mathcal F$ est équicontinue,\\
 
   alors il existe une sous-suite des $f_n$ qui converge uniformément dans $C(K).$
@@ -699,7 +702,7 @@ $\triangleright$\emph{ex : }pour $\ell>0$, l'ensemble des fonctions $\ell$-lipsc
 \begin{thC}{Ascoli, v3}
   Soit $(E,d)$ séparable, $(F,\delta)$ métrique et $f_n\in C(E,F)$, si
 
-  $(\bullet)\ \forall x\in E,\ \left(f_n(x)\right)_{n\geqslant 0}$ est relativement compacte dans $F$,\\
+  $(\bullet)\ \forall x\in E,\ \ens{f_n(x)}_{n\geqslant 0}$ est relativement compacte dans $F$,\\
   $(\bullet\bullet)\ \left(f_n\right)$ est une famille équicontinue,\\
 
   alors $f_n$ admet une sous-suite qui converge uniformément sur tout compact de $E$ vers une application continue.
@@ -798,7 +801,7 @@ On rappelle le théorème suivant, déjà vu en topologie de L3 :
   et
   $$\mathrm{diam}\ F_n=\mathrm{sup}\left\{d(a,b),\ (a,b)\in\ F_n\right\}\tend 0,$$\\
 
-  alors $\bigcap_{n\geqslant 0}F_n$ est un singleton.
+  alors $\bigcap_{n\geqslant 0}F_n$ est un singleton (donc est non vide).
 \end{thC}
 
 \begin{Proof}
@@ -988,9 +991,9 @@ $$\begin{array}{rcl}
 ||T||_{\mathrm{op}}&=&\mathrm{sup}\left\{\dstyle\frac{||Tx||}{||x||}, x\in X\backslash\{0\}\right\}
 \end{array}$$
 on montre aussi que cette norme est \emph{sous-multiplicative}, \emph{i.e.}
-$$\forall T\in\mathcal L(Y,Z),\ S\in\mathcal L(X,Y),\ ||TS||\leqslant ||T||\times ||S||$$
+$$\forall T\in\mathcal L(Y,Z),\ S\in\mathcal L(X,Y),\ ||TS||_{\mathrm{op}}\leqslant ||T||_{\mathrm{op}} ||S||_{\mathrm{op}}$$
 on généralise pour les itérations successives de T,
-$$\forall n\in\N,\ ||T^n||=||\underbrace{T\circ T\cdots\circ T}_{n\text{ fois}}||\leqslant ||T||^n.$$
+$$\forall n\in\N,\ ||T^n||_{\mathrm{op}}=||\underbrace{T\circ T\cdots\circ T}_{n\text{ fois}}||_{\mathrm{op}}\leqslant ||T||_{\mathrm{op}}^n.$$
 
 \begin{prop}
   Soient $(X,Y)$ deux espaces vectoriels normés, où $Y$ est un Banach,\\
@@ -1000,7 +1003,7 @@ $$\forall n\in\N,\ ||T^n||=||\underbrace{T\circ T\cdots\circ T}_{n\text{ fois}}|
 
 \begin{Proof}
   Soit $(T_n)$ une suite de Cauchy dans $\mathcal L(X,Y)$, et soit $\varepsilon>0$,
-  $$\exists n_0\in\N\text{ t.q. }\forall p,q\geqslant n_0,\ ||T_p-T_p||\leqslant \varepsilon$$
+  $$\exists n_0\in\N\text{ t.q. }\forall p,q\geqslant n_0,\ ||T_p-T_p||_{\mathrm{op}}\leqslant \varepsilon$$
   soient $x\in X,\ p,q\geqslant n_0$
   $$||T_px-T_qx||=||\left(T_p-T_q\right) x||\leqslant \nop{T_p-T_q}\ ||x||\leqslant \varepsilon ||x||\qquad (i)$$
   donc $(T_n(x))$ est une suite de Cauchy à valeurs dans $Y$, donc elle est convergente et on peut poser
@@ -1051,7 +1054,7 @@ soit $y\in B(x,\delta)$, d'après $(i)$ on a
 \begin{flalign*}
   |T_K(f)(x)-T_K(f)(z)|&\leqslant \varepsilon \int_a^b|f(y)\mathrm dy\\
   &\leqslant \varepsilon ||f||_{\infty}(b-a)\\
-  &\leqslant \varepsilon (b-a)
+  |T_K(f)(x)-T_K(f)(z)|&\leqslant \varepsilon (b-a)
 \end{flalign*}
 on va donc change de $\delta$, on va prendre le $\tilde\delta$ définie à partir de $\nicefrac{\varepsilon}{b-a}$ et on a maintenant
 $$\forall |x-a|\leqslant \tilde\delta,\ |T_K(f)(x)-T_K(f)(z)|\leqslant \varepsilon$$
@@ -1065,7 +1068,7 @@ est relativement compacte.
   alors il existe un unique $\tilde T\in \mathcal L(X,Y)$ tel que 
   $$\forall x\in E,\ \tilde Tx=Tx$$
   et plus, ces applications sont de normes égales, \emph{i.e.}
-  $$||\tilde T||_{\mathcal L(X,Y)}=||T||_{\mathcal L(E,Y)}.$$
+  $$||\tilde T||_{\mathrm{op},\ \mathcal L(X,Y)}=||T||_{\mathrm{op},\ \mathcal L(E,Y)}.$$
 \end{prop}
 
 
@@ -1084,7 +1087,7 @@ est relativement compacte.
   la suite $(e_n)$ étant convergente, elle est de Cauchy donc $(Te_n)$ est aussi de Cauchy, et $Y$ étant un espace de Banach, cette suite est convergente et on peut poser, 
   $$\hat Tx:=\underset{n\to+\infty}{\mathrm{lim}}Te_n.$$
   Vérifions que $\hat T$ est bien définie, $\emph{i.e.}$ que la définition n'est pas fonction du choix de la suite convergeant vers $x\in X$. Soient $x\in X$ et $e_n,e_n'$ deux suites convergeants vers $x$
-  $$||Te_n-Te_n'||\leqslant||T||\ ||e_n-e_n'||\tend0$$
+  $$||Te_n-Te_n'||\leqslant||T||_{\mathrm{op}}\ ||e_n-e_n'||\tend0$$
   donc 
   $$Te_n-Te_n'\tend 0$$
   et $\hat Tx$ est correctement définie.\\
@@ -1098,9 +1101,9 @@ est relativement compacte.
   et $\hat T$ est bien une application linéaire.\\
 
   $\star$ Pour la continuité de $\hat T$, soient $x\in X$ et $x_n\longrightarrow x$, on sait, puisque $T$ est continue, que 
-  $$\forall n\in\N,\ ||Te_n||\leqslant ||T||\ ||e_n||$$
+  $$\forall n\in\N,\ ||Te_n||_{\mathrm{op}}\leqslant ||T||\ ||e_n||$$
   par passage à la limite simple
-  $$||\hat Tx||\leqslant ||T||\ ||x||$$
+  $$||\hat Tx||\leqslant ||T||_{\mathrm{op}}\ ||x||$$
   donc $\hat T$ est continue, et on a même l'inégalité des normes $||\hat T||\leqslant ||T||$.\\
 
   $\star$ Quant aux normes, on a $\hat T\big|_E=T$ donc pour $e\in E$,
@@ -1122,7 +1125,7 @@ est relativement compacte.
   Soient $X$ un espace de Banach, $Y$ un espace vectoriel normé et $\left\{T_i,\ i\in I\right\}$ une suite quelconque d'application linéaires $X\longrightarrow Y$,\\
   
   alors exactement l'une des assertions suivantes est vraie\\
-  $(i)$ $\underset{i\in I}{\mathrm{sup}}||T_i||<\infty$\\[1em]
+  $(i)$ $\underset{i\in I}{\mathrm{sup}}||T_i||_{\mathrm{op}}<\infty$\\[1em]
   $(ii) $ $\Big\{x\in X\text{ t.q. } \underset{i\in I}{\mathrm{sup}}||T_ix||=+\infty\Big\}$ est dense dans $X$.
 \end{thC}
 
@@ -1156,10 +1159,23 @@ est relativement compacte.
     ||T_iu||&\leqslant \frac{||u||}{r} n_0
   \end{align*}
   en faisant varier $||u||$ sur le disque unité, on a (passage au sup)
-  $$||T_i||\leqslant \frac{n_0}{r}$$
+  $$||T_i||_{\mathrm{op}}\leqslant \frac{n_0}{r}$$
   ainsi 
-  $$\mathrm{sup}_{i\in I}||T_i||<\infty$$
+  $$\mathrm{sup}_{i\in I}||T_i||_{\mathrm{op}}<\infty$$
   et l'on est bien dans le cas $\mathit 1$.
+\end{Proof}
+
+
+\begin{corollaire}
+  Soient $X$ un espace de Banach, $Y$ un espace vectoriel normé et $\left\{T_i,\ i\in I\right\}$ une suite quelconque d'application linéaires $X\longrightarrow Y$, si 
+  $$\forall x\in X,\ \mathrm{sup}_{i\in I}||T_ix||<\infty,$$
+
+  alors $\mathrm{sup}_{i\in I}||T_i||<\infty.$
+\end{corollaire}
+
+
+\begin{Proof}
+  C'est une application immédiate du théorème de Banach-Steinhaus, on est pas dans le cas $(ii)$ donc on est nécessairement dans le cas $(i)$.
 \end{Proof}
 
 $\triangleright$\emph{ ex : }application au séries de Fourier, pour $f:[-\pi,\pi]\longrightarrow\mathbf C$ intégrable, on définit les coefficients de Fourier comme suit :
@@ -2005,7 +2021,7 @@ forme un système orthonormé.
 
 
 \begin{Def}
-  Un \emph{espace de Hilbert} est un espac préhilertien complet.
+  Un \emph{espace de Hilbert} est un espace préhilertien complet.
 \end{Def}
 
 
@@ -2735,12 +2751,29 @@ On aura besoin des deux lemmes suivants :
   Pour $U\in\mathcal L(H)$ tel que $\nop{U}<1$,\\
 
   alors $\Id-U$ est inversible et 
-  $$\Par{\Id-U}^{-1}=\sum_{n=0}^{\infty}U^k.$$
+  $$\Par{\Id-U}^{-1}=\sum_{n=0}^{\infty}U^n.$$
 \end{lemme}
 
 
 \begin{Proof}
-  ????
+  Tout d'abord, puisque $\norm{U}<1$, on a 
+  $$\norm{U^n}\leqslant \norm{U}^n\tend 0$$
+  donc $U^n\longrightarrow_{n\to\infty}0$.
+
+  On calcule $(\Id-U)\sum_{n=0}^{\infty}U^n$ et $\sum_{n=0}^{\infty}U^n(\Id-U)$ :
+  \begin{align*}
+    (\Id-U)\sum_{n=0}^{\infty}U^n&=\Lim (\Id-U)\sum_{k=0}^{n}U^k\\
+    &=\Lim \sum_{k=0}^{n}U^k-U^{k+1}\\
+    &=\Lim \Id-U^{n+1}\\
+    (\Id-U)\sum_{n=0}^{\infty}U^n&=\Id
+  \end{align*}
+  Donc $\sum_{n=0}^{\infty}U^n$ est un inverse à droite de $\Id-U$, montrons que c'est aussi un inverse à gauche :
+  \begin{align*}
+    \sum_{n=0}^{\infty}U^n(\Id-U)&=\Lim \sum_{k=0}^{n}U^k(\Id-U)\\
+    &=\Lim \sum_{k=0}^{n}U^k-U^{k+1}\\
+    &=\Lim \Id-U^{n+1}\\
+    \sum_{n=0}^{\infty}U^n(\Id-U)&=\Id
+  \end{align*}
 \end{Proof}
 
 
@@ -3035,17 +3068,17 @@ On commence par un lemme,
 \end{propC}
   
 \begin{Proof}
-  Soient $(f,g)\in\mathcal L^p$, on suppose que l'une au moins est non nulle $m$-presque partout,\\
+  Soient $(f,g)\in\mathcal L^p$, on suppose que l'une au moins est non nulle $\mu$-presque partout,\\
   $\dagger\quad$si $p=1$ ou $p=+\infty$, l'inégalité triangulaire suffit.\\
   $\dagger\quad$si $p>1$, on considère $q$ l'exposant conjugué de $p$. On écrit $$|f+g|^p=|f+g||f+g|^{p-1}\leqslant|f||f+g|^{p-1}+|g||f+g|^{p-1}\ (i).$$ On va maintenant appliquer l'inégalité de Hölder, qui nous dit tout d'abord que $|f||f+g|^{p-1}$ et $|g||f+g|^{p-1}$ sont $\mu$-intégrables et :
-  $$||f(f+g)^{p-1}||_1=\int_X|f||f+g|^{p-1}\mathrm dm \leqslant ||f||_p\bigg(\int_X\Big(|f+g|^{(p-1)}\Big)^q\mathrm dm\bigg)^{\nicefrac1q}\ (ii)$$
-  $$||g(f+g)^{p-1}||_1=\int_X|g||f+g|^{p-1}\mathrm dm \leqslant ||g||_p\bigg(\int_X\Big(|f+g|^{(p-1)}\Big)^q\mathrm dm\bigg)^{\nicefrac1q}\ (iii).$$
+  $$||f(f+g)^{p-1}||_1=\int_X|f||f+g|^{p-1}\mathrm d\mu \leqslant ||f||_p\bigg(\int_X\Big(|f+g|^{(p-1)}\Big)^q\mathrm d\mu\bigg)^{\nicefrac1q}\ (ii)$$
+  $$||g(f+g)^{p-1}||_1=\int_X|g||f+g|^{p-1}\mathrm d\mu \leqslant ||g||_p\bigg(\int_X\Big(|f+g|^{(p-1)}\Big)^q\mathrm d\mu\bigg)^{\nicefrac1q}\ (iii).$$
   En sommant $(ii)$ et $(iii)$ et en comparant avec $(i)$, on obtient :
-  $$\int_X|f+g|^p\mathrm dm \leqslant \bigg(||f||_p+||g||_p\bigg)\bigg(\int_X|f+g|^{(p-1)q}\mathrm dm\bigg)^{\nicefrac1q}.$$
-  On peut diviser par $\dstyle\Big(\int_X|f+g|^{(p-1)q}\mathrm dm\Big)^{\nicefrac1q}$, puisque $f$ ou $g$ est non nulle $m$-presque partout, on obtient (on rappelle que $(p-1)q=p$) :
-  $$\bigg(\int_X|f+g|^p\mathrm dm\bigg)^{1-\nicefrac1q} \leqslant \bigg(||f||_p+||g||_p\bigg).$$
+  $$\int_X|f+g|^p\mathrm d\mu \leqslant \bigg(||f||_p+||g||_p\bigg)\bigg(\int_X|f+g|^{(p-1)q}\mathrm d\mu\bigg)^{\nicefrac1q}.$$
+  On peut diviser par $\dstyle\Big(\int_X|f+g|^{(p-1)q}\mathrm d\mu\Big)^{\nicefrac1q}$, puisque $f$ ou $g$ est non nulle $m$-presque partout, on obtient (on rappelle que $(p-1)q=p$) :
+  $$\bigg(\int_X|f+g|^p\mathrm d\mu\bigg)^{1-\nicefrac1q} \leqslant \bigg(||f||_p+||g||_p\bigg).$$
   Puisque $\dstyle1-\nicefrac1q=\nicefrac1p$, on obtient finalement :
-  $$\bigg(\int_X|f+g|^p\mathrm dm\bigg)^{\nicefrac1p:} \leqslant \bigg(||f||_p+||g||_p\bigg).$$
+  $$\bigg(\int_X|f+g|^p\mathrm d\mu\bigg)^{\nicefrac1p:} \leqslant \bigg(||f||_p+||g||_p\bigg).$$
   Ce qui se ré-écrit en $||f+g||_p\leqslant ||f||_p+||g||_p$.
 \end{Proof}
 
@@ -3058,7 +3091,7 @@ Ainsi, nos espaces $\mathcal L^p$ (pour $1\leqslant p\leqslant +\infty$) sont to
 Soit $(X,m,\mu)$ un espace mesuré et $1\leqslant p\leqslant +\infty$. On sait que, pour $f\in\mathcal L^p$, 
 $$\norm{f}_p=0\Leftrightarrow f=0\ \mu\text{-p.p.},$$
 on va donc considérer la relation d'équivalence (exercice) suivante
-$$f\sim g \Leftrightarrow f=g\ \mu_text{-p.p.}$$
+$$f\sim g \Leftrightarrow f=g\ \mu\text{-p.p.}$$
 On va définir les espaces $L^p$ comme étant le quotient des $\mathcal L^p$ par cette relation d'équivalence, donc 
 $$L^p=L^p(X,m,\mu):=\mathcal L^p/\sim$$
 ainsi, en notant $[f]$ la classe d'une fonction de $\mathcal L^p$, on a 
