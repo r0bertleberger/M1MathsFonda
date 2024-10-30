@@ -36,14 +36,18 @@ Ce document est une transciption en \LaTeX\ plus ou moins fidèle au cours d'ana
 
 En terme de notation, j'ai préféré utiliser les notations en {\bf gras} pour les ensembles : 
 $$\N,\mathbf Z,\mathbf Q,\R,\mathbf C$$ plutôt que celles en : $$\mathbb N,\mathbb Z, \mathbb Q,\mathbb R,\mathbb C$$ pour coller à la norme ISO 80000-2.\\
-La notation $f:E\hookrightarrow F$ indique que l'application $f$ est injective de $E$ dans $F$, la notation $f:E\twoheadrightarrow F$ indique que l'application $f$ est surjective de $E$ dans $F$.\\
-La notation 
-$$f_n\ttend f$$
-indique que la suite de fonction $\left(f_n\right)$ converge uniformément vers $f$.\\
+
+La notation $f:E\hookrightarrow F$ indique que l'application $f$ est injective de $E$ dans $F$, la notation $f:E\twoheadrightarrow F$ indique que l'application $f$ est surjective de $E$ dans $F$ et la notation $f_n\tend f$ indique que la suite $(f_n)$ converge uniformément vers $f$.\\ 
 La norme opérateur sera notée $||\cdot||_{\mathrm{op}}$ ou $\norm{\cdot}$ si il n'y a pas de confusion possible avec les autres normes (dans la littérature, on rencontre parfois la notation $|||\cdot|||$).\\
 Pour $x:N\longrightarrow E$ une suite, la notation $(x_n)_{n\geqslant 0}$ insiste sur l'aspect \og suite\fg\ tandis que la notation $\ens{x_n}_{n\geqslant 0}$ insiste sur l'aspect \og ensemble de points\fg.\\[2em]
 
 Dans le présent document, $\K=\R$ ou $\mathbf C$, $(K,d)$ est un espace métrique compact.\\[2em]
+
+Dans le contexte d'une suite $(f_n)$ d'applications de $\Par{E,\norm{\cdot}_\infty}\longrightarrow\K$, l'abréviation CVS signifie \og converge simplement\fg\ \emph{i.e.} 
+$$\forall x\in E,\ f_n(x)\tend f(x)$$
+et l'abréviation CVU signifie \og converge uniformément\fg\ \emph{i.e.}
+$$\norm{f_n-f}_\infty\tend 0.$$
+
 
 Le symbole $\square$ signifie \emph{C.Q.F.D.}, le symbole $(\bullet)$ indique plusieurs hypothèses à vérifier, le symbole $\star$ indique une étape de la preuve et le symbole $\dagger$ indique une disjonction de cas.
 
@@ -826,7 +830,7 @@ On rappelle le théorème suivant, déjà vu en topologie de L3 :
 on a une autre version, où on parle de fermés :
 
 \begin{thC}{de Baire, v2}
-  Soit $(E,d)$ métrique complet, soit $(F_n)$ une suite de fermés d'intérieurs non-vides dans $E$,\\
+  Soit $(E,d)$ métrique complet, soit $(F_n)$ une suite de fermés d'intérieurs vides dans $E$,\\
 
   alors 
   $\bigcup_{n\geqslant 0}F_n$ est d'intérieur vide.
@@ -856,7 +860,7 @@ On passe maintenant à la v2, \emph{i.e.} la formulation avec des fermés. Il va
 
 
 \begin{Proof}
-  Soit $F_n$ une suite de fermés d'intérieurs non vides, on pose 
+  Soit $F_n$ une suite de fermés d'intérieurs vides, on pose 
   $$O_n:=E\backslash F_n$$
   qui est une suite d'ouverts et 
   $$\overline{O_n}=\overline{E\backslash F_n}=E\backslash \mathrm{int}\ {F_n}=E$$
