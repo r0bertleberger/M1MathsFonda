@@ -12,9 +12,10 @@
 {\color{white} test}\\
 \vspace{5cm}
 {\bf \Huge {\YUGE A}NALYSE}\\[1em]
+{\large
 Raphaël Casanova\\
 \href{mailto:raphael.casanova@centrale.centralelille.fr}{raphael.casanova@centrale.centralelille.fr}\\[2em]
-\emph{D'après le cours d'Emmanuel Fricain à l'université de Lille}\\
+\emph{D'après le cours d'Emmanuel Fricain à l'université de Lille}}\\
 \vspace{10cm}
 \includegraphics[width=1\textwidth]{lille.pdf}
 \end{center}
@@ -32,16 +33,17 @@ Raphaël Casanova\\
 \newpage
 
 
-Ce document est une transciption en \LaTeX\ plus ou moins fidèle au cours d'analyse d'Emmanuel Fricain en première année de master, en 2024-2025.\\[3em]
+Ce document est une transciption en \LaTeX\ plus ou moins fidèle au cours d'analyse d'Emmanuel Fricain en première année de Master Mathématiques, en 2024-2025.\\[3em]
 
 En terme de notation, j'ai préféré utiliser les notations en {\bf gras} pour les ensembles : 
 $$\N,\mathbf Z,\mathbf Q,\R,\mathbf C$$ plutôt que celles en : $$\mathbb N,\mathbb Z, \mathbb Q,\mathbb R,\mathbb C$$ pour coller à la norme ISO 80000-2.\\
 
 La notation $f:E\hookrightarrow F$ indique que l'application $f$ est injective de $E$ dans $F$, la notation $f:E\twoheadrightarrow F$ indique que l'application $f$ est surjective de $E$ dans $F$ et la notation $f_n\tend f$ indique que la suite $(f_n)$ converge uniformément vers $f$.\\ 
 La norme opérateur sera notée $||\cdot||_{\mathrm{op}}$ ou $\norm{\cdot}$ si il n'y a pas de confusion possible avec les autres normes (dans la littérature, on rencontre parfois la notation $|||\cdot|||$).\\
-Pour $x:N\longrightarrow E$ une suite, la notation $(x_n)_{n\geqslant 0}$ insiste sur l'aspect \og suite\fg\ tandis que la notation $\ens{x_n}_{n\geqslant 0}$ insiste sur l'aspect \og ensemble de points\fg.\\[2em]
 
-Dans le présent document, $\K=\R$ ou $\mathbf C$, $(K,d)$ est un espace métrique compact.\\[2em]
+Pour $x:N\longrightarrow E$ une suite, la notation $(x_n)_{n\geqslant 0}$ insiste sur l'aspect \og suite\fg\ tandis que la notation $\ens{x_n}_{n\geqslant 0}$ insiste sur l'aspect \og ensemble de points\fg.\\
+
+Dans le présent document, $\K=\R$ ou $\mathbf C$, $(K,d)$ est un espace métrique compact.\\
 
 Dans le contexte d'une suite $(f_n)$ d'applications de $\Par{E,\norm{\cdot}_\infty}\longrightarrow\K$, l'abréviation CVS signifie \og converge simplement\fg\ \emph{i.e.} 
 $$\forall x\in E,\ f_n(x)\tend f(x)$$
@@ -990,9 +992,9 @@ Pour $T\in\mathcal L(X,Y)$, on note
 $$||T||_{\mathrm{op}}:=\mathrm{inf}\left\{c>0\ |\ \forall x\in X,\ ||Tx||\leqslant c||x||\right\}$$
 on montre que cette définition est équivalente à
 $$\begin{array}{rcl}
-||T||_{\mathrm{op}}&=&\mathrm{sup}\left\{||Tx||,\ x\in X\ |\ ||x||\leqslant 1\right\}\\
-&=&\mathrm{sup}\left\{||Tx||,\ x\in X\ |\ ||x||= 1\right\}\\
-||T||_{\mathrm{op}}&=&\mathrm{sup}\left\{\dstyle\frac{||Tx||}{||x||}, x\in X\backslash\{0\}\right\}
+  ||T||_{\mathrm{op}}&=&\mathrm{sup}\left\{||Tx||,\ x\in X\ |\ ||x||\leqslant 1\right\}\\
+  &=&\mathrm{sup}\left\{||Tx||,\ x\in X\ |\ ||x||= 1\right\}\\
+  ||T||_{\mathrm{op}}&=&\mathrm{sup}\left\{\dstyle\frac{||Tx||}{||x||},\ x\in X\backslash\{0\}\right\}
 \end{array}$$
 on montre aussi que cette norme est \emph{sous-multiplicative}, \emph{i.e.}
 $$\forall T\in\mathcal L(Y,Z),\ S\in\mathcal L(X,Y),\ ||TS||_{\mathrm{op}}\leqslant ||T||_{\mathrm{op}} ||S||_{\mathrm{op}}$$
@@ -1060,7 +1062,7 @@ soit $y\in B(x,\delta)$, d'après $(i)$ on a
   &\leqslant \varepsilon ||f||_{\infty}(b-a)\\
   |T_K(f)(x)-T_K(f)(z)|&\leqslant \varepsilon (b-a)
 \end{flalign*}
-on va donc change de $\delta$, on va prendre le $\tilde\delta$ définie à partir de $\nicefrac{\varepsilon}{b-a}$ et on a maintenant
+on va donc changer de $\delta$, on va prendre le $\tilde\delta$ définie à partir de $\nicefrac{\varepsilon}{b-a}$ et on a maintenant
 $$\forall |x-a|\leqslant \tilde\delta,\ |T_K(f)(x)-T_K(f)(z)|\leqslant \varepsilon$$
 donc la famille est bien équicontinue et on peut appliquer le théorème d'Ascoli, et 
 $$T_K(\overline{B(0,1)})$$
@@ -1143,7 +1145,7 @@ est relativement compacte.
     F_n:&=\left\{x\in X\text{ t.q. }\underset{i\in I}{\mathrm{sup}}||T_ix||\leqslant n\right\}\\
     F_n&=\bigcap_{i\in I}T_i^{-1}\left(\overline{B(0,1)}\right)
   \end{align*}
-  Les $F_n$ sont tous fermés car ils sont des intersection de pré-images de fermés par l'application continue $T_i$, donc le théorème de Baire s'applique et 
+  Les $F_n$ sont tous fermés car ils sont des intersections de pré-images de fermés par l'application continue $T_i$, donc le théorème de Baire s'applique et 
   $$\exists n_0\geqslant 0, x_0\in X, r>0\text{ t.q. }\overline{B(x_0,r)}\subset F_{n_0}$$
   pour $x\in X$ tel que $||x||\leqslant r$, on écrit
   $$x=\frac12\left((x+x_0)+(x-x_0)\right)$$
@@ -1187,10 +1189,7 @@ $$\hat f(k):=\frac{1}{2\pi}\int_{-\pi}^{\pi}f(t)\ex{-ikt}\mathrm dt$$
 et la somme partielle de Fourier comme 
 $$S_n(f)(t):=\sum_{k=-n}^n\hat f(k)\ex{ikt}$$
 
-On va voir dans quel cas on a, pour $f\in C_{2\pi}(\R,\mathbf C)$,
-$$S_nf\tend f\text{ CVS}$$
-
-On montre d'abord que 
+On montre que 
 $$\left\{f\in C([-\pi,\pi])\ |\ \underset{n\geqslant 0}{\mathrm{sup}}|S_nf(0)|=+\infty\right\}$$
 est dense dans $C([-\pi,\pi])$, muni de la norme $||\cdot||_{\infty}$.
 
@@ -1252,7 +1251,9 @@ est dense dans $C([-\pi,\pi])$, muni de la norme $||\cdot||_{\infty}$.
   \end{align*}
   et puisque 
   $$\frac{2}{\pi}\int_0^{\nicefrac{2n+1}{2}}\frac{|\sin u|}{u}\mathrm du\longrightarrow\dstyle\int_{0}^{\infty}\frac{|\sin u|}{u}\mathrm du = \infty\text{ quand }n\to\infty,$$
-  $||\ell_n||\longrightarrow\infty$, donc $\underset{n\geqslant 0}{\mathrm{sup}}\ ||\ell_n||=+\infty$.
+  $||\ell_n||\longrightarrow\infty$, donc $\underset{n\geqslant 0}{\mathrm{sup}}\ ||\ell_n||=+\infty$. Ainsi, d'après le théorème de Banach-Steinhaus,
+  $$\ens{f\in C\Par{[-\pi,\pi]}\ :\ \underset{n\geqslant 0}{\mathrm{sup}}\norm{\ell_n(f)}}$$
+  est dense dans $C\Par{[-\pi,\pi]}$ et puisque $\ell_n(f)=S_n(f)(0)$, on obtient le résultat annoncé.
 \end{Proof}
 
 
@@ -1265,7 +1266,7 @@ est dense dans $C([-\pi,\pi])$, muni de la norme $||\cdot||_{\infty}$.
 
 
 \begin{Proof}
-  $\star$ On commence par montrer qi'il existe $M>0$ tel que $B(0,1)\subset \overline{T\left[B(0,M)\right]}$. On a l'écriture suivante pour $X$,
+  $\star$ On commence par montrer qu'il existe $M>0$ tel que $B(0,1)\subset \overline{T\left[B(0,M)\right]}$. On a l'écriture suivante pour $X$,
   $$X=\bigcup_{n\geqslant 1}B(0,)$$
   Par surjectivité de $T$, on a aussi
   $$Y=T(X)=\bigcup_{n\geqslant 1}T\left[B(0,n)\right]$$
@@ -1277,7 +1278,7 @@ est dense dans $C([-\pi,\pi])$, muni de la norme $||\cdot||_{\infty}$.
   Montrons que $B(y_0,r)\subset F_{n_0}$, soit $y\in B(0,r)$ alors 
   $$y_0-y,y_0=Y\in B(y_0,r)$$
   donc, pour $(u_n,v_n)\in B(y_0,n_0)$ tellle que 
-  $$T(u_n)\longrightarrow y_0+y\text{ et }T(v_n)\longrightarrow y_0-y$$,
+  $$T(u_n)\longrightarrow y_0+y\text{ et }T(v_n)\longrightarrow y_0-y,$$
   $$T\left(\frac12\left(u_n+v_n\right)\right)\longrightarrow y$$
   et $\forall n\in\N,\ \frac12\left(u_n+v_n\right)\in B(0,n_0).$
 
@@ -1356,11 +1357,11 @@ est dense dans $C([-\pi,\pi])$, muni de la norme $||\cdot||_{\infty}$.
 \NouvelleSection{Théorème du graphe fermé}
 
 
-\begin{prop}
+\begin{thC}{du graphe fermé}
   Soient $X,Y$ deux Banach, $T\in\mathcal L(X,Y)$, on suppose que pour $x_n\in X$, $y_n\in Y$ telles que $x_n\tend x\in X$, $y_n\tend y\in Y$, alors $Tx=y$,\\
 
   alors $T$ est continue
-\end{prop}
+\end{thC}
 
 \begin{Proof}
   On muni l'espace $X\times Y$ de la norme
@@ -1398,7 +1399,7 @@ est dense dans $C([-\pi,\pi])$, muni de la norme $||\cdot||_{\infty}$.
   \begin{flalign*}
     \forall x\in X,\ \pi_y\circ\pi_x^{-1}(x)&=\pi_y\left(\pi_x^{-1}(x)\right)\\
     &=\pi_y\left(x,Tx\right)\\
-    &=Tx
+    \pi_y\circ\pi_x^{-1}(x)&=Tx
   \end{flalign*}
   ainsi $T=\pi_y\circ\pi_x^{-1}$ est continue
 \end{Proof}
@@ -1419,7 +1420,7 @@ donc $E_\lambda$ est (linéaire) continue en 0, $E_\lambda$ est continue, ainsi 
 $$\forall \lambda\in D(0,1),\ f_n(\lambda)\longrightarrow f(\lambda).$$
 Soit $X\subset H^2$ un espace de Banach de fonctions holomorphes sur $D(0,1)$ telle que 
 $$f_n\longrightarrow f\text{ dans }X\Rightarrow\forall \lambda\in D(0,1),\ f_n(\lambda)\longrightarrow f(\lambda)$$
-alors $i:X\longrightarrow H^2$ (c'est l'\emph{injection canonique}) est continue :
+alors $i:X\hookrightarrow H^2$ (c'est l'\emph{injection canonique}) est continue :
 
 \begin{Proof}
   $i$ est linéaire, $H^2$ et $X$ sont complets et soit $f_n$ convergeante dans $X$, donc il existe $f\in X$ telle que $f_n\longrightarrow f$ dans $X$. $f_n$ est une suite de fonction convergeante, donc il existe aussi $g\in H^2$ telle que $f_n\longrightarrow g$ dans $H^2$.
@@ -1444,11 +1445,11 @@ Pourquoi ce résultat est non-trivial ? question pour demain.
 Soit $E$ un espace vectoriel normé, on note $E^*$ ou $E'$ l'ensemble des formes linéaires continues
 $$E^*:=\left\{\varphi:E\longrightarrow \R\text{ linéaire continue }\right\},$$ 
 muni de la norme d'opérateur 
-$$||\varphi||=\underset{x\in E\{0\}}{\mathrm{sup}}\frac{|\varphi(x)|}{||x||}.$$
+$$||\varphi||=\underset{x\in E\backslash\{0\}}{\mathrm{sup}}\frac{|\varphi(x)|}{||x||}.$$
 On montre que c'est un espace de Banach, \emph{i.e.} un espace vectoriel normé complet.
 
-$\triangleright$\emph{ex : }si $\dim E<\infty$, en considérant $(e_1,\cdots, e_n)$ une base de $E$, alors $\forall \varphi\in E^*$,
-$$\varphi(x)=\sum_{i=1}^n\varphi(e_i)x_i$$
+$\triangleright$\emph{ex : }si $\dim E<\infty$, en considérant $(e_1,\cdots, e_n)$ une base de $E$, alors 
+$$\forall \varphi\in E^*,\ \varphi(x)=\sum_{i=1}^n\varphi(e_i)x_i$$
 où $x=(x_1,\cdots,x_n)$.
 
 $\triangleright$\emph{ex : }pour les espaces $\ell^p$ avec $p<\infty$, on note $q$ le conjugué de $p$, on se donne $a=\left(a_n\right)\in\ell^q$, on pose 
@@ -1726,8 +1727,8 @@ On peut étendre ce théorème dans le cas complexe,
 \end{Proof}
 
 \begin{Def}
-  Soit $E$ un $\K$-espace vectoriel, $F\subset E$ un sous-espace vectoriel, on définit \emph{l'orthogonale de F} par 
-  $$F^\bot:=\left\{x^*\in E^*\tq x^*\big|_F=0\right\}$$
+  Soit $E$ un $\K$-espace vectoriel, $F\subset E$ un sous-espace vectoriel, on définit \emph{l'orthogonal de F} par 
+  $$F^\bot:=\left\{x^*\in E^*\tq x^*\big|_F=0\right\}.$$
 \end{Def}
 
 
@@ -1736,7 +1737,7 @@ On peut étendre ce théorème dans le cas complexe,
 
   alors les proposition suivantes sont équivalentes,\\
   $(i)\ \overline{F}=E$\\
-  $(ii)\ F^\bot=\{0\}$
+  $(ii)\ F^\bot=\{0\}$.
 \end{corollaire}
 
 
@@ -1772,20 +1773,19 @@ alors $\mathrm{Vect}\left(f_{a_n},\ n\in\N\right)$ est dense dans $\left(C[-1,1]
   $$\forall n\geqslant 0,\ \varphi(f_{a_n})=0.$$
   Montrons que $\varphi$ est nécessairement nulle, soit $t\in[-1,1]$, on a 
   \begin{align*}
-    f_a(t)&\frac{1}{a\left(1-\nicefrac{t}{a}\right)}\\
-    &=\frac{1}{a}\sum{k=0}^\infty\frac{t^k}{a^k}\\
-    &=\sum{k=0}^\infty\frac{t^k}{a^{k+1}}
+    f_a(t)&\frac{1}{a\left(1-\nicefrac{t}{a}\right)}&=\frac{1}{a}\sum{k=0}^\infty\frac{t^k}{a^k}\\
+    f_a(t)&\frac{1}{a\left(1-\nicefrac{t}{a}\right)}&=\sum{k=0}^\infty\frac{t^k}{a^{k+1}}
   \end{align*}
   Puisque 
   $$\mathrm{sup}\left\{\frac{t^k}{a^{k+1}},\ t\in[-1,1]\right\}=\frac{1}{a^{k+1}}$$
   et que $\sum_{k\geqslant 0}\frac{1}{a^{k+1}}<\infty$,
-  $$\sum{k=0}^\infty\frac{t^k}{a^{k+1}}\text{ CVN sur }[-1,1].$$
+  $$\sum_{k=0}^\infty\frac{t^k}{a^{k+1}}\text{ CVN sur }[-1,1].$$
   Soit $e_n:t\in[-1,1]\longmapsto t^n$, alors 
-  $$f_a=\sum{k=0}^\infty\frac{e_n}{a^{k+1}}$$
+  $$f_a=\sum_{k=0}^\infty\frac{e_n}{a^{k+1}}$$
   donc
-  $$\varphi(f_a)=\sum{k=0}^\infty\varphi(e_k)\frac{1}{a^{k+1}}.$$
+  $$\varphi(f_a)=\sum_{k=0}^\infty\varphi(e_k)\frac{1}{a^{k+1}}.$$
   On pose 
-  $$L(z):=\sum{k=0}^\infty\frac{t^k}z^k$$
+  $$L(z):=\sum_{k=0}^\infty\frac{t^k}z^k$$
   et on a l'inégalité suivante 
   $$\forall k\in\N,\ \varphi(e_k)\leqslant ||\varphi||\ ||e_k||_\infty\leqslant ||\varphi||$$
   donc pour $|z|<1$, $L(z)$ converge et le rayon de convergeance de cette série est plus grand que $1$.
@@ -1969,7 +1969,7 @@ Dans ce chapitre, $(H,\ps{\cdot,\cdot})$ est un espace préhilbertien et $(x_i)_
 \end{Def}
 
 
-$\triangleright$\emph{ex : }sur $\ell^1(\C)$, les 
+$\triangleright$\emph{ex : }sur $\ell^1(\N)$, les 
 $$e_i:=(\underbrace{0,\cdots,0}_{i-1},1,0,\cdots)$$
 forment un système orthonormé.
 
@@ -2071,7 +2071,7 @@ une formulation équivalente de ce théorème est
 
   $\star$ Existence : soit $d:=\mathrm{dist}(x,K)$, par caractérisation de l'inférieur d'une partie, il existe $u_n\in K$ telle que 
   $$||u_n-x||\tend d.$$
-  Montrons que $(u_n)$ est de Cauchy, soit $\alpha_n:=x-u_n$, on calcule
+  Montrons que $(u_n)$ est de Cauchy, soit $a_n:=x-u_n$, on calcule
   $$||a_n+a_m||^2+||a_n-a_m||^2=2\left(||a_n||^2+||a_m||^2\right)$$
   d'après l'égalité du parallélogramme, donc 
   $$||2x-(u_n+u_m)||^2+||u_n-u_m||^2=2\left(||x-u_n||^2+||x-u_m||^2\right)$$
@@ -2193,7 +2193,7 @@ donc pour $||x||\geqslant 1$, on a bien $P_K(x)=\dstyle\frac{x}{||x||}$ et pour 
 
 
 \begin{RQ}
-  $M$ étant un sous-espace vectoriel, $M$ est convexe donc la définition de $P_M$ ne pose aucun poblème.
+  $M$ étant un sous-espace vectoriel, $M$ est convexe donc la définition de $P_M$ ne pose aucun problème.
 \end{RQ}
 
 \begin{Proof}
@@ -2270,8 +2270,13 @@ donc pour $||x||\geqslant 1$, on a bien $P_K(x)=\dstyle\frac{x}{||x||}$ et pour 
 
 
 \begin{RQ}
+  On a l'expression de $P_{M^\bot}$ en fonction de $P_M$ suivante :
+  $$\forall x\in H,\ P_{M^\bot}(x)=x-P_M(x).$$
+\end{RQ}
+
+\begin{RQ}
   La décomposition de $x$ est orthogonale, c'est à dire que l'on a 
-  $$||x||^2=||P_M(x)||^2+||P_{M^\bot}(x)||^2.$$
+  $$||x||^2=||P_M(x)||^2+||P_{M^\bot}(x)||^2=\norm{P_M(x)}^2+\norm{x-P_M(x)}^2.$$
 \end{RQ}
 
 
@@ -2289,7 +2294,7 @@ donc pour $||x||\geqslant 1$, on a bien $P_K(x)=\dstyle\frac{x}{||x||}$ et pour 
 \end{ProofC}
 
 
-\begin{ProofC}{Démonstration du $(\mathit 1)$}
+\begin{ProofC}{Démonstration du $(\mathit 2)$}
   Montrons que $P_{M^\bot}(x)=x-P_M(x)$, on calcule
   $$\forall v\in M^\bot,\ \ps{x-(x-P_M(x)),v}=\ps{P_M(x),v}=0,$$
   car $P_M(x)\in M$, d'où $P_{M^\bot}(x)=x-P_M(x)$.
@@ -2348,7 +2353,7 @@ donc pour $||x||\geqslant 1$, on a bien $P_K(x)=\dstyle\frac{x}{||x||}$ et pour 
 \begin{Def}
   Soit $(e_n)_{n\geqslant 0}\in H$, on dit que $(e_n)$ est \emph{complète} \ssi,\\
   $$\overline{\mathrm{Vect}\left\{e_n,\ n\geqslant 0\right\}}=H,$$
-  où $\mathrm{Vect}\left\{e_n,\ n\geqslant 0\right\}$ désigne l'emsemble des combinaisons linéaires finies des vecteurs de $(e_n)$.
+  où $\mathrm{Vect}\left\{e_n,\ n\geqslant 0\right\}$ désigne l'ensemble des combinaisons linéaires finies des vecteurs de $(e_n)$.
 \end{Def}
 
 
@@ -2368,7 +2373,7 @@ donc pour $||x||\geqslant 1$, on a bien $P_K(x)=\dstyle\frac{x}{||x||}$ et pour 
 
   alors \lasse\\
   $(\mathit 1)\ (e_n)$ est complète\\
-  $(\mathit 2)\forall x\in H\TQ \forall n\in\N,\ \ps{x,e_n}=0,\ x=0.$
+  $(\mathit 2)\forall x\in H\tq \big[\forall n\in\N,\ \ps{x,e_n}=0\big],\ x=0.$
 \end{prop}
 
 
@@ -2420,9 +2425,9 @@ alors $u=0$ donc $(e_i)$ est une base hilbertienne.
 
 
 \begin{Proof}
-  $\star\ (i)\Rightarrow(ii)$ Soit $\dstyle S_N:=\sum_{n=0}^N\ps{x,e_n}e_n$, montrons que la suite des sommes partielles est de Cauchy, soient $N\geqslant M$,
+  $\star\ (i)\Rightarrow(ii)$ Soit $S_N:=\sum_{n=0}^N\ps{x,e_n}e_n$, montrons que la suite des sommes partielles est de Cauchy, soient $N\geqslant M$,
   $$||S_N-S_M||^2=\norm{\sum_{n=M+1}^N\ps{x,e_n}e_n}^2=\sum_{n=M+1}^N|\ps{x,e_n}\underset{M,N\to\infty}{\longrightarrow}0$$
-  car la série esty convergente, donc $S_N$ est de Cauchy dans un espace complet, ainsi $S_N$ converge vers $\dstyle S=\displaystyle\sum_{n=0}^\infty\ps{x,e_n}e_n$.
+  car la série est convergente, donc $S_N$ est de Cauchy dans un espace complet, ainsi $S_N$ converge vers $\dstyle S=\displaystyle\sum_{n=0}^\infty\ps{x,e_n}e_n$.
 
   Soit $j\geqslant 0$, on calcule
   \begin{align*}
@@ -2597,8 +2602,8 @@ On va donc retrouver tous les résultats de la sous-partie précédente, à savo
 
 
 
-\Dnote{Tous ces résultats sont valables pour la norme 2, pour la norme infinie il n'y a pas nécessairement de convergence. Une conséquence du théorème de Banach-Steinhaus est le résultat suivant :
-$\big\{f\in C([-\pi,\pi])\ |\ \underset{n\geqslant 0}{\mathrm{sup}}|S_nf(0)|=+\infty\big\}$
+\Dnote{Tous ces résultats sont valables pour la norme 2, pour la norme infinie il n'y a pas nécessairement de convergence. Une conséquence du théorème de Banach-Steinhaus est que 
+$$\big\{f\in C([-\pi,\pi])\ |\ \underset{n\geqslant 0}{\mathrm{sup}}|S_nf(0)|=+\infty\big\}$$
 est dense dans $\left(C([-\pi,\pi]),||\cdot||_{\infty}\right)$.}
 
 
@@ -2634,9 +2639,9 @@ d'où $\nop{\varphi_{x_0}}=||x_0||.$
 \begin{Proof}
   $\star$ Existence :
 
-  $\star\star$ Si $\Phi=0$, alors $x_0=0$ convient.
+  $\dagger$ Si $\Phi=0$, alors $x_0=0$ convient.
 
-  $\star\star$ On suppose que $\Phi\neq0$, donc $\ker\ \Phi$ est un sous-espace strict de $H$. Il est de plus fermé car $\Phi$ est continue, il existe donc $g\in \left(\ker\Phi\right)^\bot.$
+  $\dagger$ On suppose que $\Phi\neq0$, donc $\ker\ \Phi$ est un sous-espace strict de $H$. Il est de plus fermé car $\Phi$ est continue, il existe donc $g\in \left(\ker\Phi\right)^\bot.$
   Pour $x\in H$, on a 
   $$x-\frac{\Phi(x)}{\Phi(g)}g\in\ker\Phi$$
   donc (puisque $g\in \left(\ker\Phi\right)^\bot$)
@@ -2695,8 +2700,8 @@ d'où $\nop{\varphi_{x_0}}=||x_0||.$
   alors\\
   $(\mathit 1)\ \left(\lambda T+ S\right)^*=\overline{\lambda}T^*+S^*$\\
   $(\mathit 2)\ \left(T^*\right)^*=T$\\
-  $(\mathit 3)\ \norm{T^*}=\norm{T}$\\
-  $(\mathit 4)\  \norm{TT^*}=\norm{T}^2$\\
+  $(\mathit 3)\ \norm{T^*}_{\mathrm{op}}=\norm{T}_{\mathrm{op}}$\\
+  $(\mathit 4)\  \norm{TT^*}_{\mathrm{op}}=\norm{T}_{\mathrm{op}}^2$\\
   $(\mathit 5)$ si $TS$ a un sens, $\left(TS\right)^*=S^*T^*$
 \end{propC}
 
@@ -2732,12 +2737,12 @@ $$\sigma_p(T):=\ens{\lambda\in \C\tq \ker\ \left(T-\lambda \\Id\right)\neq \ens{
 
 
 \begin{RQ}
-  Si $\dim H<\infty$, alors $T-\lambda \Id$ non-inversible $\Leftrightarrow \left(T-\lambda \Id\right)\neq \ens{0}$ donc $\sigma(T)=\sigma_p(T).$\\
+  Si $\dim H<\infty$, alors $T-\lambda \Id$ non-inversible $\Leftrightarrow \ker \left(T-\lambda \Id\right)\neq \ens{0}$ donc $\sigma(T)=\sigma_p(T).$\\
 \end{RQ}
 
 
 \begin{RQ}
-  Si $\lambda$ est tel que $\left(T-\lambda \Id\right)\neq \ens{0}$, alors $T-\lambda \Id$ n'est pas inversible, donc il y a l'inclusion $\sigma_p(T)\subset \sigma(T).$\\
+  Si $\lambda$ est tel que $\ker\left(T-\lambda \Id\right)\neq \ens{0}$, alors $T-\lambda \Id$ n'est pas inversible, donc il y a l'inclusion $\sigma_p(T)\subset \sigma(T).$\\
 \end{RQ}
 
 
@@ -2783,7 +2788,7 @@ On aura besoin des deux lemmes suivants :
 
 \begin{lemme}
   L'ensemble 
-  $$\mathrm{Inv}\mathcal L(H):=\ens{U\in\mathcal L(H)\ :\ U\text{ est inversible}}$$
+  $$\mathrm{Inv}\mathcal L(H):=\ens{U\in\mathcal L(H)\tq U\text{ est inversible}}$$
   est un ouvert de $\mathcal L(H).$
 \end{lemme}
 
