@@ -2963,10 +2963,10 @@ Avant de passer à l'inégalité de Jensen, on rappelle l'inégalité des pentes
 
 
 \begin{propC}{inégalité de Jensen}
-  Si $\mu$ est une mesure de probabilité, pour $g:X\longrightarrow I\subset \R$ intégrable (où $I$ est un intervalle ouvert), pour $\varphi:I\longrightarrow\R$ convexe,\\
+  Si $\mu$ est une mesure de probabilité, pour $f:X\longrightarrow I\subset \R$ intégrable (où $I$ est un intervalle ouvert), pour $\varphi:I\longrightarrow\R$ convexe,\\
 
   on a 
-  $$\varphi\circ\int_Xf\mathrm d\mu\leqslant \int_X\varphi\circ f\mathrm d\mu.$$
+  $$\varphi\Par{\int_Xf\mathrm d\mu}\leqslant \int_X\varphi\circ f\mathrm d\mu.$$
 \end{propC}
 
 
@@ -3012,13 +3012,13 @@ On commence par un lemme,
   $$\forall t\in I,\ \varphi(t)\geqslant \alpha t +\Par{\varphi(x)-\alpha x}=\alpha t +\beta.$$
   On remarque que $\varphi(x)=\alpha x+\beta$, donc en chaque point de $I$, il existe une fonction affine inférieure à $\varphi$ partout et qui coincide en un unique point. On peut donc donc ré-écrire $\varphi$ comme suit
   $$\forall x\in I,\ \varphi(x)=\underset{(\alpha,\beta)\in E}{\mathrm{sup}}\ \Par{\alpha x+\beta}$$
-  où $E$ est l'ensemble des affines majorées par $\varphi$, 
+  où $E$ est l'ensemble des fonctions affines majorées par $\varphi$, 
   $$E:=\ens{(\alpha,\beta)\in \R\tq \forall x\in\R,\ \varphi(x)\geqslant \alpha x+\beta}.$$
   On a donc les majorations suivantes :
   \begin{align*}
     \int_X\varphi\circ f\mathrm d\mu&\geqslant \underset{(\alpha,\beta)\in E}{\mathrm{sup}}\int_X \Par{\alpha f+\beta}\mathrm d\mu\\
     &\geqslant \underset{(\alpha,\beta)\in E}{\mathrm{sup}} \Par{\alpha\int_X f\mathrm d\mu+\beta}\\
-     \int_X\varphi\circ f\mathrm d\mu&\geqslant \varphi\circ\int_Xf\mathrm d\mu.
+     \int_X\varphi\circ f\mathrm d\mu&\geqslant \varphi\Par{\int_Xf\mathrm d\mu}.
   \end{align*}
 \end{ProofC}
 
@@ -3031,7 +3031,7 @@ On commence par un lemme,
 
 
 \begin{propC}{inégalité d'Hölder}
-  Soient $1< p\leqslant+\infty$ et $q$ son exposant conjugué, soient $(f,g):X\longrightarrow\C$ mesurable\\
+  Soient $1< p<+\infty$ et $q$ son exposant conjugué, soient $(f,g):X\longrightarrow\C$ mesurable\\
 
   alors
   $$||fg||_1\leqslant||f||_p||g||_q.$$

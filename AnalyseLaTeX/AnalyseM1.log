@@ -1,4 +1,4 @@
-This is XeTeX, Version 3.141592653-2.6-0.999996 (TeX Live 2024) (preloaded format=xelatex 2024.9.22)  31 OCT 2024 10:49
+This is XeTeX, Version 3.141592653-2.6-0.999996 (TeX Live 2024) (preloaded format=xelatex 2024.9.22)  1 NOV 2024 12:58
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -3386,9 +3386,6 @@ Package mdframed Info: mdframed works in twoside mode on input line 3026.
 Package mdframed Info: mdframed detected package amsthm 
  changed the theorem header of amsthm
 (mdframed)              on input line 3026.
-Package mdframed Info: Box was splittet wrong
- starting loop to iterate the splitting point
-(mdframed)              on input line 3030.
 
 
 [75]
@@ -3683,6 +3680,10 @@ Package mdframed Info: mdframed detected package amsthm
 LaTeX2e <2024-06-01> patch level 2
 L3 programming layer <2024-08-30>
  ***********
+
+
+LaTeX Warning: Label(s) may have changed. Rerun to get cross-references right.
+
 Package rerunfilecheck Info: File `AnalyseM1.out' has not changed.
 (rerunfilecheck)             Checksum: 077D1B1080C45438608BB60193B90A91;4712.
  ) 
