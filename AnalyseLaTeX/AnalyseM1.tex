@@ -215,7 +215,7 @@ Avant de passer aux théorèmes de Stone-Weierstra\ss, on montre quelques propri
 
 \begin{ProofC}{Démonstration du $(\mathit1)$}
   Si $f=0$, alors $f=|f|$ et le résultat est vrai, on peut donc supposer $f\neq 0$ et l'on pose 
-  $$g:=\frac{f}{||f|_{\infty}}\in\A$$
+  $$g:=\frac{f}{||f||_{\infty}}\in\A$$
   on a alors 
   $$0\leqslant g^2\leqslant 1$$
   on peut donc composer $g^2$ par la suite des $P_n$ définie précedemment, donc pour $\varepsilon>0$, on a 
@@ -284,7 +284,7 @@ avant de démontrer ce théorème, on aura besoin des trois lemmes suivants :
   Soit $x\in K$, on sait, d'après le lemme précédent que pour $y\in K$, il existe $f^y\in \A$ telle que 
   $$f^y(x)=\varphi(x)\text{ et }f^y(y)=\varphi(y).$$
   (on considère ici que $\varphi(x)\neq\varphi(y)$, si ce n'est pas le cas, on prend $f^y=\varphi(x)$)
-
+  ||f-g||
   Par continuité de $f^y$ et de $\varphi$, il existe des voisinages $V^y$ de $y$ tels que 
   $$\forall z\in V^y,\ f^y(z)>\varphi(z)-\varepsilon.$$
   La famille $(V^y)_{y\in K}$ est un recouvrement par ouverts du compact $K$ donc il existe une numérotation des $y$ telle que 
@@ -330,14 +330,14 @@ On peut enfin prouver le théorème :
 
 \begin{Proof}
   Soient $\varphi\in C(K,\R)$ et $\varepsilon>0$, d'après le lemme 3, il existe $f\in \overline{\A}$ telle que 
-  $$||f-\varphi||<\nicefrac{\varepsilon}{2}.$$
+  $$||f-\varphi||_{\infty}<\nicefrac{\varepsilon}{2}.$$
   Puisque $f\in\overline{\A}$, il existe $g\in\A$ telle que 
-  $$||fèg||<\nicefrac{\varepsilon}{2}$$
+  $$||f-g||_{\infty}<\nicefrac{\varepsilon}{2}$$
   donc
   \begin{flalign*}
-    ||\varphi-g||&=||(\varphi-f)+(f-g)||\\
-    &\leqslant ||\varphi-f||+||f-g||\\
-    &\leqslant \varepsilon
+    ||f-g||_{\infty}&=||(\varphi-f)+(f-g)||_{\infty}\\
+    &\leqslant ||\varphi-f||_{\infty}+||f-g||_{\infty}\\
+    ||f-g||_{\infty}&\leqslant \varepsilon
   \end{flalign*}
   et $\A$ est bien dense dans $C(K,\R)$.
 \end{Proof}
@@ -447,20 +447,20 @@ est une suite de polynômes convergeant uniformément sur $[0,1]$ vers $f$.\\[1e
 
 
 Un polynôme trigonométrique est une application de la forme
-$$P:t\longmapsto\sum_{k\in\llbracket -N,N\rrbracket}c_k\mathrm e^{ikt}$$
+$$P:t\longmapsto\sum_{k =-N}^Nc_k\mathrm e^{ikt}$$
 où les $c_k$ sont des coefficients complexes.
 
 En passant à la forme trigonométrique de $\mathrm e^{ikt}$, on peut ré-écrire $P$ comme
 \begin{flalign*}
-  P(t)&=\sum_{k\in\llbracket -N,N\rrbracket}c_k\left[\cos(kt)+i\sin(kt)\right]\\
-  &=\sum_{k\in\llbracket -N,N\rrbracket} a_k\cos(kt)+b_k \sin(kt).
+  P(t)&=\sum_{k =-N}^Nc_k\left[\cos(kt)+i\sin(kt)\right]\\
+  P(t)&=\sum_{k =-N}^N a_k\cos(kt)+b_k \sin(kt).
 \end{flalign*}
 
-\begin{corollaireC}{Féjer}
+\begin{corollaire}
   Soit $f:\R\longrightarrow\C$ continue et $2\pi$-périodique,\\
 
   alors il existe une suite de polynômes trigonométriques convergeant uniformément vers $f$.
-\end{corollaireC}
+\end{corollaire}
 
 \begin{Proof}
   il suffit de constater que 
@@ -495,7 +495,7 @@ On montre (en TD) que tout espace vectoriel de dimension finie est séparable. O
 
 \begin{Proof}
   Idée de la preuve : il s'agira de montrer que 
-  $$\left\{\sum{i\in I}\lambda_i e_i,\ \lambda_i\in\mathbf Q,\ I\subset\N\text{ finie}\right\}$$
+  $$\left\{\sum_{i\in I}\lambda_i e_i,\ \lambda_i\in\mathbf Q,\ I\subset\N\text{ finie}\right\}$$
   est dense et dénombrable.
 \end{Proof}
 
@@ -508,7 +508,7 @@ On montre (en TD) que tout espace vectoriel de dimension finie est séparable. O
 
 
 $\triangleright$\emph{ ex : }soit $1\leqslant p<\infty$, on rappelle que 
-$$\ell^p:=\left\{x:\N\longrightarrow\C\ |\ \sum_{n\in\N}|x(n)|^p<\infty\right\}$$
+$$\ell^p(\N):=\left\{x:\N\longrightarrow\C\ |\ \sum_{n\in\N}|x(n)|^p<\infty\right\}$$
 muni de la norme
 $$||\cdot||_p:x\in\ell^p\longmapsto\left(\sum_{n\in\N}|x(n)|^p\right)^{\nicefrac{1}{p}}$$
 est un espace (vectoriel normé) séparable.
@@ -586,7 +586,7 @@ Le fil directeur de cette partie est la question suivante : peut-on caractérise
 
 
 \begin{Def}
-  Soit $\mathcal F\in C(K)$,
+  Soit $\mathcal F\subset C(K)$,
 
   $\mathcal F$ est dite \emph{équicontinue en }$x$ si, et seulement si
   $$\forall \varepsilon>0, \exists\delta>0,\ \forall f\in\mathcal F, \forall y\in B(x,\delta)\cap K,\ |f(x)-f(y)|<\varepsilon.$$
@@ -597,7 +597,7 @@ $\triangleright$\emph{ex : }pour $\ell>0$, l'ensemble des fonctions $\ell$-lipsc
 
 
 \begin{thC}{Ascoli, v1}
-  Soient $(K,d)$ un compact et $\mathcal F=\{f_n\}$ une famille dans $C(K)$, si,
+  Soient $(K,d)$ un compact et $\mathcal F=(f_n)$ une famille dans $C(K)$, si,
 
   $(\bullet)\ \forall x\in K,\ \big(f_n(x)\big)_{n\geqslant 0}$ est une suite bornée de $K$,\\
   $(\bullet\bullet)$ $\mathcal F$ est équicontinue,\\
@@ -611,7 +611,7 @@ $\triangleright$\emph{ex : }pour $\ell>0$, l'ensemble des fonctions $\ell$-lipsc
   
   Par hypothèse, la suite $\left(f_n(a_0)\right)$ est bornée, donc on peut en extraire une sous-suite convergente, donc il existe $\varphi_0:\N\longrightarrow\N$ strictement croissante telle que $\left(f_{\varphi_0(n)}(a_0)\right)_n$ converge.
 
-  De même, la suite $\left(f_{\varphi_0(n)}(a_1)\right)_n$ est bornée donc admet un extractrice $\varphi_1$ telle que $\left(f_{\varphi_0\circ\varphi_1(n)}(a_1)\right)_n$ converge.
+  De même, la suite $\left(f_{\varphi_0(n)}(a_1)\right)_n$ est bornée donc admet une extractrice $\varphi_1$ telle que $\left(f_{\varphi_0\circ\varphi_1(n)}(a_1)\right)_n$ converge.
 
   Par récurrence, on va construire les itérations succssives de $\varphi_n$ comme suit, autrement dit 
   $$\forall k\in\N,\ \left(f_{\varphi_0\circ\cdots\circ\varphi_k(n)}(a_k)\right)_n\text{ converge}$$
@@ -653,7 +653,7 @@ $\triangleright$\emph{ex : }pour $\ell>0$, l'ensemble des fonctions $\ell$-lipsc
     &\leqslant 2\varepsilon+\varepsilon+2\varepsilon\\
     \left|f_{\varphi(q)}(x)-f_{\varphi(p)}(x)\right|&\leqslant 5\varepsilon
   \end{align*}
-  par passage au $\mathrm{\sup}$, $||f_{\varphi(q)}-f_{\varphi(p)}||\leqslant 5\varepsilon$, donc la suite $f_{\varphi(n)}$ est de Cauchy à valeurs dans le complet $C(K)$, donc est convergente.
+  par passage au $\mathrm{\sup}$, $||f_{\varphi(q)}-f_{\varphi(p)}||_\infty\leqslant 5\varepsilon$, donc la suite $f_{\varphi(n)}$ est de Cauchy à valeurs dans le complet $C(K)$, donc est convergente.
 \end{Proof}
 
 \begin{Def}
@@ -672,16 +672,16 @@ $\triangleright$\emph{ex : }pour $\ell>0$, l'ensemble des fonctions $\ell$-lipsc
 \end{thC}
 
 
-\begin{Proof}
+\begin{ProofC}{Démonstration du $(\mathit 1)$}
   $\star$ Soit $\mathcal F\subset C(K)$ compacte fermée et bornée, montrons que cette famille est équicontinue. 
   
   Soit $\varepsilon>0$,
   \begin{align*}
     K&=\bigcup_{f\in\mathcal F}B(f,\varepsilon)\\
-    &=\bigcup{i=1}^NB(f_n,\varepsilon)
+    &=\bigcup_{i=1}^NB(f_n,\varepsilon)
   \end{align*}
   Pour $i\in\llbracket 1,N\rrbracket$, pour $z\in K$, par continuité de $f_i$, $\exists \delta_{z,i}>0$ tel que 
-  $$\forall u \in B(z,\delta_{z,i}),\ \left|f_i'u)-f_i(z)\right|<\varepsilon\qquad (i)$$
+  $$\forall u \in B(z,\delta_{z,i}),\ \left|f_i(u)-f_i(z)\right|<\varepsilon\qquad (i)$$
   On pose 
   $$\delta_z:=\mathrm{min}\{\delta_{z,i},\ i\in\llbracket 1,N\rrbracket\}>0.$$
   Soit $f\in\mathcal F$, donc 
@@ -689,19 +689,19 @@ $\triangleright$\emph{ex : }pour $\ell>0$, l'ensemble des fonctions $\ell$-lipsc
   soit $i\in \llbracket 1,N\rrbracket$, $u\in B(z,\delta_z)\subset B(z,\delta_{z,i})$, on a 
   \begin{align*}
     |f(u)-f(z)|&\underbrace{\leqslant|f(u)-f_i(u)|}_{\leqslant\varepsilon\text{ d'après }(i)}+\underbrace{|f_i(u)-f_i(z)|}_{\leqslant\varepsilon\text{ d'après }(2)}+\underbrace{|f_i(z)-f(z)|}_{\leqslant\varepsilon\text{ d'après }(i)}\\
-  &\leqslant 3\varepsilon
+    |f(u)-f(z)|&\leqslant 3\varepsilon
   \end{align*}
   donc $\mathcal  F$ est équicontinue.\\
 
   $\star$ Réciproquement, si on prend $F\subset C(K)$ fermée bornée équicontinue, montrons que $\mathcal F$ est compacte.
   
   Soit $(f_n)\in \mathcal F$, c'est une famille bornée et équicontinue donc d'après le théorème d'Ascoli, elle admet une sous-suite convergente, qui appartient à $\mathcal F$ car c'est un fermé, donc $F$ vérifie la propriété de Weierstra\ss, c'est un compact.
-\end{Proof}
+\end{ProofC}
 
 
-\begin{Proof}
+\begin{ProofC}{Démonstration du $(\mathit 2)$}
   Se déduit de la proposition précédente en considérant la fermeture de $\mathcal F$.
-\end{Proof}
+\end{ProofC}
 
 
 
@@ -733,7 +733,7 @@ Le théorème suivant découle du théorème d'Ascoli, et est quant à lui cens�
 
 
 \begin{Proof}
-  Le principe va être de discrétiser $[t_0,t_0+c]$ puis de construire selon la méthode d'Euleur une suite de fonction qui vérifie cette discrétisation.
+  Le principe va être de discrétiser $[t_0,t_0+c]$ puis de construire selon la méthode d'Euler une suite de fonction qui vérifie cette discrétisation.
 
   Puis on appliquera le théorème d'Ascoli pour montrer que cette suite de fonction CVU vers une fonction, qui sera solution du problème.\\
 
@@ -822,14 +822,22 @@ On rappelle le théorème suivant, déjà vu en topologie de L3 :
   donc $\bigcap_{n\geqslant 0} F_n$ est un singleton, ce qui conclut.
 \end{Proof}
 
+
 \begin{thC}{de Baire, v1}
-  Soit $(E,d)$ métrique complet, soit $(O_n)$ une suite d'ouverts denses dans $E$,\\
+  Soit $(E,d)$ métrique complet, soit $(O_n)$ une suite d'ouverts tous denses dans $E$,\\
 
   alors 
   $\bigcap_{n\geqslant 0}O_n$ est dense dans $E$.
 \end{thC}
 
-on a une autre version, où on parle de fermés :
+
+\Dnote{Pour $O_n$ une suite d'ouverts, il est possible que $\bigcap_{n\geqslant 0}O_n$ ne soit pas ouvert puisque, par (contre) exemple
+$$\ens{1}=\bigcap_{n\geqslant 1}\big]1-\nicefrac{1}{n}, 1+\nicefrac{1}{n}\big[$$
+}
+
+
+En considérant les fermés $F_n:=E\backslash O_n$, on obtient la formulation suivante du théorème de Baire :
+
 
 \begin{thC}{de Baire, v2}
   Soit $(E,d)$ métrique complet, soit $(F_n)$ une suite de fermés d'intérieurs vides dans $E$,\\
@@ -837,6 +845,11 @@ on a une autre version, où on parle de fermés :
   alors 
   $\bigcup_{n\geqslant 0}F_n$ est d'intérieur vide.
 \end{thC}
+
+
+\Dnote{De même, pour $F_n$ un suite de fermé, il est possible que $\bigcup_{n\geqslant 0}F_n$ ne soit pas fermés, puisque, par (contre) exemple
+ $$]0,1[=\bigcup_{n\geqslant 1}[\nicefrac{1}{n},1-\nicefrac{1}{n}]$$
+}
 
 
 \begin{Proof}
@@ -981,9 +994,10 @@ est dense dans $E$.
 \NouvelleSection{Quelques rappels sur les applications linéaires continues}
 
 
-$X$ et $Y$ sont deux espaces vectoriels normés, $T:X\longrightarrow Y$ est une application linéaire.\\[1em]
+$X$ et $Y$ sont deux espaces vectoriels normés, on note 
+$$L(X,Y):=\ens{T:X\longrightarrow Y\text{ linéaire}}$$
 
-$T$ est continue si, et seulement si $\exists c>0$ tel que
+$T\in L(X,Y)$ est continue si, et seulement si $\exists c>0$ tel que
 $$\forall x\in X,\ ||Tx||_Y\leqslant c||x||_X.$$
 
 On note 
@@ -1185,7 +1199,7 @@ est relativement compacte.
 \end{Proof}
 
 $\triangleright$\emph{ ex : }application au séries de Fourier, pour $f:[-\pi,\pi]\longrightarrow\mathbf C$ intégrable, on définit les coefficients de Fourier comme suit :
-$$\hat f(k):=\frac{1}{2\pi}\int_{-\pi}^{\pi}f(t)\ex{-ikt}\mathrm dt$$
+$$\forall k\in \N,\ \hat f(k):=\frac{1}{2\pi}\int_{-\pi}^{\pi}f(t)\ex{-ikt}\mathrm dt$$
 et la somme partielle de Fourier comme 
 $$S_n(f)(t):=\sum_{k=-n}^n\hat f(k)\ex{ikt}$$
 
@@ -1260,7 +1274,7 @@ est dense dans $C([-\pi,\pi])$, muni de la norme $||\cdot||_{\infty}$.
 \begin{thC}{de majoration automatique}
   Soient $(X,Y)$ des espaces de Banach et $T\in\mathcal L(X,Y)$, si $T$ est surjective,\\
 
-  alors il existe $c>0$ tel que $\forall y\in Y,\ \exists x\in X$ tel que
+  alors il existe $c>0$ tel que $\forall y\in Y,\ \exists x\in X$ vérifiant
   $$y=Tx\text{ et }||x||\leqslant c||y||=c||Tx||$$
 \end{thC}
 
@@ -1358,7 +1372,7 @@ est dense dans $C([-\pi,\pi])$, muni de la norme $||\cdot||_{\infty}$.
 
 
 \begin{thC}{du graphe fermé}
-  Soient $X,Y$ deux Banach, $T\in\mathcal L(X,Y)$, on suppose que pour $x_n\in X$, $y_n\in Y$ telles que $x_n\tend x\in X$, $y_n\tend y\in Y$, alors $Tx=y$,\\
+  Soient $X,Y$ deux Banach, $T\in L(X,Y)$, on suppose que pour $x_n\in X$ tel que $x_n\tend x\in X$, et $Tx_n\tend y\in Y$, alors $Tx=y$,\\
 
   alors $T$ est continue
 \end{thC}
@@ -1420,7 +1434,7 @@ donc $E_\lambda$ est (linéaire) continue en 0, $E_\lambda$ est continue, ainsi 
 $$\forall \lambda\in D(0,1),\ f_n(\lambda)\longrightarrow f(\lambda).$$
 Soit $X\subset H^2$ un espace de Banach de fonctions holomorphes sur $D(0,1)$ telle que 
 $$f_n\longrightarrow f\text{ dans }X\Rightarrow\forall \lambda\in D(0,1),\ f_n(\lambda)\longrightarrow f(\lambda)$$
-alors $i:X\hookrightarrow H^2$ (c'est l'\emph{injection canonique}) est continue :
+alors $i:X\hookrightarrow H^2$ (c'est l'\emph{injection canonique}) est continue (au sens de la topologie induite) :
 
 \begin{Proof}
   $i$ est linéaire, $H^2$ et $X$ sont complets et soit $f_n$ convergeante dans $X$, donc il existe $f\in X$ telle que $f_n\longrightarrow f$ dans $X$. $f_n$ est une suite de fonction convergeante, donc il existe aussi $g\in H^2$ telle que $f_n\longrightarrow g$ dans $H^2$.
@@ -1452,9 +1466,9 @@ $\triangleright$\emph{ex : }si $\dim E<\infty$, en considérant $(e_1,\cdots, e_
 $$\forall \varphi\in E^*,\ \varphi(x)=\sum_{i=1}^n\varphi(e_i)x_i$$
 où $x=(x_1,\cdots,x_n)$.
 
-$\triangleright$\emph{ex : }pour les espaces $\ell^p$ avec $p<\infty$, on note $q$ le conjugué de $p$, on se donne $a=\left(a_n\right)\in\ell^q$, on pose 
+$\triangleright$\emph{ex : }pour les espaces $\ell^p(\N)$ avec $p<\infty$, on note $q$ le conjugué de $p$, on se donne $a=\left(a_n\right)\in\ell^q(\N)$, on pose 
 $$\varphi_a:\begin{array}{|ccc}
-  \ell^p&\longrightarrow&\C\\
+  \ell^p(\N)&\longrightarrow&\C\\
   u&\longmapsto&\sum_{n\in\N}u_na_n 
 \end{array}$$
 $\varphi_a$ est bien définie (inégalité de Hölder) et est continue, avec 
@@ -1530,7 +1544,7 @@ On a le résultat / axiome suivant (en fait, c'est équivalent à l'axiome du ch
 \end{thC}
 
 
-\begin{thC}{de Hann-Banach}
+\begin{thC}{de Hahn-Banach}
   Soit $E$ un $\R$-espace vectoriel, $p:E\longrightarrow \R$ une fonctionnelle sous-linéaire, $V$ un sous-espace vectoriel de $E$, soit $\varphi:V\longrightarrow\R$ une forme linéaire telle que $\forall x\in V,\ \varphi(x)\leqslant p(x).$\\
 
   Alors il existe $\tilde\varphi:E\longrightarrow\R$ prolongeant $\varphi$ et majorée par $p$.
@@ -1619,7 +1633,7 @@ On aura besoin du lemme suivant :
   c'est absurde, donc $G=E$ et le théorème est prouvé.
 \end{ProofC}
 
-\begin{thC}{Hann-Banach, cas réel}
+\begin{thC}{Hahn-Banach, cas réel}
   Soit $E$ un $\R$-espace vectoriel et $F\subset E$ un sous-espace vectoriel, soit $\varphi\in F^*$,\\
 
   alors il existe $\tilde\varphi\in E^*$ telle que 
@@ -2392,7 +2406,7 @@ donc pour $||x||\geqslant 1$, on a bien $P_K(x)=\dstyle\frac{x}{||x||}$ et pour 
 
 \begin{Def}
   Soit $H$ un espace de Hilbert séparable et $(e_n)_{n\geqslant 0}\in H$ une suite, $(e_n)$ est une \emph{base hilbertienne} \ssi\\
-  $\Bullet\ (e_n)$ est orthogonale\\
+  $\Bullet\ (e_n)$ est orthonormale\\
   $\BBullet\ (e_n)$ est une suite complète.
 \end{Def}
 
@@ -2627,7 +2641,7 @@ d'où $\nop{\varphi_{x_0}}=||x_0||.$
 \begin{thC}{Riesz}
   Soit $\Phi\in H^*$,\\
 
-   alors il existe $x_0\in H$ tel que $\Phi=\varphi_{x_0}.$
+   alors il existe un unique $x_0\in H$ tel que $\Phi=\varphi_{x_0}.$
 \end{thC}
 
 
