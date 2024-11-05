@@ -1109,7 +1109,7 @@ est relativement compacte.
   \end{align*}
   la suite $(e_n)$ étant convergente, elle est de Cauchy donc $(Te_n)$ est aussi de Cauchy, et $Y$ étant un espace de Banach, cette suite est convergente et on peut poser, 
   $$\hat Tx:=\underset{n\to+\infty}{\mathrm{lim}}Te_n.$$
-  Vérifions que $\hat T$ est bien définie, $\emph{i.e.}$ que la définition n'est pas fonction du choix de la suite convergeant vers $x\in X$. Soient $x\in X$ et $e_n,e_n'$ deux suites convergeants vers $x$
+  Vérifions que $\hat T$ est bien définie, $\emph{i.e.}$ que la définition n'est pas fonction du choix de la suite convergeant vers $x$. Soient $x\in X$ et $e_n,e_n'$ deux suites convergeants vers $x$
   $$||Te_n-Te_n'||\leqslant||T||_{\mathrm{op}}\ ||e_n-e_n'||\tend0$$
   donc 
   $$Te_n-Te_n'\tend 0$$
@@ -2191,9 +2191,9 @@ donc pour $||x||\geqslant 1$, on a bien $P_K(x)=\dstyle\frac{x}{||x||}$ et pour 
   $$\Re\ps{x_1-x_2,u_2-u_1}+||u_2-u_1||^2\leqslant 0.$$
   On peut ensuite majorer comme suit
   \begin{align*}
-    ||u_1-u_1||^2&=-\Re\ps{x_1-x_2,u_2-u_1}\\
+    ||u_1-u_2||^2&=-\Re\ps{x_1-x_2,u_2-u_1}\\
     &\leqslant \abs{\ps{x_1-x_2,u_2-u_1}}\\
-    ||u_1-u_1||^2&\leqslant ||x_1-x_2||\ ||u_1-u_2||
+    ||u_1-u_2||^2&\leqslant ||x_1-x_2||\ ||u_1-u_2||
   \end{align*}
   puisque $u_1\neq u_2$, on peut simplifier l'inégalité et 
   $$\norm{P_K(x)-P_K(y)}=\norm{u_1-u_2}\leqslant\norm{x-y}$$
@@ -2463,7 +2463,7 @@ alors $u=0$ donc $(e_i)$ est une base hilbertienne.
   \begin{align*}
     \ps{x,y}&=\ps{\displaystyle\sum_{i=0}^\infty\ps{x,e_i}e_i,\displaystyle\sum_{j=0}^\infty\ps{y,e_j}e_j}\\
     &=\dstyle\sum_{i=0}^\infty\sum_{j=0}^\infty\ps{x,e_i}\overline{\ps{y,e_j}}\ps{e_i,e_j}\\
-    &=\dstyle\sum_{n=0}^\infty\ps{x,e_n}\overline{\ps{y,e_n}}.
+    \ps{x,y}&=\dstyle\sum_{n=0}^\infty\ps{x,e_n}\overline{\ps{y,e_n}}.
   \end{align*}
 
   $\star\ (iii)\Rightarrow(iv)$ On applique $(iii)$ avec $y=x$.\\
@@ -2484,7 +2484,7 @@ alors $u=0$ donc $(e_i)$ est une base hilbertienne.
 \begin{Proof}
   $\dagger$ Si $\dim H<\infty$, c'est immédiat.\\
 
-  $\dagger$ On suppose donc $\dim H=\infty$. $H$ est séparable donc il existe une suite $\ens{g_n}_{n\geqslant 0}$ dense dans $H$, on va suppose que les $(_n)$ sont tous non-nuls. 
+  $\dagger$ On suppose donc $\dim H=\infty$. $H$ est séparable donc il existe une suite $\ens{g_n}_{n\geqslant 0}$ dense dans $H$, on va supposer que les $(_n)$ sont tous non-nuls. 
 
   $\star$ On va construire une sous-suite $(g_{\varphi(n)})_{n\geqslant 0}$ telle que\\
   $\Bullet\ \forall n\geqslant 0,\ \ens{g_{\varphi(k)},\ 0\leqslant k\leqslant n}$ est une famille libre\\
