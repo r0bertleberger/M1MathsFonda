@@ -90,6 +90,8 @@ la densité s'identifie avec une approximation par des fonctions régulières et
 \end{Proof}
 
 
+Dans la suite du document, on considerera un compact $K$ et on se placera dans $\big(C(K,\K),\norm{\cdot}_\infty\big)$.
+
 \NouvelleSection{Théorème de Dini}
 
 
@@ -114,9 +116,9 @@ Le théorème suivant nous donne un critère de réciproque :\\
   On a aussi 
   $$K=\bigcup_{n\geqslant 1}\O_n$$
   $K$ étant compact, on peut re-numéroter les $\O_n$ de façon à avoir 
-  $$K=\bigcup_{i=1}^N\O_{n_i}.$$
+  $$K=\bigcup_{i=1}^M\O_{n_i}.$$
   Quitte à réarranger la suite $(n_i)$, on la suppose croissante. Puisque chaque $\left(f_n(x)\right)$ est croissante, on a aussi les inclusions 
-  $$\forall i\in \llbracket 1,N-1\rrbracket,\ \O_{n_i}\subset\O_{n_{i+1}}$$
+  $$\forall i\in \llbracket 1,M-1\rrbracket,\ \O_{n_i}\subset\O_{n_{i+1}}$$
   donc 
   $$K=\O_{m_n}.$$
   Autrement dit,
@@ -233,7 +235,7 @@ Avant de passer aux théorèmes de Stone-Weierstra\ss, on montre quelques propri
 \end{ProofC}
 
 
-\begin{thC}{Stones-Weierstra\ss, cas réel}
+\begin{thC}{Stone-Weierstra\ss, cas réel}
   Soit $(K,d)$ un espace métrique compact, $\A$ une sous-algèbre unitaire de $C(K,\R)$ qui sépare les points,\\
 
   alors $\A$ est dense dans $C(K,\R).$
@@ -383,7 +385,7 @@ est une suite de polynômes convergeant uniformément sur $[0,1]$ vers $f$.\\[1e
 
 \begin{Proof}
   On considère l'application $f:z\longmapsto \overline z$,\\
-  $\C[X]$ est bien une sous-algèbre unitaire de $C(\mathbf U,\C)$ qui sépare les points, donc si le théorème de Stones-Weierstra\ss\ est vrai, alors $\C[X]$ est dense dans $C(\mathbf U,\C)$, alors il existe $P_n\in\C[X]$ convergeant uniformément vers $f$.
+  $\C[X]$ est bien une sous-algèbre unitaire de $C(\mathbf U,\C)$ qui sépare les points, donc si le théorème de Stone-Weierstra\ss\ est vrai, alors $\C[X]$ est dense dans $C(\mathbf U,\C)$, alors il existe $P_n\in\C[X]$ convergeant uniformément vers $f$.
 
   On a 
   $$\forall n\in\N,\ \int_0^{2\pi}\mathrm e^{int}\mathrm e^{it}\mathrm dt=0$$
@@ -401,7 +403,7 @@ est une suite de polynômes convergeant uniformément sur $[0,1]$ vers $f$.\\[1e
   $$ x\in E\Rightarrow \overline x\in E.$$
 \end{Def}
 
-\begin{thC}{Stones-Weierstra\ss, cas complexe}
+\begin{thC}{Stone-Weierstra\ss, cas complexe}
   Soit $(K,d)$ un espace métrique compact, $\A$ une sous-algèbre unitaire de $C(K,\C)$ qui sépare les points et est stable par conjugaison,\\
 
   alors $\A$ est dense dans $C(K,\C).$
@@ -533,7 +535,7 @@ est un espace (vectoriel normé) séparable.
   Soit $n\geqslant 1$, on a 
   $$K=\bigcup_{x\in K}B(x,\nicefrac{1}{n})$$
   par compacité de $K$, on peut numéroter ces boules donc 
-  $$K=\bigcup_{i=1}^{N_n}B(x_j^n\nicefrac{1}{n})$$
+  $$K=\bigcup_{j=1}^{N_n}B(x_j^n\nicefrac{1}{n})$$
   et l'ensemble 
   $$\mathcal D:=\left\{x_j^n,\ 1\leqslant j\leqslant N_n,\ n\in\N\right\}$$
   est dénombrable, montrons qu'il est dense,
@@ -555,7 +557,7 @@ est un espace (vectoriel normé) séparable.
 \end{lemme}
 
 \begin{Proof}
-  $K$ est compact, donc d'après le lemme précédent, il existe $(a_n)$ une suite dense dans $K$. Pour $n\geqslant 1$, on pose 
+  $K$ est compact, donc d'après le lemme précédent, il existe $\ens{a_n}_{n\geqslant 0}$ une suite dense dans $K$. Pour $n\geqslant 1$, on pose 
   $$f_n:t\longmapsto d(a_n,t),$$
   les applications $f_n$ sont continues et on pose $f_0:=1$.
 
@@ -607,7 +609,7 @@ $\triangleright$\emph{ex : }pour $\ell>0$, l'ensemble des fonctions $\ell$-lipsc
 
 
 \begin{Proof}
-  Puisque $K$ est un compact, il est séparable et il existe une famille $\D=\{a_n\}$ dense dans $K$. 
+  Puisque $K$ est un compact, il est séparable et il existe une famille $\D=\{a_n\}_{n\geqslant 0}$ dense dans $K$. 
   
   Par hypothèse, la suite $\left(f_n(a_0)\right)$ est bornée, donc on peut en extraire une sous-suite convergente, donc il existe $\varphi_0:\N\longrightarrow\N$ strictement croissante telle que $\left(f_{\varphi_0(n)}(a_0)\right)_n$ converge.
 
@@ -714,7 +716,7 @@ $\triangleright$\emph{ex : }pour $\ell>0$, l'ensemble des fonctions $\ell$-lipsc
   alors $f_n$ admet une sous-suite qui converge uniformément sur tout compact de $E$ vers une application continue.
 \end{thC}
 
-
+\newpage
 Le théorème suivant découle du théorème d'Ascoli, et est quant à lui censé avoir plein d'applications :
 
 \begin{thC}{Ascoli-Arzèla-Peano}
@@ -831,11 +833,13 @@ On rappelle le théorème suivant, déjà vu en topologie de L3 :
 \end{thC}
 
 
-\Dnote{Pour $O_n$ une suite d'ouverts, il est possible que $\bigcap_{n\geqslant 0}O_n$ ne soit pas ouvert puisque, par (contre) exemple
-$$\ens{1}=\bigcap_{n\geqslant 1}\big]1-\nicefrac{1}{n}, 1+\nicefrac{1}{n}\big[$$
+\Dnote{
+  Pour $O_n$ une suite d'ouverts, il est possible que $\bigcap_{n\geqslant 0}O_n$ ne soit pas ouvert puisque, par (contre) exemple
+  $$\ens{1}=\bigcap_{n\geqslant 1}\big]1-\nicefrac{1}{n}, 1+\nicefrac{1}{n}\big[$$
+  (par contre une réunion dénombrable d'ouverts est aussi un ouvert
 }
 
-
+\newpage
 En considérant les fermés $F_n:=E\backslash O_n$, on obtient la formulation suivante du théorème de Baire :
 
 
@@ -847,8 +851,10 @@ En considérant les fermés $F_n:=E\backslash O_n$, on obtient la formulation su
 \end{thC}
 
 
-\Dnote{De même, pour $F_n$ un suite de fermé, il est possible que $\bigcup_{n\geqslant 0}F_n$ ne soit pas fermés, puisque, par (contre) exemple
- $$]0,1[=\bigcup_{n\geqslant 1}[\nicefrac{1}{n},1-\nicefrac{1}{n}]$$
+\Dnote{
+  De même, pour $F_n$ un suite de fermé, il est possible que $\bigcup_{n\geqslant 0}F_n$ ne soit pas fermés, puisque, par (contre) exemple
+  $$]0,1[=\bigcup_{n\geqslant 1}[\nicefrac{1}{n},1-\nicefrac{1}{n}]$$
+ (par contre une intersection dénombrable de fermés est aussi fermée)
 }
 
 
@@ -894,7 +900,7 @@ On passe maintenant à la v2, \emph{i.e.} la formulation avec des fermés. Il va
   \begin{align*}
     \bigcap_{n\geqslant 0}O_n&=\bigcap_{n\geqslant 0}R\backslash \{r_n\}\\
     &=\R\backslash \bigcup_{n\geqslant 0}\{r_n\}\\
-    &=\R\backslash \mathbf Q
+    \bigcap_{n\geqslant 0}O_n&=\R\backslash \mathbf Q
   \end{align*}
   qui n'est pas un ouvert.
 \end{RQ}
@@ -936,10 +942,7 @@ On passe maintenant à la v2, \emph{i.e.} la formulation avec des fermés. Il va
   On a l'équivalence suivante 
   $$\Omega\text{ dense }\Leftrightarrow E\backslash \Omega\text{ d'intérieur vide}$$
   on remarque que 
-  \begin{align*}
-    E\backslash\Omega&=\bigcup{k\geqslant 0}F_n\backslash\bigcup_{n\geqslant 0}\mathrm{int}\ F_n\\
-    &\subset \bigcup_{k\geqslant 0}F_k\backslash\mathrm{int}\ F_k.
-  \end{align*}
+  $$E\backslash\Omega=\bigcup_{k\geqslant 0}F_n\backslash\bigcup_{n\geqslant 0}\mathrm{int}\ F_n\subset \bigcup_{k\geqslant 0}F_k\backslash\mathrm{int}\ F_k.$$
   Et $\partial F_k=F_k\backslash\mathrm{int}\ F_k$ est un fermé d'intérieur vide, donc le théorème de Baire s'applique et $\bigcup_{k\geqslant 0}\partial F_k$ est d'intérieur vide, donc $E\backslash\Omega$ est aussi d'intérieur vide, donc d'après l'équivalence du début, $\Omega$ est bien dense dans $E$.
 \end{Proof}
 
@@ -1048,11 +1051,11 @@ $$\forall n\in\N,\ ||T^n||_{\mathrm{op}}=||\underbrace{T\circ T\cdots\circ T}_{n
 \end{Def}
 
 
-$\triangleright$\emph{ ex : }soient $-\infty<a<b<+\infty$ et $K:[a,b]\times[a,b]\longrightarrow \mathbf C$ continue. Pour $f\in C([a,b],\mathbf C)$ et $x\in[a,b]$, on pose 
+$\triangleright$\emph{ ex : }soient $-\infty<a<b< \infty$ et $K:[a,b]\times[a,b]\longrightarrow \mathbf C$ continue. Pour $f\in C([a,b],\mathbf C)$ et $x\in[a,b]$, on pose 
 $$T_K(f)(x):=\int_a^bK(x,y)f(y)\mathrm dy.$$
 $\star$ Vérifions que $T_K:C([a,b],\mathbf C)\longrightarrow C([a,b],\mathbf C)$
 
-$(x,y)\longmapsto K(x,y)f(y)$ est continue et l'on intègre des fonctions continues sur un segment, donc $T_K(f)$ est bien continue. Par linéarité de l'intégrale, $T_K$ est aussi linéaire.
+$(x,y)\longmapsto K(x,y)f(y)$ est continue et on intègre des fonctions continues sur un segment, donc $T_K(f)$ est bien continue. Par linéarité de l'intégrale, $T_K$ est aussi linéaire.
 
 Soit $x\in [a,b]$,
 $$|T_K(f)(x)|\leqslant ||K||_{\infty}(b-a)^2||f||_{\infty}=c||f||_{\infty}$$
@@ -1063,7 +1066,7 @@ $$T_K(\overline{B(0,1)})$$
 est relativement compact dans $C([a,b],\C)$.
 
 On a
-$$T_K(\overline{B(0,1)})=\left\{T_K(f),\ f\in C([a,b],\C)\text{ t.q.} ||f||_{\infty}\leqslant 1\right\}.$$
+$$T_K(\overline{B(0,1)})=\left\{T_K(f),\ f\in C([a,b],\C)\text{ t.q.}\ ||f||_{\infty}\leqslant 1\right\}.$$
 $\star\star$ Montrons que la famille 
 $$\left\{T_K(f),\ f\in\overline{B(0,1)}\right\}$$
 est équicontinue, soit $\varepsilon>0$ et $x\in[a,b]$, alors pour tout $z\in[a,b]$
@@ -1076,7 +1079,7 @@ soit $y\in B(x,\delta)$, d'après $(i)$ on a
   &\leqslant \varepsilon ||f||_{\infty}(b-a)\\
   |T_K(f)(x)-T_K(f)(z)|&\leqslant \varepsilon (b-a)
 \end{flalign*}
-on va donc changer de $\delta$, on va prendre le $\tilde\delta$ définie à partir de $\nicefrac{\varepsilon}{b-a}$ et on a maintenant
+on va donc changer de $\delta$, on va prendre le $\tilde\delta$ défini à partir de $\nicefrac{\varepsilon}{b-a}$ et on a maintenant
 $$\forall |x-a|\leqslant \tilde\delta,\ |T_K(f)(x)-T_K(f)(z)|\leqslant \varepsilon$$
 donc la famille est bien équicontinue et on peut appliquer le théorème d'Ascoli, et 
 $$T_K(\overline{B(0,1)})$$
@@ -1204,7 +1207,7 @@ et la somme partielle de Fourier comme
 $$S_n(f)(t):=\sum_{k=-n}^n\hat f(k)\ex{ikt}$$
 
 On montre que 
-$$\left\{f\in C([-\pi,\pi])\ |\ \underset{n\geqslant 0}{\mathrm{sup}}|S_nf(0)|=+\infty\right\}$$
+$$\left\{f\in C([-\pi,\pi])\tq \underset{n\geqslant 0}{\mathrm{sup}}|S_nf(0)|=+\infty\right\}$$
 est dense dans $C([-\pi,\pi])$, muni de la norme $||\cdot||_{\infty}$.
 
 \begin{Proof}
@@ -1248,7 +1251,7 @@ est dense dans $C([-\pi,\pi])$, muni de la norme $||\cdot||_{\infty}$.
   $$\ell_n(f_\varepsilon)=\frac{1}{2\pi}\int_{-\pi}^{\pi}\frac{D_n^2(t)}{|D_n(t)|+\varepsilon}\dt$$
   De plus, 
   $$\underset{\varepsilon\to 0^+}{\mathrm{lim}}\frac{D_n^2(t)}{|D_n(t)|+\varepsilon}=|D_n(t)|$$
-  et on peut dominer l'intégrande par $|D_n|$, qui est dans $\mathcal L_1$, donc on peut appliquer le théorème de convergence dominée et 
+  et on peut dominer l'intégrande par $|D_n|$, qui est dans $\mathcal L_1$, le théorème de converge dominée s'applique et
   $$\underset{\varepsilon\to 0^+}{\mathrm{lim}}\frac{1}{2\pi}\int_{-\pi}^{\pi}\frac{D_n^2(t)}{|D_n(t)|+\varepsilon}\dt=\frac{1}{2\pi}\int_{-\pi}^{\pi}|D_n(t)|\dt.$$
   De plus, $\forall \varepsilon>0,\ ||f_\varepsilon||_\infty\leqslant 1$ donc $||f_\varepsilon||_1\leqslant 1$ et $||\ell_n||\geqslant |\ell_n(f_\varepsilon)|$, donc par passage à la limite, 
   $$||\ell_n||\geqslant \frac{1}{2\pi}\int_{-\pi}^{\pi}|D_n(t)|\dt.$$
@@ -1286,7 +1289,7 @@ est dense dans $C([-\pi,\pi])$, muni de la norme $||\cdot||_{\infty}$.
   $$Y=T(X)=\bigcup_{n\geqslant 1}T\left[B(0,n)\right]$$
   et on a aussi, en posant $F_n:=\overline{T\left[B(0,n)\right]}$
   $$Y=\bigcup_{n\geqslant 1}F_n.$$
-  Les $F_n$ sont tous fermés et $Y$ est un espace de Banach, on peut donc y appliquer le théorème de Baire, donc il existe $n_0$ tel que $F_n{n_0}$ est d'intérieur non vide, donc
+  Les $F_n$ sont tous fermés et $Y$ est un espace de Banach, on peut donc y appliquer le théorème de Baire, donc il existe $n_0$ tel que $F_{n_0}$ est d'intérieur non vide, donc
   $$\exists y_0\in Y,\ \exists r>0\tq B(y_0,r)\subset F_{n_0}\subset \overline{T\left[B(0,n)\right]}.$$
 
   Montrons que $B(y_0,r)\subset F_{n_0}$, soit $y\in B(0,r)$ alors 
@@ -1304,7 +1307,7 @@ est dense dans $C([-\pi,\pi])$, muni de la norme $||\cdot||_{\infty}$.
   $$||z_0-Tx_0||<\frac12$$
   on pose $z_1:=z_0-Tx_0$, alors $z_1\in B(0,\nicefrac12)\subset \subset \overline{T\left[B(0,\nicefrac{M}{2})\right]}$ donc il existe $x_1\in B(0,\nicefrac{M}{2})$ tel que 
   $$||z_1-Tx_1||<\frac14$$
-  on pose (encore) $z_2:=z_1-Tx_1$ et on montre (par récurrence) qu'il existe $x_n,x_n$ telles que 
+  on pose (encore) $z_2:=z_1-Tx_1$ et on montre (par récurrence) qu'il existe $x_n,z_n$ telles que 
   $$\forall n\in \N,\ z_n\in B\left(0,\frac{1}{2^n}\right),\ x_n\in B\left(0,\frac{M}{2^n}\right)\tq z_{n+1}=z_n-Tx_n$$
   Ainsi 
   $$\sum_{n=0}^\infty ||x_n||<\sum_{n=0}^\infty\frac{M}{2^n}=2M$$
@@ -1317,7 +1320,7 @@ est dense dans $C([-\pi,\pi])$, muni de la norme $||\cdot||_{\infty}$.
   et puisque $z_n\longrightarrow 0$, on a alors $Tx=z_0$ et $c_1:=2M$ convient.
   $\hfill\square$\\
 
-  $\star$ Pour conclure, soit $y\in Y\backslash {0}$ et $z:=\frac{y}{2||y||}$, alors $z\in B(0,1)$ donc il existe $x_1\in X$ tel que $||x_1||\leqslant c_1$ et $z=Tx_1$, donc
+  $\star$ Pour conclure, soit $y\in Y\backslash \{0\}$ et $z:=\frac{y}{2||y||}$, alors $z\in B(0,1)$ donc il existe $x_1\in X$ tel que $||x_1||\leqslant c_1$ et $z=Tx_1$, donc
   $$y=T(2||y||x_1)=Tx$$
   (en posant $x:=2||y||x_1$) et l'on a 
   $$||x||=2||y||\ ||x_1||<2c_1||y||.$$
@@ -1469,7 +1472,7 @@ où $x=(x_1,\cdots,x_n)$.
 $\triangleright$\emph{ex : }pour les espaces $\ell^p(\N)$ avec $p<\infty$, on note $q$ le conjugué de $p$, on se donne $a=\left(a_n\right)\in\ell^q(\N)$, on pose 
 $$\varphi_a:\begin{array}{|ccc}
   \ell^p(\N)&\longrightarrow&\C\\
-  u&\longmapsto&\sum_{n\in\N}u_na_n 
+  u&\longmapsto&\dstyle\sum_{n\in\N}u_na_n 
 \end{array}$$
 $\varphi_a$ est bien définie (inégalité de Hölder) et est continue, avec 
 $$||\varphi_a||\leqslant ||a||_q.$$
@@ -1582,7 +1585,7 @@ On aura besoin du lemme suivant :
     \varphi(x)-\alpha\lambda\leqslant p(x-\lambda x_0)
   \end{cases}$$
   c'est équivalent à 
-  $$\forall \lambda>0,\ \varphi\left(\frac{x}{\lambda}\right)-p\left(\frac{x}{\lambda}-x_0\right)\leqslant \alpha\leqslant p\left(\frac{x}{\lambda}+x_0\right)-\varphi\left(\frac{x}{\lambda}\right).$$
+  $$\forall \lambda>0,\ \forall x\in\tilde G,\ \varphi\left(\frac{x}{\lambda}\right)-p\left(\frac{x}{\lambda}-x_0\right)\leqslant \alpha\leqslant p\left(\frac{x}{\lambda}+x_0\right)-\varphi\left(\frac{x}{\lambda}\right).$$
   Ainsi pour qu'$\alpha$ existe, il suffit que 
   $$\mathrm{sup}\left\{\varphi\left(v\right)-p\left(v-x_0\right), v\in G\right\}\leqslant \mathrm{inf}\left\{p\left(u-x_0\right)-\varphi\left(u\right), u\in G\right\}.$$
   Cette condition est vérifiée puisque 
@@ -1772,10 +1775,10 @@ On peut étendre ce théorème dans le cas complexe,
 \end{Proof}
 
 
-$\triangleright$\emph{ex :} soit $a_i\in\C$ avec $|a|>1$, on considère
+$\triangleright$\emph{ex :} soit $a\in\C$ avec $|a|>1$, on considère
 $$f_a:\begin{array}{|rcl}
   [-1,1]&\longrightarrow&\C\\
-  t&\longmapsto&\frac{1}{a-t}
+  t&\longmapsto&\dstyle\frac{1}{a-t}
 \end{array}$$
 et on prend $(a_n)\in \C$ tel que $\forall n\in\N,\ |a_n|>1$ et $|a_n|\tend +\infty$,\\
 
@@ -1787,8 +1790,9 @@ alors $\mathrm{Vect}\left(f_{a_n},\ n\in\N\right)$ est dense dans $\left(C[-1,1]
   $$\forall n\geqslant 0,\ \varphi(f_{a_n})=0.$$
   Montrons que $\varphi$ est nécessairement nulle, soit $t\in[-1,1]$, on a 
   \begin{align*}
-    f_a(t)&\frac{1}{a\left(1-\nicefrac{t}{a}\right)}&=\frac{1}{a}\sum{k=0}^\infty\frac{t^k}{a^k}\\
-    f_a(t)&\frac{1}{a\left(1-\nicefrac{t}{a}\right)}&=\sum{k=0}^\infty\frac{t^k}{a^{k+1}}
+    f_a(t)&=\frac{1}{a\left(1-\nicefrac{t}{a}\right)}\\
+    &=\frac{1}{a}\sum_{k=0}^\infty\frac{t^k}{a^k}\\
+    f_a(t)&=\sum_{k=0}^\infty\frac{t^k}{a^{k+1}}
   \end{align*}
   Puisque 
   $$\mathrm{sup}\left\{\frac{t^k}{a^{k+1}},\ t\in[-1,1]\right\}=\frac{1}{a^{k+1}}$$
@@ -2054,7 +2058,7 @@ $\triangleright$\emph{ex : }$\ell^2(\N)$ muni du produit scalaire habituel est u
 $\triangleright$\emph{ex : }pour $(\O,\A,\mu)$ un espace mesuré, $L^2(\O,\A,\mu)$ est un espace de Hilbert.\\
 
 
-$\triangleright$\emph{contre-ex : }Soit $C([0,1])$ muni du produit scalaire 
+$\triangleright$\emph{contre-ex : }$C([0,1])$ muni du produit scalaire 
 $$\ps{f,g}:=\int_0^1f(t)\overline{g(t)}\dt$$
 n'est pas un espace de Hilbert.
 
@@ -2174,10 +2178,10 @@ donc pour $||x||\geqslant 1$, on a bien $P_K(x)=\dstyle\frac{x}{||x||}$ et pour 
     \Re\ps{x_1-u_1,u_2-u_1}\leqslant 0\\
     \Re\ps{x_2-u_2,u_1-u_2}\leqslant 0\\
   \end{cases}$$
-  par antisymétrie (deux fois), on a
+  par antisymétrie sur la deuxième ligne (deux fois), on a
   $$\begin{cases}
     \Re\ps{x_1-u_1,u_2-u_1}\leqslant 0\\
-    \Re\ps{x_2-u_2,u_1-u_2}\leqslant 0\\
+    \Re\ps{u_2-x_2,u_2-u_1}\leqslant 0\\
   \end{cases}$$
   en sommant les deux lignes on trouve 
   $$\Re\ps{(x_1-u_1)+(u_2-x_2),u_2-u_1}\leqslant 0$$
@@ -2350,7 +2354,7 @@ donc pour $||x||\geqslant 1$, on a bien $P_K(x)=\dstyle\frac{x}{||x||}$ et pour 
 \begin{ProofC}{Démonstration du $(\mathit 1)$}
   $\star$ D'une part, on a $F\subset \overline{F}$, donc $\overline{F}^\bot\subset F^\bot$ et, en composant à nouveau par $^\bot$, $F^{\bot\bot}\subset \overline{F}^{\bot\bot}$. $\overline{F}$ étant fermé, on peut appliquer la propriété précédente et $\overline{F}^{\bot\bot}=\overline{F}$ d'où $F^{\bot\bot}\subset\overline{F}$.\\
 
-  $\star$ Réciproquement, $F\subset F^{\bot\bot}$ et puisque $F^{\bot\bot}$ est un fermé, on peut considérer la fermture de $F$ et $\overline{F}\subset F^{\bot\bot}$. On a donc l'inclusion réciproque, et $\overline{F}= F^{\bot\bot}$.
+  $\star$ Réciproquement, $F\subset F^{\bot\bot}$ et puisque $F^{\bot\bot}$ est un fermé, on peut considérer la fermeture de $F$ et $\overline{F}\subset F^{\bot\bot}$. On a donc l'inclusion réciproque, et $\overline{F}= F^{\bot\bot}$.
 \end{ProofC}
 
 
@@ -2480,7 +2484,7 @@ alors $u=0$ donc $(e_i)$ est une base hilbertienne.
 \begin{Proof}
   $\dagger$ Si $\dim H<\infty$, c'est immédiat.\\
 
-  $\dagger$ On suppose donc $\dim H=\infty$. $H$ est séparable donc il existe une suite $(g_n)_{n\geqslant 0}$ dense dans $H$, on va suppose que les $(_n)$ sont tous non-nuls. 
+  $\dagger$ On suppose donc $\dim H=\infty$. $H$ est séparable donc il existe une suite $\ens{g_n}_{n\geqslant 0}$ dense dans $H$, on va suppose que les $(_n)$ sont tous non-nuls. 
 
   $\star$ On va construire une sous-suite $(g_{\varphi(n)})_{n\geqslant 0}$ telle que\\
   $\Bullet\ \forall n\geqslant 0,\ \ens{g_{\varphi(k)},\ 0\leqslant k\leqslant n}$ est une famille libre\\
@@ -2515,11 +2519,7 @@ alors $u=0$ donc $(e_i)$ est une base hilbertienne.
   $$\forall n\in \N,\ \mathrm{Vect}\ens{g_{\varphi(k)},\ 0\leqslant k\leqslant n}= \mathrm{Vect}\ens{e_k,\ 0\leqslant k\leqslant n}$$
 
   $\star$ Montrons que la famille est complète, soit $x\in H$ et $\varepsilon>0$, il existe $N\in\N\tq \forall n\geqslant N,\ \norm{g_N-x}<\varepsilon.$ Soit $n$ tel que $\varphi(n)>N$, alors 
-  \begin{align*}
-    g_N&\in \mathrm{Vect}\ens{g_j,\ 0\leqslant j\leqslant \varphi(n)}\\
-    &= \mathrm{Vect}\ens{g_{\varphi(k)},\ 0\leqslant k\leqslant n}\\
-    &=\mathrm{Vect}\ens{e_k, 0\leqslant k\leqslant n}
-  \end{align*}
+  $$g_N\in \mathrm{Vect}\ens{g_j,\ 0\leqslant j\leqslant \varphi(n)}=\mathrm{Vect}\ens{g_{\varphi(k)},\ 0\leqslant k\leqslant n}=\mathrm{Vect}\ens{e_k, 0\leqslant k\leqslant n}$$
   donc $g_N=\dstyle\sum_{k=0}^na_ke_k$ et 
   $$\norm{x-\sum_{k=0}^na_ke_k}<\varepsilon,$$
   et $\mathrm{Vect}\ens{e_k,e\ 0\leqslant k\leqslant n}$ est dense dans $H$.
@@ -2617,7 +2617,7 @@ On va donc retrouver tous les résultats de la sous-partie précédente, à savo
 
 
 \Dnote{Tous ces résultats sont valables pour la norme 2, pour la norme infinie il n'y a pas nécessairement de convergence. Une conséquence du théorème de Banach-Steinhaus est que 
-$$\big\{f\in C([-\pi,\pi])\ |\ \underset{n\geqslant 0}{\mathrm{sup}}|S_nf(0)|=+\infty\big\}$$
+$$\big\{f\in C([-\pi,\pi])\tq\underset{n\geqslant 0}{\mathrm{sup}}|S_nf(0)|=+\infty\big\}$$
 est dense dans $\left(C([-\pi,\pi]),||\cdot||_{\infty}\right)$.}
 
 
@@ -2702,7 +2702,7 @@ d'où $\nop{\varphi_{x_0}}=||x_0||.$
   \end{array}$$
   est linéaire et continue, donc d'après le théorème de Riesz, il existe un unique $h(h_2)\in H_2$ tel que 
   $$\forall h_1\in H_1,\ \ps{Th_1,h_2}_{H_2}=\ps{h_1,h(h_2)}_{H_1}$$
-  en notant $T^*=h$, on vérifie que $T^*$ est linéaire. Quand à la continuité, on a 
+  en notant $T^*=h$, on vérifie que $T^*$ est linéaire. Quant à la continuité, on a 
   $$\norm{T^*h_2}=\norm{h(h_2)}=\nop{\Phi}=\underset{||h_1||=1}{\mathrm{sup}}\abs{\ps{Th_1,h_2}}\leqslant ||h_2||\cdot\underset{||h_1||=1}{\mathrm{sup}}\norm {Th_1}\leqslant \nop{T}||h_2||,$$
   donc $T^*$ est continue et on a même la majoration de $\norm{T^*}$ suivante : $\norm{T^*}\leqslant \norm{T}$.
 \end{Proof}
@@ -2825,7 +2825,7 @@ On aura besoin des deux lemmes suivants :
 \begin{ProofC}{La démonstration de la propriété}
   $\star$ On commence par montrer que $\sigma(T)\subset \overline{D(0,\norm{T})}$, soit $\abs{\lambda}>\norm{T}$, montrons que $T-\lambda \Id$ est inversible : on a 
   $$T-\lambda\Id=-\lambda\left(\Id-\frac{T}{\lambda}\right)$$
-  et puisque $\dstyle\abs{\frac{\norm T}{\lambda}}<1$, on peut utiliser le développement en série entière de $\dstyle x\longmapsto\frac{1}{1-x}$
+  et puisque $\dstyle\abs{\frac{\norm T}{\lambda}}<1$, on peut utiliser le développement en série entière de $\dstyle x\longmapsto\Par{1-x}^{-1}$
   donc 
   $$\Par{T-\lambda\Id}=-\lambda\sum_{n=0}^\infty\Par{\frac{T}{\lambda}}^k.$$
   donc $\abs{\lambda}>\norm{T}$ implique que $T-\lambda \Id$ est inversible donc que $T-\lambda\Id\notin\sigma(T).$\\
@@ -2872,7 +2872,7 @@ $\triangleright$\emph{ex :} retour sur le \emph{shift}, montrons que $\sigma(S)=
   \begin{align*}
     S^*a=\lambda a&\Leftrightarrow\Par(a_1,a_2\cdots)=\lambda(a_0,a_1,\cdots)\\
     &\Leftrightarrow \forall k\geqslant 0,\ a_{k+1}=\lambda a_k\\
-    &\Leftrightarrow \forall k\geqslant 0,\ a_{k+1}=\lambda^k a_0\\
+    S^*a=\lambda a&\Leftrightarrow \forall k\geqslant 0,\ a_{k+1}=\lambda^k a_0
   \end{align*}
   et $a\in\ell^2(\N)$ \ssi $\abs{\lambda}<1$ (suite géométrique).
   
@@ -2893,7 +2893,7 @@ Beaucoups de rappels du cours d'Analyse pour l'ingénieur, \emph{s/o} Augustin M
 \PremiereNouvelleSection{Espaces $\mathcal L^p$, inégalités de Hölder et Minkowski}
 
 \begin{Def}
-  Soit $(X,m,\mu)$ un espace mesuré et $1\leqslant p<+\infty$, on pose 
+  Soit $(X,m,\mu)$ un espace mesuré et $1\leqslant p< \infty$, on pose 
 $$\mathcal L^p=\mathcal L^p(X,m,\mu)=\ens{f:X\longrightarrow\C\text{ mesurable telle que}\int_X\abs{f}^p\mathrm d\mu<\infty}$$
 et l'on pose 
 $$\norm{f}_p:=\left(\int_X\abs{f}^p\mathrm d\mu\right)^{\nicefrac{1}{p}}.$$
@@ -2917,7 +2917,7 @@ $$\mathcal L^\infty=\mathcal L^\infty(X,m,\mu)=\ens{f:X\longrightarrow\C\text{ e
 
 \begin{RQ}
 Les élément de $\mathcal L^\infty$ peuvent être assez moches, par exemple 
-$$f(x):\begin{cases}
+$$f(x)=\begin{cases}
   1\text{ si }x\in\R\backslash\Q\\
   +\infty\text{ si }x\in\Q
 \end{cases}$$
@@ -2927,7 +2927,7 @@ appartient à $\mathcal L^\infty$.
 
 \begin{RQ}
   Pour $f\in\mathcal L^\infty$, on a 
-  $$\abs{f(x)}\leqslant \norm{f}_\infty\ \mu\text{-p.p.}$$
+  $$\abs{f}\leqslant \norm{f}_\infty\ \mu\text{-p.p.}$$
 \end{RQ}
 
 
@@ -3045,7 +3045,7 @@ On commence par un lemme,
 
 
 \begin{propC}{inégalité d'Hölder}
-  Soient $1< p<+\infty$ et $q$ son exposant conjugué, soient $(f,g):X\longrightarrow\C$ mesurable\\
+  Soient $1< p< \infty$ et $q$ son exposant conjugué, soient $(f,g):X\longrightarrow\C$ mesurable\\
 
   alors
   $$||fg||_1\leqslant||f||_p||g||_q.$$
@@ -3101,17 +3101,17 @@ On commence par un lemme,
   On peut diviser par $\dstyle\Big(\int_X|f+g|^{(p-1)q}\mathrm d\mu\Big)^{\nicefrac1q}$, puisque $f$ ou $g$ est non nulle $m$-presque partout, on obtient (on rappelle que $(p-1)q=p$) :
   $$\bigg(\int_X|f+g|^p\mathrm d\mu\bigg)^{1-\nicefrac1q} \leqslant \bigg(||f||_p+||g||_p\bigg).$$
   Puisque $\dstyle1-\nicefrac1q=\nicefrac1p$, on obtient finalement :
-  $$\bigg(\int_X|f+g|^p\mathrm d\mu\bigg)^{\nicefrac1p:} \leqslant \bigg(||f||_p+||g||_p\bigg).$$
+  $$\bigg(\int_X|f+g|^p\mathrm d\mu\bigg)^{\nicefrac1p} \leqslant \bigg(||f||_p+||g||_p\bigg).$$
   Ce qui se ré-écrit en $||f+g||_p\leqslant ||f||_p+||g||_p$.
 \end{Proof}
 
 
-Ainsi, nos espaces $\mathcal L^p$ (pour $1\leqslant p\leqslant +\infty$) sont tous des espaces vectoriels, et $\norm{\cdot}_p$ est une \emph{semi-norme}, on va voir qu'il est possible d'en faire des espaces vectoriels normés.
+Ainsi, nos espaces $\mathcal L^p$ (pour $1\leqslant p\leqslant \infty$) sont tous des espaces vectoriels, et $\norm{\cdot}_p$ est une \emph{semi-norme}, on va voir qu'il est possible d'en faire des espaces vectoriels normés.
 
 
 \NouvelleSection{Théorème de Riesz-Fischer, espaces $L^p$}
 
-Soit $(X,m,\mu)$ un espace mesuré et $1\leqslant p\leqslant +\infty$. On sait que, pour $f\in\mathcal L^p$, 
+Soit $(X,m,\mu)$ un espace mesuré et $1\leqslant p\leqslant \infty$. On sait que, pour $f\in\mathcal L^p$, 
 $$\norm{f}_p=0\Leftrightarrow f=0\ \mu\text{-p.p.},$$
 on va donc considérer la relation d'équivalence (exercice) suivante
 $$f\sim g \Leftrightarrow f=g\ \mu\text{-p.p.}$$
@@ -3130,7 +3130,7 @@ Dans la suite du document, on fera toujours l'identification entre $f$ et $[f]$,
 
 
 \begin{Th}
-  Soit $1\leqslant p<+\infty$, soit $(f_n)\in L^p$ tels que $\sum_{n\geqslant 0}\norm{f_n}_p<\infty$,\\
+  Soit $1\leqslant p< \infty$, soit $(f_n)\in L^p$ tels que $\sum_{n\geqslant 0}\norm{f_n}_p<\infty$,\\
 
   alors $\sum_{n\geqslant 0}f_n$ converge $\mu$-p.p. et en notant $F=\sum_{n\geqslant 0}f_n$, on a 
   $$\norm{\sum_{n= 0}^Nf_n-F}_p\longrightarrow 0\text{ quand }N\to\infty.$$
@@ -3171,7 +3171,7 @@ Dans la suite du document, on fera toujours l'identification entre $f$ et $[f]$,
 
 
 \begin{thC}{de Riesz-Fischer}
-  Soit $1\leqslant p<+\infty$,\\
+  Soit $1\leqslant p< \infty$,\\
 
   l'espace $L^p$ est un Banach, ou plus précisément, pour $(f_n)\in L^p$ une suite de Cauchy\\
   $(\mathit 1)\ \exists f\in L^p$ telle que 
@@ -3233,7 +3233,7 @@ Dans la suite du document, on fera toujours l'identification entre $f$ et $[f]$,
 \NouvelleSection{Théorèmes de densité}
 
 
-Soit $1\leqslant p<+\infty$
+Soit $1\leqslant p< \infty$
 
 
 \begin{lemme}
@@ -3303,7 +3303,7 @@ $$f\in C_{cc}\Leftrightarrow\begin{cases}
 
 
 \begin{Th}
-  Soit $1\leqslant p<+\infty$,\\
+  Soit $1\leqslant p< \infty$,\\
 
   alors $C_{cc}$ est dense dans $L^p$.
 \end{Th}
@@ -3351,12 +3351,12 @@ La preuve de ce théorème requiert le lemme suivant, qui découle de la constru
 
 
 \begin{RQ}
-  Pour $1\leqslant p<+\infty$, $L^p$ est séparable (exercice).
+  Pour $1\leqslant p< \infty$, $L^p$ est séparable (exercice).
 \end{RQ}
 
 
 \begin{Th}
-  Soit $1\leqslant p<+\infty$, pour $f\in L^p$ on pose 
+  Soit $1\leqslant p< \infty$, pour $f\in L^p$ on pose 
   $$f_x:t\longmapsto f(t-x)$$
   l'opérateur de translation,\\
 
@@ -3414,7 +3414,7 @@ La preuve de ce théorème requiert le lemme suivant,
   \begin{align*}
     \intI\abs{f_x-f_y}^p\mathrm d\lambda&=\int_{-N-\delta}^{N+\delta}\abs{f(u)-f(u+(x-y))}^p\mathrm du\\
     &\leqslant \varepsilon^p\Par(2N+2\delta)\\
-    &\leqslant 4N\varepsilon^p
+    \norm{f_x-f_y}_p^p&\leqslant 4N\varepsilon^p
   \end{align*}
   $N$ étant fixe, on peut revenir au début de la preuve et choisir un $\varepsilon$ adapté, ce qui conclut.\\
 
@@ -3447,10 +3447,10 @@ La preuve de ce théorème requiert le lemme suivant,
 
 
 \begin{Th}
-  Soit $1\leqslant p\leqslant +\infty$, soit $q$ l'exposant conjugué de $p$,\\
+  Soit $1\leqslant p\leqslant \infty$, soit $q$ l'exposant conjugué de $p$,\\
 
   $(\mathit 1)$ si $f\in L^p,\ g\in L^p$, alors $f*g$ est définie sur $\R$ et $f*g\in C_b(\R)$.\\
-  $(\mathit 2)$ si $1<p<+\infty$, alors 
+  $(\mathit 2)$ si $1<p< \infty$, alors 
   $$(f*g)(x)\longrightarrow 0\text{ quand }\abs x\to 0.$$ 
 \end{Th}
 
