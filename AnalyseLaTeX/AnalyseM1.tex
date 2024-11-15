@@ -1190,7 +1190,7 @@ est relativement compacte.
 
 
 \begin{corollaire}
-  Soient $X$ un espace de Banach, $Y$ un espace vectoriel normé et $\left\{T_i,\ i\in I\right\}$ une suite quelconque d'applications linéaires continues$X\longrightarrow Y$, si 
+  Soient $X$ un espace de Banach, $Y$ un espace vectoriel normé et $\left\{T_i,\ i\in I\right\}$ une suite quelconque d'applications linéaires continues $X\longrightarrow Y$, si 
   $$\forall x\in X,\ \mathrm{sup}_{i\in I}||T_ix||<\infty,$$
 
   alors $\mathrm{sup}_{i\in I}||T_i||<\infty.$
@@ -3429,14 +3429,17 @@ La preuve de ce théorème requiert le lemme suivant,
     \norm{f_x-f_y}_p&\leqslant 3\varepsilon
   \end{align*}
 \end{ProofC}
+
+
 \NouvellePart{Convolution et tranformée de Fourier}
 
 
 \PremiereNouvelleSection{Produit de convolution}
 
+
 \begin{Def}
   Pour $(f,g):\R\longrightarrow\C$, si pour tout $x\in \R,\ t\longmapsto f(x-t)g(t)\in L^1$, on définit la \emph{convolée de }$f$\emph{ par }$g$ par 
-  $$\forall x\in\R,\ (f*g)(x):=\int_{-\infty}^{+\infty}f(x-t)g(t)\dt=\int_{-\infty}^{+\infty}f(u)(x-u)\mathrm du.$$
+  $$\forall x\in\R,\ (f*g)(x):=\int_{-\infty}^{+\infty}f(x-t)g(t)\dt=\int_{-\infty}^{+\infty}f(u)g(x-u)\mathrm du.$$
   (on passe de la première intégrale à la seconde via le changement de variable $u=x-t$)
 \end{Def}
 
@@ -3450,12 +3453,303 @@ La preuve de ce théorème requiert le lemme suivant,
   Soit $1\leqslant p\leqslant \infty$, soit $q$ l'exposant conjugué de $p$,\\
 
   $(\mathit 1)$ si $f\in L^p,\ g\in L^p$, alors $f*g$ est définie sur $\R$ et $f*g\in C_b(\R)$.\\
-  $(\mathit 2)$ si $1<p< \infty$, alors 
+  $(\mathit 2)$ si $1<p< \infty$ et $f\in L^p,\ g\in L^p$, alors 
   $$(f*g)(x)\longrightarrow 0\text{ quand }\abs x\to 0.$$ 
 \end{Th}
 
 
-\begin{Proof}{Démonstration du théorème}
+\begin{ProofC}{Démonstration du $(\mathit 1)$}
+  D'après l'inégalité de Hölder, 
+  $$\abs{f*g}(x)\leqslant\intr\abs{f(x-t)g(t)}\dt\leqslant\norm{\tau_x(f)}_p\norm{g}_q=\norm{f}_p\norm{g}_q<\infty$$
+  donc $f*g$ est finie et est même bornée sur $\R$.
+\end{ProofC}
+
+
+\begin{ProofC}{Démonstration du $(\mathit 2)$}
+  Soit $\varepsilon>0$, par densité de $C_{cc}$ dans les espaces $L^p$ et $L^q$, il existe $\varphi,\psi\in C_{cc}$ telle que 
+  $$\norm{f-\varphi}_p<\varepsilon\text{ et }\norm{g-\psi}_q<\varepsilon$$
+  Soit $x\in\R$, on calcule 
+  \begin{align*}
+    \abs{f*g(x)-\varphi*\psi(x)}&=\abs{\Par{f-\varphi}*g(x)-\varphi*\Par{\psi-g}(x)}\\
+    &\leqslant\abs{\Par{f-\varphi}*g(x)}+\abs{\varphi*\Par{\psi-g}(x)}\\
+    &\leqslant\norm{\Par{f-\varphi}*g}_\infty+\norm{\varphi*\Par{\psi-g}}_\infty\\
+    &\leqslant\norm{f-\varphi}_p\norm{g}_q+\norm{\psi-g}_q\underbrace{\norm{\varphi}_p}_{\leqslant \norm{f}_p+\varepsilon}\\
+    \abs{f*g(x)-\varphi*\psi(x)}&\leqslant \varepsilon\Par{\norm{g}_p+\norm{f}_q+\varepsilon}\qquad (i)
+  \end{align*}
+  De plus, $\varphi$ et $\psi$ sont à supports compacts donc il existe $a>0$ tels que $\varphi$ et $\psi$ sont nulles hors de $[-a,a]$, donc
+  $$\forall x\in\R,\ \varphi*\psi(x)=\intr\varphi(x-t)\psi(t)\dt=\int_{-a}^a\varphi(x-t)\psi(t)\dt.$$
+  Pour $\abs x\geqslant 2a$ et $\abs a\leqslant a$, $\abs{x-t}\geqslant a$ donc $\mathrm{supp}\ \varphi*\psi\subset[-2a,2a].$
+  Donc pour $\abs x\geqslant 2a$, $\varphi*\psi(x)=0$ donc l'inégalité $(i)$ devient 
+  $$\forall \abs x\geqslant 2a,\ \abs{f*g(x)}\leqslant \varepsilon\Par{\norm{g}_p+\norm{f}_q+\varepsilon}$$
+  donc 
+  $$(f*g)(x)\longrightarrow 0\text{ quand }\abs x\to 0.$$
+\end{ProofC}
+
+
+\begin{Th}
+  Soient $1\leqslant p<\infty$, $f\in L^1$ et $g\in L^p$,\\
+
+  alors $f*g$ existe $\lambda$-p.p. et on a aussi
+  $$\norm{f*g}_p\leqslant \norm{f}_1\norm{g}_p$$
+\end{Th}
+
+
+Avant de montrer ce théorème, on aura besoin d'améliorer un peu l'inégalité de Jensen, en considérant une fonction pas nécessairement intégrable :
+
+
+\begin{propC}{inégalité de Jensen, bis}
+  Soit $p\geqslant 1$, $f:X\longrightarrow\R$ et $\mu$ une mesure de probabilité,\\
+
+  alors 
+  $$\Par{\int_Xf\dmu}^p\leqslant\int_Xf^p\dmu$$
+\end{propC}
+
+
+\begin{Proof}
+  Si $f$ est dans $L^1$, c'est l'inégalité \og classique\fg\ donc la preuve est finie ainsi on suppose que $\dstyle\int_Xf\dmu=+\infty$ et on pose 
+  $$\O:=\ens{x\in X\ :\ f(x)\leqslant 1}$$
+  on a donc
+  $$\underbrace{\int_Xf\dmu}_{=+\infty}=\underbrace{\int_\O f\dmu}_{\leqslant 1}+\int_{\O^c}f\dmu$$
+  donc nécessairement $\dstyle\int_{\O^c}f\dmu=+\infty$. Sur $\O^c,\ f\geqslant 1$ donc $f^p\geqslant f$ donc $\dstyle\int_{\O^c}f^p\dmu=+\infty$ donc 
+  $$\int_Xf^p\dmu\geqslant \int_{\O^c}f^p\dmu=+\infty=(+\infty)^p=\Par{\int_Xf\dmu}^p.$$
+\end{Proof}
+
+\begin{ProofC}{Démonstration du théorème}
+  Soit la mesure de probabilité 
+  $$\mathrm d\mu(t):=\frac{\abs{f(t)}\mathrm dt}{\norm{f}_1}$$
+  on a bien 
+  $$\mu(\R)=\int_\R\mathrm d\mu(t)=\frac{1}{\norm{f}_1}\int_\R\abs{f(t)}\mathrm dt=1$$
+  Soit $\varphi:t\longmapsto t^p$ qui est convexe sur $[0,+\infty[$, on applique notre amélioration de l'inégalité de Jensen et on a alors 
+  $$\int_\R\Par{\int_\R\abs{g(x-t)}\mathrm d\mu(t)}^p\mathrm dx\leqslant \int_\R\int_\R\abs{g(x-t)}^p\frac{\abs{f(t)}\mathrm dt}{\norm{f}_1}\mathrm dx$$
+  D'après l'égalité de Fubini-Tonelli,
+  \begin{align*}
+  \int_R\Par{\int_\R\abs{g(x-t)}\frac{\abs{f(t)}\mathrm dt}{\norm{f}_1}}^p\mathrm dx&\leqslant \int_\R\frac{\abs{f(t)}\mathrm dt}{\norm{f}_1}\int_\R\abs{g(x-t)}^p\mathrm dx\\
+  \int_R\Par{\int_\R\abs{g(x-t)}\frac{\abs{f(t)}\mathrm dt}{\norm{f}_1}}^p\mathrm dx&\leqslant \norm{g}_p^p
+  \end{align*}
+  d'où 
+  $$\norm{f*g}_p^p=\int_\R\Par{\int_\R\abs{g(x-t)f(t)}\dt}^p\dx\leqslant \norm{f}_1^p\norm{g}_p^p$$
+  et $f*g$ est donc finie $\lambda$-presque partout.
+\end{ProofC}
+
+
+\begin{Def}
+  Soit $(A,+,.,*)$ une algèbre, elle est dite \emph{de Banach} \ssi\\
+  $\Bullet$ $\Par{(A,+,.),\norm{\cdot}_\infty}$ est un espace de Banach\\
+  $\BBullet\ \forall (x,y)\in A,\ \norm{x\times y}\leqslant \norm{x}\norm{y}.$
+\end{Def}
+
+\begin{corollaire}
+  $(L^1,+,.,*)$ est une algèbre de Banach commutative.
+\end{corollaire}
+
+
+On va maintenant se poser la question (ô combien importante) de l'existence d'un neutre pour la loi $*$, autrement dit, existe-t-il $e\in L^1$ tel que 
+$$\forall f\in L^1,\ f*e=f=e*f$$
+???\\
+
+
+Niveau notations, on va poser
+$$\D^0:=C_{cc}(\R)$$
+et pour $k\in \N\cup\ens{+\infty}$ on pose 
+$$\D^k:=C^k\cap C_{cc}(\R)=\ens{f:\R\longrightarrow\C\ C^k\text{ et à support compact}}.$$
+On a la chaîne d'inclusion suivante : 
+$$\D^\infty\subset \D^k\subset \D^{k-1}\subset\cdots\subset \D^0\subset L^p.$$
+
+
+\begin{prop}
+  Soient $1\leqslant p<\infty$, $f\in L^p$, $k\in\N\subset\ens{+\infty}$ et $\varphi\in D^k$,\\
+
+  alors $f*\varphi\in C^k$ et pour $\ell\leqslant k$, on a 
+  $$\forall x\in\R,\ \Par{f*\varphi}^{(k)}(x)=f*\varphi^{(k)}(x).$$
+\end{prop}
+
+
+\begin{Proof}
+  On procède par récurrence, le cas $k=0$ est vrai, on suppose que c'est vrai pour $k\in\N$, soit $\varphi\in \D^{k+1}\subset \D^k$, on sait que $f*\varphi$ est de classe $C^k$.
+
+  $\varphi$ est à support compact donc $\varphi^{(k)}$ l'est aussi et il existe $a>0$ tel que 
+  $$\abs x\geqslant a\Rightarrow \varphi^{(k)}=0.$$
+  Soit $x_0\in\R$ et $x$ tel que $\abs{x-x_0}<1$, alors 
+  \begin{align*}
+    \abs{x-t}&=\abs{x-x_0+x_0-t}\\
+    &\geqslant\abs{x_0-t}-\abs{x-x_0}\\
+    &\geqslant \abs{x_0-t}-1
+  \end{align*}
+pourquoient ???? truandage ???
+
+si $x$ est tel qu $\abs{x_0-t}>1+a$, alors $\varphi^{(k)}(x-t)=0$
+donc 
+$$\int_{x_0-1-1}^{x_0+1+a}\varphi^{(k)}(x-t)f(t)\dt$$
+
+
+À INVESTIGUER
+\end{Proof}
+
+
+\NouvelleSection{Approximations de l'unité}
+
+
+\begin{Def}
+  Soit la famille $\ens{k_a,\ a>0}$, c'est une \emph{approximation de l'unité} \ssi\\
+  $\Bullet\ \exists c>0\ :\ \forall a>0,\ \norm{k_a}_1\leqslant c$\\
+  $\BBullet\ \forall >0,$ 
+  $$\dstyle\int_\R k_a(t)\dt=1$$
+  $\BBBullet\ \forall \delta>0,$
+  $$\underset{a\to 0}{\mathrm{lim}}\int_{\abs t>\delta}\abs{k_a(t)}\dt=0.$$
+\end{Def}
+
+
+$\triangleright$\emph{ex : }soit 
+$$k(t):=\frac{1}{\pi}\frac{1}{1+t^2}$$
+on a (c'est la dérivée de $\mathrm{Arctan}$) 
+$$\int_R k(t)\dt=1$$
+et pour $a>0$, on pose 
+$$\forall t\in\R,\ k_a(t):=\frac{1}{a}k\Par{\nicefrac{t}{a}}$$
+alors les $\ens{k_a,\ a>0}$ forment une approximation de l'unité. On vérifie rapidement que les points $\Bullet$ et $\BBullet$ sont vrais et pour le $\BBBullet$, soit $\delta>0$
+\begin{align*}
+  \int_{\abs t>\delta}\abs{k_a(t)}\dt&=\int_{\abs t>\delta}\abs{k(\nicefrac{t}{a})}\frac{\dt}{a}\\
+  &=\int_{\abs u>\nicefrac{\delta}{a}}\\
+  \int_{\abs t>\delta}\abs{k_a(t)}\dt&=\int_\R\chi_{A_a}(u)\abs{k(u)}\mathrm du\\
+\end{align*}
+où les $A_a$ sont définit comme 
+$$A_a:=\ens{u\in\R\ :\ \abs u>\frac{\delta}{a}}$$
+on a la majoration 
+$$\forall u\in\R,\ \abs{\chi_{A_a}(u)k(u)}\leqslant k(u)\in L^1$$
+et l'application $\chi_{A_a}k$ CVS vers $0$ quand $a\to 0$, on peut donc appliquer le théorème de convergence dominée et 
+$$\underset{a\to 0}{\mathrm{lim}}\int_{\abs t>\delta}\abs{k_a(t)}\dt=0.$$
+
+
+$\triangleright$\emph{ex bis: }soit
+$$\sigma(u)=\left\{
+\begin{array}{lcc}
+  &\ex{\frac{1}{u^1-1}}&\text{ si }\abs u<1\\
+  &0&\text{ si }\abs u\geqslant 1
+\end{array}\right.$$
+On montre par récurrence que $\sigma$ est $C^\infty$ à support compact, on peut donc poser sans problème
+$$0<A:=\int_\R\sigma(u)\mathrm du<\infty$$
+on va poser $k(t):=\sigma(At)$ (de façon à avoir une intégrale sur $\R$ de valeur $1$) et on pose, à nouveau, 
+$$\forall a>0,\ \forall t\in\R,\ k_a(t)=\frac{1}{a}k(\nicefrac{t}{a})=\frac{1}{a}\sigma\Par{\frac{At}{a}},$$
+montrons que c'est une approximation de l'unité :
+
+les points $\Bullet$ et $\BBullet$ sont vrais, vérifions le $\BBBullet$. On vérifie que 
+$$\mathrm{supp}\ k_a\subset \left[-\nicefrac{a}{A},\nicefrac{a}{A}\right]$$
+donc (car $k_a\geqslant 0$)
+$$\forall (a,\delta)>0,\ \int_{\abs t>\delta}k_a(t)\dt\leqslant \lambda\Par{\left[-\nicefrac{a}{A},\nicefrac{a}{A}\right]}\underset{a\to0}{\rightarrow}0.$$
+
+
+
+\begin{prop}
+  Soit $\ens{k_a,\ a>0}$ une unité approchée dans $L^1$,\\
+
+  $(\mathit 1)$ pour $f\in C_{cc}$, alors $k_a*f$ est bornée et 
+  $$\norm{k_a*f}_{\infty}\underset{a\to 0}{\longrightarrow}0.$$
+  $(\mathit 2)$ pour $1\leqslant p<\infty$ et $f\in L^p$, alors $k_a*f$ est dans $L^p$ est 
+  $$\norm{k_a*f}_{p}\underset{a\to 0}{\longrightarrow}0.$$
+\end{prop}
+
+
+\begin{ProofC}{Démonstration du $(\mathit 1)$}
+  Soit $f\in C_{cc}$, alors $f\in L^\infty$ et (d'après le premier théorème) $k_a*f\in C_b$. Soit $x\in\R$, on calcule
+  \begin{align*}
+    k_a*f(x)-f(x)&=\intr f(x-t)k_a(t)\dt-f(x)\\
+    k_a*f(x)-f(x)&=\intr k_a(t)\left[f(x-t)-f(x)\right]\dt
+  \end{align*}
+  donc par inégalité triangulaire,
+  $$\abs{k_a*f(x)-f(x)}\leqslant\intr\abs{f(x-t)-f(x)}\abs{k_a(t)}\dt.$$
+  Puisque $f$ est continue à support compact, elle est uniformément continue, donc pour $\varepsilon>0$, il existe $\delta>0$ tel que 
+  $$\forall x\in\R,\ \abs t<\delta\Rightarrow\abs{f(x-t)-f(t)}<\varepsilon$$
+  donc
+  \begin{align*}
+    \abs{k_a*f(x)-f(x)}&\leqslant\int_{\abs t\leqslant \delta}\abs{f(x-t)-f(x)}\abs{k_a(t)}\dt+\int_{\abs t\geqslant \delta}\abs{f(x-t)-f(x)}\abs{k_a(t)}\dt\\
+    &\leqslant \varepsilon\int_{\abs t\leqslant \delta}\abs{k_a(t)}\dt+2\norm{f}_\infty\int_{\abs t\geqslant\delta}\abs{k_a(t)}\dt\\
+    \abs{k_a*f(x)-f(x)}&\leqslant c\varepsilon+2\norm{f}_\infty\int_{\abs t\geqslant\delta}\abs{k_a(t)}\dt\\
+  \end{align*}
+  où $c$ est le $c$ du point $\Bullet$ de la définition d'une approximation de l'unité. On a donc
+  $$\underset{x\in\R}{\mathrm{sup}}\abs{k_a*f(x)-f(x)}\leqslant c\varepsilon +2\norm{f}_\infty\underbrace{\int_{\abs t\geqslant\delta}\abs{k_a(t)}\dt}_{\underset{a\to 0}{\longrightarrow}0}$$
+  ainsi
+  $$\norm{k_a*f}_{\infty}\underset{a\to 0}{\longrightarrow}0.$$
+\end{ProofC}
+
+
+\begin{ProofC}{Démonstration du $(\mathit 2)$}
+  $f$ est dans $L^p$ et $k_a$ est dans $L^1$, donc $k_a*f\in L^p$, on a 
+  $$\abs{k_a*f(x)-f(x)}^p\leqslant\Par{\intr\abs{f(x-t)-f(x)}\dmu}^p\norm{k_a}_1^p$$
+  où $\dmu:=\dstyle\frac{\abs{k_a(t)}\dt}{\norm{k_a}_1}$ est une mesure de probabilité, on a donc
+  \begin{align*}
+    \abs{k_a*f(x)-f(x)}^p&\leqslant\norm{k_a}_1^{p-1}\intr\abs{f(x-t)-f(x)}^p\abs{k_a(t)}\dt\\
+    \abs{k_a*f(x)-f(x)}^p&\leqslant c^{p-1}\intr\abs{f(x-t)-f(x)}^p\abs{k_a(t)}\dt
+  \end{align*}
+  donc 
+  \begin{align*}
+    \norm{k_a*f-f}_p^p&=\intr\abs{k_a*f(x)-f(x)}^p\dx\\
+    &\leqslant c^{p-1}\intr\intr\abs{f(x -t)-f(x)}^p\abs{k_a(t)}\dt\dx\\
+    &\leqslant c^{p-1}\intr\abs{k_a(t)}\intr\abs{f(x-t)-f(x)}^p\dx\dt\\
+    \norm{k_a*f-f}_p^p&\leqslant c^{p-1}\intr\abs{k_a(t)}\norm{\tau_t(f)-\tau_0(f)}_p^p\dt
+  \end{align*}
+  $t\in\R\longmapsto \tau_t(f)$ étant continue, pour la norme uniforme, pour tout $\varepsilon>0$, il existe un $\delta>0$ tel que 
+  $$\forall (x,y)\ :\ \abs{x-y}<\delta,\ \norm{\tau_x(f)-\tau_y(f)}_p<\varepsilon$$
+  donc pour tout $\abs t<\delta$,
+  $$\norm{\tau_t(f)-\tau_0(f)}_p^p<\varepsilon$$
+  ainsi 
+  $$\norm{k_a*f-f}_p^p\leqslant c^{p-1}\Par{\varepsilon\int_{\abs t\leqslant \delta}\abs{k_a(t)}\dt+\int_{\abs t\geqslant \delta}\abs{k_a(t)}\norm{\tau_t(f)-\tau_0(f)}_p^p\dt}.$$
+
+
+  À INVESTIGUER POUR CONCLURE
+\end{ProofC}
+
+\begin{prop}
+  Soit $1\leqslant p\leqslant \infty$, l'espace $\D$ est dense dans $L^p$
+\end{prop}
+
+
+\begin{Proof}
   À FAIRE
 \end{Proof}
+
+
+\NouvelleSection{Transformation de Fourier}
+
+
+Soit $f\in L^1$ et $y\in \R$, on pose 
+$$\hat f(y):=\intr f(x)\ex{-2i\pi xy}\dx$$
+$f$ étant dans $L^1$, $x\mapsto f(x)\ex{-2i\pi xy}$ l'est aussi. On appelle $\hat f$ \emph{tranformée de Fourier de }$f$ et l'application 
+$$\begin{array}{|ccc}
+  L^1&\longrightarrow&\mathcal{F}(\R,\C)\\
+  f&\longmapsto \hat f
+\end{array}$$
+est la \emph{transformation de Fourier.}
+
+
+$\triangleright$\emph{ex :} soit la fonction gaussienne 
+$$\gamma:x\longmapsto \ex{-\pi x^2}$$
+on a alors, pour $y\in\R$
+$$\hat \gamma (y)=\intr\ex{-\pi x^2}\ex{-2i\pi xy}\dx$$
+l'intégrande, notée $\varphi$ est dans $L^1$ et est dérivable de dérivée  
+$$\abs{\frac{\partial \varphi(x,y)}{\partial y}}=\abs{-2i\pi x\ex{-\pi x^2}\ex{-2i\pi xy}}\leqslant 2\pi\abs x\ex{-\pi x^2}\in L^1$$
+ainsi, par théorème de dérivation sous le signe intégral, $\hat\gamma$ est de classe $C^1$ sur $\R$ et 
+$$\hat \gamma'(y)=-2\pi i\intr x\ex{-\pi x^2}\ex{-2i\pi xy}\dx.$$
+Par intégration par partie, 
+$$\begin{array}{lllc}
+  &u=\ex{-2i\pi xy}\qquad &u'=-2i\pi x\ex{-2i\pi xy}&\\
+  &v'=x\ex{-\pi x^2}&v=-\frac{1}{2\pi}\ex{-\pi x^2}&
+\end{array}$$
+et $uv(x)\underset{\abs x\to +\infty}{\longrightarrow}0$ donc 
+$$\hat \gamma'(y)=-2\pi y\intr \ex{-\pi x^2}\ex{-2i\pi xy}\dx=-2\pi y\hat \gamma(y)$$
+donc il existe $k\in R$ tel que 
+$$\hat\gamma (y)=k\ex{-\pi x^2}$$
+et en évaluant en $0$, on trouve que $k=1$ d'où 
+$$\hat\gamma (y)=\ex{-\pi x^2}.$$
+
+
+\begin{propC}{Propriétés générales } soit $f\in L^1$\\
+
+  $(\mathit 1)$ soit $a\in\R$ et $\tau_a(f)(x)=f(x-a)$ l'opérateur de translation, alors $\tau_af\in L^1$ et 
+  $$\forall y\in\R,\ \widehat{\tau_af}(y)=\ex{-2i\pi ya}\hat f(y).$$
+  $(\mathit 2)$ soit $\lambda>0$, $H_\lambda(f)(x)=f(\nicefrac{x}{\lambda})$, alors $H_\lambda(f)\in L^1$ et 
+  $$\forall y\in\R,\ \widehat{H_\lambda(f)}(y)\lambda \hat f(y).$$
+  $(\mathit 3)$ soit $t\in\R$ et $M_t(f)(x)=\ex{-2i\pi tx}f(x)$, alors $M_t(f)\in L^1$ et 
+  $$\forall y\in\R,\ \widehat{M_t(f)}(y)=\hat f(y-t).$$
+  $(\mathit 4)$ si $f\in L^1\cap C_1$, alors $f'\in L^1$ et 
+  $$\forall y\in\R,\ \hat f'(y)=2i\pi \hat f(y).$$
+\end{propC}
 \end{document}

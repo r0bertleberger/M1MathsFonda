@@ -22,3 +22,5 @@
 \contentsline {subsection}{Théorèmes de densité}{82}{section*.17}%
 \contentsline {part}{V\hspace {1em}Convolution et tranformée de Fourier}{87}{part.5}%
 \contentsline {subsection}{Produit de convolution}{87}{section*.18}%
+\contentsline {subsection}{Approximations de l'unité}{91}{section*.19}%
+\contentsline {subsection}{Transformation de Fourier}{94}{section*.20}%

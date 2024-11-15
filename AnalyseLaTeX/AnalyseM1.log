@@ -1,4 +1,4 @@
-This is XeTeX, Version 3.141592653-2.6-0.999996 (TeX Live 2024) (preloaded format=xelatex 2024.9.22)  5 NOV 2024 23:29
+This is XeTeX, Version 3.141592653-2.6-0.999996 (TeX Live 2024) (preloaded format=xelatex 2024.9.22)  15 NOV 2024 17:22
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -3643,47 +3643,221 @@ Package mdframed Info: Not enough space on this page on input line 3431.
 ]
 
 Package hyperref Warning: Difference (2) between bookmark levels is greater 
-(hyperref)                than one, level fixed on input line 3435.
+(hyperref)                than one, level fixed on input line 3437.
 
-Package mdframed Info: mdframed works in twoside mode on input line 3437.
+Package mdframed Info: mdframed works in twoside mode on input line 3440.
 Package mdframed Info: mdframed detected package amsthm 
  changed the theorem header of amsthm
-(mdframed)              on input line 3437.
-Package mdframed Info: mdframed works in twoside mode on input line 3449.
+(mdframed)              on input line 3440.
+Package mdframed Info: mdframed works in twoside mode on input line 3452.
 Package mdframed Info: mdframed detected package amsthm 
  changed the theorem header of amsthm
-(mdframed)              on input line 3449.
+(mdframed)              on input line 3452.
 
-Underfull \hbox (badness 10000) in paragraph at lines 3449--3451
+Underfull \hbox (badness 10000) in paragraph at lines 3452--3454
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 3458--3458
+Underfull \hbox (badness 10000) in paragraph at lines 3461--3461
 
  []
 
-Package mdframed Info: mdframed works in twoside mode on input line 3458.
+Package mdframed Info: mdframed works in twoside mode on input line 3462.
 Package mdframed Info: mdframed detected package amsthm 
  changed the theorem header of amsthm
-(mdframed)              on input line 3458.
+(mdframed)              on input line 3462.
+
+Underfull \hbox (badness 10000) in paragraph at lines 3468--3468
+
+ []
+
+Package mdframed Info: mdframed works in twoside mode on input line 3469.
+Package mdframed Info: mdframed detected package amsthm 
+ changed the theorem header of amsthm
+(mdframed)              on input line 3469.
+Package mdframed Info: Box was splittet wrong
+ starting loop to iterate the splitting point
+(mdframed)              on input line 3486.
 
 
-[87] (./AnalyseM1.aux)
+[87]
+Package mdframed Info: mdframed works in twoside mode on input line 3489.
+Package mdframed Info: mdframed detected package amsthm 
+ changed the theorem header of amsthm
+(mdframed)              on input line 3489.
+
+Underfull \hbox (badness 10000) in paragraph at lines 3489--3491
+
+ []
+
+Package mdframed Info: mdframed works in twoside mode on input line 3500.
+Package mdframed Info: mdframed detected package amsthm 
+ changed the theorem header of amsthm
+(mdframed)              on input line 3500.
+
+Underfull \hbox (badness 10000) in paragraph at lines 3500--3502
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 3508--3508
+
+ []
+
+Package mdframed Info: mdframed works in twoside mode on input line 3509.
+Package mdframed Info: mdframed detected package amsthm 
+ changed the theorem header of amsthm
+(mdframed)              on input line 3509.
+
+Underfull \hbox (badness 10000) in paragraph at lines 3517--3517
+
+ []
+
+Package mdframed Info: mdframed works in twoside mode on input line 3518.
+Package mdframed Info: mdframed detected package amsthm 
+ changed the theorem header of amsthm
+(mdframed)              on input line 3518.
+Package mdframed Info: Box was splittet wrong
+ starting loop to iterate the splitting point
+(mdframed)              on input line 3532.
+
+
+[88]
+Package mdframed Info: mdframed works in twoside mode on input line 3535.
+Package mdframed Info: mdframed detected package amsthm 
+ changed the theorem header of amsthm
+(mdframed)              on input line 3535.
+Package mdframed Info: mdframed works in twoside mode on input line 3541.
+Package mdframed Info: mdframed detected package amsthm 
+ changed the theorem header of amsthm
+(mdframed)              on input line 3541.
+
+Underfull \hbox (badness 10000) in paragraph at lines 3547--3549
+
+ []
+
+Package mdframed Info: mdframed works in twoside mode on input line 3559.
+Package mdframed Info: mdframed detected package amsthm 
+ changed the theorem header of amsthm
+(mdframed)              on input line 3559.
+
+Underfull \hbox (badness 10000) in paragraph at lines 3559--3561
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 3567--3567
+
+ []
+
+Package mdframed Info: mdframed works in twoside mode on input line 3568.
+Package mdframed Info: mdframed detected package amsthm 
+ changed the theorem header of amsthm
+(mdframed)              on input line 3568.
+
+
+[89]
+
+[90]
+Package mdframed Info: mdframed works in twoside mode on input line 3592.
+Package mdframed Info: mdframed detected package amsthm 
+ changed the theorem header of amsthm
+(mdframed)              on input line 3592.
+
+
+[91]
+Package mdframed Info: mdframed works in twoside mode on input line 3641.
+Package mdframed Info: mdframed detected package amsthm 
+ changed the theorem header of amsthm
+(mdframed)              on input line 3641.
+
+Underfull \hbox (badness 10000) in paragraph at lines 3641--3643
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 3651--3651
+
+ []
+
+Package mdframed Info: mdframed works in twoside mode on input line 3652.
+Package mdframed Info: mdframed detected package amsthm 
+ changed the theorem header of amsthm
+(mdframed)              on input line 3652.
+Package mdframed Info: Box was splittet wrong
+ starting loop to iterate the splitting point
+(mdframed)              on input line 3671.
+
+
+[92]
+Underfull \hbox (badness 10000) in paragraph at lines 3674--3674
+
+ []
+
+Package mdframed Info: mdframed works in twoside mode on input line 3675.
+Package mdframed Info: mdframed detected package amsthm 
+ changed the theorem header of amsthm
+(mdframed)              on input line 3675.
+Package mdframed Info: mdframed works in twoside mode on input line 3700.
+Package mdframed Info: mdframed detected package amsthm 
+ changed the theorem header of amsthm
+(mdframed)              on input line 3700.
+
+Underfull \hbox (badness 10000) in paragraph at lines 3705--3705
+
+ []
+
+Package mdframed Info: mdframed works in twoside mode on input line 3706.
+Package mdframed Info: mdframed detected package amsthm 
+ changed the theorem header of amsthm
+(mdframed)              on input line 3706.
+
+
+[93]
+Package mdframed Info: mdframed works in twoside mode on input line 3744.
+Package mdframed Info: mdframed detected package amsthm 
+ changed the theorem header of amsthm
+(mdframed)              on input line 3744.
+
+Underfull \hbox (badness 10000) in paragraph at lines 3744--3745
+
+ []
+
+Package mdframed Info: Box was splittet wrong
+ starting loop to iterate the splitting point
+(mdframed)              on input line 3754.
+
+
+[94]
+
+LaTeX Warning: Reference `mdf@pagelabel-267' on page 95 undefined on input line
+ 3754.
+
+
+
+[95] (./AnalyseM1.aux)
  ***********
 LaTeX2e <2024-06-01> patch level 2
 L3 programming layer <2024-08-30>
  ***********
+
+
+LaTeX Warning: There were undefined references.
+
+
+LaTeX Warning: Label(s) may have changed. Rerun to get cross-references right.
+
 Package rerunfilecheck Info: File `AnalyseM1.out' has not changed.
-(rerunfilecheck)             Checksum: 077D1B1080C45438608BB60193B90A91;4712.
+(rerunfilecheck)             Checksum: 906723CEB1BB70D45FEF8448A941C937;5091.
  ) 
 Here is how much of TeX's memory you used:
- 29234 strings out of 474235
- 560030 string characters out of 5742253
- 1073965 words of memory out of 5000000
- 51406 multiletter control sequences out of 15000+600000
+ 29301 strings out of 474235
+ 561436 string characters out of 5742253
+ 1075730 words of memory out of 5000000
+ 51473 multiletter control sequences out of 15000+600000
  708849 words of font info for 130 fonts, out of 8000000 for 9000
  1348 hyphenation exceptions out of 8191
  131i,17n,135p,546b,1023s stack positions out of 10000i,1000n,20000p,200000b,200000s
 
-Output written on AnalyseM1.pdf (87 pages).
+Output written on AnalyseM1.pdf (95 pages).
