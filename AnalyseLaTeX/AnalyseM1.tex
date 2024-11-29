@@ -2890,7 +2890,40 @@ $\triangleright$\emph{ex :} retour sur le \emph{shift}, montrons que $\sigma(S)=
 
 Beaucoups de rappels du cours d'Analyse pour l'ingénieur, \emph{s/o} Augustin Mouze;
 
-\PremiereNouvelleSection{Espaces $\mathcal L^p$, inégalités de Hölder et Minkowski}
+\PremiereNouvelleSection{Les théorème de convergence / continuité }
+
+
+Ces théorèmes suivants (démontrés dans le cours d'AIN) vont être très utiles, donc ils sont rappelés ici : 
+
+\begin{thC}{de convergence dominée}
+  Soit $(f_n)$ une suite de fonctions mesurable vérifiant,\\
+  $\Bullet\quad (f_n)$ CVS vers $f\ m$-presque partout\\
+  $\BBullet\quad \exists g:\O\longrightarrow\R_+$ intégrable telle que  
+  $$\forall n\in\N,\ |f_n|\leqslant g$$
+  on a alors $$\dstyle\int_{\O}f\mathrm dm = \underset{n\to+\infty}{\mathrm{lim}}\int_{\O}f_n\mathrm dm.$$
+\end{thC}
+
+
+\begin{thC}{continuité sous le signe intégrale}
+  Soient $(\O,\A,m)$ un espace mesuré, $U$ un ouvert de $\R$ et $f:(x,\omega)\in U\times\O\longmapsto f(x,t)\in\R$ vérifiant\\
+  $\Bullet\quad$pour $m$-presque tout $\omega\in\O,\ x\longmapsto f(x,\omega)$ est continue,\\
+  $\BBullet\quad$ pour $m$-presque tout $x\in U,\ \omega\longmapsto f(x,\omega)$ est mesurable,\\
+  $\BBBullet\quad\exists g:\O\longrightarrow\R_+$ intégrable telle que $\forall x\in U,$ presque partout sur $\Omega,$ $$|f(x,\omega)|\leqslant g(\omega)$$
+  alors $x\longmapsto\dstyle\int_{\O}f(x,\omega)\mathrm{d}m(\omega)$ est définie continue sur $U$.
+\end{thC}
+    
+    
+\begin{thC}{dérivabilité sous le signe intégrale}
+  Soient $(\O,\A,m)$ un espace mesuré, $U$ un ouvert de $\R$ et $f:(x,\omega)\in U\times\O\longmapsto f(x,t)\in\R$ vérifiant\\
+  $\Bullet\quad$ pour $m$-presque tout $\omega\in\O,\ x\longmapsto f(x,\omega)$est dérivable,\\
+  $\BBullet\quad$ pour $m$-presque tout $x\in U,\ \omega\longmapsto f(x,\omega)$ est intégrable,\\
+  $\BBBullet\quad\exists g:\O\longrightarrow\R_+$ intégrable telle que $\forall x\in U,$ presque partout sur $\Omega$,
+  $$\bigg|\dstyle\frac{\partial f}{\partial x}(x,\omega)\bigg|\leqslant g(\omega)$$
+  alors $x\longmapsto\dstyle\int_{\O}f(x,\omega)\mathrm{d}m(\omega)$ est dérivable $U$, de dérivée $x\longmapsto\dstyle\int_{\O}\frac{\partial f}{\partial x}(x,\omega)\mathrm{d}m(\omega)$.
+\end{thC}
+
+
+\NouvelleSection{Espaces $\mathcal L^p$, inégalités de Hölder et Minkowski}
 
 \begin{Def}
   Soit $(X,m,\mu)$ un espace mesuré et $1\leqslant p< \infty$, on pose 
@@ -3431,6 +3464,47 @@ La preuve de ce théorème requiert le lemme suivant,
 \end{ProofC}
 
 
+\begin{Def}
+  Une mesure $\mu$ est dite \emph{$\sigma$-finie} \ssi il existe une suite $X_n$ d'ensembles tous de mesure finie et tels que 
+  $$\bigcup_{n\geqslant 0}X_n=X.$$
+\end{Def}
+
+\begin{Th}
+  Soit $(X,\F,\mu)$ où $\mu$ est $\sigma$-finie et $1\leqslant p\leqslant \infty$,\\
+
+  alors $L^1(\R)\cap L^\infty(\R)$ est dense dans $L^p(\R)$.
+\end{Th}
+
+
+\begin{Proof}
+  $\star$ On commence par montrer que $L^1(\R)\cap L^\infty(\R)\subset L^p(\R)$. Soit $1<p<\infty$ (les cas extrêmes sont immédiats) et $f\in L^p$, on a 
+  $$\abs f\leqslant \norm{f}_\infty\ \mu\text{-p.p.}$$
+  donc 
+  $$\abs{f}^p=\abs{f}^{p-1}\abs f\leqslant \norm{f}_\infty^{p-1}\abs f$$
+  et on peut intégrer
+  $$\int_X \abs{f}^p\dmu\leqslant\norm{f}\infty^{p-1}\norm{f}_1<\infty$$
+  et $f\in L^p$.
+
+  $\star$ On note $X_n$ la suite d'ensembles de mesures finies (dont l'existence est donnée par la $\sigma$-finitude de $\mu$) et on pose 
+  $$K_n:=\bigcup_{i=1}^n X_i$$
+  une suite croissante d'ensembles de mesures toutes finies. On va définir la suite de fonctions croissantes 
+  $$f_n:=f\chi_{K_n\cap\ens{x\in X\ |\ \abs{f(x)}\leqslant n}},$$
+  alors 
+  $$\int_X\abs{f_n}\dmu\leqslant n\mu\Par{K_n}<\infty$$
+  et
+  $$\forall x\in X,\ \abs{f_n(x)}\leqslant n<\infty$$
+  donc pour tout $n\in\N,\ f_n\in L^1(\R)\cap L^\infty$, montrons que cette suite converge dans $L^p$ vers $f$.
+
+  $f$ étant dans $L^p$, elle est finie presque partout, donc il existe un ensemble $A$ $\mu$-négligeable tel que 
+  $$\forall x\in X\backslash A,\ \abs{f(x)}<\infty.$$
+  Les $f_n$ sont une suite de fonctions croissantes majorées par $f$, donc (à part sur l'ensemble de mesure nulle $A$), c'est une convergence monotone et 
+  $$\forall x\in X\backslash A,\ f_n(x)\tend f(x).$$
+
+  $\star$ On applique le théorème de convergence dominée à $f_n-f$, qui est majorée par $2f\in L^p$, donc 
+  $$\norm{f_n-f}\tend 0.$$
+\end{Proof}
+
+
 \NouvellePart{Convolution et tranformée de Fourier}
 
 
@@ -3498,7 +3572,7 @@ Avant de montrer ce théorème, on aura besoin d'améliorer un peu l'inégalité
 
 
 \begin{propC}{inégalité de Jensen, bis}
-  Soit $p\geqslant 1$, $f:X\longrightarrow\R$ et $\mu$ une mesure de probabilité,\\
+  Soit $p\geqslant 1$, $f:X\longrightarrow\R$ mesurable et $\mu$ une mesure de probabilité,\\
 
   alors 
   $$\Par{\int_Xf\dmu}^p\leqslant\int_Xf^p\dmu$$
@@ -3543,11 +3617,6 @@ Avant de montrer ce théorème, on aura besoin d'améliorer un peu l'inégalité
 \end{corollaire}
 
 
-On va maintenant se poser la question (ô combien importante) de l'existence d'un neutre pour la loi $*$, autrement dit, existe-t-il $e\in L^1$ tel que 
-$$\forall f\in L^1,\ f*e=f=e*f$$
-???\\
-
-
 Niveau notations, on va poser
 $$\D^0:=C_{cc}(\R)$$
 et pour $k\in \N\cup\ens{+\infty}$ on pose 
@@ -3555,34 +3624,44 @@ $$\D^k:=C^k\cap C_{cc}(\R)=\ens{f:\R\longrightarrow\C\ C^k\text{ et à support c
 On a la chaîne d'inclusion suivante : 
 $$\D^\infty\subset \D^k\subset \D^{k-1}\subset\cdots\subset \D^0\subset L^p.$$
 
+On notera, pour simplifier, $\D:=\D^{\infty}$
+
 
 \begin{prop}
-  Soient $1\leqslant p<\infty$, $f\in L^p$, $k\in\N\subset\ens{+\infty}$ et $\varphi\in D^k$,\\
+  Soient $u,v:R\longrightarrow\C$ telle que leur convolée existe,\\
 
-  alors $f*\varphi\in C^k$ et pour $\ell\leqslant k$, on a 
+  alors 
+  $$\mathrm{supp}\ u*u\subset\overline{\mathrm{supp}\ u+\mathrm{supp}\ v}$$
+  et en particulier, si $u$ et $v$ sont à support compact, alors $u*v$ l'est aussi.
+\end{prop}
+
+
+\begin{Proof}
+  Puisque $v(t)=0$ si $t\notin\mathrm{supp}\ v$, on a 
+  $$\forall x\in\R,\ u*v(x)=\int_{\mathrm{supp}\ v}u(x-t)v(t)\dt$$
+  Soit $x\notin \mathrm{supp}\ u+\mathrm{supp}\ v$, alors $x-t\notin\mathrm{supp}\ u$ pour $t\in\mathrm{supp}\ v$, car sinon $x=(x-t)+t$ serait dans $\mathrm{supp}\ u+\mathrm{supp}\ v$. Ainsi $u(x-t)=0$ et $u*v(x)=0$. Donc 
+  $$\Par{\overline{\mathrm{supp}\ u+\mathrm{supp}\ v}}^c\subset \Par{\mathrm{supp}\ u*v}^c$$
+  et on trouve le résultat demandé en passant au complémentaire.
+
+  Une somme de compact est compact, donc si $u$ et $v$ sont à support compact, le support de $u*v$ est un fermé contenu dans un compact, c'est un compact.
+\end{Proof}
+\begin{prop}
+  Soient $1\leqslant p<\infty$, $f\in L^p$, $k\in\N\cup\ens{+\infty}$ et $\varphi\in D^k$,\\
+
+  alors $f*\varphi\in C^k$ et pour $\ell\leqslant k<\infty$, on a 
   $$\forall x\in\R,\ \Par{f*\varphi}^{(k)}(x)=f*\varphi^{(k)}(x).$$
 \end{prop}
 
 
 \begin{Proof}
-  On procède par récurrence, le cas $k=0$ est vrai, on suppose que c'est vrai pour $k\in\N$, soit $\varphi\in \D^{k+1}\subset \D^k$, on sait que $f*\varphi$ est de classe $C^k$.
-
-  $\varphi$ est à support compact donc $\varphi^{(k)}$ l'est aussi et il existe $a>0$ tel que 
-  $$\abs x\geqslant a\Rightarrow \varphi^{(k)}=0.$$
-  Soit $x_0\in\R$ et $x$ tel que $\abs{x-x_0}<1$, alors 
-  \begin{align*}
-    \abs{x-t}&=\abs{x-x_0+x_0-t}\\
-    &\geqslant\abs{x_0-t}-\abs{x-x_0}\\
-    &\geqslant \abs{x_0-t}-1
-  \end{align*}
-pourquoient ???? truandage ???
-
-si $x$ est tel qu $\abs{x_0-t}>1+a$, alors $\varphi^{(k)}(x-t)=0$
-donc 
-$$\int_{x_0-1-1}^{x_0+1+a}\varphi^{(k)}(x-t)f(t)\dt$$
-
-
-À INVESTIGUER
+  Soit $k\in \N$, On applique le théorème de dérivation sous le signe intégrale;
+  
+  $\Bullet$ Puisque $\varphi^{(k)}$ est à support compact, pour tout $x\in\R,\ t\mapsto\varphi^{(k)}(x-t)f(t)$ est aussi à support compact donc est intégrable,\\
+  $\BBullet$ pour tout $t\in R,\ x\mapsto \varphi^{(k)}(x-t)f(t)$ est $C^1$ car $\varphi$ est $C^k$\\
+  $\BBBullet$ et on a la majoration suivante;
+  $$\abs{\frac{\partial}{\partial x}\Par{\varphi(x-t)f(t)}^{(k)}}\leqslant \underbrace{\norm{\varphi^{(k)}}_{\infty}f(t)}_{\in L^1}$$
+  donc $(f*\varphi)^{(k)}$ est $C^1$ et 
+  $$\forall x\in\R,\ \Par{f*\varphi}^{(k)}(x)=f*\varphi^{(k)}(x).$$
 \end{Proof}
 
 
@@ -3642,9 +3721,9 @@ $$\forall (a,\delta)>0,\ \int_{\abs t>\delta}k_a(t)\dt\leqslant \lambda\Par{\lef
   Soit $\ens{k_a,\ a>0}$ une unité approchée dans $L^1$,\\
 
   $(\mathit 1)$ pour $f\in C_{cc}$, alors $k_a*f$ est bornée et 
-  $$\norm{k_a*f}_{\infty}\underset{a\to 0}{\longrightarrow}0.$$
+  $$\norm{k_a*f-f}_{\infty}\underset{a\to 0}{\longrightarrow}0.$$
   $(\mathit 2)$ pour $1\leqslant p<\infty$ et $f\in L^p$, alors $k_a*f$ est dans $L^p$ est 
-  $$\norm{k_a*f}_{p}\underset{a\to 0}{\longrightarrow}0.$$
+  $$\norm{k_a*f-f}_{p}\underset{a\to 0}{\longrightarrow}0.$$
 \end{prop}
 
 
@@ -3683,18 +3762,22 @@ $$\forall (a,\delta)>0,\ \int_{\abs t>\delta}k_a(t)\dt\leqslant \lambda\Par{\lef
   \begin{align*}
     \norm{k_a*f-f}_p^p&=\intr\abs{k_a*f(x)-f(x)}^p\dx\\
     &\leqslant c^{p-1}\intr\intr\abs{f(x -t)-f(x)}^p\abs{k_a(t)}\dt\dx\\
-    &\leqslant c^{p-1}\intr\abs{k_a(t)}\intr\abs{f(x-t)-f(x)}^p\dx\dt\\
-    \norm{k_a*f-f}_p^p&\leqslant c^{p-1}\intr\abs{k_a(t)}\norm{\tau_t(f)-\tau_0(f)}_p^p\dt
+    \norm{k_a*f-f}_p^p&\leqslant c^{p-1}\intr\abs{k_a(t)}\intr\abs{f(x-t)-f(x)}^p\dx\dt\\
   \end{align*}
-  $t\in\R\longmapsto \tau_t(f)$ étant continue, pour la norme uniforme, pour tout $\varepsilon>0$, il existe un $\delta>0$ tel que 
+  
+  L'application $\R\longrightarrow L^1,\ t\longmapsto \tau_t(f)$ étant continue, pour la norme uniforme, pour tout $\varepsilon>0$, il existe un $\delta>0$ tel que 
   $$\forall (x,y)\ :\ \abs{x-y}<\delta,\ \norm{\tau_x(f)-\tau_y(f)}_p<\varepsilon$$
   donc pour tout $\abs t<\delta$,
   $$\norm{\tau_t(f)-\tau_0(f)}_p^p<\varepsilon$$
   ainsi 
-  $$\norm{k_a*f-f}_p^p\leqslant c^{p-1}\Par{\varepsilon\int_{\abs t\leqslant \delta}\abs{k_a(t)}\dt+\int_{\abs t\geqslant \delta}\abs{k_a(t)}\norm{\tau_t(f)-\tau_0(f)}_p^p\dt}.$$
+  \begin{align*}
+    \norm{k_a*f-f}_p^p&\leqslant c^{p-1}\Par{ \int_{\abs t\leqslant \delta}\abs{k_a(t)}\intr\abs{f(x-t)-f(x)}^p\dx\dt+\int_{\abs t\geqslant \delta}\abs{k_a(t)}\intr\abs{f(x-t)-f(x)}^p\dx\dt}\\
+    &\leqslant c^{p-1}\Par{ \int_{\abs t\leqslant \delta}\abs{k_a(t)}\norm{\tau_t(f)-\tau_0(f)}_p^p\dt+\int_{\abs t\geqslant \delta}\abs{k_a(t)}\intr2\abs{f(x)}^p\dx\dt}\\
+    &\leqslant c^{p-1}\Par{ \int_{\abs t\leqslant \delta}\abs{k_a(t)}\norm{\tau_t(f)-\tau_0(f)}_p^p\dt+2\norm{f}_p^p\int_{\abs t\geqslant \delta}\abs{k_a(t)}\dt}\\
+    &\leqslant c^{p-1}\Par{ \varepsilon\int_{\abs t\leqslant \delta}\abs{k_a(t)}\dt+2\norm{f}_p^p\int_{\abs t\geqslant \delta}\abs{k_a(t)}\dx\dt}\\
+    \norm{k_a*f-f}_p^p&\leqslant c^{p-1}\Big( c\varepsilon+2\norm{f}_p^p\underbrace{\int_{\abs t\geqslant \delta}\abs{k_a(t)}\dt}_{\underset{a\to 0}{\longrightarrow}0}\Big).
+  \end{align*}
 
-
-  À INVESTIGUER POUR CONCLURE
 \end{ProofC}
 
 \begin{prop}
@@ -3703,28 +3786,42 @@ $$\forall (a,\delta)>0,\ \int_{\abs t>\delta}k_a(t)\dt\leqslant \lambda\Par{\lef
 
 
 \begin{Proof}
-  À FAIRE
+  Soit $\ens{k_a,\ a>0}$ une unité approchée telle que 
+  $$\forall a>0,\ k_a\in \D,$$
+  soit $f\in L^p$ et $\varepsilon>0$, alors par densité de $C_{cc}$ dans $L^p$, il existe $g\in C_{cc}$ telle que 
+  $$\norm{f-g}_p\leqslant \varepsilon$$
+  d'après le théorème précédent, il existe $a_0>0$ tel que 
+  $$0<a<a_0\Rightarrow\norm{k_a*f-f}_p\leqslant \varepsilon$$
+  donc 
+  \begin{align*}
+    \norm{g*k_a-f}_p&=\norm{g*k_a-f*k_a-f+f*k_a}_p\\
+    &\leqslant \norm{g*k_a-f*k_a}_p+\norm{f-f*k_a}_p\\
+    &\leqslant \norm{\Par{g-f}*k_a}_p+\varepsilon\\
+    &\leqslant \norm{f-g}_p\norm{k_a}+\varepsilon\\
+    \norm{g*k_a-f}_p&\leqslant \varepsilon\big(1+\underbrace{\norm{k_a}_p}_{\to 0}\big)
+  \end{align*}
+  et $g*k_a$ est à support compact car $g$ et $k_a$ le sont, ce qui achève la preuve.
 \end{Proof}
 
 
-\NouvelleSection{Transformation de Fourier}
+\NouvelleSection{Transformation de Fourier dans $L^1$}
 
 
 Soit $f\in L^1$ et $y\in \R$, on pose 
 $$\hat f(y):=\intr f(x)\ex{-2i\pi xy}\dx$$
 $f$ étant dans $L^1$, $x\mapsto f(x)\ex{-2i\pi xy}$ l'est aussi. On appelle $\hat f$ \emph{tranformée de Fourier de }$f$ et l'application 
-$$\begin{array}{|ccc}
+$$\F:\begin{array}{|ccc}
   L^1&\longrightarrow&\mathcal{F}(\R,\C)\\
-  f&\longmapsto \hat f
+  f&\longmapsto& \hat f
 \end{array}$$
-est la \emph{transformation de Fourier.}
+est la \emph{transformation de Fourier.}\\
 
 
 $\triangleright$\emph{ex :} soit la fonction gaussienne 
 $$\gamma:x\longmapsto \ex{-\pi x^2}$$
 on a alors, pour $y\in\R$
 $$\hat \gamma (y)=\intr\ex{-\pi x^2}\ex{-2i\pi xy}\dx$$
-l'intégrande, notée $\varphi$ est dans $L^1$ et est dérivable de dérivée  
+l'intégrande, notée $\varphi$, est dans $L^1$ et est dérivable de dérivée  
 $$\abs{\frac{\partial \varphi(x,y)}{\partial y}}=\abs{-2i\pi x\ex{-\pi x^2}\ex{-2i\pi xy}}\leqslant 2\pi\abs x\ex{-\pi x^2}\in L^1$$
 ainsi, par théorème de dérivation sous le signe intégral, $\hat\gamma$ est de classe $C^1$ sur $\R$ et 
 $$\hat \gamma'(y)=-2\pi i\intr x\ex{-\pi x^2}\ex{-2i\pi xy}\dx.$$
@@ -3741,6 +3838,14 @@ et en évaluant en $0$, on trouve que $k=1$ d'où
 $$\hat\gamma (y)=\ex{-\pi x^2}.$$
 
 
+\begin{RQ}
+  On peut utiliser la gaussienne pour expliciter une approximation de l'unité, on vérifie en effet que 
+  $$\gamma_a(x):=\frac{1}{a}\gamma\Par{\frac{x}{a}}$$
+  convient et l'on peut de plus calculer sa transformée de Fourier, qui vaut 
+  $$\widehat{\gamma_a}(y)=\ex{-\pi^2 y^2a^2}.$$
+\end{RQ}
+
+
 \begin{propC}{Propriétés générales } soit $f\in L^1$\\
 
   $(\mathit 1)$ soit $a\in\R$ et $\tau_a(f)(x)=f(x-a)$ l'opérateur de translation, alors $\tau_af\in L^1$ et 
@@ -3752,4 +3857,245 @@ $$\hat\gamma (y)=\ex{-\pi x^2}.$$
   $(\mathit 4)$ si $f\in L^1\cap C_1$, alors $f'\in L^1$ et 
   $$\forall y\in\R,\ \hat f'(y)=2i\pi \hat f(y).$$
 \end{propC}
+
+
+Rappel : on sait que pour $f,g\in L^1$, on a 
+$$f*g(x)=\intr f(x-t)g(t)\dt,$$
+définie presque-partout et 
+$$\norm{f*g}_1\leqslant \norm{f}_1\norm{g}_1.$$
+
+
+\begin{prop}
+  Soient $f,g\in L^1$,\\
+
+  on a alors 
+  $$\widehat{f*g}=\hat f.\hat g.$$
+\end{prop}
+
+
+\begin{Proof}
+  On calcule, soit $y\in\R$,
+  $$\widehat{f*g}(y)=\intr f*g(x)\ex{-2i\pi xy}\dx=\intr\intr f(x-t)g(t)\ex{-2i\pi xy}\dt\dx$$
+  On veut appliquer le théorème de Fubini-Lebesgue, il faut donc d'abord s'assurer de la convergence absolue des intégrales (Fubini-Tonneli): 
+  \begin{align*}
+    \intr\intr \abs{f(x-t)g(t)\ex{-2i\pi xy}}\dt\dx&=\intr\intr\abs{f(x-t)g(t)}\dt\dx\\
+    &=\intr\abs{g(t)}\intr\abs{f(x-t)}\dx\dt\\
+    &=\norm{f}_1\norm{g}_1\\
+    \intr\intr \abs{f(x-t)g(t)\ex{-2i\pi xy}}\dt\dx&<\infty
+  \end{align*}
+  donc on peut appliquer Fubini-Lebesgue et 
+  \begin{align*}
+    \widehat{f*g}(y)&=\intr\intr f(x-t)g(t)\ex{-2i\pi xy}\dt\dx\\
+    &=\intr g(t)\intr f(x-t)\ex{-2i\pi xy}\dx\dt\\
+    &=\intr g(t)\intr f(u)\ex{-2i\pi y(u+t)}\du\dt\\
+    &=\intr g(t)\ex{-2i\pi yt}\intr f(u)\ex{-2i\pi yu}\du\dt\\
+    &=\intr g(t)\ex{-2i\pi yt}\hat f(y)\dt\\
+    \widehat{f*g}(y)&=\hat f(y).\hat g(y).
+  \end{align*}
+\end{Proof}
+
+
+On note 
+$$C_0(\R):=\ens{f:\R\longrightarrow\C\text{ continue telle que }f(x)\underset{\abs x\to+\infty}{\longrightarrow}0}$$
+l'ensemble des fonctions continues tendant vers $0$ en $\pm\infty$. C'est un ensemble de fonctions bornées, on peut donc le munir de la norme infinie et on montre (exercice) que $\Par{C_0,\norm{\cdot}_\infty}$ est un espace de Banach.
+
+
+\begin{Th}
+  L'application $\F:L^1\longrightarrow C_0$ est linéaire, continue et de norme 1, c'est à dire que 
+  $$\mathrm{sup}\ens{\norm{\hat f}_\infty,\ f\in L^1\ :\ \norm{f}_1\leqslant 1}=1.$$
+\end{Th}
+
+
+\begin{Proof}
+  $\star$ On commence par appliquer le théorème de continuité sous le signe intégrale, on considère l'application 
+  $$\hat f(y)=\intr \underbrace{f(x)\ex{-2i\pi xy}}_{\varphi(x,y)}\dx$$
+  alors, 
+  $$y\mapsto f(x)\ex{-2i\pi xy}$$
+  est continue sur $R$, $x$-p.p.,
+  $$x\mapsto f(x)\ex{-2i\pi xy}$$
+  est mesurable sur $R$, $y$-p.p. et on peut dominer par $\abs f$, qui est intégrable par hypothèse, on peut donc appliquer le théorème de continuité sous le signe intégrale et $\hat f$ est effectivement continue sur $\R$.
+
+  $\star$ De plus, on a 
+  $$\abs{\hat f(y)}\leqslant \intr\abs{f(x)}\dx=\norm{f}_1$$
+  donc $\hat f$ est bornée.
+
+  $\star$ Pour montrer que $\hat f(y)\to 0$ quand $\abs y\to+\infty$, on commence par traiter le cas où $f$ est $C^{\infty}$ à support compact, puis on généralisera avec un argument de densité.\\
+  $\star\star$ Si $f\in \D$, alors $f'\in L^1$ et 
+  $$\forall y\in\R,\ \hat{f'}(y)=2i\pi y\hat f(y)$$
+  donc, pour $y\neq 0$, on a 
+  $$\abs{\hat f(y)}=\frac{\abs{\hat{f'}(y)}}{2i\pi\abs y}\leqslant \frac{\norm{f'}_1}{2\pi\abs y}\to 0.$$
+
+  $\star\star$ Si $f\in L^1$, alors pour $\varepsilon>0$, il existe $g\in\D$ telle que 
+  $$\norm{f-g}_1\leqslant \varepsilon$$
+  On a donc les majorations suivantes 
+  \begin{align*}
+    \abs{\hat f(y)}&=\abs{\hat f(y)-\hat g(y)+\hat g(y)}\\
+    &\leqslant\norm{\widehat{f-g}}_1+\abs{\hat g(y)}\\
+    &\leqslant\norm{f-g}_1+\abs{\hat g(y)}\\
+    \abs{\hat f(y)}&\leqslant \varepsilon+\abs{\hat g(y)}
+  \end{align*}
+  Donc il existe un $A\geqslant 0$ tel que $\abs y\geqslant A$ implique que $\abs{\hat f(y)}\leqslant 2\varepsilon$ ce qui démontre que $\hat f$ tend bien vers 0.
+
+  Donc on a montré que $\F:L^1\longrightarrow C_0$ est bien définie. Elle est de plus linéaire et on a 
+  $$\norm{\F(f)}_\infty\leqslant\norm{f}_1$$
+  donc $\F$ est continue et $\nop{\F}\leqslant 1.$ De plus, on a vu avec l'exemple de la gaussienne que cette majoration est optimale, donc $\nop{\F} =1$
+\end{Proof}
+
+
+On a vu que $\Par{L^1(\R),+,.,*}$ est une algèbre, on va voir qu'elle n'est pas unitaire, \emph{i.e.} qu'il n'existe pas de $e\in L^1$ tel que 
+$$\forall f\in L^1,\ f*e=e=e*f.$$
+
+
+\begin{Proof}
+  On raisonne par l'absurde, on suppose que notre algèbre admet un neutre, donc en prenant $f$ la gaussienne on obtient 
+  $$f*e=f$$
+  on applique la transformée de Fourier
+  $$\forall y\in\R, \hat f(y).\hat e(y)=\hat f(y)$$
+  et $\hat f=f=\ex{-\pi x^2}>0$, on peut donc simplifier que 
+  $$\forall y\in\R,\ \hat e(y)=1$$
+  ce qui contredit le fait que $\hat e(y)\to 0$ quand $\abs y\to+\infty$, ainsi il n'existe pas de neutre pour la convolution et l'alègbre $L^1$ n'est pas unitaire.
+\end{Proof}
+
+
+\begin{thC}{formule d'inversion de Fourier}
+  Soit $f\in L 1$ telle que $\hat f\in L^1$,\\
+  
+  alors pour presque-tout $x\in\R$, 
+  $$f(x)=\hat{\hat f}(-x)=\intr \hat f(y)\ex{2i\pi xy}\dy.$$
+\end{thC}
+
+
+Avant de prouver ce théorème, on aura besoin du lemme suivant : 
+
+
+\begin{lemme}
+  Soient $f,g\in L^1$,\\
+
+  on a alors 
+  $$\intr \hat f(x)g(x)\dx=\intr f(x)\hat g(x)\dx.$$
+\end{lemme}
+
+
+\begin{Proof}
+  On calcule;
+  \begin{align*}
+    \intr \hat f(x)g(x)\dx&=\intr g(x)\intr f(y)\ex{-2i\pi xy}\dy\dx\\
+    &=\intr\intr f(y)g(x)\ex{-2i\pi xy}\dy\dx\\
+    &=\intr f(y)\intr g(x)\ex{-2i\pi xy}\dx\dy\\
+    &=\intr f(y)\hat g(y)\dy\\
+    \intr \hat f(x)g(x)\dx&=\intr f(x)\hat g(x)\dx
+  \end{align*}
+\end{Proof}
+
+
+\begin{ProofC}{Démonstration du théorème}
+  Soit $x\in\R$ fixé, on considère l'approximation de l'unité gaussienne (pour $a>0$), 
+  $$\gamma_a:=\frac{1}{a}\ex{-\pi^2 x^2/a^2}$$
+  et l'application 
+  $$g_a(y):=\widehat{\gamma_a}(y)\ex{2i\pi xy}=\ex{-\pi^2y^2a^2}\ex{-2i\pi xy}.$$
+  Ainsi,
+  $$\intr \hat f(y)g_a(y)\dy=\intr \hat f(y)\ex{-\pi^2y^2a^2}\ex{-2i\pi xy}\dy$$
+  L'intégrande est mesurable et de module $\hat f(y)\ex{-\pi^2y^2a^2}\in L^1$, on peut donc appliquer le théorème de convergence dominée et 
+  $$\intr \hat f(y)g_a(y)\dt\underset{a\to 0}{\longrightarrow} \intr f(y)\ex{2i\pi xy}\dy.$$
+  De plus, d'après le lemme, on a 
+  \begin{align*}
+    \intr \hat f(y)g_a(y)\dy&=\intr f(y)\widehat{g_a}(y)\dy\\
+    &=\intr f(y)\frac{1}{a}\gamma\Par{\frac{y-x}{a}}\dy\\
+    &=\intr f(y)\gamma_a(y-x)\dy\\
+    \intr \hat f(y)g_a(y)\dy&= f*\gamma_a(x)
+  \end{align*}
+  Les $\ens{\gamma_a,\ a>0}$ forment une approximation de l'unité et $f$ étant dans $L^1$, on sait que 
+  $$\norm{f*\gamma_a-f}_1\tend 0$$
+  donc il existe une suite $a_n\longrightarrow 0$ telle que, pour presque tout $x\in \R$, on ait 
+  $$f*\gamma_{a_n}(x)\tend f(x),$$
+  autrement dit, presque partout
+  $$f(x)=\intr \hat f(y)\ex{2i\pi xy}\dy.$$
+\end{ProofC}
+
+
+\begin{corollaire}
+  Si $f\in L^1$ et est de transformée de Fourier nulle,\\
+
+  alors $f=0\ \lambda$-p.p..
+\end{corollaire}
+
+
+\begin{Proof}
+  Il suffit d'appliquer la formule d'inversion.
+\end{Proof}
+
+
+\NouvelleSection{Transformation de Fourier dans $L^2$}
+
+
+Comme $L^2(\R) \not\subset L^1(\R)$, la définition de la transformée de Fourier des fonctions de $L^2(\R)$ ne peut pas se faire simplement en reprenant celle des fonctions de $L^1(\R)$.
+
+On va utiliser ici un passage à la limite en utilisant la densité de $L^1(\R) \cap L^2(\R)$ dans $L^2(\R)$ (on notera que $C_c(\R) \subset L^1(\R) \cap L^2(\R)$ et $C_c(\R)$ est dense dans $L^2(\R)$).\\
+
+L'espace des fonctions intégrables donc la transformée de Fourier est elle aussi intégrable va être important, notamment pour la formule d'inversion, on va lui donner un nom et l'étudier un peu. On note 
+$$A(\R):=\ens{f\in L^1\ :\ \hat f\in L^1}$$
+On a les propriétés générales suivantes : 
+
+
+\begin{prop}
+  Soit $f\in A(\R)$\\
+
+  $(\mathit 1)\ A(\R)$ est stable par la transformée de Fourier,\\
+  $(\mathit 2)\ A(\R)\subset\ L^1(\R)\cap L^2(\R),$\\
+  $(\mathit 3)\norm{f}_2=\norm{\hat f}_2,$\\
+  $(\mathit 4)\ A(\R)$ est dense dans $L^1(\R)\cap L^2(\R)$ pour la norme 2,\\
+  $(\mathit 5)\ A(\R)$ est dense dans $L^2(\R)$ (pour la norme 2).
+\end{prop}
+
+
+\begin{Proof}
+  À FAIRE
+\end{Proof}
+
+\NouvelleSubsection{Espace de Schwartz}
+
+
+\begin{Def}
+  L'espace \emph{de Schwartz} $\S(\R)$, ou espace des fonctions à décroissance rapide est défini comme suit :
+  $$\S(\R):=\ens{f\in C^{\infty}\ :\ \forall (k,\ell)\in\N,\ \underset{x\in\R}{\mathrm{sup}}\abs{x^kf^{(\ell)}(x)}<\infty}.$$
+  On va montrer que c'est équivalent à 
+  $$\S(\R)=\ens{f\in C^{\infty}\ :\ \forall (k,\ell)\in\N,\ x^kf^{(\ell)}(x)\underset{\abs{x}\to +\infty}{\longrightarrow}0}.$$
+\end{Def}
+
+
+\begin{Proof}
+  $(\Leftarrow)$ Clair.\\
+  $(\Rightarrow)$ Si $f$ satisfait la première définition, alors pour $(k,\ell)\in\N$, il existe $M\geqslant 0$ tel que 
+  $$\forall x\in\R,\ x^{k+1}f^{(\ell)}(x)\leqslant M$$
+  Donc par comparaison, on a bien 
+  $$ x^kf^{(\ell)}(x)\underset{\abs{x}\to +\infty}{\longrightarrow}0.$$
+\end{Proof}
+
+
+\begin{Th}
+  On note $\F$ la transformée de Fourier,\\
+
+  alors\\
+  $(\mathit 1)\ \F:\S(\R)\longrightarrow \S(\R)$ est bijective,\\
+  $(\mathit 2)\ \forall f\in \S(\R),\ \norm{\hat f}_2=\norm{f}.$
+\end{Th}
+
+
+\begin{thC}{Fourier-Plancherel}
+  L'application $\F : \S(\R)\longmapsto \hat f$ se prolonge de manière unique en une application linéaire isométrique bijective $L^2\longrightarrow L^2$, que l'on note (aussi) $\F$ et que l'on appelle \emph{transformée de Fourier-Plancherel}
+\end{thC}
+
+
+On a pas d'expression exacte de cette transformée de Fourier-Plancherel, mais on a tout de même le théorème suivant, qui nous donne une approximation.
+
+
+\begin{Th}
+  Soit $f\in L^2(\R)$ et $A>0$, on pose 
+  $$\varphi_A(f):=\int_{-A}^Af(x)\ex{-2i\pi xy}\dx.$$
+
+  Alors 
+  $$\norm{\varphi_A-\F(f)}\longrightarrow 0\text{ quand }A\to\infty$$
+  et en particulier, il existe une suite $A_n\longrightarrow +\infty$ telle que 
+  $$\lambda\text{-p.p.}\ F(f)(y)=\Lim\int_{-A_n}^{A_n}f(x)\ex{-2i\pi xy}\dx.$$
+\end{Th}
 \end{document}

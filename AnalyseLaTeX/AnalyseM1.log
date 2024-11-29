@@ -1,4 +1,4 @@
-This is XeTeX, Version 3.141592653-2.6-0.999996 (TeX Live 2024) (preloaded format=xelatex 2024.9.22)  15 NOV 2024 17:22
+This is XeTeX, Version 3.141592653-2.6-0.999996 (TeX Live 2024) (preloaded format=xelatex 2024.9.22)  29 NOV 2024 22:50
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -3271,104 +3271,97 @@ LaTeX Font Info:    External font `lmex10' loaded for size
 (Font)              <20.74> on input line 2888.
 LaTeX Font Info:    External font `lmex10' loaded for size
 (Font)              <14.4> on input line 2888.
-LaTeX Font Info:    External font `lmex10' loaded for size
-(Font)              <10> on input line 2893.
-LaTeX Font Info:    External font `lmex10' loaded for size
-(Font)              <7> on input line 2893.
 
 Package hyperref Warning: Difference (2) between bookmark levels is greater 
 (hyperref)                than one, level fixed on input line 2893.
 
-
-Package hyperref Warning: Token not allowed in a PDF string (Unicode):
-(hyperref)                removing `math shift' on input line 2893.
-
-
-Package hyperref Warning: Token not allowed in a PDF string (Unicode):
-(hyperref)                removing `superscript' on input line 2893.
-
-
-Package hyperref Warning: Token not allowed in a PDF string (Unicode):
-(hyperref)                removing `math shift' on input line 2893.
-
-Package mdframed Info: mdframed works in twoside mode on input line 2895.
+Package mdframed Info: mdframed works in twoside mode on input line 2898.
 Package mdframed Info: mdframed detected package amsthm 
  changed the theorem header of amsthm
-(mdframed)              on input line 2895.
-Package mdframed Info: mdframed works in twoside mode on input line 2908.
+(mdframed)              on input line 2898.
+Package mdframed Info: mdframed works in twoside mode on input line 2907.
 Package mdframed Info: mdframed detected package amsthm 
  changed the theorem header of amsthm
-(mdframed)              on input line 2908.
-
-Underfull \hbox (badness 10000) in paragraph at lines 2934--2934
-
- []
-
-Package mdframed Info: mdframed works in twoside mode on input line 2935.
+(mdframed)              on input line 2907.
+Package mdframed Info: mdframed works in twoside mode on input line 2916.
 Package mdframed Info: mdframed detected package amsthm 
  changed the theorem header of amsthm
-(mdframed)              on input line 2935.
+(mdframed)              on input line 2916.
 
 
 [73]
-Package mdframed Info: mdframed works in twoside mode on input line 2951.
+LaTeX Font Info:    External font `lmex10' loaded for size
+(Font)              <10> on input line 2926.
+LaTeX Font Info:    External font `lmex10' loaded for size
+(Font)              <7> on input line 2926.
+
+
+Package hyperref Warning: Token not allowed in a PDF string (Unicode):
+(hyperref)                removing `math shift' on input line 2926.
+
+
+Package hyperref Warning: Token not allowed in a PDF string (Unicode):
+(hyperref)                removing `superscript' on input line 2926.
+
+
+Package hyperref Warning: Token not allowed in a PDF string (Unicode):
+(hyperref)                removing `math shift' on input line 2926.
+
+Package mdframed Info: mdframed works in twoside mode on input line 2928.
 Package mdframed Info: mdframed detected package amsthm 
  changed the theorem header of amsthm
-(mdframed)              on input line 2951.
+(mdframed)              on input line 2928.
+Package mdframed Info: mdframed works in twoside mode on input line 2941.
+Package mdframed Info: mdframed detected package amsthm 
+ changed the theorem header of amsthm
+(mdframed)              on input line 2941.
 
-Underfull \hbox (badness 10000) in paragraph at lines 2951--2953
+Underfull \hbox (badness 10000) in paragraph at lines 2967--2967
 
  []
 
+Package mdframed Info: mdframed works in twoside mode on input line 2968.
+Package mdframed Info: mdframed detected package amsthm 
+ changed the theorem header of amsthm
+(mdframed)              on input line 2968.
+Package mdframed Info: mdframed works in twoside mode on input line 2984.
+Package mdframed Info: mdframed detected package amsthm 
+ changed the theorem header of amsthm
+(mdframed)              on input line 2984.
 
-Underfull \hbox (badness 10000) in paragraph at lines 2959--2959
+Underfull \hbox (badness 10000) in paragraph at lines 2984--2986
 
  []
 
-Package mdframed Info: mdframed works in twoside mode on input line 2960.
-Package mdframed Info: mdframed detected package amsthm 
- changed the theorem header of amsthm
-(mdframed)              on input line 2960.
-Package mdframed Info: mdframed works in twoside mode on input line 2971.
-Package mdframed Info: mdframed detected package amsthm 
- changed the theorem header of amsthm
-(mdframed)              on input line 2971.
-
-Underfull \hbox (badness 10000) in paragraph at lines 2971--2973
-
- []
-
-Package mdframed Info: mdframed works in twoside mode on input line 2979.
-Package mdframed Info: mdframed detected package amsthm 
- changed the theorem header of amsthm
-(mdframed)              on input line 2979.
-
-Underfull \hbox (badness 10000) in paragraph at lines 2979--2981
-
- []
-
-Package mdframed Info: mdframed works in twoside mode on input line 2990.
-Package mdframed Info: mdframed detected package amsthm 
- changed the theorem header of amsthm
-(mdframed)              on input line 2990.
-
-Underfull \hbox (badness 10000) in paragraph at lines 2990--2992
-
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 2997--2997
-
- []
-
-Package mdframed Info: mdframed works in twoside mode on input line 2998.
-Package mdframed Info: mdframed detected package amsthm 
- changed the theorem header of amsthm
-(mdframed)              on input line 2998.
+Package mdframed Info: Not enough space on this page on input line 2989.
 
 
 [74]
-Underfull \hbox (badness 10000) in paragraph at lines 3022--3022
+Package mdframed Info: Not enough space on this page on input line 2989.
+
+Underfull \hbox (badness 10000) in paragraph at lines 2992--2992
+
+ []
+
+Package mdframed Info: mdframed works in twoside mode on input line 2993.
+Package mdframed Info: mdframed detected package amsthm 
+ changed the theorem header of amsthm
+(mdframed)              on input line 2993.
+Package mdframed Info: mdframed works in twoside mode on input line 3004.
+Package mdframed Info: mdframed detected package amsthm 
+ changed the theorem header of amsthm
+(mdframed)              on input line 3004.
+
+Underfull \hbox (badness 10000) in paragraph at lines 3004--3006
+
+ []
+
+Package mdframed Info: mdframed works in twoside mode on input line 3012.
+Package mdframed Info: mdframed detected package amsthm 
+ changed the theorem header of amsthm
+(mdframed)              on input line 3012.
+
+Underfull \hbox (badness 10000) in paragraph at lines 3012--3014
 
  []
 
@@ -3376,123 +3369,148 @@ Package mdframed Info: mdframed works in twoside mode on input line 3023.
 Package mdframed Info: mdframed detected package amsthm 
  changed the theorem header of amsthm
 (mdframed)              on input line 3023.
-Package mdframed Info: mdframed works in twoside mode on input line 3040.
+
+Underfull \hbox (badness 10000) in paragraph at lines 3023--3025
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 3030--3030
+
+ []
+
+Package mdframed Info: mdframed works in twoside mode on input line 3031.
 Package mdframed Info: mdframed detected package amsthm 
  changed the theorem header of amsthm
-(mdframed)              on input line 3040.
+(mdframed)              on input line 3031.
+Package mdframed Info: Box was splittet wrong
+ starting loop to iterate the splitting point
+(mdframed)              on input line 3052.
 
 
 [75]
-Package mdframed Info: mdframed works in twoside mode on input line 3047.
-Package mdframed Info: mdframed detected package amsthm 
- changed the theorem header of amsthm
-(mdframed)              on input line 3047.
-
-Underfull \hbox (badness 10000) in paragraph at lines 3047--3049
+Underfull \hbox (badness 10000) in paragraph at lines 3055--3055
 
  []
 
+Package mdframed Info: mdframed works in twoside mode on input line 3056.
+Package mdframed Info: mdframed detected package amsthm 
+ changed the theorem header of amsthm
+(mdframed)              on input line 3056.
+Package mdframed Info: mdframed works in twoside mode on input line 3073.
+Package mdframed Info: mdframed detected package amsthm 
+ changed the theorem header of amsthm
+(mdframed)              on input line 3073.
+Package mdframed Info: mdframed works in twoside mode on input line 3080.
+Package mdframed Info: mdframed detected package amsthm 
+ changed the theorem header of amsthm
+(mdframed)              on input line 3080.
 
-Underfull \hbox (badness 10000) in paragraph at lines 3054--3054
+Underfull \hbox (badness 10000) in paragraph at lines 3080--3082
 
  []
 
-Package mdframed Info: mdframed works in twoside mode on input line 3055.
-Package mdframed Info: mdframed detected package amsthm 
- changed the theorem header of amsthm
-(mdframed)              on input line 3055.
-Package mdframed Info: mdframed works in twoside mode on input line 3068.
-Package mdframed Info: mdframed detected package amsthm 
- changed the theorem header of amsthm
-(mdframed)              on input line 3068.
-
-Underfull \hbox (badness 10000) in paragraph at lines 3068--3070
-
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 3076--3076
-
- []
-
-Package mdframed Info: mdframed works in twoside mode on input line 3077.
-Package mdframed Info: mdframed detected package amsthm 
- changed the theorem header of amsthm
-(mdframed)              on input line 3077.
-Package mdframed Info: mdframed works in twoside mode on input line 3086.
-Package mdframed Info: mdframed detected package amsthm 
- changed the theorem header of amsthm
-(mdframed)              on input line 3086.
-
-Underfull \hbox (badness 10000) in paragraph at lines 3086--3088
-
- []
-
-
-Package mdframed Warning: You got a bad break
-(mdframed)                because the last box will be empty
-(mdframed)                you have to change it manually
-(mdframed)                by changing the text, the space
-(mdframed)                or something else on input line 3091.
-
+Package mdframed Info: Not enough space on this page on input line 3085.
 
 
 [76]
-Underfull \hbox (badness 10000) in paragraph at lines 3093--3093
+Package mdframed Info: Not enough space on this page on input line 3085.
+
+Underfull \hbox (badness 10000) in paragraph at lines 3087--3087
 
  []
 
-Package mdframed Info: mdframed works in twoside mode on input line 3094.
+Package mdframed Info: mdframed works in twoside mode on input line 3088.
 Package mdframed Info: mdframed detected package amsthm 
  changed the theorem header of amsthm
-(mdframed)              on input line 3094.
+(mdframed)              on input line 3088.
+Package mdframed Info: mdframed works in twoside mode on input line 3101.
+Package mdframed Info: mdframed detected package amsthm 
+ changed the theorem header of amsthm
+(mdframed)              on input line 3101.
+
+Underfull \hbox (badness 10000) in paragraph at lines 3101--3103
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 3109--3109
+
+ []
+
+Package mdframed Info: mdframed works in twoside mode on input line 3110.
+Package mdframed Info: mdframed detected package amsthm 
+ changed the theorem header of amsthm
+(mdframed)              on input line 3110.
+Package mdframed Info: mdframed works in twoside mode on input line 3119.
+Package mdframed Info: mdframed detected package amsthm 
+ changed the theorem header of amsthm
+(mdframed)              on input line 3119.
+
+Underfull \hbox (badness 10000) in paragraph at lines 3119--3121
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 3126--3126
+
+ []
+
+Package mdframed Info: mdframed works in twoside mode on input line 3127.
+Package mdframed Info: mdframed detected package amsthm 
+ changed the theorem header of amsthm
+(mdframed)              on input line 3127.
 
 
 [77]
-
-Package hyperref Warning: Token not allowed in a PDF string (Unicode):
-(hyperref)                removing `math shift' on input line 3112.
-
-
-Package hyperref Warning: Token not allowed in a PDF string (Unicode):
-(hyperref)                removing `superscript' on input line 3112.
-
-
-Package hyperref Warning: Token not allowed in a PDF string (Unicode):
-(hyperref)                removing `math shift' on input line 3112.
-
-Package mdframed Info: mdframed works in twoside mode on input line 3132.
-Package mdframed Info: mdframed detected package amsthm 
- changed the theorem header of amsthm
-(mdframed)              on input line 3132.
-
-Underfull \hbox (badness 10000) in paragraph at lines 3132--3134
-
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 3140--3140
-
- []
-
-Package mdframed Info: mdframed works in twoside mode on input line 3141.
-Package mdframed Info: mdframed detected package amsthm 
- changed the theorem header of amsthm
-(mdframed)              on input line 3141.
+Package mdframed Info: Not enough space on this page on input line 3139.
 
 
 [78]
-Package mdframed Info: mdframed works in twoside mode on input line 3173.
+
+Package hyperref Warning: Token not allowed in a PDF string (Unicode):
+(hyperref)                removing `math shift' on input line 3145.
+
+
+Package hyperref Warning: Token not allowed in a PDF string (Unicode):
+(hyperref)                removing `superscript' on input line 3145.
+
+
+Package hyperref Warning: Token not allowed in a PDF string (Unicode):
+(hyperref)                removing `math shift' on input line 3145.
+
+Package mdframed Info: mdframed works in twoside mode on input line 3165.
 Package mdframed Info: mdframed detected package amsthm 
  changed the theorem header of amsthm
-(mdframed)              on input line 3173.
+(mdframed)              on input line 3165.
 
-Underfull \hbox (badness 10000) in paragraph at lines 3173--3175
+Underfull \hbox (badness 10000) in paragraph at lines 3165--3167
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 3184--3184
+Underfull \hbox (badness 10000) in paragraph at lines 3173--3173
+
+ []
+
+Package mdframed Info: mdframed works in twoside mode on input line 3174.
+Package mdframed Info: mdframed detected package amsthm 
+ changed the theorem header of amsthm
+(mdframed)              on input line 3174.
+
+
+[79]
+Package mdframed Info: mdframed works in twoside mode on input line 3206.
+Package mdframed Info: mdframed detected package amsthm 
+ changed the theorem header of amsthm
+(mdframed)              on input line 3206.
+
+Underfull \hbox (badness 10000) in paragraph at lines 3206--3208
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 3217--3217
 
  []
 
@@ -3501,363 +3519,618 @@ Underfull \vbox (badness 4303) has occurred while \output is active []
 
 
 
-[79]
-Package mdframed Info: mdframed works in twoside mode on input line 3185.
-Package mdframed Info: mdframed detected package amsthm 
- changed the theorem header of amsthm
-(mdframed)              on input line 3185.
-Package mdframed Info: mdframed works in twoside mode on input line 3206.
-Package mdframed Info: mdframed detected package amsthm 
- changed the theorem header of amsthm
-(mdframed)              on input line 3206.
-
-Underfull \hbox (badness 10000) in paragraph at lines 3211--3211
-
- []
-
-Package mdframed Info: mdframed works in twoside mode on input line 3212.
-Package mdframed Info: mdframed detected package amsthm 
- changed the theorem header of amsthm
-(mdframed)              on input line 3212.
-Package mdframed Info: Box was splittet wrong
- starting loop to iterate the splitting point
-(mdframed)              on input line 3230.
-
-
 [80]
-
-[81]
+Package mdframed Info: mdframed works in twoside mode on input line 3218.
+Package mdframed Info: mdframed detected package amsthm 
+ changed the theorem header of amsthm
+(mdframed)              on input line 3218.
 Package mdframed Info: mdframed works in twoside mode on input line 3239.
 Package mdframed Info: mdframed detected package amsthm 
  changed the theorem header of amsthm
 (mdframed)              on input line 3239.
 
-Underfull \hbox (badness 10000) in paragraph at lines 3249--3249
+Underfull \hbox (badness 10000) in paragraph at lines 3244--3244
 
  []
 
-Package mdframed Info: mdframed works in twoside mode on input line 3250.
+Package mdframed Info: mdframed works in twoside mode on input line 3245.
 Package mdframed Info: mdframed detected package amsthm 
  changed the theorem header of amsthm
-(mdframed)              on input line 3250.
-Package mdframed Info: mdframed works in twoside mode on input line 3253.
-Package mdframed Info: mdframed detected package amsthm 
- changed the theorem header of amsthm
-(mdframed)              on input line 3253.
-
-Underfull \hbox (badness 10000) in paragraph at lines 3253--3255
-
- []
+(mdframed)              on input line 3245.
+Package mdframed Info: Box was splittet wrong
+ starting loop to iterate the splitting point
+(mdframed)              on input line 3263.
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 3266--3266
-
- []
-
-Package mdframed Info: mdframed works in twoside mode on input line 3267.
-Package mdframed Info: mdframed detected package amsthm 
- changed the theorem header of amsthm
-(mdframed)              on input line 3267.
-Missing character: There is no ⁺ ("207A) in font rm-lmr10!
-Missing character: There is no ⁻ ("207B) in font rm-lmr10!
-Package mdframed Info: mdframed works in twoside mode on input line 3288.
-Package mdframed Info: mdframed detected package amsthm 
- changed the theorem header of amsthm
-(mdframed)              on input line 3288.
-
+[81]
 
 [82]
-Package mdframed Info: Not enough space on this page on input line 3293.
-Package mdframed Info: mdframed works in twoside mode on input line 3305.
+Package mdframed Info: mdframed works in twoside mode on input line 3272.
 Package mdframed Info: mdframed detected package amsthm 
  changed the theorem header of amsthm
-(mdframed)              on input line 3305.
+(mdframed)              on input line 3272.
 
-Underfull \hbox (badness 10000) in paragraph at lines 3305--3307
+Underfull \hbox (badness 10000) in paragraph at lines 3282--3282
 
  []
 
-Package mdframed Info: mdframed works in twoside mode on input line 3315.
+Package mdframed Info: mdframed works in twoside mode on input line 3283.
 Package mdframed Info: mdframed detected package amsthm 
  changed the theorem header of amsthm
-(mdframed)              on input line 3315.
+(mdframed)              on input line 3283.
+Package mdframed Info: mdframed works in twoside mode on input line 3286.
+Package mdframed Info: mdframed detected package amsthm 
+ changed the theorem header of amsthm
+(mdframed)              on input line 3286.
 
-Underfull \hbox (badness 10000) in paragraph at lines 3321--3321
+Underfull \hbox (badness 10000) in paragraph at lines 3286--3288
 
  []
 
-Package mdframed Info: mdframed works in twoside mode on input line 3322.
+
+Underfull \hbox (badness 10000) in paragraph at lines 3299--3299
+
+ []
+
+Package mdframed Info: mdframed works in twoside mode on input line 3300.
 Package mdframed Info: mdframed detected package amsthm 
  changed the theorem header of amsthm
-(mdframed)              on input line 3322.
+(mdframed)              on input line 3300.
+Missing character: There is no ⁺ ("207A) in font rm-lmr10!
+Missing character: There is no ⁻ ("207B) in font rm-lmr10!
+Package mdframed Info: mdframed works in twoside mode on input line 3321.
+Package mdframed Info: mdframed detected package amsthm 
+ changed the theorem header of amsthm
+(mdframed)              on input line 3321.
 
 
 [83]
-Package mdframed Info: mdframed works in twoside mode on input line 3358.
+Package mdframed Info: Not enough space on this page on input line 3326.
+Package mdframed Info: mdframed works in twoside mode on input line 3338.
 Package mdframed Info: mdframed detected package amsthm 
  changed the theorem header of amsthm
-(mdframed)              on input line 3358.
+(mdframed)              on input line 3338.
 
-Underfull \hbox (badness 10000) in paragraph at lines 3360--3362
+Underfull \hbox (badness 10000) in paragraph at lines 3338--3340
 
  []
 
-Package mdframed Info: mdframed works in twoside mode on input line 3369.
+Package mdframed Info: mdframed works in twoside mode on input line 3348.
 Package mdframed Info: mdframed detected package amsthm 
  changed the theorem header of amsthm
-(mdframed)              on input line 3369.
+(mdframed)              on input line 3348.
 
-Underfull \hbox (badness 10000) in paragraph at lines 3377--3377
+Underfull \hbox (badness 10000) in paragraph at lines 3354--3354
 
  []
 
-Package mdframed Info: mdframed works in twoside mode on input line 3378.
+Package mdframed Info: mdframed works in twoside mode on input line 3355.
 Package mdframed Info: mdframed detected package amsthm 
  changed the theorem header of amsthm
-(mdframed)              on input line 3378.
-
-Underfull \hbox (badness 10000) in paragraph at lines 3394--3394
-
- []
-
-Package mdframed Info: mdframed works in twoside mode on input line 3395.
-Package mdframed Info: mdframed detected package amsthm 
- changed the theorem header of amsthm
-(mdframed)              on input line 3395.
-
-Underfull \hbox (badness 10000) in paragraph at lines 3418--3420
-
- []
-
-Package mdframed Info: Not enough space on this page on input line 3431.
+(mdframed)              on input line 3355.
 
 
 [84]
-Package mdframed Info: Not enough space on this page on input line 3431.
+Package mdframed Info: mdframed works in twoside mode on input line 3391.
+Package mdframed Info: mdframed detected package amsthm 
+ changed the theorem header of amsthm
+(mdframed)              on input line 3391.
+
+Underfull \hbox (badness 10000) in paragraph at lines 3393--3395
+
+ []
+
+Package mdframed Info: mdframed works in twoside mode on input line 3402.
+Package mdframed Info: mdframed detected package amsthm 
+ changed the theorem header of amsthm
+(mdframed)              on input line 3402.
+
+Underfull \hbox (badness 10000) in paragraph at lines 3410--3410
+
+ []
+
+Package mdframed Info: mdframed works in twoside mode on input line 3411.
+Package mdframed Info: mdframed detected package amsthm 
+ changed the theorem header of amsthm
+(mdframed)              on input line 3411.
+
+Underfull \hbox (badness 10000) in paragraph at lines 3427--3427
+
+ []
+
+Package mdframed Info: mdframed works in twoside mode on input line 3428.
+Package mdframed Info: mdframed detected package amsthm 
+ changed the theorem header of amsthm
+(mdframed)              on input line 3428.
+
+Underfull \hbox (badness 10000) in paragraph at lines 3451--3453
+
+ []
+
+Package mdframed Info: Not enough space on this page on input line 3464.
 
 
 [85]
+Package mdframed Info: Not enough space on this page on input line 3464.
+Package mdframed Info: mdframed works in twoside mode on input line 3467.
+Package mdframed Info: mdframed detected package amsthm 
+ changed the theorem header of amsthm
+(mdframed)              on input line 3467.
 
-[86
+
+Package mdframed Warning: You got a bad break
+(mdframed)                because the last box will be empty
+(mdframed)                you have to change it manually
+(mdframed)                by changing the text, the space
+(mdframed)                or something else on input line 3470.
+
+
+
+[86]
+Package mdframed Info: mdframed works in twoside mode on input line 3472.
+Package mdframed Info: mdframed detected package amsthm 
+ changed the theorem header of amsthm
+(mdframed)              on input line 3472.
+
+Underfull \hbox (badness 10000) in paragraph at lines 3472--3474
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 3479--3479
+
+ []
+
+Package mdframed Info: mdframed works in twoside mode on input line 3480.
+Package mdframed Info: mdframed detected package amsthm 
+ changed the theorem header of amsthm
+(mdframed)              on input line 3480.
+
+
+[87]
+
+[88
 
 ]
 
 Package hyperref Warning: Difference (2) between bookmark levels is greater 
-(hyperref)                than one, level fixed on input line 3437.
+(hyperref)                than one, level fixed on input line 3511.
 
-Package mdframed Info: mdframed works in twoside mode on input line 3440.
+Package mdframed Info: mdframed works in twoside mode on input line 3514.
 Package mdframed Info: mdframed detected package amsthm 
  changed the theorem header of amsthm
-(mdframed)              on input line 3440.
-Package mdframed Info: mdframed works in twoside mode on input line 3452.
+(mdframed)              on input line 3514.
+Package mdframed Info: mdframed works in twoside mode on input line 3526.
 Package mdframed Info: mdframed detected package amsthm 
  changed the theorem header of amsthm
-(mdframed)              on input line 3452.
+(mdframed)              on input line 3526.
 
-Underfull \hbox (badness 10000) in paragraph at lines 3452--3454
+Underfull \hbox (badness 10000) in paragraph at lines 3526--3528
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 3461--3461
+Underfull \hbox (badness 10000) in paragraph at lines 3535--3535
 
  []
 
-Package mdframed Info: mdframed works in twoside mode on input line 3462.
+Package mdframed Info: mdframed works in twoside mode on input line 3536.
 Package mdframed Info: mdframed detected package amsthm 
  changed the theorem header of amsthm
-(mdframed)              on input line 3462.
+(mdframed)              on input line 3536.
 
-Underfull \hbox (badness 10000) in paragraph at lines 3468--3468
+Underfull \hbox (badness 10000) in paragraph at lines 3542--3542
 
  []
 
-Package mdframed Info: mdframed works in twoside mode on input line 3469.
+Package mdframed Info: mdframed works in twoside mode on input line 3543.
 Package mdframed Info: mdframed detected package amsthm 
  changed the theorem header of amsthm
-(mdframed)              on input line 3469.
+(mdframed)              on input line 3543.
 Package mdframed Info: Box was splittet wrong
  starting loop to iterate the splitting point
-(mdframed)              on input line 3486.
-
-
-[87]
-Package mdframed Info: mdframed works in twoside mode on input line 3489.
-Package mdframed Info: mdframed detected package amsthm 
- changed the theorem header of amsthm
-(mdframed)              on input line 3489.
-
-Underfull \hbox (badness 10000) in paragraph at lines 3489--3491
-
- []
-
-Package mdframed Info: mdframed works in twoside mode on input line 3500.
-Package mdframed Info: mdframed detected package amsthm 
- changed the theorem header of amsthm
-(mdframed)              on input line 3500.
-
-Underfull \hbox (badness 10000) in paragraph at lines 3500--3502
-
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 3508--3508
-
- []
-
-Package mdframed Info: mdframed works in twoside mode on input line 3509.
-Package mdframed Info: mdframed detected package amsthm 
- changed the theorem header of amsthm
-(mdframed)              on input line 3509.
-
-Underfull \hbox (badness 10000) in paragraph at lines 3517--3517
-
- []
-
-Package mdframed Info: mdframed works in twoside mode on input line 3518.
-Package mdframed Info: mdframed detected package amsthm 
- changed the theorem header of amsthm
-(mdframed)              on input line 3518.
-Package mdframed Info: Box was splittet wrong
- starting loop to iterate the splitting point
-(mdframed)              on input line 3532.
-
-
-[88]
-Package mdframed Info: mdframed works in twoside mode on input line 3535.
-Package mdframed Info: mdframed detected package amsthm 
- changed the theorem header of amsthm
-(mdframed)              on input line 3535.
-Package mdframed Info: mdframed works in twoside mode on input line 3541.
-Package mdframed Info: mdframed detected package amsthm 
- changed the theorem header of amsthm
-(mdframed)              on input line 3541.
-
-Underfull \hbox (badness 10000) in paragraph at lines 3547--3549
-
- []
-
-Package mdframed Info: mdframed works in twoside mode on input line 3559.
-Package mdframed Info: mdframed detected package amsthm 
- changed the theorem header of amsthm
-(mdframed)              on input line 3559.
-
-Underfull \hbox (badness 10000) in paragraph at lines 3559--3561
-
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 3567--3567
-
- []
-
-Package mdframed Info: mdframed works in twoside mode on input line 3568.
-Package mdframed Info: mdframed detected package amsthm 
- changed the theorem header of amsthm
-(mdframed)              on input line 3568.
+(mdframed)              on input line 3560.
 
 
 [89]
+Package mdframed Info: mdframed works in twoside mode on input line 3563.
+Package mdframed Info: mdframed detected package amsthm 
+ changed the theorem header of amsthm
+(mdframed)              on input line 3563.
 
-[90]
+Underfull \hbox (badness 10000) in paragraph at lines 3563--3565
+
+ []
+
+Package mdframed Info: mdframed works in twoside mode on input line 3574.
+Package mdframed Info: mdframed detected package amsthm 
+ changed the theorem header of amsthm
+(mdframed)              on input line 3574.
+
+Underfull \hbox (badness 10000) in paragraph at lines 3574--3576
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 3582--3582
+
+ []
+
+Package mdframed Info: mdframed works in twoside mode on input line 3583.
+Package mdframed Info: mdframed detected package amsthm 
+ changed the theorem header of amsthm
+(mdframed)              on input line 3583.
+
+Underfull \hbox (badness 10000) in paragraph at lines 3591--3591
+
+ []
+
 Package mdframed Info: mdframed works in twoside mode on input line 3592.
 Package mdframed Info: mdframed detected package amsthm 
  changed the theorem header of amsthm
 (mdframed)              on input line 3592.
+Package mdframed Info: Box was splittet wrong
+ starting loop to iterate the splitting point
+(mdframed)              on input line 3606.
+
+
+[90]
+Package mdframed Info: mdframed works in twoside mode on input line 3609.
+Package mdframed Info: mdframed detected package amsthm 
+ changed the theorem header of amsthm
+(mdframed)              on input line 3609.
+Package mdframed Info: mdframed works in twoside mode on input line 3615.
+Package mdframed Info: mdframed detected package amsthm 
+ changed the theorem header of amsthm
+(mdframed)              on input line 3615.
+Package mdframed Info: mdframed works in twoside mode on input line 3630.
+Package mdframed Info: mdframed detected package amsthm 
+ changed the theorem header of amsthm
+(mdframed)              on input line 3630.
+
+Underfull \hbox (badness 10000) in paragraph at lines 3630--3632
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 3639--3639
+
+ []
+
+Package mdframed Info: mdframed works in twoside mode on input line 3640.
+Package mdframed Info: mdframed detected package amsthm 
+ changed the theorem header of amsthm
+(mdframed)              on input line 3640.
+Package mdframed Info: Box was splittet wrong
+ starting loop to iterate the splitting point
+(mdframed)              on input line 3647.
 
 
 [91]
-Package mdframed Info: mdframed works in twoside mode on input line 3641.
+Package mdframed Info: mdframed works in twoside mode on input line 3648.
 Package mdframed Info: mdframed detected package amsthm 
  changed the theorem header of amsthm
-(mdframed)              on input line 3641.
+(mdframed)              on input line 3648.
 
-Underfull \hbox (badness 10000) in paragraph at lines 3641--3643
+Underfull \hbox (badness 10000) in paragraph at lines 3648--3650
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 3651--3651
+Underfull \hbox (badness 10000) in paragraph at lines 3656--3656
 
  []
 
-Package mdframed Info: mdframed works in twoside mode on input line 3652.
+Package mdframed Info: mdframed works in twoside mode on input line 3657.
 Package mdframed Info: mdframed detected package amsthm 
  changed the theorem header of amsthm
-(mdframed)              on input line 3652.
-Package mdframed Info: Box was splittet wrong
- starting loop to iterate the splitting point
-(mdframed)              on input line 3671.
+(mdframed)              on input line 3657.
 
 
 [92]
-Underfull \hbox (badness 10000) in paragraph at lines 3674--3674
-
- []
-
-Package mdframed Info: mdframed works in twoside mode on input line 3675.
+Package mdframed Info: mdframed works in twoside mode on input line 3671.
 Package mdframed Info: mdframed detected package amsthm 
  changed the theorem header of amsthm
-(mdframed)              on input line 3675.
-Package mdframed Info: mdframed works in twoside mode on input line 3700.
-Package mdframed Info: mdframed detected package amsthm 
- changed the theorem header of amsthm
-(mdframed)              on input line 3700.
-
-Underfull \hbox (badness 10000) in paragraph at lines 3705--3705
-
- []
-
-Package mdframed Info: mdframed works in twoside mode on input line 3706.
-Package mdframed Info: mdframed detected package amsthm 
- changed the theorem header of amsthm
-(mdframed)              on input line 3706.
+(mdframed)              on input line 3671.
 
 
 [93]
-Package mdframed Info: mdframed works in twoside mode on input line 3744.
+Package mdframed Info: mdframed works in twoside mode on input line 3720.
 Package mdframed Info: mdframed detected package amsthm 
  changed the theorem header of amsthm
-(mdframed)              on input line 3744.
+(mdframed)              on input line 3720.
 
-Underfull \hbox (badness 10000) in paragraph at lines 3744--3745
+Underfull \hbox (badness 10000) in paragraph at lines 3720--3722
 
  []
 
+
+Underfull \hbox (badness 10000) in paragraph at lines 3730--3730
+
+ []
+
+Package mdframed Info: mdframed works in twoside mode on input line 3731.
+Package mdframed Info: mdframed detected package amsthm 
+ changed the theorem header of amsthm
+(mdframed)              on input line 3731.
 Package mdframed Info: Box was splittet wrong
  starting loop to iterate the splitting point
-(mdframed)              on input line 3754.
+(mdframed)              on input line 3750.
 
 
 [94]
+Underfull \hbox (badness 10000) in paragraph at lines 3753--3753
 
-LaTeX Warning: Reference `mdf@pagelabel-267' on page 95 undefined on input line
- 3754.
+ []
+
+Package mdframed Info: mdframed works in twoside mode on input line 3754.
+Package mdframed Info: mdframed detected package amsthm 
+ changed the theorem header of amsthm
+(mdframed)              on input line 3754.
+
+Overfull \hbox (71.78035pt too wide) detected at line 3779
+[]
+ []
+
+Package mdframed Info: mdframed works in twoside mode on input line 3783.
+Package mdframed Info: mdframed detected package amsthm 
+ changed the theorem header of amsthm
+(mdframed)              on input line 3783.
+
+Underfull \vbox (badness 1762) has occurred while \output is active []
 
 
 
-[95] (./AnalyseM1.aux)
+[95]
+Package mdframed Info: Not enough space on this page on input line 3785.
+
+Underfull \hbox (badness 10000) in paragraph at lines 3788--3788
+
+ []
+
+Package mdframed Info: mdframed works in twoside mode on input line 3789.
+Package mdframed Info: mdframed detected package amsthm 
+ changed the theorem header of amsthm
+(mdframed)              on input line 3789.
+
+
+[96]
+
+Package hyperref Warning: Token not allowed in a PDF string (Unicode):
+(hyperref)                removing `math shift' on input line 3807.
+
+
+Package hyperref Warning: Token not allowed in a PDF string (Unicode):
+(hyperref)                removing `superscript' on input line 3807.
+
+
+Package hyperref Warning: Token not allowed in a PDF string (Unicode):
+(hyperref)                removing `math shift' on input line 3807.
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 3816--3818
+
+ []
+
+Package mdframed Info: mdframed works in twoside mode on input line 3849.
+Package mdframed Info: mdframed detected package amsthm 
+ changed the theorem header of amsthm
+(mdframed)              on input line 3849.
+
+Underfull \hbox (badness 10000) in paragraph at lines 3849--3850
+
+ []
+
+
+
+[97]
+Package mdframed Info: mdframed works in twoside mode on input line 3868.
+Package mdframed Info: mdframed detected package amsthm 
+ changed the theorem header of amsthm
+(mdframed)              on input line 3868.
+
+Underfull \hbox (badness 10000) in paragraph at lines 3868--3870
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 3876--3876
+
+ []
+
+Package mdframed Info: mdframed works in twoside mode on input line 3877.
+Package mdframed Info: mdframed detected package amsthm 
+ changed the theorem header of amsthm
+(mdframed)              on input line 3877.
+
+
+[98]
+Package mdframed Info: mdframed works in twoside mode on input line 3903.
+Package mdframed Info: mdframed detected package amsthm 
+ changed the theorem header of amsthm
+(mdframed)              on input line 3903.
+
+Underfull \hbox (badness 10000) in paragraph at lines 3909--3909
+
+ []
+
+Package mdframed Info: mdframed works in twoside mode on input line 3910.
+Package mdframed Info: mdframed detected package amsthm 
+ changed the theorem header of amsthm
+(mdframed)              on input line 3910.
+Package mdframed Info: Box was splittet wrong
+ starting loop to iterate the splitting point
+(mdframed)              on input line 3942.
+
+
+[99]
+Underfull \hbox (badness 10000) in paragraph at lines 3949--3949
+
+ []
+
+Package mdframed Info: mdframed works in twoside mode on input line 3950.
+Package mdframed Info: mdframed detected package amsthm 
+ changed the theorem header of amsthm
+(mdframed)              on input line 3950.
+Package mdframed Info: mdframed works in twoside mode on input line 3960.
+Package mdframed Info: mdframed detected package amsthm 
+ changed the theorem header of amsthm
+(mdframed)              on input line 3960.
+
+Underfull \hbox (badness 10000) in paragraph at lines 3960--3962
+
+ []
+
+Package mdframed Info: mdframed works in twoside mode on input line 3971.
+Package mdframed Info: mdframed detected package amsthm 
+ changed the theorem header of amsthm
+(mdframed)              on input line 3971.
+
+Underfull \hbox (badness 10000) in paragraph at lines 3971--3973
+
+ []
+
+Package mdframed Info: Not enough space on this page on input line 3976.
+
+
+[100]
+Package mdframed Info: Not enough space on this page on input line 3976.
+
+Underfull \hbox (badness 10000) in paragraph at lines 3979--3979
+
+ []
+
+Package mdframed Info: mdframed works in twoside mode on input line 3980.
+Package mdframed Info: mdframed detected package amsthm 
+ changed the theorem header of amsthm
+(mdframed)              on input line 3980.
+
+Underfull \hbox (badness 10000) in paragraph at lines 3991--3991
+
+ []
+
+Package mdframed Info: mdframed works in twoside mode on input line 3992.
+Package mdframed Info: mdframed detected package amsthm 
+ changed the theorem header of amsthm
+(mdframed)              on input line 3992.
+Package mdframed Info: Box was splittet wrong
+ starting loop to iterate the splitting point
+(mdframed)              on input line 4013.
+
+
+[101]
+Package mdframed Info: mdframed works in twoside mode on input line 4016.
+Package mdframed Info: mdframed detected package amsthm 
+ changed the theorem header of amsthm
+(mdframed)              on input line 4016.
+
+Underfull \hbox (badness 10000) in paragraph at lines 4016--4018
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 4023--4023
+
+ []
+
+Package mdframed Info: mdframed works in twoside mode on input line 4024.
+Package mdframed Info: mdframed detected package amsthm 
+ changed the theorem header of amsthm
+(mdframed)              on input line 4024.
+
+
+[102]
+
+Package hyperref Warning: Token not allowed in a PDF string (Unicode):
+(hyperref)                removing `math shift' on input line 4028.
+
+
+Package hyperref Warning: Token not allowed in a PDF string (Unicode):
+(hyperref)                removing `superscript' on input line 4028.
+
+
+Package hyperref Warning: Token not allowed in a PDF string (Unicode):
+(hyperref)                removing `math shift' on input line 4028.
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 4033--4034
+
+ []
+
+Package mdframed Info: mdframed works in twoside mode on input line 4040.
+Package mdframed Info: mdframed detected package amsthm 
+ changed the theorem header of amsthm
+(mdframed)              on input line 4040.
+
+Underfull \hbox (badness 10000) in paragraph at lines 4040--4042
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 4051--4051
+
+ []
+
+Package mdframed Info: mdframed works in twoside mode on input line 4052.
+Package mdframed Info: mdframed detected package amsthm 
+ changed the theorem header of amsthm
+(mdframed)              on input line 4052.
+Package mdframed Info: mdframed works in twoside mode on input line 4058.
+Package mdframed Info: mdframed detected package amsthm 
+ changed the theorem header of amsthm
+(mdframed)              on input line 4058.
+
+Underfull \hbox (badness 10000) in paragraph at lines 4066--4066
+
+ []
+
+Package mdframed Info: mdframed works in twoside mode on input line 4067.
+Package mdframed Info: mdframed detected package amsthm 
+ changed the theorem header of amsthm
+(mdframed)              on input line 4067.
+Package mdframed Info: mdframed works in twoside mode on input line 4075.
+Package mdframed Info: mdframed detected package amsthm 
+ changed the theorem header of amsthm
+(mdframed)              on input line 4075.
+
+Underfull \hbox (badness 10000) in paragraph at lines 4075--4077
+
+ []
+
+Package mdframed Info: Not enough space on this page on input line 4081.
+
+
+[103]
+Package mdframed Info: Not enough space on this page on input line 4081.
+Package mdframed Info: mdframed works in twoside mode on input line 4084.
+Package mdframed Info: mdframed detected package amsthm 
+ changed the theorem header of amsthm
+(mdframed)              on input line 4084.
+Package mdframed Info: mdframed works in twoside mode on input line 4092.
+Package mdframed Info: mdframed detected package amsthm 
+ changed the theorem header of amsthm
+(mdframed)              on input line 4092.
+
+
+[104] (./AnalyseM1.aux)
  ***********
 LaTeX2e <2024-06-01> patch level 2
 L3 programming layer <2024-08-30>
  ***********
 
 
-LaTeX Warning: There were undefined references.
-
-
 LaTeX Warning: Label(s) may have changed. Rerun to get cross-references right.
 
 Package rerunfilecheck Info: File `AnalyseM1.out' has not changed.
-(rerunfilecheck)             Checksum: 906723CEB1BB70D45FEF8448A941C937;5091.
+(rerunfilecheck)             Checksum: 0FF6ED84A7964EDADABDE85554FFE4EB;5660.
  ) 
 Here is how much of TeX's memory you used:
- 29301 strings out of 474235
- 561436 string characters out of 5742253
- 1075730 words of memory out of 5000000
- 51473 multiletter control sequences out of 15000+600000
+ 29383 strings out of 474235
+ 563220 string characters out of 5742253
+ 1078277 words of memory out of 5000000
+ 51555 multiletter control sequences out of 15000+600000
  708849 words of font info for 130 fonts, out of 8000000 for 9000
  1348 hyphenation exceptions out of 8191
  131i,17n,135p,546b,1023s stack positions out of 10000i,1000n,20000p,200000b,200000s
 
-Output written on AnalyseM1.pdf (95 pages).
+Output written on AnalyseM1.pdf (104 pages).
