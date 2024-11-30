@@ -1,4 +1,4 @@
-This is XeTeX, Version 3.141592653-2.6-0.999996 (TeX Live 2024) (preloaded format=xelatex 2024.9.22)  29 NOV 2024 22:50
+This is XeTeX, Version 3.141592653-2.6-0.999996 (TeX Live 2024) (preloaded format=xelatex 2024.9.22)  30 NOV 2024 23:36
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -1063,15 +1063,58 @@ Package tocloft Info: The document has section divisions on input line 51.
 \cfttabindent=\skip177
 \cfttabnumwidth=\skip178
 )
-Package hyperref Info: Option `colorlinks' set `true' on input line 65.
+(/usr/local/texlive/2024/texmf-dist/tex/generic/pgf/libraries/pgflibraryarrows.
+meta.code.tex
+File: pgflibraryarrows.meta.code.tex 2023-01-15 v3.1.10 (3.1.10)
+\pgfarrowinset=\dimen308
+\pgfarrowlength=\dimen309
+\pgfarrowwidth=\dimen310
+\pgfarrowlinewidth=\dimen311
+)
+(/usr/local/texlive/2024/texmf-dist/tex/generic/pgf/frontendlayer/tikz/librarie
+s/tikzlibrarybending.code.tex
+File: tikzlibrarybending.code.tex 2023-01-15 v3.1.10 (3.1.10)
+
+(/usr/local/texlive/2024/texmf-dist/tex/generic/pgf/modules/pgfmodulebending.co
+de.tex
+File: pgfmodulebending.code.tex 2023-01-15 v3.1.10 (3.1.10)
+
+(/usr/local/texlive/2024/texmf-dist/tex/generic/pgf/modules/pgfmodulenonlineart
+ransformations.code.tex
+File: pgfmodulenonlineartransformations.code.tex 2023-01-15 v3.1.10 (3.1.10)
+\pgftransformnonlinearflatness=\dimen312
+)
+(/usr/local/texlive/2024/texmf-dist/tex/generic/pgf/libraries/pgflibrarycurvili
+near.code.tex
+File: pgflibrarycurvilinear.code.tex 2023-01-15 v3.1.10 (3.1.10)
+\pgf@curvilinear@time@a=\dimen313
+\pgf@curvilinear@length@a=\dimen314
+\pgf@curvilinear@length@b=\dimen315
+\pgf@curvilinear@length@c=\dimen316
+\pgf@curvilinear@length@d=\dimen317
+)
+\pgf@arrows@the@rigidity=\dimen318
+))
+(/usr/local/texlive/2024/texmf-dist/tex/generic/pgf/frontendlayer/tikz/librarie
+s/tikzlibrarypositioning.code.tex
+File: tikzlibrarypositioning.code.tex 2023-01-15 v3.1.10 (3.1.10)
+)
+(/usr/local/texlive/2024/texmf-dist/tex/generic/pgf/frontendlayer/tikz/librarie
+s/tikzlibraryshapes.geometric.code.tex
+File: tikzlibraryshapes.geometric.code.tex 2023-01-15 v3.1.10 (3.1.10)
+
+(/usr/local/texlive/2024/texmf-dist/tex/generic/pgf/libraries/shapes/pgflibrary
+shapes.geometric.code.tex
+File: pgflibraryshapes.geometric.code.tex 2023-01-15 v3.1.10 (3.1.10)
+))
+Package hyperref Info: Option `colorlinks' set `true' on input line 66.
 \c@CompteurRemarque=\count356
 \c@prop=\count357
 \c@corollaire=\count358
 \c@lemme=\count359
 \c@Subsection=\count360
 \c@Section=\count361
-)
-(./AnalyseM1.aux)
+) (./AnalyseM1.aux)
 \openout1 = `AnalyseM1.aux'.
 
 LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 8.
@@ -1085,7 +1128,8 @@ LaTeX Font Info:    ... okay on input line 8.
 LaTeX Font Info:    Checking defaults for TS1/cmr/m/n on input line 8.
 LaTeX Font Info:    Trying to load font information for TS1+cmr on input line 8
 .
- (/usr/local/texlive/2024/texmf-dist/tex/latex/base/ts1cmr.fd
+
+(/usr/local/texlive/2024/texmf-dist/tex/latex/base/ts1cmr.fd
 File: ts1cmr.fd 2023/04/13 v2.5m Standard LaTeX font definitions
 )
 LaTeX Font Info:    ... okay on input line 8.
@@ -1101,6 +1145,7 @@ LaTeX Font Info:    Checking defaults for PU/pdf/m/n on input line 8.
 LaTeX Font Info:    ... okay on input line 8.
 LaTeX Info: Redefining \degres on input line 8.
 LaTeX Info: Redefining \up on input line 8.
+
 *geometry* driver: auto-detecting
 *geometry* detected driver: xetex
 *geometry* verbose mode - [ preamble ] result:
@@ -3921,164 +3966,558 @@ Underfull \hbox (badness 10000) in paragraph at lines 3849--3850
 
  []
 
+Package mdframed Info: Not enough space on this page on input line 3859.
 
 
 [97]
-Package mdframed Info: mdframed works in twoside mode on input line 3868.
-Package mdframed Info: mdframed detected package amsthm 
- changed the theorem header of amsthm
-(mdframed)              on input line 3868.
+Package mdframed Info: Not enough space on this page on input line 3859.
 
-Underfull \hbox (badness 10000) in paragraph at lines 3868--3870
+Underfull \hbox (badness 10000) in paragraph at lines 3862--3862
 
  []
 
+Package mdframed Info: mdframed works in twoside mode on input line 3863.
+Package mdframed Info: mdframed detected package amsthm 
+ changed the theorem header of amsthm
+(mdframed)              on input line 3863.
 
-Underfull \hbox (badness 10000) in paragraph at lines 3876--3876
+Underfull \hbox (badness 10000) in paragraph at lines 3873--3873
 
  []
 
-Package mdframed Info: mdframed works in twoside mode on input line 3877.
+Package mdframed Info: mdframed works in twoside mode on input line 3874.
 Package mdframed Info: mdframed detected package amsthm 
  changed the theorem header of amsthm
-(mdframed)              on input line 3877.
+(mdframed)              on input line 3874.
+
+Underfull \hbox (badness 10000) in paragraph at lines 3884--3884
+
+ []
+
+Package mdframed Info: mdframed works in twoside mode on input line 3885.
+Package mdframed Info: mdframed detected package amsthm 
+ changed the theorem header of amsthm
+(mdframed)              on input line 3885.
+
+Overfull \vbox (63.18651pt too high) detected at line 3893
+ []
+
+Package mdframed Info: Box was splittet wrong
+ starting loop to iterate the splitting point
+(mdframed)              on input line 3893.
+
+Overfull \vbox (64.18651pt too high) detected at line 3893
+ []
+
+
+Overfull \vbox (65.18651pt too high) detected at line 3893
+ []
+
+
+Overfull \vbox (66.18651pt too high) detected at line 3893
+ []
+
+
+Overfull \vbox (67.18651pt too high) detected at line 3893
+ []
+
+
+Overfull \vbox (68.18651pt too high) detected at line 3893
+ []
+
+
+Overfull \vbox (69.18651pt too high) detected at line 3893
+ []
+
+
+Overfull \vbox (70.18651pt too high) detected at line 3893
+ []
+
+
+Overfull \vbox (71.18651pt too high) detected at line 3893
+ []
+
+
+Overfull \vbox (72.18651pt too high) detected at line 3893
+ []
+
+
+Overfull \vbox (73.18651pt too high) detected at line 3893
+ []
+
+
+Overfull \vbox (74.18651pt too high) detected at line 3893
+ []
+
+
+Overfull \vbox (75.18651pt too high) detected at line 3893
+ []
+
+
+Overfull \vbox (76.18651pt too high) detected at line 3893
+ []
+
+
+Overfull \vbox (77.18651pt too high) detected at line 3893
+ []
+
+
+Overfull \vbox (78.18651pt too high) detected at line 3893
+ []
+
+
+Overfull \vbox (79.18651pt too high) detected at line 3893
+ []
+
+
+Overfull \vbox (80.18651pt too high) detected at line 3893
+ []
+
+
+Overfull \vbox (81.18651pt too high) detected at line 3893
+ []
+
+
+Overfull \vbox (82.18651pt too high) detected at line 3893
+ []
+
+
+Overfull \vbox (83.18651pt too high) detected at line 3893
+ []
+
+
+Overfull \vbox (84.18651pt too high) detected at line 3893
+ []
+
+
+Overfull \vbox (85.18651pt too high) detected at line 3893
+ []
+
+
+Overfull \vbox (86.18651pt too high) detected at line 3893
+ []
+
+
+Overfull \vbox (87.18651pt too high) detected at line 3893
+ []
+
+
+Overfull \vbox (88.18651pt too high) detected at line 3893
+ []
+
+
+Overfull \vbox (89.18651pt too high) detected at line 3893
+ []
+
+
+Overfull \vbox (90.18651pt too high) detected at line 3893
+ []
+
+
+Overfull \vbox (91.18651pt too high) detected at line 3893
+ []
+
+
+Overfull \vbox (92.18651pt too high) detected at line 3893
+ []
+
+
+Overfull \vbox (93.18651pt too high) detected at line 3893
+ []
+
+
+Overfull \vbox (94.18651pt too high) detected at line 3893
+ []
+
+
+Overfull \vbox (95.18651pt too high) detected at line 3893
+ []
+
+
+Overfull \vbox (96.18651pt too high) detected at line 3893
+ []
+
+
+Overfull \vbox (97.18651pt too high) detected at line 3893
+ []
+
+
+Overfull \vbox (98.18651pt too high) detected at line 3893
+ []
+
+
+Overfull \vbox (99.18651pt too high) detected at line 3893
+ []
+
+
+Overfull \vbox (100.18651pt too high) detected at line 3893
+ []
+
+
+Overfull \vbox (101.18651pt too high) detected at line 3893
+ []
+
+
+Overfull \vbox (102.18651pt too high) detected at line 3893
+ []
+
+
+Overfull \vbox (103.18651pt too high) detected at line 3893
+ []
+
+
+Overfull \vbox (104.18651pt too high) detected at line 3893
+ []
+
+
+Overfull \vbox (105.18651pt too high) detected at line 3893
+ []
+
+
+Overfull \vbox (106.18651pt too high) detected at line 3893
+ []
+
+
+Overfull \vbox (107.18651pt too high) detected at line 3893
+ []
+
+
+Overfull \vbox (108.18651pt too high) detected at line 3893
+ []
+
+
+Overfull \vbox (109.18651pt too high) detected at line 3893
+ []
+
+
+Overfull \vbox (110.18651pt too high) detected at line 3893
+ []
+
+
+Overfull \vbox (111.18651pt too high) detected at line 3893
+ []
+
+
+Overfull \vbox (112.18651pt too high) detected at line 3893
+ []
+
+
+Overfull \vbox (113.18651pt too high) detected at line 3893
+ []
+
+
+Overfull \vbox (114.18651pt too high) detected at line 3893
+ []
+
+
+Overfull \vbox (115.18651pt too high) detected at line 3893
+ []
+
+
+Overfull \vbox (116.18651pt too high) detected at line 3893
+ []
+
+
+Overfull \vbox (117.18651pt too high) detected at line 3893
+ []
+
+
+Overfull \vbox (118.18651pt too high) detected at line 3893
+ []
+
+
+Overfull \vbox (119.18651pt too high) detected at line 3893
+ []
+
+
+Overfull \vbox (120.18651pt too high) detected at line 3893
+ []
+
+
+Overfull \vbox (121.18651pt too high) detected at line 3893
+ []
+
+
+Overfull \vbox (122.18651pt too high) detected at line 3893
+ []
+
+
+Overfull \vbox (123.18651pt too high) detected at line 3893
+ []
+
+
+Overfull \vbox (124.18651pt too high) detected at line 3893
+ []
+
+
+Overfull \vbox (125.18651pt too high) detected at line 3893
+ []
+
+
+Overfull \vbox (126.18651pt too high) detected at line 3893
+ []
+
+
+Overfull \vbox (127.18651pt too high) detected at line 3893
+ []
+
+
+Overfull \vbox (128.18651pt too high) detected at line 3893
+ []
+
+
+Overfull \vbox (129.18651pt too high) detected at line 3893
+ []
+
+
+Overfull \vbox (130.18651pt too high) detected at line 3893
+ []
+
+
+Overfull \vbox (131.18651pt too high) detected at line 3893
+ []
+
+
+Overfull \vbox (132.18651pt too high) detected at line 3893
+ []
+
+
+Overfull \vbox (133.18651pt too high) detected at line 3893
+ []
+
+
+Overfull \vbox (134.18651pt too high) detected at line 3893
+ []
+
+
+Overfull \vbox (135.18651pt too high) detected at line 3893
+ []
+
+
+Overfull \vbox (136.18651pt too high) detected at line 3893
+ []
+
+
+Overfull \vbox (137.18651pt too high) detected at line 3893
+ []
+
+
+Overfull \vbox (138.18651pt too high) detected at line 3893
+ []
+
+
+Overfull \vbox (139.18651pt too high) detected at line 3893
+ []
+
+
+Overfull \vbox (140.18651pt too high) detected at line 3893
+ []
+
+
+Overfull \vbox (141.18651pt too high) detected at line 3893
+ []
+
+
+Overfull \vbox (142.18651pt too high) detected at line 3893
+ []
+
+
+Overfull \vbox (143.18651pt too high) detected at line 3893
+ []
+
+
+Overfull \vbox (144.18651pt too high) detected at line 3893
+ []
+
+
+Overfull \vbox (145.18651pt too high) detected at line 3893
+ []
+
+
+Overfull \vbox (146.18651pt too high) detected at line 3893
+ []
+
+
+Overfull \vbox (147.18651pt too high) detected at line 3893
+ []
+
+
+Overfull \vbox (148.18651pt too high) detected at line 3893
+ []
+
+
+Overfull \vbox (149.18651pt too high) detected at line 3893
+ []
+
+
+Overfull \vbox (150.18651pt too high) detected at line 3893
+ []
+
+
+Overfull \vbox (151.18651pt too high) detected at line 3893
+ []
+
+
+Overfull \vbox (152.18651pt too high) detected at line 3893
+ []
+
+
+Overfull \vbox (153.18651pt too high) detected at line 3893
+ []
+
+
+Overfull \vbox (154.18651pt too high) detected at line 3893
+ []
+
+
+Overfull \vbox (155.18651pt too high) detected at line 3893
+ []
+
+
+Overfull \vbox (156.18651pt too high) detected at line 3893
+ []
+
+
+Overfull \vbox (157.18651pt too high) detected at line 3893
+ []
+
+
+Overfull \vbox (158.18651pt too high) detected at line 3893
+ []
+
+
+Overfull \vbox (159.18651pt too high) detected at line 3893
+ []
+
+
+Overfull \vbox (160.18651pt too high) detected at line 3893
+ []
+
+
+Overfull \vbox (161.18651pt too high) detected at line 3893
+ []
+
+
+Overfull \vbox (162.18651pt too high) detected at line 3893
+ []
+
+
+Overfull \vbox (163.18651pt too high) detected at line 3893
+ []
+
+
+Overfull \vbox (164.18651pt too high) detected at line 3893
+ []
+
+
+Package mdframed Warning: correct box splittet fails
+ It seems you are using a non splittable contents
+(mdframed)                 on input line 3893.
+
+Package mdframed Info: You first box width is to small
+ mdframed fixed it
+(mdframed)              on input line 3893.
 
 
 [98]
-Package mdframed Info: mdframed works in twoside mode on input line 3903.
-Package mdframed Info: mdframed detected package amsthm 
- changed the theorem header of amsthm
-(mdframed)              on input line 3903.
-
-Underfull \hbox (badness 10000) in paragraph at lines 3909--3909
+Underfull \hbox (badness 10000) in paragraph at lines 3896--3896
 
  []
 
-Package mdframed Info: mdframed works in twoside mode on input line 3910.
+Package mdframed Info: mdframed works in twoside mode on input line 3897.
 Package mdframed Info: mdframed detected package amsthm 
  changed the theorem header of amsthm
-(mdframed)              on input line 3910.
-Package mdframed Info: Box was splittet wrong
- starting loop to iterate the splitting point
-(mdframed)              on input line 3942.
+(mdframed)              on input line 3897.
+
+Underfull \hbox (badness 10000) in paragraph at lines 3902--3904
+
+ []
+
+
+Overfull \hbox (28.85252pt too wide) in paragraph at lines 3917--3942
+[]
+ []
+
 
 
 [99]
-Underfull \hbox (badness 10000) in paragraph at lines 3949--3949
+Package mdframed Info: mdframed works in twoside mode on input line 3943.
+Package mdframed Info: mdframed detected package amsthm 
+ changed the theorem header of amsthm
+(mdframed)              on input line 3943.
+
+Underfull \hbox (badness 10000) in paragraph at lines 3943--3945
 
  []
 
-Package mdframed Info: mdframed works in twoside mode on input line 3950.
-Package mdframed Info: mdframed detected package amsthm 
- changed the theorem header of amsthm
-(mdframed)              on input line 3950.
-Package mdframed Info: mdframed works in twoside mode on input line 3960.
-Package mdframed Info: mdframed detected package amsthm 
- changed the theorem header of amsthm
-(mdframed)              on input line 3960.
+Package mdframed Info: Not enough space on this page on input line 3948.
 
-Underfull \hbox (badness 10000) in paragraph at lines 3960--3962
+Underfull \hbox (badness 10000) in paragraph at lines 3951--3951
 
  []
 
-Package mdframed Info: mdframed works in twoside mode on input line 3971.
+Package mdframed Info: mdframed works in twoside mode on input line 3952.
 Package mdframed Info: mdframed detected package amsthm 
  changed the theorem header of amsthm
-(mdframed)              on input line 3971.
+(mdframed)              on input line 3952.
+Package mdframed Info: mdframed works in twoside mode on input line 3978.
+Package mdframed Info: mdframed detected package amsthm 
+ changed the theorem header of amsthm
+(mdframed)              on input line 3978.
 
-Underfull \hbox (badness 10000) in paragraph at lines 3971--3973
+Underfull \hbox (badness 10000) in paragraph at lines 3984--3984
 
  []
 
-Package mdframed Info: Not enough space on this page on input line 3976.
+Package mdframed Info: mdframed works in twoside mode on input line 3985.
+Package mdframed Info: mdframed detected package amsthm 
+ changed the theorem header of amsthm
+(mdframed)              on input line 3985.
+Package mdframed Info: Not enough space on this page on input line 4017.
 
 
 [100]
-Package mdframed Info: Not enough space on this page on input line 3976.
+Package mdframed Info: Not enough space on this page on input line 4017.
 
-Underfull \hbox (badness 10000) in paragraph at lines 3979--3979
-
- []
-
-Package mdframed Info: mdframed works in twoside mode on input line 3980.
-Package mdframed Info: mdframed detected package amsthm 
- changed the theorem header of amsthm
-(mdframed)              on input line 3980.
-
-Underfull \hbox (badness 10000) in paragraph at lines 3991--3991
+Underfull \hbox (badness 10000) in paragraph at lines 4024--4024
 
  []
 
-Package mdframed Info: mdframed works in twoside mode on input line 3992.
+Package mdframed Info: mdframed works in twoside mode on input line 4025.
 Package mdframed Info: mdframed detected package amsthm 
  changed the theorem header of amsthm
-(mdframed)              on input line 3992.
-Package mdframed Info: Box was splittet wrong
- starting loop to iterate the splitting point
-(mdframed)              on input line 4013.
+(mdframed)              on input line 4025.
 
 
 [101]
-Package mdframed Info: mdframed works in twoside mode on input line 4016.
+Package mdframed Info: Not enough space on this page on input line 4032.
+Package mdframed Info: mdframed works in twoside mode on input line 4035.
 Package mdframed Info: mdframed detected package amsthm 
  changed the theorem header of amsthm
-(mdframed)              on input line 4016.
+(mdframed)              on input line 4035.
 
-Underfull \hbox (badness 10000) in paragraph at lines 4016--4018
+Underfull \hbox (badness 10000) in paragraph at lines 4035--4037
+
+ []
+
+Package mdframed Info: mdframed works in twoside mode on input line 4046.
+Package mdframed Info: mdframed detected package amsthm 
+ changed the theorem header of amsthm
+(mdframed)              on input line 4046.
+
+Underfull \hbox (badness 10000) in paragraph at lines 4046--4048
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 4023--4023
+Underfull \hbox (badness 10000) in paragraph at lines 4054--4054
 
  []
 
-Package mdframed Info: mdframed works in twoside mode on input line 4024.
+Package mdframed Info: mdframed works in twoside mode on input line 4055.
 Package mdframed Info: mdframed detected package amsthm 
  changed the theorem header of amsthm
-(mdframed)              on input line 4024.
-
-
-[102]
-
-Package hyperref Warning: Token not allowed in a PDF string (Unicode):
-(hyperref)                removing `math shift' on input line 4028.
-
-
-Package hyperref Warning: Token not allowed in a PDF string (Unicode):
-(hyperref)                removing `superscript' on input line 4028.
-
-
-Package hyperref Warning: Token not allowed in a PDF string (Unicode):
-(hyperref)                removing `math shift' on input line 4028.
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 4033--4034
-
- []
-
-Package mdframed Info: mdframed works in twoside mode on input line 4040.
-Package mdframed Info: mdframed detected package amsthm 
- changed the theorem header of amsthm
-(mdframed)              on input line 4040.
-
-Underfull \hbox (badness 10000) in paragraph at lines 4040--4042
-
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 4051--4051
-
- []
-
-Package mdframed Info: mdframed works in twoside mode on input line 4052.
-Package mdframed Info: mdframed detected package amsthm 
- changed the theorem header of amsthm
-(mdframed)              on input line 4052.
-Package mdframed Info: mdframed works in twoside mode on input line 4058.
-Package mdframed Info: mdframed detected package amsthm 
- changed the theorem header of amsthm
-(mdframed)              on input line 4058.
+(mdframed)              on input line 4055.
 
 Underfull \hbox (badness 10000) in paragraph at lines 4066--4066
 
@@ -4088,35 +4527,165 @@ Package mdframed Info: mdframed works in twoside mode on input line 4067.
 Package mdframed Info: mdframed detected package amsthm 
  changed the theorem header of amsthm
 (mdframed)              on input line 4067.
-Package mdframed Info: mdframed works in twoside mode on input line 4075.
+
+
+[102]
+Package mdframed Info: mdframed works in twoside mode on input line 4091.
 Package mdframed Info: mdframed detected package amsthm 
  changed the theorem header of amsthm
-(mdframed)              on input line 4075.
+(mdframed)              on input line 4091.
 
-Underfull \hbox (badness 10000) in paragraph at lines 4075--4077
+Underfull \hbox (badness 10000) in paragraph at lines 4091--4093
 
  []
 
-Package mdframed Info: Not enough space on this page on input line 4081.
+
+Underfull \hbox (badness 10000) in paragraph at lines 4098--4098
+
+ []
+
+Package mdframed Info: mdframed works in twoside mode on input line 4099.
+Package mdframed Info: mdframed detected package amsthm 
+ changed the theorem header of amsthm
+(mdframed)              on input line 4099.
 
 
 [103]
-Package mdframed Info: Not enough space on this page on input line 4081.
-Package mdframed Info: mdframed works in twoside mode on input line 4084.
-Package mdframed Info: mdframed detected package amsthm 
- changed the theorem header of amsthm
-(mdframed)              on input line 4084.
-Package mdframed Info: mdframed works in twoside mode on input line 4092.
-Package mdframed Info: mdframed detected package amsthm 
- changed the theorem header of amsthm
-(mdframed)              on input line 4092.
+
+Package hyperref Warning: Token not allowed in a PDF string (Unicode):
+(hyperref)                removing `math shift' on input line 4103.
 
 
-[104] (./AnalyseM1.aux)
+Package hyperref Warning: Token not allowed in a PDF string (Unicode):
+(hyperref)                removing `superscript' on input line 4103.
+
+
+Package hyperref Warning: Token not allowed in a PDF string (Unicode):
+(hyperref)                removing `math shift' on input line 4103.
+
+Package mdframed Info: mdframed works in twoside mode on input line 4111.
+Package mdframed Info: mdframed detected package amsthm 
+ changed the theorem header of amsthm
+(mdframed)              on input line 4111.
+
+Underfull \hbox (badness 10000) in paragraph at lines 4111--4113
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 4122--4122
+
+ []
+
+Package mdframed Info: mdframed works in twoside mode on input line 4123.
+Package mdframed Info: mdframed detected package amsthm 
+ changed the theorem header of amsthm
+(mdframed)              on input line 4123.
+Package mdframed Info: mdframed works in twoside mode on input line 4131.
+Package mdframed Info: mdframed detected package amsthm 
+ changed the theorem header of amsthm
+(mdframed)              on input line 4131.
+
+Underfull \hbox (badness 10000) in paragraph at lines 4149--4149
+
+ []
+
+Package mdframed Info: mdframed works in twoside mode on input line 4150.
+Package mdframed Info: mdframed detected package amsthm 
+ changed the theorem header of amsthm
+(mdframed)              on input line 4150.
+
+
+[104]
+Package mdframed Info: mdframed works in twoside mode on input line 4158.
+Package mdframed Info: mdframed detected package amsthm 
+ changed the theorem header of amsthm
+(mdframed)              on input line 4158.
+
+Underfull \hbox (badness 10000) in paragraph at lines 4158--4160
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 4167--4167
+
+ []
+
+Package mdframed Info: mdframed works in twoside mode on input line 4168.
+Package mdframed Info: mdframed detected package amsthm 
+ changed the theorem header of amsthm
+(mdframed)              on input line 4168.
+Package mdframed Info: mdframed works in twoside mode on input line 4172.
+Package mdframed Info: mdframed detected package amsthm 
+ changed the theorem header of amsthm
+(mdframed)              on input line 4172.
+
+Underfull \hbox (badness 10000) in paragraph at lines 4177--4177
+
+ []
+
+Package mdframed Info: mdframed works in twoside mode on input line 4178.
+Package mdframed Info: mdframed detected package amsthm 
+ changed the theorem header of amsthm
+(mdframed)              on input line 4178.
+
+Underfull \hbox (badness 10000) in paragraph at lines 4195--4196
+
+ []
+
+Package mdframed Info: mdframed works in twoside mode on input line 4204.
+Package mdframed Info: mdframed detected package amsthm 
+ changed the theorem header of amsthm
+(mdframed)              on input line 4204.
+
+
+[105]
+Package mdframed Info: Not enough space on this page on input line 4212.
+
+Underfull \hbox (badness 10000) in paragraph at lines 4214--4214
+
+ []
+
+Package mdframed Info: mdframed works in twoside mode on input line 4215.
+Package mdframed Info: mdframed detected package amsthm 
+ changed the theorem header of amsthm
+(mdframed)              on input line 4215.
+Package mdframed Info: mdframed works in twoside mode on input line 4219.
+Package mdframed Info: mdframed detected package amsthm 
+ changed the theorem header of amsthm
+(mdframed)              on input line 4219.
+
+Underfull \hbox (badness 10000) in paragraph at lines 4219--4221
+
+ []
+
+
+LaTeX Warning: Reference `mdf@pagelabel-301' on page 106 undefined on input lin
+e 4224.
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 4226--4226
+
+ []
+
+Package mdframed Info: mdframed works in twoside mode on input line 4227.
+Package mdframed Info: mdframed detected package amsthm 
+ changed the theorem header of amsthm
+(mdframed)              on input line 4227.
+
+LaTeX Warning: Reference `mdf@pagelabel-302' on page 106 undefined on input lin
+e 4228.
+
+
+
+[106] (./AnalyseM1.aux)
  ***********
 LaTeX2e <2024-06-01> patch level 2
 L3 programming layer <2024-08-30>
  ***********
+
+
+LaTeX Warning: There were undefined references.
 
 
 LaTeX Warning: Label(s) may have changed. Rerun to get cross-references right.
@@ -4125,12 +4694,12 @@ Package rerunfilecheck Info: File `AnalyseM1.out' has not changed.
 (rerunfilecheck)             Checksum: 0FF6ED84A7964EDADABDE85554FFE4EB;5660.
  ) 
 Here is how much of TeX's memory you used:
- 29383 strings out of 474235
- 563220 string characters out of 5742253
- 1078277 words of memory out of 5000000
- 51555 multiletter control sequences out of 15000+600000
+ 30407 strings out of 474235
+ 590055 string characters out of 5742253
+ 1113635 words of memory out of 5000000
+ 52553 multiletter control sequences out of 15000+600000
  708849 words of font info for 130 fonts, out of 8000000 for 9000
  1348 hyphenation exceptions out of 8191
- 131i,17n,135p,546b,1023s stack positions out of 10000i,1000n,20000p,200000b,200000s
+ 131i,17n,135p,546b,1022s stack positions out of 10000i,1000n,20000p,200000b,200000s
 
-Output written on AnalyseM1.pdf (104 pages).
+Output written on AnalyseM1.pdf (106 pages).

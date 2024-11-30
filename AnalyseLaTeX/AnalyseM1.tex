@@ -3828,7 +3828,7 @@ $$\hat \gamma'(y)=-2\pi i\intr x\ex{-\pi x^2}\ex{-2i\pi xy}\dx.$$
 Par intégration par partie, 
 $$\begin{array}{lllc}
   &u=\ex{-2i\pi xy}\qquad &u'=-2i\pi x\ex{-2i\pi xy}&\\
-  &v'=x\ex{-\pi x^2}&v=-\frac{1}{2\pi}\ex{-\pi x^2}&
+  &v'=x\ex{-\pi x^2}&v=-\dstyle\frac{1}{2\pi}\ex{-\pi x^2}&
 \end{array}$$
 et $uv(x)\underset{\abs x\to +\infty}{\longrightarrow}0$ donc 
 $$\hat \gamma'(y)=-2\pi y\intr \ex{-\pi x^2}\ex{-2i\pi xy}\dx=-2\pi y\hat \gamma(y)$$
@@ -3848,22 +3848,97 @@ $$\hat\gamma (y)=\ex{-\pi x^2}.$$
 
 \begin{propC}{Propriétés générales } soit $f\in L^1$\\
 
-  $(\mathit 1)$ soit $a\in\R$ et $\tau_a(f)(x)=f(x-a)$ l'opérateur de translation, alors $\tau_af\in L^1$ et 
-  $$\forall y\in\R,\ \widehat{\tau_af}(y)=\ex{-2i\pi ya}\hat f(y).$$
-  $(\mathit 2)$ soit $\lambda>0$, $H_\lambda(f)(x)=f(\nicefrac{x}{\lambda})$, alors $H_\lambda(f)\in L^1$ et 
-  $$\forall y\in\R,\ \widehat{H_\lambda(f)}(y)\lambda \hat f(y).$$
+  $(\mathit 1)$ soit $\lambda>0$, $H_\lambda(f)(x)=f(\nicefrac{x}{\lambda})$, alors $H_\lambda(f)\in L^1$ et 
+  $$\forall y\in\R,\ \widehat{H_\lambda(f)}(y)=\lambda \hat f(\lambda y).$$
+  $(\mathit 2)$ soit $a\in\R$ et $\tau_a(f)(x)=f(x-a)$ l'opérateur de translation, alors $\tau_af\in L^1$ et 
+  $$\forall y\in\R,\ \widehat{\tau_a(f)}(y)=M_{a}(\hat f)(y)=\ex{-2i\pi ya}\hat f(y).$$
   $(\mathit 3)$ soit $t\in\R$ et $M_t(f)(x)=\ex{-2i\pi tx}f(x)$, alors $M_t(f)\in L^1$ et 
-  $$\forall y\in\R,\ \widehat{M_t(f)}(y)=\hat f(y-t).$$
-  $(\mathit 4)$ si $f\in L^1\cap C_1$, alors $f'\in L^1$ et 
-  $$\forall y\in\R,\ \hat f'(y)=2i\pi \hat f(y).$$
+  $$\forall y\in\R,\ \widehat{M_t(f)}(y)=\tau_{t}(\hat f)(y)=\hat f(y-t).$$
+  $(\mathit 4)$ si $f\in L^1\cap C_1$, avec $f'\in L^1$, alors 
+  $$\forall y\in\R,\ \hat f'(y)=2i\pi y\hat f(y).$$
 \end{propC}
 
 
-Rappel : on sait que pour $f,g\in L^1$, on a 
-$$f*g(x)=\intr f(x-t)g(t)\dt,$$
-définie presque-partout et 
-$$\norm{f*g}_1\leqslant \norm{f}_1\norm{g}_1.$$
+\begin{ProofC}{Démonstration du $(\mathit 1)$}
+  On calcule, soit $y\in\R$
+  \begin{align*}
+    \widehat{H_\lambda(f)}(y)&=\intr H_{\lambda}(x)\ex{-2i\pi xy}\dx\\
+    &=\intr f(\nicefrac{x}{\lambda})\ex{-2i\pi xy}\dx\\
+    &=\intr f(u)\ex{-2i\pi y\lambda u}\lambda\du\\
+    \widehat{H_\lambda(f)}(y)&=\lambda \hat f(\lambda y).
+  \end{align*}
+\end{ProofC}
 
+
+\begin{ProofC}{Démonstration du $(\mathit 2)$}
+  On calcule, soit $y\in\R$
+  \begin{align*}
+    \widehat{\tau_a(f)}(y)&=\intr \tau_a(f)(x)\ex{2i\pi xy}\dx\\
+    &=\intr f(x-a)\ex{-2i\pi xy}\dx\\
+    &=\intr f(u)\ex{-2i\pi y(u+a)}\du\\
+    \widehat{\tau_a(f)}(y)&=\ex{-2i\pi ya}\hat f(y).
+  \end{align*}
+\end{ProofC}
+
+
+\begin{ProofC}{Démonstration du $(\mathit 3)$}
+  On calcule, soit $y\in\R$
+  \begin{align*}
+    \widehat{M_t(f)}(y)&=\intr M_t(f)(x)\ex{2i\pi xy}\dx\\
+    &=\intr \ex{-2i\pi tx}f(x)\ex{-2i\pi xy}\dx\\
+    &=\intr f(x)\ex{-2i\pi x(y+t)}\dx\\
+    &=\hat f(y+t)\\
+    \widehat{M_t(f)}(y)&=\tau_{-t}(\hat f)(y)
+  \end{align*}
+\end{ProofC}
+
+
+\begin{ProofC}{Démonstration du $(\mathit 4)$}
+  $\star$ On montre que $f(x)\underset{\abs x\to+\infty}{\longrightarrow}0$, puisque $f$ est $C^1$, on a 
+  $$f(x)=f(0)+\int_0^x f'(s)\mathrm ds$$
+  donc, puisque $f'\in L^1$, 
+  $$\int_0^x f'(s)\mathrm ds\underset{x\to+\infty}{\longrightarrow}\ell_1:=\int_0^{+\infty}f'(s)\mathrm ds$$
+  donc 
+  $$f(x)\underset{x\to+\infty}{\longrightarrow}\ell_1+f(0)$$
+  et puisque $f\in L^1$, on déduit que $\ell_1+f(0)=0$. En effet, si $\ell_1+f(0)\neq 0$, alors APCR $\abs f>\nicefrac12(\ell_1+f(0))$ ce qui contredit l'intégrabilité. On procède de la même manière pour la limite en $-\infty$.\\
+
+  Par intégration par partie, on a 
+  \begin{align*}
+    \hat{f'}(y)&=\intr f'(x)\ex{-2i\pi xy}\dx\\
+    &=\left[f(x)\ex{-2i\pi xy}\right]_{-\infty}^{+\infty}+2i\pi y\hat f(y)\\
+    \hat{f'}(y)&=2i\pi y\hat f(y).
+  \end{align*}
+\end{ProofC}
+
+
+\Dnote{En général, on n'a pas du tout 
+$$f\in L^1\Rightarrow f(x)\underset{\abs x\to+\infty}{\longrightarrow}0$$
+}
+On peut considérer le contre exemple suivant :\\
+\begin{tikzpicture}
+  \draw[color=white](-4,0)--(-4,2);
+  \draw[color=white](-4,0)--(13,0);
+  \draw[-Stealth] (0,0)--(0,3);
+  \draw[-Stealth] (0,0)--(11,0);
+  \draw (-0.1,1)--(0.1,1);
+  \path (-0.2,1)node[left]{1};
+  \draw (1,0.1)--(1,-0.1)node[below]{1};
+  \draw (2,0.1)--(2,-0.1)node[below]{2};
+  \draw (3,0.1)--(3,-0.1)node[below]{3};
+  \draw (4,0.1)--(4,-0.1)node[below]{4};
+  \draw (5,0.1)--(5,-0.1)node[below]{5};
+  \draw (6,0.1)--(6,-0.1)node[below]{6};
+  \draw (7,0.1)--(7,-0.1)node[below]{7};
+  \draw (8,0.1)--(8,-0.1)node[below]{8};
+  \draw (9,0.1)--(9,-0.1)node[below]{9};
+  \draw (10,0.1)--(10,-0.1)node[below]{10};
+  \path [draw] (0,0)--(0.25,1)--(0.5,0);
+  \path [draw] (2,0)--(2.125,1)--(2.25,0);
+  \path [draw] (4,0)--(4.0625,1)--(4.125,0);
+  \path [draw] (6,0)--(6.03125,1)--(6.0625,0);
+  \path [draw] (8,0)--(8.015625,1)--(8.03125,0);
+\end{tikzpicture}
+(l'idée est de faire des triangles d'aire $\nicefrac{1}{n^2}$, ce qui rend la fonction intégrable mais elle ne tend pas vers 0 puisqu'elle atteind 1 une infinité de fois)
 
 \begin{prop}
   Soient $f,g\in L^1$,\\
@@ -3990,7 +4065,7 @@ Avant de prouver ce théorème, on aura besoin du lemme suivant :
 
 \begin{ProofC}{Démonstration du théorème}
   Soit $x\in\R$ fixé, on considère l'approximation de l'unité gaussienne (pour $a>0$), 
-  $$\gamma_a:=\frac{1}{a}\ex{-\pi^2 x^2/a^2}$$
+  $$\gamma_a:=\frac{1}{a}\gamma\Par{\frac{x}{a}}=\frac{1}{a}\ex{-\pi^2 x^2/a^2}$$
   et l'application 
   $$g_a(y):=\widehat{\gamma_a}(y)\ex{2i\pi xy}=\ex{-\pi^2y^2a^2}\ex{-2i\pi xy}.$$
   Ainsi,
@@ -4028,10 +4103,6 @@ Avant de prouver ce théorème, on aura besoin du lemme suivant :
 \NouvelleSection{Transformation de Fourier dans $L^2$}
 
 
-Comme $L^2(\R) \not\subset L^1(\R)$, la définition de la transformée de Fourier des fonctions de $L^2(\R)$ ne peut pas se faire simplement en reprenant celle des fonctions de $L^1(\R)$.
-
-On va utiliser ici un passage à la limite en utilisant la densité de $L^1(\R) \cap L^2(\R)$ dans $L^2(\R)$ (on notera que $C_c(\R) \subset L^1(\R) \cap L^2(\R)$ et $C_c(\R)$ est dense dans $L^2(\R)$).\\
-
 L'espace des fonctions intégrables donc la transformée de Fourier est elle aussi intégrable va être important, notamment pour la formule d'inversion, on va lui donner un nom et l'étudier un peu. On note 
 $$A(\R):=\ens{f\in L^1\ :\ \hat f\in L^1}$$
 On a les propriétés générales suivantes : 
@@ -4052,8 +4123,10 @@ On a les propriétés générales suivantes :
   À FAIRE
 \end{Proof}
 
-\NouvelleSubsection{Espace de Schwartz}
+\NouvelleSubsection{Espace de Schwartz\\[1em]}
 
+
+Avant de pouvoir définir la transformée de Fourier sur $L^2(\R)$, on va avoir recour à un espace qui aura l'avantage d'être dense dans $L^2$ et dans $L^1$, ce qui va nous permettre de prolonger $\F$ à $L^2$.
 
 \begin{Def}
   L'espace \emph{de Schwartz} $\S(\R)$, ou espace des fonctions à décroissance rapide est défini comme suit :
@@ -4061,6 +4134,16 @@ On a les propriétés générales suivantes :
   On va montrer que c'est équivalent à 
   $$\S(\R)=\ens{f\in C^{\infty}\ :\ \forall (k,\ell)\in\N,\ x^kf^{(\ell)}(x)\underset{\abs{x}\to +\infty}{\longrightarrow}0}.$$
 \end{Def}
+
+
+\Dnote{La (bonne) topologie sur $\S(\R)$ est celle donnée en cours d'\emph{AIN}, donc si on parle de convergence dans $\S(\R)$, il faudra considérer $\S(\R)$ comme un sous-espace d'un $L^p$ et utiliser la norme $\norm{\cdot}_p$, \emph{c.f.} la remarque qui suit\\[2em]}
+
+\begin{RQ}
+  On a les inclusions, pour $1\leqslant p\leqslant \infty$, on a 
+  $$\D(\R)\subset\S(\R)\subset L^p(\R)$$
+  et, en considérant la norme $\norm{\cdot}_p$, puisque $\D$ est dense dans $L^p$, on a aussi 
+  $$\overline{\S(\R)}=L^p(\R).$$
+\end{RQ}
 
 
 \begin{Proof}
@@ -4081,21 +4164,68 @@ On a les propriétés générales suivantes :
 \end{Th}
 
 
+\begin{Proof}
+  À FAIRE
+\end{Proof}
+
+
 \begin{thC}{Fourier-Plancherel}
-  L'application $\F : \S(\R)\longmapsto \hat f$ se prolonge de manière unique en une application linéaire isométrique bijective $L^2\longrightarrow L^2$, que l'on note (aussi) $\F$ et que l'on appelle \emph{transformée de Fourier-Plancherel}
+  L'application $\F : \S(\R)\longrightarrow \S(\R)$ se prolonge de manière unique en une application linéaire isométrique bijective $L^2(\R)\longrightarrow L^2(\R)$, que l'on note $\F_\text{p}$ et que l'on appelle \emph{transformée de Fourier-Plancherel}
 \end{thC}
 
 
-On a pas d'expression exacte de cette transformée de Fourier-Plancherel, mais on a tout de même le théorème suivant, qui nous donne une approximation.
+\begin{Proof}
+  $\star\ L^2(\R)$ est un Banach et $\S(\R)$ est un sous-espace dense dans $L^2(\R)$ donc on peut prolonger l'application linéaire continue $\F$ sur $L^2(\R)$, ainsi il existe un unique $\F_\text{p}:L^2(\R)\longrightarrow L 2(\R)$ linéaire continue tel que 
+  $$\forall f\in\S(\R),\ \F_\text{p}(f)=\F(f).$$
+
+  $\star$ Montrons que $\F_\text{p}$ est une isométrie, pour $f\in L^2(\R)$, il existe une suite $f_n\in \S(\R)$ convergeant vers $f$ et alors 
+  $$\norm{\F_\text{p}(f)}_2=\Lim \norm{\F_\text{p}(f_n)}=\Lim\norm{\F(f)}_2=\Lim\norm{f_n}_2=\norm{f}_2.$$
+  (la première égalité découle de la continuité de $\F_\text{p}$ et l'avant dernière est dûe à l'isométrie de $\F$)
+
+  $\star$ Montrons que $\F_\text{p}$ est bijective; cette application étant linéaire isométrique, on sait qu'elle est injective. Pour la surjectivité, on a
+  $$\S(\R)=\F(\S(\R))\subset \F_{\text{p}}(L^2(\R))\subset L^2(\R)$$
+  et $\F_\text{p}\Par{L^2(R)}$ est un fermé de $L^2(\R)$, il est égal à son adhérence d'où
+  $$L^2(\R)=\overline{\S(\R)}\subset \overline{\F_{\text{p}}(L^2(\R))}=\F_{\text{p}}(L^2(\R))\subset L^2(\R)$$
+  d'où 
+  $$\F_{\text{p}}(L^2(\R))=L^2(\R)$$
+  ce qui montre que $\F_{\text{p}}$ est surjective, et la preuve est finie.
+\end{Proof}
 
 
-\begin{Th}
+On a pas d'expression exacte de cette transformée de Fourier-Plancherel, mais on a tout de même cette remarque et le prochain théorème pour avoir une approximation de $\F_\text{p}$.\\
+
+
+\begin{RQ}
+  Soit $f\in L^2(\R)$, par densité il existe $f_n\in \S(\R)$ convergeant (dans $L^2(\R)$) vers $f$, donc on a 
+  $$\F_\text{p}(f)=\Lim\F_\text{p}(f_n)=\Lim\F(f_n).$$
+\end{RQ}
+
+
+\begin{prop}
   Soit $f\in L^2(\R)$ et $A>0$, on pose 
   $$\varphi_A(f):=\int_{-A}^Af(x)\ex{-2i\pi xy}\dx.$$
 
   Alors 
-  $$\norm{\varphi_A-\F(f)}\longrightarrow 0\text{ quand }A\to\infty$$
+  $$\norm{\varphi_A-\F_\text{p}(f)}\longrightarrow 0\text{ quand }A\to\infty$$
   et en particulier, il existe une suite $A_n\longrightarrow +\infty$ telle que 
-  $$\lambda\text{-p.p.}\ F(f)(y)=\Lim\int_{-A_n}^{A_n}f(x)\ex{-2i\pi xy}\dx.$$
-\end{Th}
+  $$\lambda\text{-p.p.}\ \F_\text{p}(f)(y)=\Lim\int_{-A_n}^{A_n}f(x)\ex{-2i\pi xy}\dx.$$
+\end{prop}
+
+\begin{Proof}
+  À FAIRE
+\end{Proof}
+
+
+\begin{prop}
+  Soit $f\in L^1(\R)\cap L^2(\R)$,\\
+
+  alors pour presque-tout $x\in\R$,
+  $$\mathcal F_\text{p}(f)(x)=\F(f)(x).$$
+\end{prop}
+
+\begin{Proof}
+  À FAIRE
+\end{Proof}
+
+
 \end{document}
