@@ -3863,7 +3863,7 @@ $$\hat\gamma (y)=\ex{-\pi x^2}.$$
   $(\mathit 2)$ soit $a\in\R$ et $\tau_a(f)(x)=f(x-a)$ l'opérateur de translation, alors $\tau_af\in L^1$ et 
   $$\forall y\in\R,\ \widehat{\tau_a(f)}(y)=M_{a}(\hat f)(y)=\ex{-2i\pi ya}\hat f(y),$$
   $(\mathit 3)$ soit $t\in\R$ et $M_t(f)(x)=\ex{-2i\pi tx}f(x)$, alors $M_t(f)\in L^1$ et 
-  $$\forall y\in\R,\ \widehat{M_t(f)}(y)=\tau_{t}(\hat f)(y)=\hat f(y-t),$$
+  $$\forall y\in\R,\ \widehat{M_t(f)}(y)=\tau_{t}(\hat f)(y)=\hat f(y-t).$$
 \end{propC}
 
 
@@ -4024,24 +4024,22 @@ l'ensemble des fonctions continues tendant vers $0$ en $\pm\infty$. C'est un ens
 
 
 \begin{Proof}
-  $\star$ On commence par appliquer le théorème de continuité sous le signe intégrale, on considère l'application 
+  $\star$ On commence par montrer que $\F:L^1\longrightarrow C(\R)$, on va appliquer le théorème de continuité sous le signe intégrale, soit $f\in L^1$, on considère l'application 
   $$\hat f(y)=\intr \underbrace{f(x)\ex{-2i\pi xy}}_{\varphi(x,y)}\dx$$
-  alors, 
-  $$y\mapsto f(x)\ex{-2i\pi xy}$$
-  est continue sur $R$, $x$-p.p.,
-  $$x\mapsto f(x)\ex{-2i\pi xy}$$
-  est mesurable sur $R$, $y$-p.p. et on peut dominer par $\abs f$, qui est intégrable par hypothèse, on peut donc appliquer le théorème de continuité sous le signe intégrale et $\hat f$ est effectivement continue sur $\R$.
+  alors,\\ 
+  $\Bullet$ $x$-p.p., $y\mapsto f(x)\ex{-2i\pi xy}$ est continue sur $\R$,\\ 
+  $\BBullet$ $y$-p.p., $x\mapsto f(x)\ex{-2i\pi xy}$ est mesurable sur $\R$,\\
+  $\BBBullet$ et on peut dominer par $\abs f$, qui est intégrable par hypothèse, on peut donc appliquer le théorème de continuité sous le signe intégrale et $\hat f$ est effectivement continue sur $\R$.\\
 
   $\star$ De plus, on a 
   $$\abs{\hat f(y)}\leqslant \intr\abs{f(x)}\dx=\norm{f}_1$$
-  donc $\hat f$ est bornée.
+  donc $\hat f$ est bornée.\\
 
   $\star$ Pour montrer que $\hat f(y)\to 0$ quand $\abs y\to+\infty$, on commence par traiter le cas où $f$ est $C^{\infty}$ à support compact, puis on généralisera avec un argument de densité.\\
   $\star\star$ Si $f\in \D$, alors $f'\in L^1$ et 
   $$\forall y\in\R,\ \hat{f'}(y)=2i\pi y\hat f(y)$$
   donc, pour $y\neq 0$, on a 
   $$\abs{\hat f(y)}=\frac{\abs{\hat{f'}(y)}}{2i\pi\abs y}\leqslant \frac{\norm{f'}_1}{2\pi\abs y}\to 0.$$
-
   $\star\star$ Si $f\in L^1$, alors pour $\varepsilon>0$, il existe $g\in\D$ telle que 
   $$\norm{f-g}_1\leqslant \varepsilon$$
   On a donc les majorations suivantes 
@@ -4051,9 +4049,9 @@ l'ensemble des fonctions continues tendant vers $0$ en $\pm\infty$. C'est un ens
     &\leqslant\norm{f-g}_1+\abs{\hat g(y)}\\
     \abs{\hat f(y)}&\leqslant \varepsilon+\abs{\hat g(y)}
   \end{align*}
-  Donc il existe un $A\geqslant 0$ tel que $\abs y\geqslant A$ implique que $\abs{\hat f(y)}\leqslant 2\varepsilon$ ce qui démontre que $\hat f$ tend bien vers 0.
+  et puisque $g\in\D$, $\hat g(y)\longrightarrow 0$ quand $\abs y\to\infty$, donc $\hat f(y)\longrightarrow0$ quand $\abs y\to\infty$.\\
 
-  Donc on a montré que $\F:L^1\longrightarrow C_0$ est bien définie. Elle est de plus linéaire et on a 
+  $\star$ On a montré que $\F:L^1\longrightarrow C_0$ est bien définie. Elle est de plus linéaire et on a 
   $$\norm{\F(f)}_\infty\leqslant\norm{f}_1$$
   donc $\F$ est continue et $\nop{\F}\leqslant 1.$ De plus, on a vu avec l'exemple de la gaussienne que cette majoration est optimale, donc $\nop{\F} =1$
 \end{Proof}
@@ -4114,7 +4112,7 @@ Avant de prouver ce théorème, on aura besoin du lemme suivant :
 
 
 \begin{ProofC}{Démonstration du théorème}
-  Soit $x\in\R$ fixé, on considère l'approximation de l'unité gaussienne (pour $a>0$), 
+  $\star$ Soit $x\in\R$ fixé, on considère l'approximation de l'unité gaussienne (pour $a>0$), 
   $$\gamma_a:=\frac{1}{a}\gamma\Par{\frac{x}{a}}=\frac{1}{a}\ex{-\pi^2 x^2/a^2}$$
   et l'application 
   $$g_a(y):=\widehat{\gamma_a}(y)\ex{2i\pi xy}=\ex{-\pi^2y^2a^2}\ex{-2i\pi xy}.$$
@@ -4122,13 +4120,15 @@ Avant de prouver ce théorème, on aura besoin du lemme suivant :
   $$\intr \hat f(y)g_a(y)\dy=\intr \hat f(y)\ex{-\pi^2y^2a^2}\ex{-2i\pi xy}\dy$$
   L'intégrande est mesurable et de module $\hat f(y)\ex{-\pi^2y^2a^2}\in L^1$, on peut donc appliquer le théorème de convergence dominée et 
   $$\intr \hat f(y)g_a(y)\dt\underset{a\to 0}{\longrightarrow} \intr f(y)\ex{2i\pi xy}\dy.$$
-  De plus, d'après le lemme, on a 
+  $\star$ De plus, d'après le lemme, on a 
   \begin{align*}
     \intr \hat f(y)g_a(y)\dy&=\intr f(y)\widehat{g_a}(y)\dy\\
     &=\intr f(y)\frac{1}{a}\gamma\Par{\frac{y-x}{a}}\dy\\
     &=\intr f(y)\gamma_a(y-x)\dy\\
-    \intr \hat f(y)g_a(y)\dy&= f*\gamma_a(x)
+    \intr \hat f(y)g_a(y)\dy&= f*\gamma_a(x),
   \end{align*}
+  ainsi 
+  $$f*\gamma_a(x)\underset{a\to 0}{\longrightarrow} \intr f(y)\ex{2i\pi xy}\dy.$$
   Les $\ens{\gamma_a,\ a>0}$ forment une approximation de l'unité et $f$ étant dans $L^1$, on sait que 
   $$\norm{f*\gamma_a-f}_1\tend 0$$
   donc il existe une suite $a_n\longrightarrow 0$ telle que, pour presque tout $x\in \R$, on ait 
