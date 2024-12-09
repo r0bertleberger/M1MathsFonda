@@ -43,7 +43,7 @@ La norme opérateur sera notée $||\cdot||_{\mathrm{op}}$ ou $\norm{\cdot}$ si i
 
 Pour $x:N\longrightarrow E$ une suite, la notation $(x_n)_{n\geqslant 0}$ insiste sur l'aspect \og suite\fg\ tandis que la notation $\ens{x_n}_{n\geqslant 0}$ insiste sur l'aspect \og ensemble de points\fg.\\
 
-Dans le présent document, $\K=\R$ ou $\mathbf C$, $(K,d)$ est un espace métrique compact.\\
+Dans le présent document, $\K=\R$ ou $\mathbf C$ et $(K,d)$ est un espace métrique compact.\\
 
 Dans le contexte d'une suite $(f_n)$ d'applications de $\Par{E,\norm{\cdot}_\infty}\longrightarrow\K$, l'abréviation CVS signifie \og converge simplement\fg\ \emph{i.e.} 
 $$\forall x\in E,\ f_n(x)\tend f(x)$$
@@ -75,9 +75,6 @@ $$E\subset\bigcup_{k=1}^nV_k.$$
 
 $\bullet\quad$ complétude :  l'espace métrique $(E,d)$ est \emph{complet} si toute suite de Cauchy à valeur dans $E$ converge dans $E$.\\
 
-Dans le contexte d'espaces de fonctions,\\
-la densité s'identifie avec une approximation par des fonctions régulières et la compacité / complétude s'identifie avec l'existence de limites et de valeurs d'adhérences de suites de fonctions.\\
-
 
 \setcounter{CompteurRemarque}{0}
 \begin{RQ}
@@ -86,11 +83,23 @@ la densité s'identifie avec une approximation par des fonctions régulières et
 
 
 \begin{Proof}
-  À FAIRE
+  Soit $f_n$ de Cauchy dans $C(K,\K)$ et $\varepsilon>0$, alors il existe $N\in\N$ tel que 
+  $$\forall n,m\geqslant N,\ \norm{f_n-f_m}_\infty\leqslant \varepsilon.$$
+  Soit $x\in K$, alors 
+  $$\abs{f_n(x)-f_m(x)}\leqslant \norm{f_n-f_m}\leqslant \varepsilon$$
+  donc $f_n(x)$ est une suite de Cauchy dans $\K$ qui est complet, donc $f_n(x)$ converge vers $f$. Montrons que $f$ est continue : soit $x\in K$ et $\varepsilon>0$, il existe un $N\in\N$ tel que
+  $$\forall n\geqslant N,\ \forall x\in K,\ \abs{f_n(x)-f(x)}\leqslant \varepsilon$$
+  de plus, puisque $f_N$ est continue, il existe $\delta>0$ tel que 
+  $$\forall y\in B(x,\delta),\ \abs{f_N(x)-f_N(y)}\leqslant\varepsilon$$
+  donc finalement, on a (inégalité triangulaire)
+  \begin{align*}
+    \forall y\in B(x,\delta),\ \abs{f(y)-f(y)}&=\abs{f(x)-f_N(x)+f_N(x)-f_N(y)+f_N(y)-f(y)}\\
+    &\leqslant\abs{f(x)-f_N(x)}+\abs{f_N(x)-f_N(y)}+\abs{f_N(y)-f(y)}\\
+    \abs{f(y)-f(y)}&\leqslant 3\varepsilon
+  \end{align*}
+  donc $f$ est continue en $x$ et $\left(C(K,\K),||\cdot||_{\infty}\right)$ est bien un espace de Banach.
 \end{Proof}
 
-
-Dans la suite du document, on considerera un compact $K$ et on se placera dans $\big(C(K,\K),\norm{\cdot}_\infty\big)$.
 
 \NouvelleSection{Théorème de Dini}
 
@@ -2919,7 +2928,7 @@ Ces théorèmes suivants (démontrés dans le cours d'AIN) vont être très util
   $\BBullet\quad$ pour $m$-presque tout $x\in U,\ \omega\longmapsto f(x,\omega)$ est intégrable,\\
   $\BBBullet\quad\exists g:\O\longrightarrow\R_+$ intégrable telle que $\forall x\in U,$ presque partout sur $\Omega$,
   $$\bigg|\dstyle\frac{\partial f}{\partial x}(x,\omega)\bigg|\leqslant g(\omega)$$
-  alors $x\longmapsto\dstyle\int_{\O}f(x,\omega)\mathrm{d}m(\omega)$ est dérivable $U$, de dérivée $x\longmapsto\dstyle\int_{\O}\frac{\partial f}{\partial x}(x,\omega)\mathrm{d}m(\omega)$.
+  alors $x\longmapsto\dstyle\int_{\O}f(x,\omega)\mathrm{d}m(\omega)$ est dérivable sur $U$, de dérivée $x\longmapsto\dstyle\int_{\O}\frac{\partial f}{\partial x}(x,\omega)\mathrm{d}m(\omega)$.
 \end{thC}
 
 
@@ -3846,16 +3855,15 @@ $$\hat\gamma (y)=\ex{-\pi x^2}.$$
 \end{RQ}
 
 
-\begin{propC}{Propriétés générales } soit $f\in L^1$\\
+\begin{propC}{Propriétés générales }
+  Soit $f\in L^1$\\
 
   $(\mathit 1)$ soit $\lambda>0$, $H_\lambda(f)(x)=f(\nicefrac{x}{\lambda})$, alors $H_\lambda(f)\in L^1$ et 
-  $$\forall y\in\R,\ \widehat{H_\lambda(f)}(y)=\lambda \hat f(\lambda y).$$
+  $$\forall y\in\R,\ \widehat{H_\lambda(f)}(y)=\lambda \hat f(\lambda y),$$
   $(\mathit 2)$ soit $a\in\R$ et $\tau_a(f)(x)=f(x-a)$ l'opérateur de translation, alors $\tau_af\in L^1$ et 
-  $$\forall y\in\R,\ \widehat{\tau_a(f)}(y)=M_{a}(\hat f)(y)=\ex{-2i\pi ya}\hat f(y).$$
+  $$\forall y\in\R,\ \widehat{\tau_a(f)}(y)=M_{a}(\hat f)(y)=\ex{-2i\pi ya}\hat f(y),$$
   $(\mathit 3)$ soit $t\in\R$ et $M_t(f)(x)=\ex{-2i\pi tx}f(x)$, alors $M_t(f)\in L^1$ et 
-  $$\forall y\in\R,\ \widehat{M_t(f)}(y)=\tau_{t}(\hat f)(y)=\hat f(y-t).$$
-  $(\mathit 4)$ si $f\in L^1\cap C_1$, avec $f'\in L^1$, alors 
-  $$\forall y\in\R,\ \hat f'(y)=2i\pi y\hat f(y).$$
+  $$\forall y\in\R,\ \widehat{M_t(f)}(y)=\tau_{t}(\hat f)(y)=\hat f(y-t),$$
 \end{propC}
 
 
@@ -3893,7 +3901,21 @@ $$\hat\gamma (y)=\ex{-\pi x^2}.$$
 \end{ProofC}
 
 
-\begin{ProofC}{Démonstration du $(\mathit 4)$}
+\begin{propC}{quant à la dérivation...}
+  Soit $f\in L^1$,\\
+
+  $(\mathit 1)$ si $f$ est $C^1$, avec $f'\in L^1$, alors 
+  $$\forall y\in\R,\ \widehat{f'}(y)=2i\pi y\hat f(y)$$
+  $(\mathit 2)$ et si $f$ est $C^n$ et que ses dérivées jusqu'à la dérivée $n$-ème sont dans $L^1$, alors 
+  $$\forall y\in\R,\ \widehat{f^{(n)}}(y)=\Par{2i\pi y}^n\hat f(y).$$
+  $(\mathit 3)$ si $x\mapsto xf(x)\in L^1$, alors $\hat f\in C^1$ et on a 
+  $$\forall y\in\R,\ \hat f'(y)=2i\pi \widehat{xf(x)}(y)$$
+  $(\mathit 4)$ et en notant $e_k:x\mapsto x^k$, si $\forall k\leqslant n,\ e_kf\in L^1$, alors $\hat f\in C^n$ et on a 
+  $$\forall k\leqslant n,\ \forall y\in\R,\ \hat f^{(k)}(y)=\Par{2i\pi}^k\widehat{e_kf}.$$ 
+\end{propC}
+
+
+\begin{ProofC}{Démonstration du $(\mathit 1)$}
   $\star$ On montre que $f(x)\underset{\abs x\to+\infty}{\longrightarrow}0$, puisque $f$ est $C^1$, on a 
   $$f(x)=f(0)+\int_0^x f'(s)\mathrm ds$$
   donc, puisque $f'\in L^1$, 
@@ -3904,12 +3926,32 @@ $$\hat\gamma (y)=\ex{-\pi x^2}.$$
 
   Par intégration par partie, on a 
   \begin{align*}
-    \hat{f'}(y)&=\intr f'(x)\ex{-2i\pi xy}\dx\\
+    \widehat{f'}(y)&=\intr f'(x)\ex{-2i\pi xy}\dx\\
     &=\left[f(x)\ex{-2i\pi xy}\right]_{-\infty}^{+\infty}+2i\pi y\hat f(y)\\
-    \hat{f'}(y)&=2i\pi y\hat f(y).
+    \widehat{f'}(y)&=2i\pi y\hat f(y).
   \end{align*}
 \end{ProofC}
 
+
+\begin{ProofC}{Démonstration du $(\mathit 2)$}
+  Récurrence.
+\end{ProofC}
+
+
+\begin{ProofC}{Démonstration du $(\mathit 3)$}
+  On applique le théorème de dérivation sous le signe intégrale\\
+  $\Bullet\ x\mapsto f(x)\ex{-2i\pi xy}\in L^1$, pour presque tout $y\in\R$,\\
+  $\BBullet\ y\mapsto f(x)\ex{-2i\pi xy}\in C^1$, pour presque tout $x\in\R$\\
+  $\BBBullet\ \forall (x,y)\in\R$, 
+  $$\abs{\frac{\partial f(x)\ex{-2i\pi xy}}{\partial y}}=\abs{-2i\pi xf(x)\ex{-2i\pi xy}}\leqslant 2\pi \abs{xf(x)}\in L^1$$
+  et on peut appliquer le théorème de dérivabilité sous le signe intégrale, donc $\hat f$ est $C^1$ et de dérivée 
+  $$\hat f'(y)=-2i\pi\intr xf(x)\ex{-2i\pi xy}\dx=-2i\pi\widehat{xf(x)}(y).$$
+\end{ProofC}
+
+
+\begin{ProofC}{Démonstration du $(\mathit 4)$}
+  Récurrence.
+\end{ProofC}
 
 \Dnote{En général, on n'a pas du tout 
 $$f\in L^1\Rightarrow f(x)\underset{\abs x\to+\infty}{\longrightarrow}0$$
@@ -4033,11 +4075,19 @@ $$\forall f\in L^1,\ f*e=e=e*f.$$
 
 
 \begin{thC}{formule d'inversion de Fourier}
-  Soit $f\in L 1$ telle que $\hat f\in L^1$,\\
+  Soit $f\in L^1$ telle que $\hat f\in L^1$,\\
   
   alors pour presque-tout $x\in\R$, 
   $$f(x)=\hat{\hat f}(-x)=\intr \hat f(y)\ex{2i\pi xy}\dy.$$
 \end{thC}
+
+
+\begin{RQ}
+  On peut aussi rencontrer la notation suivante, pour $f\in L^1(\R)$, 
+  $$\overline{\F}(f)(y)=\intr f(x)\ex{2i\pi xy}\dx$$
+  donc on peut ré-écrire le théorème d'inversion comme suit : 
+  $$f(x)=\overline{\F}\Par{\hat f}(x)$$
+\end{RQ}
 
 
 Avant de prouver ce théorème, on aura besoin du lemme suivant : 
@@ -4113,15 +4163,55 @@ On a les propriétés générales suivantes :
 
   $(\mathit 1)\ A(\R)$ est stable par la transformée de Fourier,\\
   $(\mathit 2)\ A(\R)\subset\ L^1(\R)\cap L^2(\R),$\\
-  $(\mathit 3)\norm{f}_2=\norm{\hat f}_2,$\\
-  $(\mathit 4)\ A(\R)$ est dense dans $L^1(\R)\cap L^2(\R)$ pour la norme 2,\\
-  $(\mathit 5)\ A(\R)$ est dense dans $L^2(\R)$ (pour la norme 2).
+  $(\mathit 3)\ A(\R)$ est dense dans $L^1(\R)\cap L^2(\R)$ pour la norme 2,\\
+  $(\mathit 4)\ A(\R)$ est dense dans $L^2(\R)$ (pour la norme 2).
 \end{prop}
 
 
-\begin{Proof}
-  À FAIRE
-\end{Proof}
+\begin{ProofC}{Démonstration du $(\mathit 1)$}
+  Soit $f\in A(\R)$, alors on peut appliquer la formule d'inversion et 
+  $$f(x)=\hat{\hat{f}}(x)$$
+  donc, puisque $f$ est intégrable, $\hat{\hat{f}}$ l'est aussi. Puisque $\hat f\in L^1$ par hypothèse, toutes les conditions d'appartenance à $A(\R)$ sont vérifiées et $\hat f\in A(\R)$.
+\end{ProofC}
+
+
+\begin{ProofC}{Démonstration du $(\mathit 2)$}
+  Soit $f\in A(\R)$, donc $f$ est dans $L^1$ et $\hat f$ aussi, on a dont l'expression 
+  $$\forall x\in\R,\ f(x)=\hat{\hat{f}}(-x)$$
+  et puisque $\F:L^1\longrightarrow C_0$, ceci montre que $f$ est bornée et d'après le théorème 15 du chapitre précédent, $L^1\cap L^\infty\subset L^2$, donc $f\in L^2$ ce qui conclut.
+\end{ProofC}
+
+
+\begin{ProofC}{Démonstration du $(\mathit 3)$}
+  Soit $f\in L^1\cap L^2$ et l'approximation de l'unité 
+  $$K(y)=\ex{-2\pi\abs y}$$
+  et 
+  $$k:=\overline{\F}(K),\qquad k_a(x)=\frac{1}{a}k\Par{\frac{x}{a}}.$$
+  D'après nos théorème, on a 
+  $$\norm{f*k_a-f}_2\underset{a\to0}{\longrightarrow}0$$
+  donc si $f*k_a\in A(\R)$, la preuve est finie, c'est ce que l'on va montrer : puisque $f\in L^1$ et $k_a\in L^1$, on sait que $f*k_a\in L^1$. De plus, $\widehat{f*k_a}=\hat f.\hat{k_a}$ avec $\hat f$ qui est bornée. 
+
+  On peut noter que 
+  $$k_a=\frac{1}{a}H_{1/a}(k)$$
+  donc, d'après les propriétés générales, 
+  $$\hat{k_a}(x)=\frac{1}{a}\widehat{H_{1/a}(k)}(x)=\frac{1}{a}a\hat{k}(ax)=\hat k(ax)$$
+  et puisque $k=\overline{\F}(K)=\overline{\F(K)}$, on a 
+  $$\hat k(ax)=\F\Par{\overline{\F(K)}}(ax)=\overline{\F(\F(K))}(ax)=K(-ax)$$
+  or $K(-ax)=K(ax)$ par parité de $K$, donc on obtient 
+  $$\hat k_a(x)=K(ax)\in L^1$$
+  donc $\hat f.\hat k_a\in L^1$ ce qui conclut.
+\end{ProofC}
+
+
+\begin{ProofC}{Démonstration du $(\mathit 4)$}
+  On sait déjà que $L^1\cap L^2$ est dense dans $L^2$, soit $\varepsilon>0$ et $f\in L^2$, donc il existe $g\in L^1\cap L^2$ tel que 
+  $$\norm{f-g}_2\leqslant \varepsilon$$
+  et d'après la propriété juste avant, il existe $h\in A(\R)$ tel que 
+  $$\norm{g-h}_2\leqslant \varepsilon$$
+  donc par inégalité triangulaire, on a 
+  $$\norm{f-h}_2\leqslant\norm{f-g}_2+\norm{g-h}_2\leqslant 2\varepsilon$$
+  ce qui conclut.
+\end{ProofC}
 
 \NouvelleSubsection{Espace de Schwartz\\[1em]}
 
@@ -4129,20 +4219,20 @@ On a les propriétés générales suivantes :
 Avant de pouvoir définir la transformée de Fourier sur $L^2(\R)$, on va avoir recour à un espace qui aura l'avantage d'être dense dans $L^2$ et dans $L^1$, ce qui va nous permettre de prolonger $\F$ à $L^2$.
 
 \begin{Def}
-  L'espace \emph{de Schwartz} $\S(\R)$, ou espace des fonctions à décroissance rapide est défini comme suit :
-  $$\S(\R):=\ens{f\in C^{\infty}\ :\ \forall (k,\ell)\in\N,\ \underset{x\in\R}{\mathrm{sup}}\abs{x^kf^{(\ell)}(x)}<\infty}.$$
+  L'espace \emph{de Schwartz} $\S$, ou espace des fonctions à décroissance rapide est défini comme suit :
+  $$\S:=\ens{f\in C^{\infty}\ :\ \forall (k,\ell)\in\N,\ \underset{x\in\R}{\mathrm{sup}}\abs{x^kf^{(\ell)}(x)}<\infty}.$$
   On va montrer que c'est équivalent à 
-  $$\S(\R)=\ens{f\in C^{\infty}\ :\ \forall (k,\ell)\in\N,\ x^kf^{(\ell)}(x)\underset{\abs{x}\to +\infty}{\longrightarrow}0}.$$
+  $$\S=\ens{f\in C^{\infty}\ :\ \forall (k,\ell)\in\N,\ x^kf^{(\ell)}(x)\underset{\abs{x}\to +\infty}{\longrightarrow}0}.$$
 \end{Def}
 
 
-\Dnote{La (bonne) topologie sur $\S(\R)$ est celle donnée en cours d'\emph{AIN}, donc si on parle de convergence dans $\S(\R)$, il faudra considérer $\S(\R)$ comme un sous-espace d'un $L^p$ et utiliser la norme $\norm{\cdot}_p$, \emph{c.f.} la remarque qui suit\\[2em]}
+\Dnote{La (bonne) topologie sur $\S$ est celle donnée en cours d'\emph{AIN}, donc si on parle de convergence dans $\S$, il faudra considérer $\S$ comme un sous-espace d'un $L^p$ et utiliser la norme $\norm{\cdot}_p$, \emph{c.f.} la remarque qui suit}\vspace{0.7cm}
 
 \begin{RQ}
   On a les inclusions, pour $1\leqslant p\leqslant \infty$, on a 
-  $$\D(\R)\subset\S(\R)\subset L^p(\R)$$
+  $$\D\subset\S\subset L^p(\R)$$
   et, en considérant la norme $\norm{\cdot}_p$, puisque $\D$ est dense dans $L^p$, on a aussi 
-  $$\overline{\S(\R)}=L^p(\R).$$
+  $$\overline{\S}=L^p(\R).$$
 \end{RQ}
 
 
@@ -4159,35 +4249,76 @@ Avant de pouvoir définir la transformée de Fourier sur $L^2(\R)$, on va avoir 
   On note $\F$ la transformée de Fourier,\\
 
   alors\\
-  $(\mathit 1)\ \F:\S(\R)\longrightarrow \S(\R)$ est bijective,\\
-  $(\mathit 2)\ \forall f\in \S(\R),\ \norm{\hat f}_2=\norm{f}.$
+  $(\mathit 1)\ \F:\S\longrightarrow \S$ est bijective,\\
+  $(\mathit 2)\ \F:\S\longrightarrow\S$ est isométrique, pour la norme $2$.
 \end{Th}
 
 
-\begin{Proof}
-  À FAIRE
-\end{Proof}
+\begin{ProofC}{Démonstration du $(\mathit 1)$}
+  $\star$ Soit $f\in \S$, alors $f$ est \emph{a fortiori} de classe $L^1$ donc on peut considérer $\hat f$, on a 
+  $$\hat f(y)=\intr f(x)\ex{-2i\pi xy}\dx$$
+  et on va montrer que c'est $C^1$\\
+  $\Bullet\ x\mapsto f(x)\ex{-2i\pi xy}\in L^1$, pour presque tout $y\in\R$,\\
+  $\BBullet\ y\mapsto f(x)\ex{-2i\pi xy}\in C^1$, pour presque tout $x\in\R$\\
+  $\BBBullet\ \forall (x,y)\in\R$, 
+  $$\abs{\frac{\partial f(x)\ex{-2i\pi xy}}{\partial y}}=\abs{-2i\pi xf(x)\ex{-2i\pi xy}}\leqslant 2\pi \abs{xf(x)}\in L^1$$
+  et on peut appliquer le théorème de dérivabilité sous le signe intégrale, donc $\hat f$ est $C^1$ et de dérivée 
+  $$\hat f'(y)=-2i\pi\intr xf(x)\ex{-2i\pi xy}\dx=-2i\pi\widehat{xf(x)}(y)$$
+  donc, plus proprement, en posant $e_k(x):=x^k$, on a (récurrence)
+  $$\forall k\in\N,\ \hat f^{(k)}=\Par{-2i\pi}^k\widehat{e_kf}.$$
+  $\star$ On a aussi (récurrence) 
+  $$\forall k\in\N,\ \widehat{f^{(k)}}(y)=\Par{2i\pi y}^k\hat f(y)$$
+  donc 
+  $$y^p\hat f^{(k)}(y)=y^p\Par{-2i\pi}^k\widehat{e_kf}(y)=y^p\Par{-2i\pi}^k\frac{1}{\Par{2i\pi y}^p}\widehat{\Par{e_kf}^{(p)}}(y)$$
+  et en valeur absolue
+  $$\abs{y^p\hat f^{(k)}(y)}\leqslant \Par{2\pi}^{k-p}\abs{\widehat{\Par{e_kf}^{(p)}}(y)}\leqslant \Par{2\pi}^{k-p}\norm{\Par{e_kf}^{(p)}}_1$$
+  donc $y\mapsto y^pf^{(k)}(y)$ est bornée, pour tout $(k,p)\in\N$, donc $\hat f\in S$.
+
+  $\star$ Montrons que $\F:\S\longrightarrow\S$ est bijective, soit $f\in \S$, on sait donc que $f$ et $\hat f$ sont dans $L^1$, on peut donc appliquer la formule d'inversion de Fourier et 
+  $$f(x)=\intr \hat f(y)\ex{2i\pi xy}\dy$$
+  et puisque $f$ est continue, le \og presque-partout\fg\ devient un \og partout\fg, donc 
+  $$\forall x\in\R,\ f(x)=\intr \hat f(y)\ex{2i\pi xy}\dy$$
+  donc $\F$ est injective, puisque $\hat f=0\Rightarrow f=0$. Pour la surjectivité, on prend $g\in S$ et on cherche $f\in\S$ tel que $\hat f=g$. On sait que, pour tout $x\in\R$, on a 
+  $$g(x)=\intr \hat g(y)\ex{2i\pi xy}\dy=\intr g(-t)\ex{-2i\pi xt}\dt=\hat f(x)$$
+  où l'on a définit $f(t):=g(-t)$, ce qui achève la preuve.
+\end{ProofC}
+
+
+\begin{ProofC}{Démonstration du $(\mathit 2)$}
+  Soient $(f,g)\in A(\R)$, on va montrer que 
+  $$\intr f(x)\overline{g(x)}\dx=\intr \hat f(x)\overline{\hat g(x)}\dx.$$
+  $\overline{g}$ étant dans $\S$, il existe un unique $h\in\S$ tel que $g\hat h=\overline{g}$ donc 
+  $$\intr f(x)\overline{g(x)}\dx=\intr f(x)\hat h(x)\dx=\intr \hat f(x)h(x)\dx.$$
+  D'après la formule d'inversion, on a 
+  $$h(t)=\widehat{\overline{g(-t)}}=\intr\overline{g(x)}\ex{2i\pi xt}\dt=\overline{\intr g(x)\ex{-2i\pi xt}\dt}=\overline{\hat g(t)}$$
+  Donc on a bien 
+  $$\intr f(x)\overline{g(x)}\dx=\intr \hat f(x)\overline{\hat g(x)}\dx.$$
+  et en prenant $f=g$, on trouve 
+  $$\intr \abs{f(x)}^2\dx=\intr \abs{\hat{f}(x)}^2\dx$$
+  d'où l'égalité des normes recherchée.
+\end{ProofC}
+
 
 
 \begin{thC}{Fourier-Plancherel}
-  L'application $\F : \S(\R)\longrightarrow \S(\R)$ se prolonge de manière unique en une application linéaire isométrique bijective $L^2(\R)\longrightarrow L^2(\R)$, que l'on note $\F_\text{p}$ et que l'on appelle \emph{transformée de Fourier-Plancherel}
+  L'application $\F : \S\longrightarrow \S$ se prolonge de manière unique en une application linéaire isométrique bijective $L^2(\R)\longrightarrow L^2(\R)$, que l'on note $\F_\text{p}$ et que l'on appelle \emph{transformée de Fourier-Plancherel}
 \end{thC}
 
 
 \begin{Proof}
-  $\star\ L^2(\R)$ est un Banach et $\S(\R)$ est un sous-espace dense dans $L^2(\R)$ donc on peut prolonger l'application linéaire continue $\F$ sur $L^2(\R)$, ainsi il existe un unique $\F_\text{p}:L^2(\R)\longrightarrow L 2(\R)$ linéaire continue tel que 
-  $$\forall f\in\S(\R),\ \F_\text{p}(f)=\F(f).$$
+  $\star\ L^2$ est un Banach et $\S$ est un sous-espace dense dans $L^2$ donc on peut prolonger l'application linéaire continue $\F$ sur $L^2$, ainsi il existe un unique $\F_\text{p}:L^2\longrightarrow L 2$ linéaire continue tel que 
+  $$\forall f\in\S,\ \F_\text{p}(f)=\F(f).$$
 
-  $\star$ Montrons que $\F_\text{p}$ est une isométrie, pour $f\in L^2(\R)$, il existe une suite $f_n\in \S(\R)$ convergeant vers $f$ et alors 
+  $\star$ Montrons que $\F_\text{p}$ est une isométrie, pour $f\in L^2$, il existe une suite $f_n\in \S$ convergeant vers $f$ et alors 
   $$\norm{\F_\text{p}(f)}_2=\Lim \norm{\F_\text{p}(f_n)}=\Lim\norm{\F(f)}_2=\Lim\norm{f_n}_2=\norm{f}_2.$$
   (la première égalité découle de la continuité de $\F_\text{p}$ et l'avant dernière est dûe à l'isométrie de $\F$)
 
   $\star$ Montrons que $\F_\text{p}$ est bijective; cette application étant linéaire isométrique, on sait qu'elle est injective. Pour la surjectivité, on a
-  $$\S(\R)=\F(\S(\R))\subset \F_{\text{p}}(L^2(\R))\subset L^2(\R)$$
-  et $\F_\text{p}\Par{L^2(R)}$ est un fermé de $L^2(\R)$, il est égal à son adhérence d'où
-  $$L^2(\R)=\overline{\S(\R)}\subset \overline{\F_{\text{p}}(L^2(\R))}=\F_{\text{p}}(L^2(\R))\subset L^2(\R)$$
+  $$\S=\F(\S)\subset \F_{\text{p}}(L^2)\subset L^2$$
+  et $\F_\text{p}\Par{L^2}$ est un fermé de $L^2$, il est égal à son adhérence d'où
+  $$L^2=\overline{\S}\subset \overline{\F_{\text{p}}(L^2)}=\F_{\text{p}}(L^2)\subset L^2$$
   d'où 
-  $$\F_{\text{p}}(L^2(\R))=L^2(\R)$$
+  $$\F_{\text{p}}(L^2)=L^2$$
   ce qui montre que $\F_{\text{p}}$ est surjective, et la preuve est finie.
 \end{Proof}
 
@@ -4196,7 +4327,7 @@ On a pas d'expression exacte de cette transformée de Fourier-Plancherel, mais o
 
 
 \begin{RQ}
-  Soit $f\in L^2(\R)$, par densité il existe $f_n\in \S(\R)$ convergeant (dans $L^2(\R)$) vers $f$, donc on a 
+  Soit $f\in L^2(\R)$, par densité il existe $f_n\in \S$ convergeant (dans $L^2(\R)$) vers $f$, donc on a 
   $$\F_\text{p}(f)=\Lim\F_\text{p}(f_n)=\Lim\F(f_n).$$
 \end{RQ}
 
@@ -4211,9 +4342,12 @@ On a pas d'expression exacte de cette transformée de Fourier-Plancherel, mais o
   $$\lambda\text{-p.p.}\ \F_\text{p}(f)(y)=\Lim\int_{-A_n}^{A_n}f(x)\ex{-2i\pi xy}\dx.$$
 \end{prop}
 
-\begin{Proof}
-  À FAIRE
-\end{Proof}
+
+\Dnote{Ça ne veut absolument pas dire que 
+$$\F_\text{p}(f)(y)=\intr f(x)\ex{-2i\pi xy}\dx$$
+car il faudrait que la limite existe pour toute suite $A_n$ convergant vers $+\infty$, alors qu'ici on a qu'une seule suite.}\vspace{0.7cm}
+
+Avant de démontrer cette propriété, on aura besoin du lemme suivant : 
 
 
 \begin{prop}
@@ -4224,7 +4358,52 @@ On a pas d'expression exacte de cette transformée de Fourier-Plancherel, mais o
 \end{prop}
 
 \begin{Proof}
-  À FAIRE
+  On va construire une suite $f_n$ de fonctions dans $\D\subset\S$ telle que 
+  $$\begin{cases}
+    \norm{f_n-f}_1\longrightarrow 0\\
+    \norm{f_n-f}_2\longrightarrow 0\\
+  \end{cases}$$
+  Pour $A>0$, on pose $f_A:=f\chi_{[-A,A]}$, et on a alors 
+  $$\norm{f_A-f}_2=\int_{\abs x\geqslant A}\abs{f(x)}^2\dx=\int_{\R}\abs f^2\chi_{E_A}\mathrm d\lambda$$
+  où 
+  $$E_A:=\ens{x\in\R\ :\ \abs x\geqslant A}$$
+  Il est clair que $f^2\chi_{E_A}$ CVS vers $0$ quand $A\to+\infty$, on peut dominer par $\abs f^2$ donc le théorème de convergence dominée s'applique et 
+  $$\norm{f_A-f}_2\tend 0$$
+  On peut montrer que la même manière que $\norm{f_A-f}_1\longrightarrow0$. Soit $\varepsilon>0$, on sait alors qu'il existe $A>0$ tel que,  
+  $$\begin{cases}
+    \norm{f_A-f}_2\leqslant \varepsilon\\
+    \norm{f_A-f}_2\leqslant \varepsilon\\
+  \end{cases}$$
+  On considère $\ens{q_a,\ a>0}$ une approximation de l'unité dans $\D$.
+
+  Le support de $f_A$ est contenu dans $[-A,A]$ et fermé donc c'est un compact, et le support de $q_a$ l'est aussi par hypothèse, donc $q_a*f_A$ est $C^\infty$ (car $a_a$ l'est) et à support compact, on a donc 
+  $$\norm{q_a*f_A-f}_2\leqslant \underbrace{\norm{q_a*f_A-f_A}_2}_{\underset{a\to 0}{\longrightarrow}0}+\underbrace{\norm{f_A-f}_2}_{\leqslant\varepsilon}$$
+  on a les même résultat pour la norme $1$, donc on peut poser 
+  $$f_n:=q_{\nicefrac{1}{n}}*f_A\in \S.$$
+
+  $f_n-f\in L^1$ donc on peut considérer la transformée de Fourier, qui est isométrique et on a 
+  $$\norm{\F(f_n)-\F(f)}_1\tend 0$$
+  et de même, puisque $f_n-f\in L^2$, on a aussi
+  $$\norm{\F_\text{p}(f_n)-\F_\text{p}(f)}_2\tend 0.$$
+  Et on sait la transformée de Fourier et la transformée de Fourier-Plancherel sont égales sur $\S$, donc par unicité de la limite, 
+  $$\F(f)=\F_\text{p}(f)\text{ p.p.}$$
+\end{Proof}
+
+
+On passe à la démonstration du théorème :
+
+ 
+\begin{Proof}
+  $\star$ On commence par montrer que $\varphi_A$ est bien définie; on a 
+  $$\norm{\varphi_A}_1=\int_{-A}^A\abs{f(x)\ex{-2i\pi xy}}\dx=\int_{-A}^{A}\abs{f(x)}\dx\leqslant \underbrace{\Par{\int_{-A}^A\abs{f(x)}^2}^{\nicefrac{1}{2}}}_{\leqslant \norm{f}_2<\infty}\Par{\int_{-A}^A\mathbbm{1}^2\dx}^{\nicefrac{1}{2}}\dx<\infty$$
+  De plus, $f_A:=f\chi_{[-A,A]}\in L^1\cap L^2$ donc on peut calculer
+  \begin{align*}
+    \norm{\varphi_A-\F_{\text{p}}(f)}&=\norm{\F(f)-\F_{\text{p}}(f)}_2\\
+    &=\norm{\F_{\text{p}}(f_A)-\F_{\text{p}}(f)}_2\\
+    &=\norm{f_A-f}_2\\
+    &=\int_{\abs x\geqslant A}\abs{f(x)}^2\dx\underset{A\to\infty}{\longrightarrow} 0
+  \end{align*}
+  Donc $\varphi_A$ tend vers $\F_{\text{p}}(f)$ dans $L^2$, ce qui nous donne la conclusion.
 \end{Proof}
 
 

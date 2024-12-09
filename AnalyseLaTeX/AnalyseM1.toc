@@ -25,4 +25,4 @@
 \contentsline {subsection}{Produit de convolution}{89}{section*.19}%
 \contentsline {subsection}{Approximations de l'unité}{93}{section*.20}%
 \contentsline {subsection}{Transformation de Fourier dans $L^1$}{97}{section*.21}%
-\contentsline {subsection}{Transformation de Fourier dans $L^2$}{104}{section*.22}%
+\contentsline {subsection}{Transformation de Fourier dans $L^2$}{105}{section*.22}%
