@@ -1,0 +1,54 @@
+\ProvidesPackage{packageTest}
+
+
+%%%%%%%
+% les packets
+%%%%%%
+\usepackage[utf8]{inputenc}%langue
+\usepackage[french]{babel}%langue
+\usepackage[T1]{fontenc}%langue
+\usepackage{lmodern}%langue
+\usepackage{amssymb, amsthm, mathtools, amsmath}%AMS
+\usepackage{stmaryrd}%\rrbracket et autre
+\usepackage{lipsum}
+\usepackage{array}
+
+
+
+%%%%%%
+% les alias un peu complexes
+%%%%%%
+\newcommand{\dt}{\mathrm dt}
+\newcommand{\dx}{\mathrm dx}
+\newcommand{\du}{\mathrm du}
+\newcommand{\dy}{\mathrm dy}
+\newcommand{\dmu}{\mathrm d\mu}
+\newcommand{\Nfrac}[1]{\dstyle\nicefrac{\varepsilon}{#1}}
+\newcommand{\inté}{\mathrm{int}\ }
+\newcommand{\TQ}{\ |\ }
+\newcommand\YUGE{\fontsize{38.4}{48}\selectfont}
+\newcommand{\dstyle}{\displaystyle}
+\newcommand{\tend}{\underset{n\to+\infty}{\longrightarrow}}
+\newcommand{\ttend}{\underset{\longrightarrow}{\longrightarrow}}
+\newcommand{\Lf}{L^2([-\pi,\pi])}
+\newcommand{\intr}{\dstyle\int_{-\infty}^{+\infty}}
+\newcommand{\ex}[1]{\mathrm{e}^{#1}}
+\renewcommand{\ker}{\mathrm{ker}}
+\newcommand{\Id}{\mathrm{Id}}
+\newcommand{\Par}[1]{\left(#1\right)}
+\newcommand{\Lim}{\underset{n\to\infty}{\mathrm{lim}}}
+\newcommand{\intI}{\dstyle\int_{-\infty}^{+\infty}}
+
+
+\newcommand{\tq}{\text{ t.q. }}
+\newcommand{\ssi}{si, et seulement si\ }
+\newcommand{\lasse}{les assertions suivantes sont équivalentes}
+
+\newcommand{\norm}[1]{\left\lVert#1\right\rVert}
+\newcommand{\ps}[1]{\left\langle #1 \right\rangle}
+\newcommand{\ens}[1]{\left\{#1\right\}}
+\newcommand{\abs}[1]{\left| #1\right|}
+\newcommand{\Bullet}{(\bullet)}
+\newcommand{\BBullet}{(\bullet\bullet)}  
+\newcommand{\BBBullet}{(\bullet\bullet\bullet)}
+\newcommand{\nop}[1]{\left|\left|#1\right|\right|_{\mathrm{op}}}

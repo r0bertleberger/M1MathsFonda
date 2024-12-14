@@ -1,0 +1,361 @@
+\ProvidesPackage{lille}
+%-------------- les options
+\usepackage{pgfopts}
+\def\lilleset{\pgfqkeys{/lille}}% ≈ \def\lilleset#1{\pgfkeys{/lille/.cd,#1}}
+\newif\iflille@sans@logo% par défaut c'est avec logo
+\newif\iflille@solutions% par défaut les solution sont cachées
+  \newcommand{\sisolutions}[1]{\iflille@solutions #1\fi}% à aficher si l'option 'solutions' est présente
+  \newcommand{\sisujet}[1]{\iflille@solutions\else #1\fi}% à aficher si l'option 'solutions' n'est présente
+\newif\iflille@sans@enonces% par défaut les énoncés sont affichés
+\lilleset{
+    couleur exo/.store in=\lille@exo@color,% la couleur pour les traits à côté des exercices
+    couleurexo/.store in=\lille@exo@color,% for package options (spaces are lost)
+    couleur sol/.store in=\lille@sol@color,% la couleur pour les traits à côté des solutions
+    couleursol/.store in=\lille@sol@color,% for package options (spaces are lost)
+    couleur liens/.store in=\lille@link@color,% la couleur pour les liens
+    couleurliens/.store in=\lille@link@color,% for package options (spaces are lost)
+    couleur/.style = {% pour définir les trois couleurs en même temps
+      couleur exo=#1,
+      couleur sol=#1!49!black,
+      couleur liens=#1
+    },
+    couleur=blue,% la couleur par défaut
+    sans logo/.is if=lille@sans@logo,% cacher le logo de l'université
+    sanslogo/.is if=lille@sans@logo,% for package options (spaces are lost)
+    solutions/.is if=lille@solutions,% afficher les solutions
+    sans enonces/.is if=lille@sans@enonces,% cacher les énoncés (si on veut juste les solutions)
+    sansenonces/.is if=lille@sans@enonces,% for package options (spaces are lost)
+    titre/.store in=\lille@titre,% le titre de la feuille ou du sujet d'examen
+    formation/.store in=\lille@formation,% la formation (ex: Master 1\iere année)
+    annee/.store in=\lille@annee,% l'année (ex: 2015--2016)
+    parcours/.store in=\lille@parcours,% le parcours (ex: parcours Mathématiques)
+    module/.store in=\lille@module,% le module (ex: Algèbre 1)
+    date/.store in=\lille@date,% la date de l'examen
+    duree/.store in=\lille@duree,% la durée de l'examen
+}
+\ProcessPgfPackageOptions*
+% ------------- encodage
+\usepackage{iftex}
+\ifPDFTeX % PDFLaTeX
+  \usepackage[utf8]{inputenc}
+  \usepackage[T1]{fontenc}
+  \usepackage{textcomp} % pour utiliser certains caractères
+  \usepackage{lmodern}
+\else % LuaLaTeX & XeLaTeX
+  \usepackage{fontspec}
+\fi
+% ------------- géométrie de la page
+\usepackage[top=21mm,left=23mm,right=21mm,bottom=21mm,nohead,nomarginpar,includeall,columnsep=14mm]{geometry}
+% pour espacer un peut le texte
+\parskip=1mm
+\parindent=0mm
+\let\blskip\baselineskip
+\renewcommand{\baselinestretch}{1.3}
+\setlength{\abovedisplayskip}{2pt plus 4pt}
+\setlength{\belowdisplayskip}{3pt plus 4pt}
+\setlength{\abovedisplayshortskip}{1pt plus 4pt}
+\setlength{\belowdisplayshortskip}{2pt plus 4pt}
+% ------------- les standards
+\usepackage{mathtools,amssymb,bm,bbm,amsthm}
+\usepackage[french]{babel}
+\usepackage[babel=true]{csquotes} % pour utiliser \enquote
+\usepackage{xspace} % pour ne pas «gobble» des espaces après \ieme par exemple
+% ------------- autres symboles
+% Pour éviter d'utiliser les packages pas très compatibles avec amssymb.
+% Déclare \llbracket and \rrbracket à partir de `fourier`
+\DeclareFontEncoding{FMS}{}{}
+\DeclareFontSubstitution{FMS}{futm}{m}{n}
+\DeclareSymbolFont{fourier}{FMS}{futm}{m}{n}
+\DeclareFontEncoding{FMX}{}{}
+\DeclareFontSubstitution{FMX}{futm}{m}{n}
+\DeclareSymbolFont{largefourier}{FMX}{futm}{m}{n}
+\DeclareMathDelimiter{\llbracket}{\mathopen}{fourier}{153}{largefourier}{133}
+\DeclareMathDelimiter{\rrbracket}{\mathclose}{fourier}{154}{largefourier}{134}
+% Décalre \wideparen à partir de `yhmath`
+\DeclareFontFamily{OMX}{yhex}{}
+\DeclareFontShape{OMX}{yhex}{m}{n}{<->yhcmex10}{}
+\DeclareSymbolFont{yhlargesymbols}{OMX}{yhex}{m}{n}
+\DeclareMathAccent{\wideparen}{\mathord}{yhlargesymbols}{"F3}
+% \leq et \req à la française (\oleq et \ogeq sont les originaux)
+\let\oleq\leq
+\let\ogeq\geq
+\let\leq\leqslant
+\let\geq\geqslant
+% ------------- Pour ajuster les enumerate
+\usepackage[inline,shortlabels]{enumitem}
+% compatibilité enumitem - franch babel (d'après la doc de 28 septembre 2014, p.14)
+\newlength\mylabelwidth
+\newcommand*{\mylabel}{$\triangleright$}% ou \textendash (tiret plus court)
+\settowidth{\mylabelwidth}{\mylabel}
+\setlist[itemize]{label=\mylabel, nosep}
+% la numérotation des questions
+\setlist[1]{
+  labelindent=\parindent,
+  listparindent=\parindent,
+  label={\textbf{\alph{enumi})}},
+  ref={\alph{enumi}}
+}
+\setlist[2]{
+  label={(\roman{enumii})},
+  ref={\alph{enumi}.\roman{enumii}}
+}
+\setlist{labelwidth=\mylabelwidth,
+        itemsep=0.4ex plus 0.2ex minus 0.2ex,
+        parsep=0.4ex plus 0.2ex minus 0.2ex,
+        topsep=0.8ex plus 0.4ex minus 0.4ex,
+        partopsep=0.4ex plus 0.2ex minus 0.2ex,
+        leftmargin=!}
+
+% mon changement perso
+\setlist{leftmargin=7mm}
+% ------------- Pour prévenir les coupures des pages au mauvaise endroits
+\usepackage{needspace}
+% ------------- Pour l'affichage conditionnel des solutions et des énoncés
+\usepackage{environ}
+\long\def\environment@body#1{\relax}% the body collected by \Collect@Body in \hide@body is ignored
+\def\hide@body{\expandafter\Collect@Body\expandafter\environment@body}% hide the environment body
+% ------------- Pour les couleurs
+\usepackage{xcolor}
+
+%       Macros
+% ---------------------
+
+% sections
+\renewcommand{\section}[1]{%
+  \needspace{7\baselineskip}%
+  \vspace{4mm}\hfill%
+  \setlength{\fboxsep}{2.1mm}%
+  \fcolorbox{\lille@exo@color}{\lille@exo@color!3}{%
+    \parbox{\dimexpr\columnwidth-21mm\relax}{%
+      \centering\vspace{1pt}%
+      \textsf{\large #1}%
+    }%
+  }%
+  \hfill\vspace*{3mm}%
+}
+
+% subsections
+\renewcommand{\subsection}[1]{%
+  \needspace{7\baselineskip}%
+  \vspace{3mm}\hfill%
+  \setlength{\fboxsep}{1.4mm}%
+  \fcolorbox{\lille@exo@color}{\lille@exo@color!2}{%
+    \parbox{\dimexpr\columnwidth-42mm\relax}{%
+      \centering\vspace{1pt}%
+      \textsf{\large #1}%
+    }%
+  }%
+  \hfill\vspace*{2mm}%
+}
+
+% Les numéros d'exercices
+\newcounter{numeroexo}
+\setcounter{numeroexo}{10}
+% Les lignes à côté de l'exercice
+\newlength{\img@vone}\setlength{\img@vone}{2.1pt}% la hauteur de la première ligne
+\newlength{\img@vtwo}\setlength{\img@vtwo}{1.4pt}% la hauteur de la deuxième ligne
+\newcommand\heightratio[1]{% pour changer la hauteur des lignes à côté de l'exercice (coefficiant multiplicateur)
+  \edef\vlineone{\strip@pt\dimexpr 0.4pt + #1\img@vone\relax}
+  \edef\vlinetwo{\strip@pt\dimexpr 0.4pt + #1\img@vtwo\relax}
+}
+\heightratio{1}% par défaut 1
+\newcommand*\exoimg[2]{% #1 : la couleur, #2 : la largeur de la ligne horizontale
+\setlength{\unitlength}{1cm}%
+\begin{picture}(0,0)(0,0)
+  \color{#1}
+  \put(-0.1,0.4){\line(0,-1){\vlineone}}
+  \put(-0.14,0.4){\line(0,-1){\vlinetwo}}
+  \put(-0.4,-0.1){\line(1,0){#2}}
+\end{picture}%
+}
+% Le macro principal pour les exercices/problèmes (à cahcher si l'option 'sans enonces' est présente)
+\newlength{\afterexo}\setlength{\afterexo}{3mm plus 4mm}% l'espace après les exercices, les problèmes et les solutions
+\newenvironment{exercice}[1]% macro principal pour les exercices/problèmes
+  {\needspace{3\baselineskip}\vspace{1mm}\par\refstepcounter{numeroexo}\hspace*{-1mm}%
+   \noindent{\exoimg{\lille@exo@color}{2.5}\bfseries\sffamily #1 \arabic{numeroexo}}}%
+  {\par\vspace{\afterexo}}
+% --- exo → Exercice (à afficher seulement si l'option 'sans enonces' n'est pas présente)
+\newenvironment{exo}[1][1]%
+  {%
+    \iflille@sans@enonces%
+      \hide@body
+    \else%
+      \setcounter{equation}{0}%
+      \heightratio{#1}%
+      \begin{exercice}{Exercice} \normalfont%
+    \fi%
+  }%
+  {\unless\iflille@sans@enonces\end{exercice}\fi}
+
+% --- bleme → Problème (à afficher seulement si l'option 'sans enonces' n'est pas présente)
+\newenvironment{bleme}[1][1]%
+  {%
+    \iflille@sans@enonces%
+      \hide@body%
+    \else%
+      \setcounter{equation}{0}%
+      \heightratio{#1}%
+      \begin{exercice}{Problème} \normalfont%
+    \fi%
+  }%
+  {\unless\iflille@sans@enonces\end{exercice}\fi}
+
+% exo difficile (avec étoile)
+\newcommand{\hard}{\raisebox{.7ex}{\llap{${}^{\star}$\kern 2pt}}}
+
+% Les solutions (à afficher seulement si l'option 'solutions' est présente)
+\def\numsolution{% le numéro de la solution (à afficher seulement si l'option 'sans enonces' est présente)
+  \iflille@sans@enonces%
+    \refstepcounter{numeroexo}~\arabic{numeroexo}%
+  \else%
+    ~:
+  \fi%
+}
+\newenvironment{solution}% affichage de la solution si l'option 'solutions' est présente
+  {%
+    \iflille@solutions
+      \needspace{2\baselineskip}\vspace{1mm}\par\hspace*{-2.1mm}%
+      \noindent{
+        \exoimg{\lille@sol@color}{2.59}%
+        \bfseries\sffamily Solution\numsolution%
+      }%
+    \else%
+      \hide@body%
+    \fi%
+  }%
+  {\iflille@solutions\par\vspace{\afterexo}\fi}
+
+% -------------- Pour les figures
+\usepackage{graphicx}
+  \graphicspath{{images/}} % pour chercher dans le sous-dossier images
+\usepackage[export]{adjustbox} % pour pouvoir utiliser valign=t, vspace, margin, ...
+
+% Les images à mettre à droite ou à gauche
+\newsavebox{\imager@box}% used to recover the image width
+\def\imager@set{\pgfqkeys{/imager}}% used to set options
+\imager@set{
+  % toutes les clés inconnues sont stockées dans \imager@options et transmises à \includegraphics (avec adjustbox)
+  .unknown/.code={
+    \edef\imager@options{\imager@options,\pgfkeyscurrentname=#1}
+  },
+  options/.estore in=\imager@options,
+  % le décalage de l'image en points
+  x offset/.store in=\imager@dx,
+  y offset/.store in=\imager@dy,
+  offset/.style 2 args={x offset=#1, y offset=#2},% pour définir les deux décalages en même temps
+  % la longueur de séparation entre l'image et le texte
+  sep/.store in=\imager@sep,
+}
+% ---- imageR ------
+% Place l'image à droite et le texte à gauche
+% Example : \imageR[width=49mm, sep=7mm, y offset=17, trim={28 0 7 0}]{image.pdf}{text}
+%   les options 'sep=7mm' et 'y offset=17' sont spécifiques à \imageR et \imageL
+%   les autres : 'width=49mm' et 'trim={28 0 7 0}' sont passées à \includegraphics (avec adjustbox)
+\newcommand{\imageR}[3][]{%
+\imager@set{
+  options={valign=t},% pour que l'image soit alignée en haut (option de adjustbox)
+  offset={0}{0},% pas de décalage par défaut
+  sep={7pt},% séparation entre l'image et le texte par défaut
+  #1% les options passées à \imageR par le paramètre optionnel
+}%
+\sbox{\imager@box}{\expandafter\includegraphics\expandafter[\imager@options]{#2}}% enregistre l'image dans une boîte pour récupérer sa largeur
+\vskip 0pt%
+\noindent%
+\begin{minipage}[t]{\dimexpr \textwidth - \wd\imager@box - \imager@sep}% la boîte de texte
+  #3
+\end{minipage}%
+\hfill%
+\begin{minipage}[t]{\wd\imager@box}% la boîte de l'image
+  \begin{picture}(0,0)
+    \put(\imager@dx,\imager@dy){\usebox{\imager@box}}% on affiche l'image avec le décalage
+  \end{picture}
+\end{minipage}%
+}
+% ---- imageL ------
+% Place l'image à gauche et le texte à droite
+% Example : \imageL[width=49mm, sep=7mm, y offset=17, trim={28 0 7 0}]{image.pdf}{text}
+\newcommand{\imageL}[3][]{%
+\imager@set{
+  options={valign=t},% pour que l'image soit alignée en haut (option de adjustbox)
+  offset={0}{0},% pas de décalage par défaut
+  sep={7pt},% séparation entre l'image et le texte par défaut
+  #1% les options passées à \imageR par le paramètre optionnel
+}%
+\sbox{\imager@box}{\expandafter\includegraphics\expandafter[\imager@options]{#2}}% enregistre l'image dans une boîte pour récupérer sa largeur
+\vskip 0pt%
+\noindent%
+\begin{minipage}[t]{\wd\imager@box}% la boîte de l'image
+  \begin{picture}(0,0)
+    \put(\imager@dx,\imager@dy){\usebox{\imager@box}}% on affiche l'image avec le décalage
+  \end{picture}
+\end{minipage}%
+\hfill%
+\begin{minipage}[t]{\dimexpr \textwidth - \wd\imager@box - \imager@sep}% la boîte de texte
+  #3
+\end{minipage}%
+}
+
+% ---- haut de la page ------
+\if@twocolumn
+  \usepackage{cuted}% pour afficher le haut de la page sur toute la largeur en cas de deux colonnes
+\fi
+\newcommand{\lille@sidef}[2][]{% affiche #1#2 si #2 est défini (ex: \lille@sidef[\sc]{lille@formation})
+  \ifcsname#2\endcsname%
+    {#1\csname #2\endcsname\relax}%
+  \fi%
+}
+\newcommand{\lille@sipar}[1]{% insère fin de paragraph si #1 est défini (ex: \lille@sipar{lille@date})
+  \ifcsname#1\endcsname%
+    \par%
+  \fi%
+}
+\AtBeginDocument{% le code à exécuter au début du document (pour afficher le haut de la page entre autres)
+  % pas de numéros des pages
+  \pagestyle{empty}
+  \thispagestyle{empty}
+  % même si deux colonnes, le haut est sur toute la largeur de la page
+  \if@twocolumn\begin{strip}\fi
+  % afficher le logo de l'université
+  \unless\iflille@sans@logo
+    \vspace*{-2cm}
+    \begin{center}
+      \includegraphics[width=7cm]{Logo-EcoleCentrale-couleur-RVB.png}
+    \end{center}
+    \vspace*{-4mm}
+  \fi
+  \lille@sidef[\sc]{lille@formation}\hspace*{\fill}\lille@sidef[\sc\large]{lille@annee}\\
+  \lille@sidef[\sc]{lille@parcours}\hspace*{\fill}\lille@sidef[\sc\large]{lille@module}
+
+  \rule[0.5ex]{\textwidth}{0.1mm}
+  \vskip 3mm
+  \begin{center}
+      {\lille@sidef[\sc\Large]{lille@titre}\lille@sipar{lille@date}
+      \lille@sidef{lille@date}\lille@sipar{lille@duree}
+      \def\dureepar#1\relax{[ durée : #1 ]}
+      \lille@sidef[\dureepar]{lille@duree}
+      }
+  \end{center}
+  \rule[0.5ex]{\textwidth}{0.1mm}
+  \if@twocolumn\end{strip}\fi
+}
+
+% Macros pour les sujets d'examen
+
+% ---- Attention ------
+% \newcommand{\attention}{\raisebox{1.8pt}[0pt][0pt]{\textcolor{red}{\fontencoding{U}\fontfamily{futs}\selectfont\char 66\relax}}} % ne fonctionne plus, affiche un autre caractère
+\newcommand{\attention}{\raisebox{-3.5pt}[0pt][0pt]{\includegraphics{attention.pdf}}}
+
+% ---- TSVP ------
+\usepackage[absolute,overlay]{textpos}
+  \TPGrid[21mm,21mm]{1}{1} % the margins are set to 21mm and then the width and the height are diveded to 1 step, so (1,1) is at botom righ corner (minus the margin)
+\newcommand{\tsvp}{%
+  \begin{textblock}{2}[1,0](1,1)%
+    \hfill%
+    \includegraphics[scale=.7]{tsvp.pdf}%
+  \end{textblock}%
+}
+
+
+% ---- hyperref (dernier) ----
+\usepackage[pdfencoding=auto,colorlinks=true,allcolors=\lille@link@color]{hyperref}% pour les liens. En règle générale il doit être le dernier package chargé.
+

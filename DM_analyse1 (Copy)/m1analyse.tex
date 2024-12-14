@@ -1,0 +1,59 @@
+%==============================================================
+\lilleset{
+  formation=Master 1\iere année,
+  parcours=parcours Mathématiques,
+  annee=2024--2025,
+  module=Analyse,
+  couleur=teal
+}
+%==============================================================
+% -------------- Autres bibliothèques
+\usepackage{dsfont} % pour \mathds{1}
+
+% -------------- Les abréviations pour M1AN
+% les ensembles standard
+\def\R{\mathbb{R}}
+\def\C{\mathbb{C}}
+\def\N{\mathbb{N}}
+\def\Z{\mathbb{Z}}
+\def\Q{\mathbb{Q}}
+% les parenthèses et leurs dérivées
+\newcommand{\p}[1]{\left(#1\right)}% les parenthèses automatiques
+\newcommand{\bp}[1]{\bigl(#1\bigr)}% les parenthèses 'big'
+\newcommand{\Bp}[1]{\Bigl(#1\Bigr)}% les parenthèses 'Big'
+\newcommand{\Bbp}[1]{\biggl(#1\biggr)}% les parenthèses 'bigg'
+\newcommand{\BBp}[1]{\Biggl(#1\Biggr)}% les parenthèses 'Bigg'
+\newcommand*{\suite}[2][n]{\left( #2 \right)_{#1}}% exemple \suite{u_n}, \suite[k>0]{u_k}
+\newcommand*{\suiteN}[1]{\suite[n\in\mathbb{N}]{#1}}% exemple \suiteN{u_n}
+\newcommand*{\abs}[1]{\left\lvert{\ifx\hfuzz#1\hfuzz \,\cdot\,\else#1\fi}\right\rvert}% |.|
+\newcommand*{\norm}[1]{\left\lVert{\ifx\hfuzz#1\hfuzz \,\cdot\,\else#1\fi}\right\rVert}% norme
+\newcommand*{\norminf}[1]{\norm{#1}_{\infty}}% la norme sup
+\newcommand*{\vertiii}[1]{{\left\vert\kern-0.25ex\left\vert\kern-0.25ex\left\vert
+  {\ifx\hfuzz#1\hfuzz \,\cdot\,\else#1\fi}
+    \right\vert\kern-0.25ex\right\vert\kern-0.25ex\right\vert}}
+\let\normop\vertiii% exemple \normop{T}
+\newcommand*{\scalprod}[3][]{#1\langle{#2}\kern1pt #1|{#3}#1\rangle}% exemple \scalprod[\big]{A}{B}
+\newcommand*{\ensemble}[3][]{#1\{ #2 \;#1|\; #3 #1\}}% exemple \ensemble[\big]{x^2}{x \in \R}
+% indication et remarque
+\newcommand{\indication}[1]{\emph{Indication : #1}}
+\newcommand{\remarque}[1]{\emph{Remarque : #1}}
+% la fonction indicatrice
+\usepackage{dsfont}
+\newcommand*{\ind}{\mathds{1}}% exemple \ind_{[0,1]}
+% autre symboles
+\DeclareMathOperator{\im}{Im}% exemple \im A
+\let\ker\relax\DeclareMathOperator{\ker}{Ker}% exemple \ker A
+\DeclareMathOperator{\vect}{vect}% exemple \vect\ensemble{x_n}{n\in\N}
+\DeclareMathOperator{\dist}{dist}% exemple \dist(x,M)
+\DeclareMathOperator{\id}{Id}% exemple T-\lambda\id
+\DeclareMathOperator{\supp}{supp}% le support, exemple \supp \ind_{A} = A
+\renewcommand{\Re}{\mathfrak{Re}}% la partie réelle
+\newcommand{\dd}{\kern1pt\mathrm{d}}% le «d» du dx, dt, ...
+
+% pour surligner
+\sisolutions{
+  \usepackage{soul}
+  \colorlet{hl}{yellow!35!white}
+  \sethlcolor{hl}
+  \renewcommand{\hl}[1]{\relax\ifmmode\colorbox{hl}{\ensuremath{#1}}\else\texthl{#1}\fi}
+}

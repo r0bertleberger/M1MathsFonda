@@ -1,0 +1,130 @@
+\documentclass[a4paper,12pt,reqno]{amsart}
+\usepackage{lille}
+\input{m1analyse}
+
+%%%%%%
+\newcommand{\dt}{\mathrm dt}
+\newcommand{\dx}{\mathrm dx}
+\newcommand{\du}{\mathrm du}
+\newcommand{\dy}{\mathrm dy}
+\newcommand{\dmu}{\mathrm d\mu}
+\newcommand{\Nfrac}[1]{\dstyle\nicefrac{\varepsilon}{#1}}
+\newcommand{\inté}{\mathrm{int}\ }
+\newcommand{\TQ}{\ |\ }
+\newcommand\YUGE{\fontsize{38.4}{48}\selectfont}
+\newcommand{\dstyle}{\displaystyle}
+\newcommand{\tend}{\underset{n\to+\infty}{\longrightarrow}}
+\newcommand{\ttend}{\underset{\longrightarrow}{\longrightarrow}}
+\newcommand{\Lf}{L^2([-\pi,\pi])}
+\newcommand{\intr}{\dstyle\int_{-\infty}^{+\infty}}
+\newcommand{\ex}[1]{\mathrm{e}^{#1}}
+\renewcommand{\ker}{\mathrm{ker}}
+\newcommand{\Id}{\mathrm{Id}}
+\newcommand{\Par}[1]{\left(#1\right)}
+\newcommand{\Lim}{\underset{n\to\infty}{\mathrm{lim}}}
+\newcommand{\intI}{\dstyle\int_{-\infty}^{+\infty}}
+\newcommand{\ps}[1]{\left\langle #1 \right\rangle}
+\renewcommand{\abs}[1]{\left| #1 \right|}
+\newcommand{\ens}[1]{\left\{#1\right\}}
+\lilleset{titre={DM 3, Raphaël Casanova}}
+
+\begin{document}
+
+
+\begin{exo}\emph{(Espace de Schwartz)}
+
+  On rappelle que $\mathcal{S}(\mathbb{R})$ désigne l'espace de Schwartz, constitué des fonctions $f : \mathbb{R} \to \mathbb{R}$ infiniment dérivables et telles que, pour tout $k, m \in \mathbb{N}$,
+  \[
+  \sup_{x \in \mathbb{R}} \abs{x^m f^{(k)}(x)} < +\infty,
+  \]
+  où $f^{(k)}$ désigne la $k$-ième dérivée de $f$.
+  \begin{enumerate}
+      \item Soit $f \in \mathcal{S}(\mathbb{R})$ et $p$ est une fonction polynomiale.
+      \begin{enumerate}
+         \item Montrer que $pf \in \mathcal{S}(\mathbb{R})$.
+         \item Est-ce que $p\ast f$ est bien définie ? Si oui, est-ce que $p\ast f \in \mathcal{S}(\mathbb{R})$ ?
+       \end{enumerate}
+      \item Soient $f, g \in \mathcal{S}(\mathbb{R})$. On suppose que $f \ast g = 0$.
+      \begin{enumerate}
+          \item Peut-on en déduire que $f = 0$ ou $g = 0$ ?
+          \item Qu'en est-il si $f = g$ ?
+      \end{enumerate}
+      \item Soit $g \in \mathcal{S}(\mathbb{R})$. Montrer qu'il existe une unique fonction $f \in \mathcal{S}(\mathbb{R})$ telle que
+      \[
+        f^{(12)} + f^{(8)} + f = g.
+      \]
+  \end{enumerate}
+\end{exo}
+
+\hrule
+
+
+a)(i) Soit $f\in \mathcal S$, montrons que pour $k,m,\ell\in\N,\ x\mapsto x^m\Par{x^kf(x)^{(\ell)}}$ est bornée, on calcule 
+$$\abs{x^m\Par{x^kf(x)}^{(\ell)}}=\abs{x^m\sum_{i=0}^\ell \binom{\ell}{i}\frac{k!}{\Par{k-i}!}x^{k-i}f^{(\ell-i)}(x)}=\abs{\sum_{i=0}^\ell \binom{\ell}{i}\frac{k!}{\Par{k-i}!}x^{k-i+m}f^{(\ell-i)}(x)}$$
+et par hypothèse, il existe $M\in \R$ tel que,
+$$\forall x\in\R,\ x^{k-i+m}f^{(\ell-i)}(x)<M$$
+on a donc 
+$$\abs{x^m\Par{x^kf(x)}^{(\ell)}}<\sum_{i=0}^\ell \binom{\ell}{i}\frac{k!}{\Par{k-i}!}M<\infty$$
+et puisque l'espace de Schwartz est un espace vectoriel, par linéarité on constante que pour tout $p\in\R[X]$, $pf\in \mathcal S$.
+
+
+a)(ii) Soit $x\in\R$ fixé, on pose 
+$$\tilde p:t\longmapsto p(x-t)$$
+d'après la formule du binôme de Newton, c'est aussi un polynôme en $t$ (car $x$ est fixe) donc d'après la question précédente, $\tilde pf\in \mathcal S$ donc, par exemple, 
+$$\exists c>0\ :\ \forall t\in\R,\ \abs{\Par{1+t^2}\tilde p(t)f(t)}<c$$
+autrement dit 
+$$\forall t\in\R,\ \abs{p(x-t)f(t)}<\frac{c}{1+t^2}\in L^1$$
+donc 
+$$p*f(x)=\intr p(x-t)f(t)\dt<\infty$$
+et $p*f$ est bien définie.
+
+
+Par contre, $p*f\notin\mathcal S$ car si on considère $p=1$ et $f:t\mapsto \ex{-t^2/2}$, alors on a 
+$$\forall x\in\R,\ p*f(x)=\intr\ex{-t^2/2}\dt=\sqrt{2\pi}$$
+donc en prenant $k=0$ et $m=1$ dans la définition de l'espace de Schwartz, on a 
+$$\underset{x\in\R}{\mathrm{sup}}\abs{x^m \Par{p*f(x)}^{(k)}}=+\infty$$
+donc, puisque $f\in\mathcal S$, le contre-exemple est valide et $p*f\notin\mathcal S.$\\
+
+
+b)(i) Soit 
+$$f : x \mapsto \mathcal{F}^{-1} \bigg( \exp\bigg( -\frac{1}{x(1-x)} \bigg) \chi_{]0,1[}(x) \bigg)$$
+Cet objet est bien défini puisque la transformée de Fourier est bijective de $\mathcal S\longrightarrow\mathcal S$ et que la fonction considérée, $x\mapsto \mathrm\exp\bigg( -\frac{1}{x(1-x)} \bigg) \chi_{]0,1[}(x) \bigg)$ est $C^\infty$ à support compact donc est dans $\mathcal S$. On pose de même 
+$$g : x \mapsto \mathcal{F}^{-1} \bigg( \exp\bigg( -\frac{1}{x(1-x)} \bigg) \chi_{]-1,1[}(x) \bigg)$$
+qui est dans $\mathcal S$ au même titre que $f$. D'après le cours, on a alors
+$$f*g=\hat f.\hat g$$
+donc on a, (normalement on aurait un "presque-partout" mais ici $f$ et $g$ sont continues donc c'est un "partout")
+$$f*g(x)=\bigg( \exp\bigg( -\frac{1}{x(1-x)} \bigg) \chi_{]0,1[}(x) \bigg)\bigg( \exp\bigg( -\frac{1}{x(1-x)} \bigg) \chi_{]-1,0[}(x) \bigg)=0$$
+donc $f*g$ est nulle presque-partout et on a trouvé $f,g\in\mathcal S$ telles que $f*g=0$ sans que $f=0$ ou $g=0$, donc non on ne peut pas déduire que "$f*g=0$" que $f=0$ ou $g=0$.
+
+b)(ii) Si $f=g$, alors on aurait 
+$$f*f=\hat f^2=0$$
+donc, puisque on est dans $\mathcal S$ on peut appliquer la formule d'inversion de Fourier, qui est ici aussi valide "partout" au lieu de "presque-partout" par contiuité, et ainsi $f=0$.\\
+
+
+c) On va procéder par analyse-synthèse :\\
+$\star$ Analyse : soit $f$ une solution, alors, on applique la transformée de Fourier et on obtient 
+$$\forall y\in\R,\ \Par{2i\pi y}^{12}\hat f(y)+\Par{2i\pi y}^{8}\hat f(y)+\hat f(y)=\hat g(y)$$
+donc nécessairement
+$$\forall y\in\R,\ \hat f(y)=\frac{\hat g(y)}{\Par{2i\pi y}^{12}+\Par{2i\pi y}^{8}+1}.$$
+
+
+$\star$ Montrons que l'expression de $\hat f$ trouvée convient : 
+C'est le produit de la fonction $\hat g$ qui est $C^\infty$ et d'une fonction rationnelle sans pôle réel, donc $C^\infty$, donc $\hat f$ est aussi de classe $C^\infty$, on va aussi montrer que c'est une fonction à décroissance rapide, on va pour cela calculer partiellement ses dérivées, on va plus précisément montrer, par récurrence que 
+$$\forall n\in\N^*,\ \exists \ens{P_i,\ i\in[\![1,n]\!]}\in\R[X]\ |\ \forall y\in\R,\ \hat f^{(n)}(y)=\frac{\sum_{k=0}^n \hat g^{(k)}(y)P_k(y)}{\Par{\Par{2i\pi y }^{12}+\Par{2i\pi y }^{8}+1}^{2n}}$$
+
+Pour simplifier les notation, on va noter le dénominateur $u$, ainsi pour le cas $n=1$, c'est la formule de la dérivée d'un quotient et on a 
+$$\forall y\in\R,\ \hat f'(y)=\frac{\hat g'(y)v(y)-\hat g(y)v'(y)}{v(y)^2}$$
+(il est claire que $v'$ est un polynôme) et pour le cas $n\to n+1$, on va dériver
+\begin{align*}
+	\hat f^{(n+1)}(y)&=\Par{\frac{\sum_{k=0}^n \hat g^{(k)}(y)P_k(y)}{v(y)^{2n}}}'\\
+	&=\frac{\Par{\sum_{k=0}^n \hat g^{(k)}(y)P_k(y)}'v(y)-\sum_{k=1}^n \hat g^{(k)}(y)P_k(y)v'(y)}{v(y)^{2(n+1)}}\\
+	&=\frac{\Par{\sum_{k=0}^n \hat g^{(k+1)}(y)P_k(y)+\hat g^{(k)}(y)P'_k(y)}v(y)-\sum_{k=1}^n \hat g^{(k)}(y)P_k(y)v'(y)}{v(y)^{2(n+1)}}\\
+	\hat f^{(n+1)}(y)&=\frac{\sum_{k=0}^n \hat g^{(k+1)}(y)P_k(y)v(y)-\hat g^{(k)}(y)\Par{P_k(y)v'(y)-P'_k(y)v(y)}}{v(y)^{2(n+1)}}\\
+\end{align*}
+et je n'ai pas la place (en largeur) pour développer complètement cette expression, on va donc juste "constater" que les $P_k, k\in[\![0,n+1]\!]$ existent.
+Et puisque $\hat g$ est dans $\mathcal S$, on peut majorer tous les $\hat g^{(k)}P_k$ par un même $c>0$, donc finalement 
+$$\forall y\in\R,\ f^{(n)}(y)<\frac{nc}{{\Par{2i\pi y}^{12}+\Par{2i\pi y}^{8}+1}}\longrightarrow 0$$
+ce qui montre que l'expression de $f$ trouvée est bien dans $\mathcal S$, on peut alors appliquer la formule d'inversion et 
+$$\forall x\in\R,\ f(x)=\mathcal F^{-1}\Par{\frac{\hat g(y)}{\Par{2i\pi y}^{12}+\Par{2i\pi y}^{8}+1}}(x).$$
+
+\end{document}

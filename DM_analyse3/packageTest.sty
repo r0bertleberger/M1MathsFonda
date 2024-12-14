@@ -1,0 +1,442 @@
+\ProvidesPackage{packageTest}
+
+
+%%%%%%%
+% les packets
+%%%%%%
+\usepackage[utf8]{inputenc}%langue
+\usepackage[french]{babel}%langue
+\usepackage[T1]{fontenc}%langue
+\usepackage{lmodern}%langue
+\usepackage{amssymb, amsthm, mathtools, amsmath}%AMS
+\usepackage{stmaryrd}%\rrbracket et autre
+\usepackage{fancyhdr}%en tête et autre
+\usepackage{geometry}%ajuster les marges d'impression
+\usepackage{tcolorbox}%cadres rouges
+\usepackage{mathrsfs}
+\usepackage{nicefrac}
+\usepackage{eurosym}
+\usepackage{hyperref}
+\usepackage[framemethod=tikz]{mdframed}
+\usepackage{titlesec}
+\usepackage{multicol}
+\usepackage{lipsum}
+\usepackage{manfnt}
+\usepackage{array}
+\usepackage[framemethod=tikz]{mdframed}
+\usepackage{etoolbox} % Pour la gestion conditionnelle
+\usepackage[dvipsnames]{xcolor}
+\usepackage{tocloft}
+\usetikzlibrary {arrows.meta,bending,positioning}
+\usetikzlibrary{shapes.geometric}
+\usepackage{bbm}
+
+%%%%%%
+% de la mise en page
+%%%%%%
+\titleformat{\subsection}[runin]
+{\normalfont\large\bfseries}{\thesubsection}{1em}{}
+\titleformat{\subsubsection}[runin]
+{\normalfont\large\bfseries}{\thesubsubsection}{1em}{}
+\geometry{ hmargin=2.5cm, tmargin=2cm, bmargin=2cm } 
+
+
+\fancypagestyle{pageGarde}{
+    \fancyhead[L,R,C]{}
+    \fancyfoot[C]{\emph{Analyse}}
+    \renewcommand{\headrulewidth}{0pt}
+    \renewcommand{\footrulewidth}{0.4pt}\vspace{-0.2cm}
+}
+
+
+\fancypagestyle{TestPage}{
+	\fancyfoot[C]{\emph{Analyse}}
+	\fancyfoot[LE,RO]{\thepage}
+	\renewcommand{\footrulewidth}{0.4pt}\vspace{-0.2cm}
+}
+
+
+%%%%%%
+% mise en page des liens
+%%%%%%
+\hypersetup{
+  colorlinks   = true, %Colours links instead of ugly boxes
+  urlcolor     = black, %Colour for external hyperlinks
+  linkcolor    = black, %Colour of internal links
+  citecolor   = red %Colour of citations
+}
+
+
+%%%%%%
+% alignement des débuts de paragraphes
+%%%%%%
+\setlength\parindent{0pt}
+
+
+%%%%%%
+% les compteurs
+%%%%%%
+\newcounter{CompteurRemarque}
+\newcounter{prop}
+\newcounter{corollaire}
+\newcounter{lemme}
+\newcounter{Subsection}
+\newcounter{Section}
+
+
+\providecommand\phantomsection{}
+
+\setcounter{tocdepth}{2}
+
+%%%%%%
+% les sections alternatives
+%%%%%%
+\newcommand{\NouvelleSubsection}[1]{
+  \subsection*{#1}
+  \stepcounter{Subsection}
+}
+\newcommand{\NouvelleSection}[1]{
+  \newpage
+  \section*{\arabic{Section}] #1}
+  \phantomsection
+  \addcontentsline{toc}{subsection}{#1}
+  \stepcounter{Section} 
+}
+\newcommand{\PremiereNouvelleSection}[1]{
+    \section*{\arabic{Section}] #1}
+    \phantomsection
+    \addcontentsline{toc}{subsection}{#1}
+    \stepcounter{Section}
+}
+\newcommand{\NouvellePart}[1]{
+  \cleardoublepage
+  \part{#1}
+  \setcounter{Section}{1}
+  \setcounter{prop}{0}
+}
+
+
+%%%%%%
+% les environnements décoratifs
+%%%%%%
+\newmdenv[
+  linewidth=1pt,
+  linecolor=black,
+  bottomline=false,topline=false,rightline=false,
+  innerrightmargin=0pt,innertopmargin=0pt,innerbottommargin=0pt,
+  innerleftmargin=1em,% Distance between vertical rule & proof content
+  skipabove=.5,
+]{preuve} 
+
+\newmdenv[
+  innerlinewidth=1.5pt,
+  outerlinewidth=1.5pt,
+  middlelinewidth=2.5pt,
+  linecolor=BrickRed,
+  middlelinecolor=white,
+  rightline=false,
+  bottomline=false,
+  topline=false,
+]{rouge}
+
+
+\newmdenv[
+  innerlinewidth=1.5pt,
+  outerlinewidth=1.5pt,
+  middlelinewidth=2.5pt,
+  linecolor=Peach,
+  middlelinecolor=white,
+  rightline=false,
+  bottomline=false,
+  topline=false,
+]{orange}
+
+
+\newmdenv[
+  innerlinewidth=1.5pt,
+  outerlinewidth=1.5pt,
+  middlelinewidth=2.5pt,
+  linecolor=ForestGreen,
+  middlelinecolor=white,
+  rightline=false,
+  bottomline=false,
+  topline=false,
+  innerlinecolor=white,
+]{vertBis}
+
+
+\newmdenv[
+  innerlinewidth=1.5pt,
+  outerlinewidth=1.5pt,
+  middlelinewidth=2.5pt,
+  linecolor=RoyalBlue,
+  middlelinecolor=white,
+  rightline=false,
+  bottomline=false,
+  topline=false,
+  innerlinecolor=white, 
+]{bleu}
+
+
+\newmdenv[
+  innerlinewidth=1.5pt,
+  outerlinewidth=1.5pt,
+  middlelinewidth=2.5pt,
+  linecolor=cyan,
+  middlelinecolor=white,
+  rightline=false,
+  bottomline=false,
+  topline=false,
+  innerlinecolor=white,
+]{Cyan}
+
+
+%%%%%%
+% les environnements
+%%%%%%
+\newenvironment{thC}[1]
+{
+  \begin{rouge}
+  \stepcounter{prop}
+  \setcounter{corollaire}{0}
+  \setcounter{lemme}{0}
+  \setcounter{CompteurRemarque}{0}
+  {\bf Théorème \arabic{prop}} (\emph{#1}){\bf :}
+}{
+  \end{rouge}
+}
+\newenvironment{Th}
+{
+  \begin{rouge}
+  \stepcounter{prop}
+  \setcounter{corollaire}{0}
+  \setcounter{lemme}{0}
+  \setcounter{CompteurRemarque}{0}
+  {\bf Théorème \arabic{prop}}{\bf :}
+}{
+  \end{rouge}
+}
+\newenvironment{prop}
+{
+  \begin{orange}
+  \stepcounter{prop}
+  \setcounter{corollaire}{0}
+  \setcounter{lemme}{0}
+  \setcounter{CompteurRemarque}{0}
+  {\bf Propriété \arabic{prop} :} 
+}{
+  \end{orange}
+}
+
+\newenvironment{props}
+{
+  \begin{orange}
+  \stepcounter{prop}
+  \setcounter{corollaire}{0}
+  \setcounter{lemme}{0}
+  \setcounter{CompteurRemarque}{0}
+  {\bf Propriétés \arabic{prop} :} 
+}{
+  \end{orange}
+}
+
+\newenvironment{propC}[1]
+{
+  \begin{orange}
+  \stepcounter{prop}
+  \setcounter{corollaire}{0}
+  \setcounter{lemme}{0}
+  \setcounter{CompteurRemarque}{0}
+  {\bf Propriété \arabic{prop}} (\emph{#1}) {\bf :}
+}{
+  \end{orange}
+}
+
+\newenvironment{propCs}[1]
+{
+  \begin{orange}
+  \stepcounter{prop}
+  \setcounter{corollaire}{0}
+  \setcounter{lemme}{0}
+  \setcounter{CompteurRemarque}{0}
+  {\bf Propriétés \arabic{prop}} (\emph{#1}){\bf :}
+}{
+  \end{orange}
+}
+
+\newenvironment{Def}
+{
+  \begin{vertBis}
+  \setcounter{CompteurRemarque}{0}
+  {\bf Définition :}
+}{
+  \end{vertBis}
+}
+
+\newenvironment{Defs}
+{
+  \begin{vertBis}
+  \setcounter{CompteurRemarque}{0}
+  {\bf Définitions :}
+}{
+\end{vertBis}
+}
+
+\newenvironment{DefC}[1]
+{
+  \begin{vertBis}
+  \setcounter{CompteurRemarque}{0}
+  {\bf Définition } (\emph{#1}){\bf :}
+}{
+\end{vertBis}
+}
+
+\newenvironment{DefCs}[1]
+{
+  \begin{vertBis}
+  \setcounter{CompteurRemarque}{0}
+  {\bf Définitions }(\emph{#1}){\bf :}
+}{
+\end{vertBis}
+}
+
+\newenvironment{corollaire}
+{
+  \begin{bleu}
+  \stepcounter{corollaire}
+  \setcounter{CompteurRemarque}{0}
+  {\bf Corollaire \arabic{corollaire} :}
+}{
+\end{bleu}
+}
+
+\newenvironment{corollaireC}[1]
+{
+  \begin{bleu}
+  \stepcounter{corollaire}
+  \setcounter{CompteurRemarque}{0}
+  {\bf Corollaire \arabic{corollaire}} (\emph{#1}){\bf :}
+}{
+\end{bleu}
+}
+
+
+\newenvironment{lemme}
+{
+  \begin{Cyan}
+  \stepcounter{lemme}
+  \setcounter{CompteurRemarque}{0}
+  {\bf Lemme \arabic{lemme} :}
+}{
+  \end{Cyan}
+}
+
+
+\newenvironment{Proof}
+{
+  \vspace{0.5cm}
+  \emph{Démonstration}\\[-0.5em]
+
+  \begin{preuve}
+}{
+    \hfill$\square$\end{preuve}
+}
+
+
+\newenvironment{ProofC}[1]
+{
+  \vspace{0.5cm}
+  \emph{#1}\\[-0.5em]
+
+  \begin{preuve}
+}{
+    \hfill$\square$\end{preuve}
+}
+
+
+% Redéfinir l'affichage du compteur CompteurRemarque
+\renewcommand{\theCompteurRemarque}{%
+  \ifcase\value{CompteurRemarque} % Case 0 (non utilisé ici)
+  \or {} % Case 1
+  \or bis % Case 2
+  \or ter % Case 3
+  \or quater % Case 4
+  \or quinquies
+  \else \arabic{CompteurRemarque} % Pour les autres valeurs, afficher normalement
+  \fi
+}
+
+\newenvironment*{RQ}{\refstepcounter{CompteurRemarque}{\bf\emph{ rq \theCompteurRemarque :}}}
+
+
+
+%%%%%%
+% les alias pour des lettres
+%%%%%%
+\newcommand{\N}{\mathbf N}
+\newcommand{\Z}{\mathbf Z}
+\newcommand{\Q}{\mathbf Q}
+\newcommand{\R}{\mathbf R}
+\newcommand{\C}{\mathbf C}
+
+\newcommand{\K}{\mathbf K}
+\newcommand{\A}{\mathcal A}
+\renewcommand{\O}{\Omega}
+\newcommand{\D}{\mathcal D(\R)} 
+\newcommand{\F}{\mathcal F} 
+\renewcommand{\S}{\mathcal S(\R)} 
+
+
+
+
+%%%%%%
+% les alias un peu complexes
+%%%%%%
+\newcommand{\dt}{\mathrm dt}
+\newcommand{\dx}{\mathrm dx}
+\newcommand{\du}{\mathrm du}
+\newcommand{\dy}{\mathrm dy}
+\newcommand{\dmu}{\mathrm d\mu}
+\newcommand{\Nfrac}[1]{\dstyle\nicefrac{\varepsilon}{#1}}
+\newcommand{\inté}{\mathrm{int}\ }
+\newcommand{\TQ}{\ |\ }
+\newcommand\YUGE{\fontsize{38.4}{48}\selectfont}
+\newcommand{\dstyle}{\displaystyle}
+\newcommand{\tend}{\underset{n\to+\infty}{\longrightarrow}}
+\newcommand{\ttend}{\underset{\longrightarrow}{\longrightarrow}}
+\newcommand{\Lf}{L^2([-\pi,\pi])}
+\newcommand{\intr}{\dstyle\int_{-\infty}^{+\infty}}
+\newcommand{\ex}[1]{\mathrm{e}^{#1}}
+\renewcommand{\ker}{\mathrm{ker}}
+\newcommand{\Id}{\mathrm{Id}}
+\newcommand{\Par}[1]{\left(#1\right)}
+\newcommand{\Lim}{\underset{n\to\infty}{\mathrm{lim}}}
+\newcommand{\intI}{\dstyle\int_{-\infty}^{+\infty}}
+
+\newcommand{\dnote}[1]{%
+    \noindent % I guess this is intended...
+    \begin{tabular}{@{}m{0.13\textwidth}@{}m{0.87\textwidth}@{}}%
+        \large\textdbend &#1%
+    \end{tabular}%
+    \par % ... and this too.
+}
+\newcommand{\Dnote}[1]{%
+    \noindent % I guess this is intended...
+    \begin{tabular}{@{}m{0.13\textwidth}@{}m{0.87\textwidth}@{}}%
+        \huge\textdbend &#1%
+    \end{tabular}%
+    \par % ... and this too.
+}
+
+\newcommand{\tq}{\text{ t.q. }}
+\newcommand{\ssi}{si, et seulement si\ }
+\newcommand{\lasse}{les assertions suivantes sont équivalentes}
+
+\newcommand{\norm}[1]{\left\lVert#1\right\rVert}
+\newcommand{\ps}[1]{\left\langle #1 \right\rangle}
+\newcommand{\ens}[1]{\left\{#1\right\}}
+\newcommand{\abs}[1]{\left| #1\right|}
+\newcommand{\Bullet}{(\bullet)}
+\newcommand{\BBullet}{(\bullet\bullet)}  
+\newcommand{\BBBullet}{(\bullet\bullet\bullet)}
+\newcommand{\nop}[1]{\left|\left|#1\right|\right|_{\mathrm{op}}}

@@ -1,0 +1,119 @@
+\documentclass[a4paper,12pt,reqno]{amsart}
+\usepackage{lille}
+\input{m1analyse}
+
+\usepackage{packageTest}
+
+\lilleset{titre={DM 2, Raphaël Casanova}}
+
+\begin{document}
+
+
+\begin{exo}(Théorème de Lax-Milgram)
+
+  Soit $H$ un espace de Hilbert réel. On considère une forme bilinéaire $a$ sur $H$
+  et on suppose qu'il existe deux constantes $C > 0$ et $\alpha > 0$ telles que
+  \[
+    |a(x,y)| \leq C\norm{x}\norm{y} \quad \mbox{ et } \quad a(x,x) \geq \alpha \norm{x}^2 \quad (x,y\in H).
+  \]
+  \begin{enumerate}
+    \item Montrer l'existence d'un opérateur $T \in \mathcal L(H)$ tel que $a(x,y) = \scalprod{Tx}{y}$ pour $x,y \in H$.
+    \item Montrer que $T(H)$ est dense dans $H$.
+    \item Montrer que $\norm{Tx} \geq \alpha\norm{x}$ pour tout $x\in H$. En déduire que $T$ est injectif à image fermée.
+    \item En déduire que $T$ est un isomorphisme de $H$ sur lui-même.
+  \end{enumerate}
+  Soit $L$ une forme linéaire continue sur $H$.
+  \begin{enumerate}[resume]
+    \item Montrer qu'il existe un unique $u\in H$ tel que $L(y) = a(u,y)$ pour tout $y\in H$.
+    \item On suppose que $a$ est symétrique. Soit $\Phi(x) = \frac{1}{2}a(x,x) - L(x)$. Montrer que le point $u$ vérifie $\Phi(u) = \min_{x\in H}\Phi(x)$.
+  \end{enumerate}
+\end{exo}
+
+\hrule
+
+
+\definecolor{darkWhite}{rgb}{0.94,0.94,0.94}
+\definecolor{python}{rgb}{0.173,0.255,0.47}
+\newcommand*{\norm}[1]{\left\lVert{\ifx\hfuzz#1\hfuzz \,\cdot\,\else#1\fi}\right\rVert} % la norme
+\newcommand*{\scalprod}[3][]{#1\langle{#2}\kern1pt #1|{#3}#1\rangle}
+\newcommand*{\equivalent}{\Leftrightarrow}
+\newcommand*{\Image}[1]{\text{Im} (#1) }
+
+\newcommand{\vertiii}[1]{{\left\vert\kern-0.25ex\left\vert\kern-0.25ex\left\vert #1 
+    \right\vert\kern-0.25ex\right\vert\kern-0.25ex\right\vert}}
+
+
+
+
+
+
+
+
+
+
+
+\begin{document}
+
+
+
+\begin{enumerate}
+    \item A $x\in H$ fixé, $y \xrightarrow[]{} a(x,y)$ est une forme linéaire sur H (cf. $a$ est bilinéaire donc à $x$ fixé, $y \xrightarrow[]{} a(x,y)$ est linéaire en $y$) . Elle est continue car : $|a(x,y)| \le C \norm{x} \norm{y}$ (par propriété de $a$) donc $\sup_{\norm{y}=1} |a(x,y)| \le C \norm{x}$. \\ Donc d'après le théorème de représentation de Riesz, on a qu'il existe un unique $Tx \in H$ tel que : $a(x,y) = \scalprod{Tx}{y} ~ \forall y \in H $. \\
+    On remarque que : $\norm{Tx} = \sup_{\norm{y}=1} |a(x,y)| \le C \norm{x}$. \\
+    On pose : $T : x \xrightarrow[]{} Tx$. \\
+    Montrons que $T$ est linéaire. Soit $(x_1,x_2) \in H^2$, soit $(\lambda_1, \lambda_2) \in \mathbb{R}^2 $. On a que $\forall y \in H$,
+    $$\underbrace{a(\lambda_1x_1 + \lambda_2x_2,y)}_{= \lambda_1 a(x_1,y) + \lambda_2 a(x_2,y) ~ \text{par bilinéarité de $a$}} = \scalprod{T(\lambda_1x_1+\lambda_2x_2}{y} \\   $$
+    Or : 
+        $$ \lambda_1 a(x_1,y) + \lambda_2 a(x_2,y) = \lambda_1 \scalprod{Tx_1}{y} + \lambda_2 \scalprod{Tx_2}{y}$$
+    Donc : 
+    $$\scalprod{T(\lambda_1 x_1 + \lambda_2 x_2}{y} = \lambda_1 \scalprod{Tx_1}{y} + \lambda_2 \scalprod{Tx_2}{y}$$
+    Ainsi : 
+    $$T(\lambda_1 x_1 + \lambda_2 x_2) = \lambda_1 T(x_1) + \lambda_2 T(x_2)$$
+    Et $T$ est bien linéaire. \\
+    Montrons désormais que $T$ est continue. Soit $x \in H$,
+    $$\norm{Tx} \le C \norm{x} \quad \text{d'après ce qui précède}$$
+    Donc $T$ est continue et on a que : $\vertiii{T} \le C$. Ainsi $T \in \mathcal{L}(H)$ et on a bien que $\forall x,y \in H, a(x,y) = \scalprod{Tx}{y}$
+    \item 
+    \begin{align*}
+        y \in T(H)^\perp &\equivalent \scalprod{y}{Tx} = 0 ~ \forall x \in H \\
+        &\equivalent a(x,y) = 0 ~ \forall x \in H ~ \text{d'après 1)}\\
+        &\Rightarrow a(y,y) = 0
+    \end{align*}
+    Or : $a(y,y) \ge \alpha \norm{y}^2$ d'après les propriétés de $a$. Donc $\norm{y} = 0 $ et $y= 0$ par définition d'une norme donc $T(H)^\perp = \{0\}$. Ainsi $T(H)$ est dense dans $H$ car $T(H)$ est un sous-espace vectoriel. 
+    \item On a que pour $x \in H$, 
+    \begin{align*}
+        \norm{Tx} \norm{x} &\ge |\scalprod{Tx}{x}| ~ \text{par inégalité de Cauchy-Scwharz} \\
+        &\ge |a(x,x)| ~ \text{d'après la question 1)} \\
+        &\ge \alpha \norm{x}^2 ~ \text{par propriété de $a$}
+    \end{align*}
+    Si $x=0$, on a bien que $\norm{Tx} = 0 \ge \alpha \norm{x} = 0$ \\
+    Si $x \neq 0$, d'après ce qui précède : $\norm{Tx} \ge \alpha \norm{x}$ \\
+    Donc pour tout $x\in H$, $\norm{Tx} \ge \alpha \norm{x}$ et donc par corollaire du théorème d'isomorphisme de Banach, $T \in \mathcal{L}(H)$ est injectif à image fermée. \\
+    \item On a que : 
+    \begin{align*}
+        \overline{\Image{T}} &= \Image{T} ~ \text{car $T$ est à image fermée} \\
+        &= H ~ \text{car \Image{T} est dense dans $H$}
+    \end{align*}
+    Or $T$ est surjective sur $\Image{T} = H$. \\
+    Et $T$ est injective d'après 3). \\
+    Donc $T$ est bijective sur $H$ et est une application linéaire continue (d'après 1)). \\
+    D'après le théorème d'isomorphisme de Banach, on alors que T est un isomorphisme de $H$ sur lui-même. 
+    \item D'après le théorème de représentation de Riesz, il existe un unique $y_0 \in H$ tel que : $L(y) = \scalprod{y_0}{y} ~ \forall y \in H$ \\
+    Comme $T$ est un isomorphisme, il existe un unique $u = T^{-1}(y_ 0) \in H$. Et on a que : 
+    \begin{align*}
+        a(u,y) &= \scalprod{T(T^{-1}(y_0))}{y} ~\forall y \in H \\
+        &= \scalprod{y_0}{y} ~ \forall y \in H \\
+        &= L(y) ~ \forall y \in H
+    \end{align*}
+    D'où l'existence d'un unique $u \in H$ tel que $a(u,y) = L(y)$
+    \item Soit $w \in H$, 
+    \begin{align*}
+        \phi(u+w) &= \dfrac{1}{2}a(u+w, u+w) - L(u+w) \\
+        &= \dfrac{1}{2}a(u,u) + a(u,w) + \dfrac{1}{2}a(w,w) - L(u) - \underbrace{L(w)}_{=a(u,w)} ~ \text{cf. $a$ est bilinéaire et symétrique d'après 5)} \\
+        &= \underbrace{\dfrac{1}{2}a(u,u) - L(u)}_{=\phi(u)}+ \underbrace{\dfrac{1}{2}a(w,w)}_{\ge 0} \\
+        &\ge \phi(u)
+    \end{align*}
+    On a donc que $\forall w \in H, \phi(u+w) \ge \phi(u)$, ainsi on a donc que : $\phi(u) = \min_{x_\in H} \phi(x)$
+\end{enumerate}
+
+
+\end{document}

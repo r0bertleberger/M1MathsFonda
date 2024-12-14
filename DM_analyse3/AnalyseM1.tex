@@ -1,0 +1,26 @@
+\documentclass[a4paper,11pt, twoside]{article}
+\title{}
+\author{Raphaël Casanova}
+
+\usepackage{packageTest}
+
+
+\begin{document}
+
+
+On a donc nécessairement 
+$$\hat f(y)=\frac{\hat g(y)}{\Par{2i\pi y }^{12}+\Par{2i\pi y }^{8}+1}$$
+C'est le produit de la fonction $\hat g$ qui est $C^\infty$ et d'une fonction rationelle sans pôle réel, donc $C^\infty$, donc $\hat f$ est aussi de classe $C^\infty$, on va aussi montrer que c'est une fonction à décroissance rapide, on va pour cela calculer partiellement ses dérivées, on va plus précisément montrer, par récurrence que 
+$$\forall n\in\N,\ \exists \ens{P_i,\ i\in[[1,n]]}\in\R[X]\ |\ \forall y\in\R,\ \hat f^{(n)}(y)=\frac{\sum_{k=0}^n \hat g^{(k)}(y)P_k(y)}{\Par{\Par{2i\pi y }^{12}+\Par{2i\pi y }^{8}+1}^{2n}}$$
+
+Pour simplifier les notation, on va noter le dénominateur $u$, ainsi pour le cas $n=1$, c'est la formule de la dérivée d'un quotient et on a 
+$$\forall y\in\R,\ \hat f'(y)=\frac{\hat g'(y)v(y)-\hat g(y)v'(y)}{v(y)^2}$$
+(il est claire que $v'$ est un polynôme) et pour le cas $n\to n+1$, on va dériver
+\begin{align*}
+	\forall y\in\R,\ \hat f^{(n+1)}(y)&=\Par{\frac{\sum_{k=0}^n \hat g^{(k)}(y)P_k(y)}{v(y)^{2n}}}'\\
+	&=\frac{\Par{\sum_{k=0}^n \hat g^{(k)}(y)P_k(y)}'v(y)-\sum_{k=1}^n \hat g^{(k)}(y)P_k(y)v'(y)}{v(y)^{2(n+1)}}\\
+	&=\frac{\Par{\sum_{k=0}^n \hat g^{(k+1)}(y)P_k(y)+g^{(k)}(y)P'_k(y)}v(y)-\sum_{k=1}^n \hat g^{(k)}(y)P_k(y)v'(y)}{v(y)^{2(n+1)}}\\
+	&=\frac{\sum_{k=0}^n \hat g^{(k+1)}(y)P_k(y)v(y)-\hat g^{(k)}(y)\Par{P_k(y)v'(y)-P'_k(y)v(y)}}{v(y)^{2(n+1)}}
+\end{align*}
+
+\end{document}
